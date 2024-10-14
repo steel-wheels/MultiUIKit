@@ -7,10 +7,8 @@
 
 #if os(OSX)
 import  AppKit
-public typealias MIBaseView = NSView
 #else   // os(OSX)
 import  UIKit
-public typealias MIBaseView = UIView
 #endif  // os(OSX)
 
 public class MIView: MIBaseView

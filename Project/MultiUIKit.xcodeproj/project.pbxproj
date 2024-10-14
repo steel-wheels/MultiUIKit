@@ -11,6 +11,8 @@
 		0572997B2CBD0D8F00BA46A4 /* MIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057299792CBD0D8F00BA46A4 /* MIError.swift */; };
 		05CCB72A2CBC99B900817EEB /* MIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCB7292CBC99B900817EEB /* MIView.swift */; };
 		05CCB72B2CBC99B900817EEB /* MIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCB7292CBC99B900817EEB /* MIView.swift */; };
+		05FE16322CBD2F5800E1E3A6 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE16312CBD2F5800E1E3A6 /* MIType.swift */; };
+		05FE16332CBD2F5800E1E3A6 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE16312CBD2F5800E1E3A6 /* MIType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +37,21 @@
 		055B32182CBC9582007FFFEF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		057299792CBD0D8F00BA46A4 /* MIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIError.swift; sourceTree = "<group>"; };
 		05CCB7292CBC99B900817EEB /* MIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIView.swift; sourceTree = "<group>"; };
+		05FE16312CBD2F5800E1E3A6 /* MIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0501D9562CBC913D00B2CA6A /* Exceptions for "MultiUIKit_iOS" folder in "MultiUIKit_iOS" target */ = {
+		05FE16482CBD319A00E1E3A6 /* Exceptions for "Controls" folder in "MultiUIKit_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			publicHeaders = (
-				MultiUIKit_iOS.h,
+			membershipExceptions = (
+				OSX/MIButtonCore.xib,
 			);
 			target = 0501D94E2CBC913D00B2CA6A /* MultiUIKit_iOS */;
 		};
-		055B32202CBC9582007FFFEF /* Exceptions for "MultiUIKit_macOS" folder in "MultiUIKit_macOS" target */ = {
+		05FE164C2CBD356700E1E3A6 /* Exceptions for "Controls" folder in "MultiUIKit_macOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			publicHeaders = (
-				MultiUIKit_macOS.h,
+			membershipExceptions = (
+				iOS/MIButtonCore.xib,
 			);
 			target = 055B32172CBC9582007FFFEF /* MultiUIKit_macOS */;
 		};
@@ -57,18 +60,21 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0501D9512CBC913D00B2CA6A /* MultiUIKit_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				0501D9562CBC913D00B2CA6A /* Exceptions for "MultiUIKit_iOS" folder in "MultiUIKit_iOS" target */,
-			);
 			path = MultiUIKit_iOS;
 			sourceTree = "<group>";
 		};
 		055B32192CBC9582007FFFEF /* MultiUIKit_macOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				055B32202CBC9582007FFFEF /* Exceptions for "MultiUIKit_macOS" folder in "MultiUIKit_macOS" target */,
-			);
 			path = MultiUIKit_macOS;
+			sourceTree = "<group>";
+		};
+		059074072CBD2E3200539AFA /* Controls */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				05FE16482CBD319A00E1E3A6 /* Exceptions for "Controls" folder in "MultiUIKit_iOS" target */,
+				05FE164C2CBD356700E1E3A6 /* Exceptions for "Controls" folder in "MultiUIKit_macOS" target */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -130,6 +136,7 @@
 		05CCB7272CBC998200817EEB /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				05FE16312CBD2F5800E1E3A6 /* MIType.swift */,
 				05CCB7292CBC99B900817EEB /* MIView.swift */,
 				057299792CBD0D8F00BA46A4 /* MIError.swift */,
 			);
@@ -140,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				05CCB7272CBC998200817EEB /* Base */,
+				059074072CBD2E3200539AFA /* Controls */,
 			);
 			name = Source;
 			path = ../Source;
@@ -201,6 +209,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				0501D9512CBC913D00B2CA6A /* MultiUIKit_iOS */,
+				059074072CBD2E3200539AFA /* Controls */,
 			);
 			name = MultiUIKit_iOS;
 			packageProductDependencies = (
@@ -224,6 +233,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				055B32192CBC9582007FFFEF /* MultiUIKit_macOS */,
+				059074072CBD2E3200539AFA /* Controls */,
 			);
 			name = MultiUIKit_macOS;
 			packageProductDependencies = (
@@ -296,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05CCB72A2CBC99B900817EEB /* MIView.swift in Sources */,
+				05FE16332CBD2F5800E1E3A6 /* MIType.swift in Sources */,
 				0572997B2CBD0D8F00BA46A4 /* MIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +317,7 @@
 			files = (
 				05CCB72B2CBC99B900817EEB /* MIView.swift in Sources */,
 				0572997A2CBD0D8F00BA46A4 /* MIError.swift in Sources */,
+				05FE16322CBD2F5800E1E3A6 /* MIType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
