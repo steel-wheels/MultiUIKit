@@ -6,6 +6,12 @@ PRODUCT_PATH	= Build/Products/Release
 
 all: install_osx install_ios install_ios_sim install_xc
 
+clean:
+	(cd $(DERIVED_BASE) && rm -rf $(PROJECT_NAME)_macOS)
+	(cd $(DERIVED_BASE) && rm -rf $(PROJECT_NAME)_iOS)
+	(cd $(DERIVED_BASE) && rm -rf $(PROJECT_NAME)_iOS_sim)
+	(cd $(HOME)/Library/Frameworks && rm -rf $(PROJECT_NAME).xcframework)
+
 install_osx: dummy
 	xcodebuild build \
 	  -scheme $(PROJECT_NAME)_macOS \
