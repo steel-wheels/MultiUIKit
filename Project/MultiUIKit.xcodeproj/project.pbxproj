@@ -14,8 +14,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0501D94F2CBC913D00B2CA6A /* MultiUIKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		055B32182CBC9582007FFFEF /* MultiUIKit_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0501D94F2CBC913D00B2CA6A /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		055B32182CBC9582007FFFEF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		057299792CBD0D8F00BA46A4 /* MIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIError.swift; sourceTree = "<group>"; };
 		05CCB7292CBC99B900817EEB /* MIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,8 +87,8 @@
 		0501D9502CBC913D00B2CA6A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0501D94F2CBC913D00B2CA6A /* MultiUIKit_iOS.framework */,
-				055B32182CBC9582007FFFEF /* MultiUIKit_macOS.framework */,
+				0501D94F2CBC913D00B2CA6A /* MultiUIKit.framework */,
+				055B32182CBC9582007FFFEF /* MultiUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +107,8 @@
 			children = (
 				05CCB7272CBC998200817EEB /* Base */,
 			);
-			path = Source;
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +151,7 @@
 			packageProductDependencies = (
 			);
 			productName = MultiUIKit;
-			productReference = 0501D94F2CBC913D00B2CA6A /* MultiUIKit_iOS.framework */;
+			productReference = 0501D94F2CBC913D00B2CA6A /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		055B32172CBC9582007FFFEF /* MultiUIKit_macOS */ = {
@@ -173,7 +174,7 @@
 			packageProductDependencies = (
 			);
 			productName = MultiUIKit_macOS;
-			productReference = 055B32182CBC9582007FFFEF /* MultiUIKit_macOS.framework */;
+			productReference = 055B32182CBC9582007FFFEF /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -277,7 +278,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.grape-controls-test.MultiUIKit";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MultiUIKit;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -311,7 +312,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.grape-controls-test.MultiUIKit";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MultiUIKit;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -472,7 +473,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.grape-controls-test.MultiUIKit-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MultiUIKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -508,7 +509,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.grape-controls-test.MultiUIKit-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MultiUIKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
