@@ -11,13 +11,17 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-public class MIButtonCore: MIBaseView
+public class MIButtonCore: MICoreView
 {
         #if os(OSX)
         @IBOutlet weak var mButton: NSButton!
         #else
         @IBOutlet weak var mButton: UIButton!
         #endif
+
+        open override func setup() {
+                super.setup(coreView: mButton)
+        }
         
         public var title: String {
                 get {

@@ -10,7 +10,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="MIButtonCore" customModule="MultiUIKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="61" height="20"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="As2-W7-CsB">
                     <rect key="frame" x="-7" y="-7" width="75" height="32"/>
