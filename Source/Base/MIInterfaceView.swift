@@ -53,7 +53,7 @@ public class MIInterfaceView: MIBaseView
                 child.setup()
 
                 self.addSubview(child)
-                //allocateSubviewLayout(subView: child)
+                allocateSubviewLayout(subView: child)
                 
                 mCoreView = child
                 setFrameSize(size)
