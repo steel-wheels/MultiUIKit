@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MIButtonCore" customModule="MultiUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="61" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="As2-W7-CsB">
+                    <rect key="frame" x="-7" y="-7" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y04-Bh-XGS">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="As2-W7-CsB" secondAttribute="trailing" id="I2o-05-gQL"/>
+                <constraint firstAttribute="bottom" secondItem="As2-W7-CsB" secondAttribute="bottom" id="NZt-ye-oyu"/>
+                <constraint firstItem="As2-W7-CsB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="aXz-lt-3bg"/>
+                <constraint firstItem="As2-W7-CsB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="lUg-Kj-aec"/>
+            </constraints>
+            <connections>
+                <outlet property="mButton" destination="As2-W7-CsB" id="eoY-eP-ZDe"/>
+            </connections>
+            <point key="canvasLocation" x="183.5" y="180"/>
+        </customView>
+    </objects>
+</document>
