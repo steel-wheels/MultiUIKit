@@ -58,28 +58,3 @@ install_xc: dummy
 
 dummy:
 
-
-
-
-
-
-
-
-
-
-
-
-
-## 
-## all: pack_os
-## 	echo "done"
-## 
-## pack_os: install_osx install_ios install_ios_sim
-## 
-## 
-## install_osx: dummy
-## 
-## 
-## install_ios_sim: dummy
-## 
-## 

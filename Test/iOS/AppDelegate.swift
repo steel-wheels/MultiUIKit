@@ -5,6 +5,7 @@
 //  Created by Tomoo Hamada on 2024/10/16.
 //
 
+import MultiUIKit
 import UIKit
 
 @main
