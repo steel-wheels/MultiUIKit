@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  UnitTest_macOS
 //
-//  Created by Tomoo Hamada on 2024/10/19.
+//  Created by Tomoo Hamada on 2024/10/20.
 //
 
 import Cocoa

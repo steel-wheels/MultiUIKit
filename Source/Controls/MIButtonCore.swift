@@ -13,11 +13,11 @@ import  UIKit
 
 public class MIButtonCore: MICoreView
 {
-        #if os(OSX)
+#if os(OSX)
         @IBOutlet weak var mButton: NSButton!
-        #else
+#else
         @IBOutlet weak var mButton: UIButton!
-        #endif
+#endif
 
         open override func setup() {
                 super.setup(coreView: mButton)

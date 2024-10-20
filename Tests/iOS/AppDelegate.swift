@@ -2,9 +2,10 @@
 //  AppDelegate.swift
 //  UnitTest_iOS
 //
-//  Created by Tomoo Hamada on 2024/10/19.
+//  Created by Tomoo Hamada on 2024/10/20.
 //
 
+import MultiUIKit
 import UIKit
 
 @main

@@ -5,7 +5,12 @@
  *   Copyright (C) 2024 Steel Wheels Project
  */
 
-import Foundation
+#if os(OSX)
+import  AppKit
+#else   // os(OSX)
+import  UIKit
+#endif  // os(OSX)
+
 
 public class MIError
 {

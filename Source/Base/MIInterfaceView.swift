@@ -46,17 +46,15 @@ public class MIInterfaceView: MIBaseView
         }
         
         public func setup(nibName nm: String, frameSize size: CGSize) {
-                guard let child = loadChildXib(thisClass: MIInterfaceView.self, nibName: nm) else {
+                if let child = loadChildXib(thisClass: MIInterfaceView.self, nibName: nm)  {
+                        child.setup()
+                        self.addSubview(child)
+                        allocateSubviewLayout(subView: child)
+                        mCoreView = child
+                        setFrameSize(size)
+                } else {
                         NSLog("Failed to load bundle: \(nm)")
-                        return
                 }
-                child.setup()
-
-                self.addSubview(child)
-                allocateSubviewLayout(subView: child)
-                
-                mCoreView = child
-                setFrameSize(size)
         }
 
         private func loadChildXib(thisClass tc: AnyClass, nibName nn: String) -> MICoreView? {

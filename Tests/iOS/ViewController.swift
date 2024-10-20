@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  UnitTest_iOS
 //
-//  Created by Tomoo Hamada on 2024/10/19.
+//  Created by Tomoo Hamada on 2024/10/20.
 //
 
 import UIKit
@@ -13,7 +13,5 @@ class ViewController: UIViewController {
                 super.viewDidLoad()
                 // Do any additional setup after loading the view.
         }
-
-
 }
 
