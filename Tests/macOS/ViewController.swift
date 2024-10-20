@@ -10,7 +10,9 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-        @IBOutlet weak var mButton: MIButtonCore!
+
+        @IBOutlet weak var mLabel: MILabel!
+        @IBOutlet weak var mButton: MIButton!
 
         override func viewDidLoad() {
                 super.viewDidLoad()

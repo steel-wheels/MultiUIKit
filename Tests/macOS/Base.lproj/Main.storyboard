@@ -705,32 +705,38 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="UnitTest_macOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl" customClass="MIButton" customModule="MultiUIKit">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="20"/>
+                    <view key="view" id="m2S-Jp-Qdl" customClass="UIView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gIe-Bz-oou">
-                                <rect key="frame" x="-7" y="-7" width="494" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lUg-MV-3t2">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="xdd-GI-BWq" customClass="MILabel" customModule="MultiUIKit">
+                                <rect key="frame" x="0.0" y="80" width="480" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="abL-uk-84U"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qAf-BZ-ODk" customClass="MIButton" customModule="MultiUIKit">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="72"/>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gIe-Bz-oou" secondAttribute="trailing" id="dVF-T8-T6h"/>
-                            <constraint firstItem="gIe-Bz-oou" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="pXI-r6-Wh1"/>
-                            <constraint firstItem="gIe-Bz-oou" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="qUz-Dy-ypx"/>
-                            <constraint firstAttribute="bottom" secondItem="gIe-Bz-oou" secondAttribute="bottom" id="y5N-E7-bgM"/>
+                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="0q3-kB-2YE"/>
+                            <constraint firstAttribute="trailing" secondItem="qAf-BZ-ODk" secondAttribute="trailing" id="9dN-KC-lcS"/>
+                            <constraint firstAttribute="bottom" secondItem="qAf-BZ-ODk" secondAttribute="bottom" id="Prj-wE-xvs"/>
+                            <constraint firstItem="xdd-GI-BWq" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="XjR-DI-HVO"/>
+                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="top" secondItem="xdd-GI-BWq" secondAttribute="bottom" constant="8" symbolic="YES" id="YQ4-JI-eJY"/>
+                            <constraint firstAttribute="trailing" secondItem="xdd-GI-BWq" secondAttribute="trailing" id="rJf-XH-8EH"/>
+                            <constraint firstItem="xdd-GI-BWq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="uP2-Ze-B3o"/>
                         </constraints>
-                        <connections>
-                            <outlet property="mButton" destination="gIe-Bz-oou" id="PH9-GF-zdq"/>
-                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="mButton" destination="qAf-BZ-ODk" id="odl-fg-JSB"/>
+                        <outlet property="mLabel" destination="xdd-GI-BWq" id="BwO-P1-FCI"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="530"/>
+            <point key="canvasLocation" x="75" y="598"/>
         </scene>
     </scenes>
 </document>
