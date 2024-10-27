@@ -42,7 +42,7 @@ public class MIInterfaceView: MIBaseView
         }
         
         open func setup(frame frm: CGRect) {
-                NSLog("Must be override")
+                NSLog("Must be override: MIInterfaceView")
         }
         
         public func setup(nibName nm: String, frameSize size: CGSize) {

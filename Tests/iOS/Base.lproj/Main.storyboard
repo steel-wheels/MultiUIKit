@@ -16,30 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBy-0S-W7n" customClass="MIButton" customModule="MultiUIKit">
-                                <rect key="frame" x="30" y="417" width="347" height="401"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxO-25-LWY" customClass="MILabel" customModule="MultiUIKit">
-                                <rect key="frame" x="23" y="59" width="347" height="350"/>
+                                <rect key="frame" x="23" y="59" width="347" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="crk-OV-o7E"/>
+                                    <constraint firstAttribute="height" constant="128" id="S03-TU-cKV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qer-LC-ff6" customClass="MIStack" customModule="MultiUIKit">
+                                <rect key="frame" x="23" y="331" width="347" height="487"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBy-0S-W7n" customClass="MIButton" customModule="MultiUIKit">
+                                <rect key="frame" x="23" y="195" width="347" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="fUy-HP-HmA"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cBy-0S-W7n" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5rV-0s-5Sm"/>
-                            <constraint firstItem="cxO-25-LWY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7zp-O2-AWI"/>
-                            <constraint firstItem="cxO-25-LWY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="UCK-A9-HmV"/>
-                            <constraint firstItem="cBy-0S-W7n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="czC-6F-lSa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cxO-25-LWY" secondAttribute="trailing" constant="23" id="mNk-9t-FsD"/>
-                            <constraint firstItem="cBy-0S-W7n" firstAttribute="top" secondItem="cxO-25-LWY" secondAttribute="bottom" constant="8" symbolic="YES" id="rka-Ur-lCG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cBy-0S-W7n" secondAttribute="trailing" constant="16" id="wa8-ZT-0xh"/>
+                            <constraint firstItem="Qer-LC-ff6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="2zs-HO-kRz"/>
+                            <constraint firstItem="Qer-LC-ff6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3Ap-Nn-n4O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cBy-0S-W7n" secondAttribute="trailing" constant="23" id="496-Oc-hRX"/>
+                            <constraint firstItem="cBy-0S-W7n" firstAttribute="top" secondItem="cxO-25-LWY" secondAttribute="bottom" constant="8" symbolic="YES" id="IjN-vp-OWe"/>
+                            <constraint firstItem="Qer-LC-ff6" firstAttribute="top" secondItem="cBy-0S-W7n" secondAttribute="bottom" constant="8" symbolic="YES" id="OcA-5R-Fkx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qer-LC-ff6" secondAttribute="trailing" constant="23" id="aQK-rV-Lwb"/>
+                            <constraint firstItem="cBy-0S-W7n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="elX-Ab-Zya"/>
+                            <constraint firstItem="cxO-25-LWY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lrj-a9-xeI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cxO-25-LWY" secondAttribute="trailing" constant="23" id="osv-gr-hte"/>
+                            <constraint firstItem="cxO-25-LWY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="vpU-dB-iF2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mStack" destination="Qer-LC-ff6" id="96V-Ql-ZRf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

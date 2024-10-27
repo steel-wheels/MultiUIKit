@@ -13,11 +13,18 @@ class ViewController: NSViewController {
 
         @IBOutlet weak var mLabel: MILabel!
         @IBOutlet weak var mButton: MIButton!
-
+        @IBOutlet weak var mStack: MIStack!
+        
         override func viewDidLoad() {
                 super.viewDidLoad()
 
                 // Do any additional setup after loading the view.
+                let label = MILabel()
+                label.title = "Hello, world !!"
+                mStack.addSubView(label)
+                
+                let button = MIButton()
+                mStack.addSubView(button)
         }
 
         override var representedObject: Any? {

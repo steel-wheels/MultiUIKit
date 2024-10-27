@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="80" height="16"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EpP-hs-lYI">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EpP-hs-lYI">
                     <rect key="frame" x="0.0" y="0.0" width="80" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="JRp-U6-n5d">
                         <font key="font" usesAppearanceFont="YES"/>

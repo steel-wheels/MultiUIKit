@@ -16,7 +16,7 @@ public class MICoreView: MIBaseView
         private var mCoreView: MIBaseView? = nil
 
         open func setup() {
-                NSLog("Must be override")
+                NSLog("Must be override: MICoreView")
         }
         
         public func setup(coreView core: MIBaseView) {

@@ -706,37 +706,47 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="UnitTest_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl" customClass="UIView">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="160"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="262"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="xdd-GI-BWq" customClass="MILabel" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="80" width="480" height="80"/>
+                                <rect key="frame" x="0.0" y="182" width="480" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="abL-uk-84U"/>
+                                    <constraint firstAttribute="height" constant="80" id="0lm-nT-1UC"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="qAf-BZ-ODk" customClass="MIButton" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="72"/>
+                                <rect key="frame" x="0.0" y="102" width="480" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="StC-2M-FS9"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-rd-nC3" customClass="MIStack" customModule="MultiUIKit">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="94"/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="0q3-kB-2YE"/>
-                            <constraint firstAttribute="trailing" secondItem="qAf-BZ-ODk" secondAttribute="trailing" id="9dN-KC-lcS"/>
-                            <constraint firstAttribute="bottom" secondItem="qAf-BZ-ODk" secondAttribute="bottom" id="Prj-wE-xvs"/>
-                            <constraint firstItem="xdd-GI-BWq" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="XjR-DI-HVO"/>
-                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="top" secondItem="xdd-GI-BWq" secondAttribute="bottom" constant="8" symbolic="YES" id="YQ4-JI-eJY"/>
-                            <constraint firstAttribute="trailing" secondItem="xdd-GI-BWq" secondAttribute="trailing" id="rJf-XH-8EH"/>
-                            <constraint firstItem="xdd-GI-BWq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="uP2-Ze-B3o"/>
+                            <constraint firstAttribute="bottom" secondItem="1Ti-rd-nC3" secondAttribute="bottom" id="2If-BW-uoF"/>
+                            <constraint firstAttribute="trailing" secondItem="xdd-GI-BWq" secondAttribute="trailing" id="A5Q-Ir-0b9"/>
+                            <constraint firstAttribute="trailing" secondItem="1Ti-rd-nC3" secondAttribute="trailing" id="BAL-CZ-jeO"/>
+                            <constraint firstItem="xdd-GI-BWq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="DSg-8W-a7F"/>
+                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="top" secondItem="qAf-BZ-ODk" secondAttribute="bottom" constant="8" symbolic="YES" id="EWh-eG-eTS"/>
+                            <constraint firstItem="xdd-GI-BWq" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Mow-xY-6aB"/>
+                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="ZRT-Xm-ddc"/>
+                            <constraint firstAttribute="trailing" secondItem="qAf-BZ-ODk" secondAttribute="trailing" id="egd-zL-dd2"/>
+                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="top" secondItem="xdd-GI-BWq" secondAttribute="bottom" constant="8" symbolic="YES" id="g0K-QG-4og"/>
+                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="sFd-o0-bdw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mButton" destination="qAf-BZ-ODk" id="odl-fg-JSB"/>
                         <outlet property="mLabel" destination="xdd-GI-BWq" id="BwO-P1-FCI"/>
+                        <outlet property="mStack" destination="1Ti-rd-nC3" id="X3X-p8-b8F"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="598"/>
+            <point key="canvasLocation" x="75" y="649"/>
         </scene>
     </scenes>
 </document>
