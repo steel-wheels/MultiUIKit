@@ -13,8 +13,8 @@ import  UIKit
 
 public class MICoreView: MIBaseView
 {
-        private var mCoreView: MIBaseView? = nil
-
+        private var mCoreView:  MIBaseView? = nil
+        
         open func setup() {
                 NSLog("Must be override: MICoreView")
         }
@@ -38,5 +38,14 @@ public class MICoreView: MIBaseView
                 }
         }
         #endif // os(iOS)
+        
+        public override var intrinsicContentSize: CGSize { get {
+                if let core = mCoreView {
+                        return core.intrinsicContentSize
+                } else {
+                        NSLog("Failed to get core")
+                        return super.intrinsicContentSize
+                }
+        }}
 }
 
