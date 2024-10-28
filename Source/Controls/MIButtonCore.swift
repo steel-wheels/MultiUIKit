@@ -22,7 +22,7 @@ public class MIButtonCore: MICoreView
         open override func setup() {
                 super.setup(coreView: mButton)
         }
-        
+
         public var title: String {
                 get {
                         #if os(iOS)

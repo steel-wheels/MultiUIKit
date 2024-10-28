@@ -15,7 +15,7 @@ import  UIKit
 public class MIError
 {
         private static let domain: String = "github.com.steel-wheels.MultiUIKit"
-        
+
         class func errorLocationKey() -> String {
                 return "errorLocation"
         }
@@ -24,14 +24,14 @@ public class MIError
                 case noError            = 0
                 case bundleError
         }
-        
+
         public static func error(errorCode ecode: ErrorCode, message msg: String?, location loc: String?) -> NSError {
                 var uinfo: [String: Any] = [:]
                 if let str = msg { uinfo[NSLocalizedDescriptionKey] = str }
                 if let str = loc { uinfo[errorLocationKey()]        = str }
                 return NSError(domain: MIError.domain, code: ecode.rawValue, userInfo: uinfo)
         }
-        
+
         public static func error(errorCode ecode: ErrorCode, message msg: String) -> NSError {
                 return error(errorCode: ecode, message: msg, location: nil)
         }
@@ -40,7 +40,7 @@ public class MIError
                 let location = "at " + fnstr + "in " + flstr
                 return error(errorCode: ecode, message: msg, location: location)
         }
-        
+
         public static func toString(error err: NSError) -> String {
                 let dict : Dictionary = err.userInfo
                 var message = err.localizedDescription

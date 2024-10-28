@@ -14,11 +14,11 @@ import  UIKit
 public class MIInterfaceView: MIBaseView
 {
         private var mCoreView: MICoreView? = nil
-        
+
         public func coreView<T>() -> T? {
                 return mCoreView as? T
         }
-        
+
         #if os(OSX)
         public override init(frame : NSRect){
                 super.init(frame: frame)
@@ -40,11 +40,11 @@ public class MIInterfaceView: MIBaseView
                 super.init(coder: coder)
                 setup(frame: self.frame)
         }
-        
+
         open func setup(frame frm: CGRect) {
                 NSLog("Must be override: MIInterfaceView")
         }
-        
+
         public func setup(nibName nm: String, frameSize size: CGSize) {
                 if let child = loadChildXib(thisClass: MIInterfaceView.self, nibName: nm)  {
                         child.setup()
@@ -83,7 +83,7 @@ public class MIInterfaceView: MIBaseView
                 #endif
                 return nil
         }
-        
+
         public func allocateSubviewLayout(subView sview: MICoreView){
                 sview.translatesAutoresizingMaskIntoConstraints = false
                 addConstraint(MIInterfaceView.allocateLayout(fromView: sview,  toView: self,   attribute: .top,    length: 0.0)) ;
@@ -91,7 +91,7 @@ public class MIInterfaceView: MIBaseView
                 addConstraint(MIInterfaceView.allocateLayout(fromView: self,   toView: sview,  attribute: .bottom, length: 0.0)) ;
                 addConstraint(MIInterfaceView.allocateLayout(fromView: self,   toView: sview,  attribute: .right,  length: 0.0)) ;
         }
-        
+
         private class func allocateLayout(fromView fview : MIBaseView, toView tview: MIBaseView, attribute attr: NSLayoutConstraint.Attribute, length len: CGFloat) -> NSLayoutConstraint {
                 return NSLayoutConstraint(item: fview, attribute: attr, relatedBy: NSLayoutConstraint.Relation.equal, toItem: tview, attribute: attr, multiplier: 1.0, constant: len) ;
         }

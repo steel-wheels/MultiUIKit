@@ -49,6 +49,23 @@
 		05F64B4E2CC3C81700AAFAD9 /* MIButtonCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05F64B4D2CC3C81700AAFAD9 /* MIButtonCore.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		058A19082CCEFC970058997A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
+			remoteInfo = Install;
+		};
+		058A190A2CCEFD480058997A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
+			remoteInfo = Install;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		0515E7D62CC4781700321C89 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -354,6 +371,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				058A19092CCEFC970058997A /* PBXTargetDependency */,
 			);
 			name = UnitTest_iOS;
 			packageProductDependencies = (
@@ -374,6 +392,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				058A190B2CCEFD480058997A /* PBXTargetDependency */,
 			);
 			name = UnitTest_macOS;
 			packageProductDependencies = (
@@ -575,6 +594,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		058A19092CCEFC970058997A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
+			targetProxy = 058A19082CCEFC970058997A /* PBXContainerItemProxy */;
+		};
+		058A190B2CCEFD480058997A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
+			targetProxy = 058A190A2CCEFD480058997A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0515E7C42CC476D100321C89 /* Main.storyboard */ = {

@@ -18,17 +18,22 @@ public class MIStackCore: MICoreView
         #else
         public typealias Axis = NSUserInterfaceLayoutOrientation
         #endif
-        
+
         #if os(iOS)
         @IBOutlet weak var mStack: UIStackView!
         #else
         @IBOutlet weak var mStack: NSStackView!
         #endif
-        
+
         open override func setup() {
                 super.setup(coreView: mStack)
+
+                #if os(iOS)
+                #else
+                        mStack.alignment = .width
+                #endif
         }
-        
+
         public var axis: Axis {
                 get {
                         #if os(iOS)
@@ -45,7 +50,7 @@ public class MIStackCore: MICoreView
                         #endif
                 }
         }
-        
+
         public func addSubView(_ view: MIInterfaceView) {
                 #if os(OSX)
                 mStack.addArrangedSubview(view)
@@ -53,5 +58,17 @@ public class MIStackCore: MICoreView
                 mStack.addArrangedSubview(view)
                 #endif
         }
+
+        public var arrangedSubviews: Array<MIInterfaceView> { get {
+                var result: Array<MIInterfaceView> = []
+                for subview in mStack.arrangedSubviews {
+                        if let ifview = subview as? MIInterfaceView {
+                                result.append(ifview)
+                        } else {
+                                NSLog("Failed to get interface view")
+                        }
+                }
+                return result
+        }}
 }
 

@@ -13,6 +13,8 @@ import  UIKit
 
 public class MILabelCore: MICoreView
 {
+        public typealias Alignment     = NSTextAlignment
+
 #if os(OSX)
         @IBOutlet weak var mLabel: NSTextField!
 #else
@@ -21,7 +23,7 @@ public class MILabelCore: MICoreView
         open override func setup() {
                 super.setup(coreView: mLabel)
         }
-        
+
         public var title: String {
                 get {
                         #if os(iOS)
@@ -35,6 +37,23 @@ public class MILabelCore: MICoreView
                                 mLabel.text = value
                         #else // os(iOS)
                                 mLabel.stringValue = value
+                        #endif
+                }
+        }
+
+        public var alignment: Alignment {
+                get         {
+                        #if os(iOS)
+                                return mLabel.textAlignment
+                        #else
+                                return mLabel.alignment
+                        #endif
+                }
+                set(newval) {
+                        #if os(iOS)
+                                mLabel.textAlignment = newval
+                        #else
+                                mLabel.alignment = newval
                         #endif
                 }
         }

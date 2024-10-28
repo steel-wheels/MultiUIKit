@@ -15,6 +15,13 @@ class ViewController: UIViewController {
         override func viewDidLoad() {
                 super.viewDidLoad()
                 // Do any additional setup after loading the view.
+
+                let label = MILabel()
+                label.title = "Hello, world !!"
+                mStack.addSubView(label)
+
+                let button = MIButton()
+                mStack.addSubView(button)
         }
 }
 

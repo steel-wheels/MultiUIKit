@@ -18,11 +18,11 @@ public class MICoreView: MIBaseView
         open func setup() {
                 NSLog("Must be override: MICoreView")
         }
-        
+
         public func setup(coreView core: MIBaseView) {
                 mCoreView  = core
         }
-        
+
         #if os(iOS)
         public func setFrameSize(_ newsize: CGSize) {
                 self.frame.size = newsize

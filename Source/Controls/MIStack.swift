@@ -25,7 +25,7 @@ public class MIStack: MIInterfaceView
                         fatalError("Failed to get core view")
                 }
         }
-        
+
         public var axis: MIStackCore.Axis {
                 get {           return coreStackView().axis     }
                 set(value){     coreStackView().axis = value    }
@@ -34,6 +34,10 @@ public class MIStack: MIInterfaceView
         public func addSubView(_ view: MIInterfaceView) {
                 coreStackView().addSubView(view)
         }
+
+        public var arrangedSubviews: Array<MIInterfaceView> { get {
+                return coreStackView().arrangedSubviews
+        }}
 }
 
 

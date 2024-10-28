@@ -17,25 +17,19 @@ public class MILabel: MIInterfaceView
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MILabelCore", frameSize: frm.size)
         }
-        
-        public var title: String {
-                get {
-                        if let label: MILabelCore = super.coreView() {
-                                return label.title
-                        } else {
-                                NSLog("Failed to set label title")
-                                return ""
-                        }
-                }
-                set(val){
-                        if let label: MILabelCore = super.coreView() {
-                                label.title = val
-                        } else {
-                                NSLog("Failed to set label title")
-                        }
+
+        private func coreLabelView() -> MILabelCore {
+                if let core: MILabelCore = super.coreView() {
+                        return core
+                } else {
+                        fatalError("Failed to get core view")
                 }
         }
-}
 
+        public var title: String {
+                get {     return coreLabelView().title }
+                set(val){ coreLabelView().title = val }
+        }
+}
 
 
