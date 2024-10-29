@@ -13,8 +13,8 @@ import  UIKit
 
 public class MICoreView: MIBaseView
 {
-        private var mCoreView:  MIBaseView? = nil
-        
+        private var mCoreView:  MIBaseView?             = nil
+
         open func setup() {
                 NSLog("Must be override: MICoreView")
         }
@@ -38,7 +38,7 @@ public class MICoreView: MIBaseView
                 }
         }
         #endif // os(iOS)
-        
+
         public override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {
                         return core.intrinsicContentSize
@@ -47,5 +47,27 @@ public class MICoreView: MIBaseView
                         return super.intrinsicContentSize
                 }
         }}
+
+        #if os(iOS)
+        public typealias LayoutConstraintPriority    = UILayoutPriority
+        public typealias LayoutConstraintOrientation = NSLayoutConstraint.Axis
+        #else
+        public typealias LayoutConstraintPriority    = NSLayoutConstraint.Priority
+        public typealias LayoutConstraintOrientation = NSLayoutConstraint.Orientation
+        #endif
+
+        public override func setContentHuggingPriority(_ priority: LayoutConstraintPriority , for axis: LayoutConstraintOrientation) {
+                super.setContentHuggingPriority(priority, for: axis)
+                if let core = mCoreView {
+                        core.setContentHuggingPriority(priority, for: axis)
+                }
+        }
+
+        public override func setContentCompressionResistancePriority(_ priority: LayoutConstraintPriority, for axis: LayoutConstraintOrientation) {
+                super .setContentCompressionResistancePriority(priority, for: axis)
+                if let core = mCoreView {
+                        core.setContentCompressionResistancePriority(priority, for: axis)
+                }
+        }
 }
 

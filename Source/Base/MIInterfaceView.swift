@@ -111,7 +111,7 @@ public class MIInterfaceView: MIBaseView
                 }
         }
         #endif // os(iOS)
-        
+
         public override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {
                         return core.intrinsicContentSize
@@ -119,4 +119,21 @@ public class MIInterfaceView: MIBaseView
                         return super.intrinsicContentSize
                 }
         }}
+
+        public typealias LayoutConstraintPriority    = MICoreView.LayoutConstraintPriority
+        public typealias LayoutConstraintOrientation = MICoreView.LayoutConstraintOrientation
+
+        public override func setContentHuggingPriority(_ priority: LayoutConstraintPriority , for axis: LayoutConstraintOrientation) {
+                super.setContentHuggingPriority(priority, for: axis)
+                if let core = mCoreView {
+                        core.setContentHuggingPriority(priority, for: axis)
+                }
+        }
+
+        public override func setContentCompressionResistancePriority(_ priority: LayoutConstraintPriority, for axis: LayoutConstraintOrientation) {
+                super.setContentCompressionResistancePriority(priority, for: axis)
+                if let core = mCoreView {
+                        core.setContentCompressionResistancePriority(priority, for: axis)
+                }
+        }
 }
