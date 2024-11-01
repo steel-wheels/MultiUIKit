@@ -21,6 +21,8 @@ public class MICoreView: MIBaseView
 
         public func setup(coreView core: MIBaseView) {
                 mCoreView  = core
+                self.activateAutolayout()
+                core.activateAutolayout()
         }
 
         #if os(iOS)
@@ -47,6 +49,13 @@ public class MICoreView: MIBaseView
                         return super.intrinsicContentSize
                 }
         }}
+
+        public override func invalidateIntrinsicContentSize() {
+                if let core = mCoreView {
+                        core.invalidateIntrinsicContentSize()
+                }
+                super.invalidateIntrinsicContentSize()
+        }
 
         #if os(iOS)
         public typealias LayoutConstraintPriority    = UILayoutPriority

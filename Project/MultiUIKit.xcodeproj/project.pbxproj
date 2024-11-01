@@ -32,6 +32,8 @@
 		052C60A12CC5049B00E7523B /* MILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60A02CC5049B00E7523B /* MILabel.swift */; };
 		052C60A22CC5049B00E7523B /* MILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60A02CC5049B00E7523B /* MILabel.swift */; };
 		0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531A8982CC49D1C0053A897 /* MIButtonCore.xib */; };
+		053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B48AA2CD596F90008AD33 /* MIBaseView.swift */; };
+		053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B48AA2CD596F90008AD33 /* MIBaseView.swift */; };
 		054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054721A82CCE25E700F6EEA4 /* MIStack.swift */; };
 		054721AA2CCE25E700F6EEA4 /* MIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054721A82CCE25E700F6EEA4 /* MIStack.swift */; };
 		05F64B372CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
@@ -115,6 +117,7 @@
 		052C609E2CC502D400E7523B /* MILabelCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MILabelCore.xib; sourceTree = "<group>"; };
 		052C60A02CC5049B00E7523B /* MILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MILabel.swift; sourceTree = "<group>"; };
 		0531A8982CC49D1C0053A897 /* MIButtonCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIButtonCore.xib; sourceTree = "<group>"; };
+		053B48AA2CD596F90008AD33 /* MIBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIBaseView.swift; sourceTree = "<group>"; };
 		054721A82CCE25E700F6EEA4 /* MIStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStack.swift; sourceTree = "<group>"; };
 		0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +270,7 @@
 		05CF52AE2CC3ABCF0034E7BF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				053B48AA2CD596F90008AD33 /* MIBaseView.swift */,
 				05F64B392CC3AED800AAFAD9 /* MICoreView.swift */,
 				05F64B3A2CC3AED800AAFAD9 /* MIError.swift */,
 				05F64B3B2CC3AED800AAFAD9 /* MIInterfaceView.swift */,
@@ -570,6 +574,7 @@
 				05F64B472CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */,
+				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05F64B482CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B402CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05F64B412CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,
@@ -586,6 +591,7 @@
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,

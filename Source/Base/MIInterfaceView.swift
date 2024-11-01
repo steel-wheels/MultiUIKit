@@ -49,12 +49,14 @@ public class MIInterfaceView: MIBaseView
                 if let child = loadChildXib(thisClass: MIInterfaceView.self, nibName: nm)  {
                         child.setup()
                         self.addSubview(child)
+                        child.activateAutolayout()
                         allocateSubviewLayout(subView: child)
                         mCoreView = child
                         setFrameSize(size)
                 } else {
                         NSLog("Failed to load bundle: \(nm)")
                 }
+                self.activateAutolayout()
         }
 
         private func loadChildXib(thisClass tc: AnyClass, nibName nn: String) -> MICoreView? {
@@ -119,6 +121,13 @@ public class MIInterfaceView: MIBaseView
                         return super.intrinsicContentSize
                 }
         }}
+
+        public override func invalidateIntrinsicContentSize() {
+                if let core = mCoreView {
+                        core.invalidateIntrinsicContentSize()
+                }
+                super.invalidateIntrinsicContentSize()
+        }
 
         public typealias LayoutConstraintPriority    = MICoreView.LayoutConstraintPriority
         public typealias LayoutConstraintOrientation = MICoreView.LayoutConstraintOrientation
