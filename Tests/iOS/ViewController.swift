@@ -20,6 +20,10 @@ class ViewController: UIViewController {
                 label.title = "Hello, world !!"
                 mStack.addArrangedSubView(label)
 
+                let text0 = MITextField()
+                text0.stringValue = "This is text field"
+                mStack.addArrangedSubView(text0)
+                
                 let buttons = MIStack()
                 buttons.axis = .horizontal
 

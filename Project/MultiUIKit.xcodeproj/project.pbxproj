@@ -36,6 +36,12 @@
 		053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B48AA2CD596F90008AD33 /* MIBaseView.swift */; };
 		054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054721A82CCE25E700F6EEA4 /* MIStack.swift */; };
 		054721AA2CCE25E700F6EEA4 /* MIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054721A82CCE25E700F6EEA4 /* MIStack.swift */; };
+		0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0712CD6760500595CDD /* MITextFieldCore.swift */; };
+		0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0712CD6760500595CDD /* MITextFieldCore.swift */; };
+		0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0567D0742CD6767800595CDD /* MITextFieldCore.xib */; };
+		0567D0772CD6775600595CDD /* MITextFieldCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0567D0762CD6775600595CDD /* MITextFieldCore.xib */; };
+		0567D0792CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
+		0567D07A2CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
 		05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */; };
 		05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */; };
 		05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
@@ -126,6 +132,10 @@
 		053B48AA2CD596F90008AD33 /* MIBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIBaseView.swift; sourceTree = "<group>"; };
 		054721A82CCE25E700F6EEA4 /* MIStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStack.swift; sourceTree = "<group>"; };
 		0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0567D0712CD6760500595CDD /* MITextFieldCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextFieldCore.swift; sourceTree = "<group>"; };
+		0567D0742CD6767800595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
+		0567D0762CD6775600595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
+		0567D0782CD678E900595CDD /* MITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextField.swift; sourceTree = "<group>"; };
 		05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
@@ -302,6 +312,8 @@
 				05199E092CCE210900A61840 /* MIStackCore.swift */,
 				05B93FB52CD6183000BA959F /* MISwitch.swift */,
 				05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */,
+				0567D0782CD678E900595CDD /* MITextField.swift */,
+				0567D0712CD6760500595CDD /* MITextFieldCore.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -313,6 +325,7 @@
 				052C609E2CC502D400E7523B /* MILabelCore.xib */,
 				05199E052CCE208500A61840 /* MIStackCore.xib */,
 				05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */,
+				0567D0762CD6775600595CDD /* MITextFieldCore.xib */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -324,6 +337,7 @@
 				052C60992CC5001C00E7523B /* MILabelCore.xib */,
 				05199E072CCE20D200A61840 /* MIStackCore.xib */,
 				05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */,
+				0567D0742CD6767800595CDD /* MITextFieldCore.xib */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -533,6 +547,7 @@
 				05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */,
 				0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */,
 				05199E062CCE208500A61840 /* MIStackCore.xib in Resources */,
+				0567D0772CD6775600595CDD /* MITextFieldCore.xib in Resources */,
 				052C609F2CC502D400E7523B /* MILabelCore.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +568,7 @@
 				05F64B4E2CC3C81700AAFAD9 /* MIButtonCore.xib in Resources */,
 				05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */,
 				05199E082CCE20D200A61840 /* MIStackCore.xib in Resources */,
+				0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */,
 				052C609A2CC5001C00E7523B /* MILabelCore.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,8 +606,10 @@
 				05F64B472CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
+				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
 				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05F64B482CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B402CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
@@ -611,8 +629,10 @@
 				05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */,
 				052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
+				0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
+				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05F64B3E2CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,
