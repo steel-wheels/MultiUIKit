@@ -26,6 +26,10 @@ class ViewController: NSViewController {
                 let buttons = MIStack()
                 buttons.axis = .horizontal
 
+                let switch0 = MISwitch()
+                switch0.state = true
+                buttons.addArrangedSubView(switch0)
+
                 let button0 = MIButton()
                 button0.title = "button-0"
                 buttons.addArrangedSubView(button0)

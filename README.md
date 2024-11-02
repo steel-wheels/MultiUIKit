@@ -13,8 +13,10 @@ Copyright (C) 2024 [Steel Wheels Project](https://github.com/steel-wheels/Projec
 
 ## Components
 Following GUI components are supported:
-* MIButton: Push button
-* MILabel: One line text label
+* MIButton: Push button.
+* MILabel:  One line text label.
+* MIStack:  The box to layout sub views horizontally or vertically.
+* MISwitch: On/Off switch
 
 ## Refereces:
 * [MultiUIKit](https://github.com/steel-wheels/MultiUIKit): MultiUIKit web page

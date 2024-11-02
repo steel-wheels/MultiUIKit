@@ -18,10 +18,24 @@ class ViewController: UIViewController {
 
                 let label = MILabel()
                 label.title = "Hello, world !!"
-                mStack.addSubView(label)
+                mStack.addArrangedSubView(label)
 
-                let button = MIButton()
-                mStack.addSubView(button)
+                let buttons = MIStack()
+                buttons.axis = .horizontal
+
+                let switch0 = MISwitch()
+                switch0.state = true
+                buttons.addArrangedSubView(switch0)
+
+                let button0 = MIButton()
+                button0.title = "button-0"
+                buttons.addArrangedSubView(button0)
+
+                let button1 = MIButton()
+                button1.title = "button-1"
+                buttons.addArrangedSubView(button1)
+
+                mStack.addArrangedSubView(buttons)
         }
 }
 
