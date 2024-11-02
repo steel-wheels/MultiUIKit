@@ -51,7 +51,7 @@ public class MIStackCore: MICoreView
                 }
         }
 
-        public func addSubView(_ view: MIInterfaceView) {
+        public func addArrangedSubView(_ view: MIInterfaceView) {
                 #if os(OSX)
                 mStack.addArrangedSubview(view)
                 #else

@@ -21,11 +21,20 @@ class ViewController: NSViewController {
                 // Do any additional setup after loading the view.
                 let label = MILabel()
                 label.title = "Hello, world !!"
-                mStack.addSubView(label)
+                mStack.addArrangedSubView(label)
 
-                let button = MIButton()
-                mStack.addSubView(button)
-                button.title = "Good morning every body !!"
+                let buttons = MIStack()
+                buttons.axis = .horizontal
+
+                let button0 = MIButton()
+                button0.title = "button-0"
+                buttons.addArrangedSubView(button0)
+
+                let button1 = MIButton()
+                button1.title = "button-1"
+                buttons.addArrangedSubView(button1)
+
+                mStack.addArrangedSubView(buttons)
         }
 
         override var representedObject: Any? {

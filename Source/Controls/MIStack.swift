@@ -31,8 +31,8 @@ public class MIStack: MIInterfaceView
                 set(value){     coreStackView().axis = value    }
         }
 
-        public func addSubView(_ view: MIInterfaceView) {
-                coreStackView().addSubView(view)
+        public func addArrangedSubView(_ view: MIInterfaceView) {
+                coreStackView().addArrangedSubView(view)
                 switch self.axis {
                 case .vertical:
                         view.setContentExpansionPriority(.defaultLow, for: .horizontal)
