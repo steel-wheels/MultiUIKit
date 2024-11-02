@@ -25,6 +25,7 @@ class ViewController: NSViewController {
 
                 let button = MIButton()
                 mStack.addSubView(button)
+                button.title = "Good morning every body !!"
         }
 
         override var representedObject: Any? {

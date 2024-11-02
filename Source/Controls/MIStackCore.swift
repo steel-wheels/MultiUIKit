@@ -27,6 +27,11 @@ public class MIStackCore: MICoreView
 
         open override func setup() {
                 super.setup(coreView: mStack)
+                #if os(iOS)
+                mStack.alignment = .fill
+                #else
+                mStack.alignment = .width
+                #endif
         }
 
         public var axis: Axis {
