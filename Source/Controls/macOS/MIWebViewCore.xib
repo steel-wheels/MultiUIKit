@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="23504"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MIWebViewCore" customModule="MultiUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-vd-ZDQ">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="1cN-vd-ZDQ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="8IF-0a-k3b"/>
+                <constraint firstAttribute="trailing" secondItem="1cN-vd-ZDQ" secondAttribute="trailing" id="Up9-zO-mw6"/>
+                <constraint firstItem="1cN-vd-ZDQ" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="axE-VJ-acd"/>
+                <constraint firstAttribute="bottom" secondItem="1cN-vd-ZDQ" secondAttribute="bottom" id="qp7-Rc-cNE"/>
+            </constraints>
+            <connections>
+                <outlet property="mWebView" destination="1cN-vd-ZDQ" id="jtC-5V-wLg"/>
+            </connections>
+            <point key="canvasLocation" x="14" y="135"/>
+        </customView>
+    </objects>
+</document>

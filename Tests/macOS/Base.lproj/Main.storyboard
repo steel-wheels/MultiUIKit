@@ -709,38 +709,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="262"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="xdd-GI-BWq" customClass="MILabel" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="182" width="480" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="0lm-nT-1UC"/>
-                                </constraints>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qAf-BZ-ODk" customClass="MIButton" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="102" width="480" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="StC-2M-FS9"/>
-                                </constraints>
-                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-rd-nC3" customClass="MIStack" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="94"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="262"/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="1Ti-rd-nC3" secondAttribute="bottom" id="2If-BW-uoF"/>
-                            <constraint firstAttribute="trailing" secondItem="xdd-GI-BWq" secondAttribute="trailing" id="A5Q-Ir-0b9"/>
-                            <constraint firstAttribute="trailing" secondItem="1Ti-rd-nC3" secondAttribute="trailing" id="BAL-CZ-jeO"/>
-                            <constraint firstItem="xdd-GI-BWq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="DSg-8W-a7F"/>
-                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="top" secondItem="qAf-BZ-ODk" secondAttribute="bottom" constant="8" symbolic="YES" id="EWh-eG-eTS"/>
-                            <constraint firstItem="xdd-GI-BWq" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Mow-xY-6aB"/>
-                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="ZRT-Xm-ddc"/>
-                            <constraint firstAttribute="trailing" secondItem="qAf-BZ-ODk" secondAttribute="trailing" id="egd-zL-dd2"/>
-                            <constraint firstItem="qAf-BZ-ODk" firstAttribute="top" secondItem="xdd-GI-BWq" secondAttribute="bottom" constant="8" symbolic="YES" id="g0K-QG-4og"/>
-                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="sFd-o0-bdw"/>
+                            <constraint firstAttribute="trailing" secondItem="1Ti-rd-nC3" secondAttribute="trailing" id="4n9-PW-JZf"/>
+                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="AyN-Y3-sqH"/>
+                            <constraint firstAttribute="bottom" secondItem="1Ti-rd-nC3" secondAttribute="bottom" id="BLj-hH-3jZ"/>
+                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Nzl-ft-Ude"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mButton" destination="qAf-BZ-ODk" id="odl-fg-JSB"/>
-                        <outlet property="mLabel" destination="xdd-GI-BWq" id="BwO-P1-FCI"/>
                         <outlet property="mStack" destination="1Ti-rd-nC3" id="X3X-p8-b8F"/>
                     </connections>
                 </viewController>

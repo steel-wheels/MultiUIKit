@@ -10,9 +10,6 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-
-        @IBOutlet weak var mLabel: MILabel!
-        @IBOutlet weak var mButton: MIButton!
         @IBOutlet weak var mStack: MIStack!
 
         override func viewDidLoad() {
@@ -22,6 +19,13 @@ class ViewController: NSViewController {
                 let label = MILabel()
                 label.title = "Hello, world !!"
                 mStack.addArrangedSubView(label)
+
+                let web0 = MIWebView()
+                if let url = URL(string: "https://www.apple.com") {
+                        let request = URLRequest(url: url)
+                        let _ = web0.load(request)
+                }
+                mStack.addArrangedSubView(web0)
 
                 let text0 = MITextField()
                 text0.stringValue = "This is text field"

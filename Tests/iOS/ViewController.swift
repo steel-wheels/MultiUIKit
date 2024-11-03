@@ -23,7 +23,14 @@ class ViewController: UIViewController {
                 let text0 = MITextField()
                 text0.stringValue = "This is text field"
                 mStack.addArrangedSubView(text0)
-                
+
+                let web0 = MIWebView()
+                if let url = URL(string: "https://www.apple.com") {
+                        let request = URLRequest(url: url)
+                        let _ = web0.load(request)
+                }
+                mStack.addArrangedSubView(web0)
+
                 let buttons = MIStack()
                 buttons.axis = .horizontal
 
