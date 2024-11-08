@@ -40,10 +40,16 @@ class ViewController: UIViewController {
 
                 let button0 = MIButton()
                 button0.title = "button-0"
+                button0.setCallback({
+                        () -> Void in NSLog("button0 pressed")
+                })
                 buttons.addArrangedSubView(button0)
 
                 let button1 = MIButton()
                 button1.title = "button-1"
+                button1.setCallback({
+                        () -> Void in NSLog("button1 pressed")
+                })
                 buttons.addArrangedSubView(button1)
 
                 mStack.addArrangedSubView(buttons)

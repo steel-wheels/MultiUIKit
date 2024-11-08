@@ -182,6 +182,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		050F1FBD2CDBBA0300FAD756 /* Window */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Window;
+			sourceTree = "<group>";
+		};
 		0549ED0B2CC3AAD200BB3940 /* MultiUIKit_macOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -298,6 +303,7 @@
 		05CF52AD2CC3AB750034E7BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				050F1FBD2CDBBA0300FAD756 /* Window */,
 				05CF52AE2CC3ABCF0034E7BF /* Base */,
 				05F64B422CC3C74400AAFAD9 /* Controls */,
 			);
@@ -469,6 +475,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				050F1FBD2CDBBA0300FAD756 /* Window */,
 				0549ED0B2CC3AAD200BB3940 /* MultiUIKit_macOS */,
 			);
 			name = MultiUIKit_macOS;
@@ -492,6 +499,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				050F1FBD2CDBBA0300FAD756 /* Window */,
 				05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */,
 			);
 			name = MultiUIKit_iOS;

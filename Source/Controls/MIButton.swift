@@ -14,6 +14,8 @@ import  UIKit
 
 public class MIButton: MIInterfaceView
 {
+        public typealias CallbackFunction = MIButtonCore.CallbackFunction
+
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIButtonCore", frameSize: frm.size)
         }
@@ -24,6 +26,10 @@ public class MIButton: MIInterfaceView
                 } else {
                         fatalError("Failed to get core view")
                 }
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                self.coreButtonView().setCallback(cbfunc)
         }
 
         public var title: String {

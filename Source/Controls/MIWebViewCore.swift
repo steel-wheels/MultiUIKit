@@ -16,16 +16,22 @@ public class MIWebViewCore: MICoreView
 {
         #if os(iOS)
         @IBOutlet weak var mWebView: WKWebView!
-#else
+        #else
         @IBOutlet weak var mWebView: WKWebView!
-#endif
+        #endif
 
         open override func setup() {
                 super.setup(coreView: mWebView)
+                mWebView.navigationDelegate = self
         }
 
         public func load(_ request: URLRequest) -> WKNavigation? {
                 return mWebView.load(request)
         }
 }
+
+extension MIWebViewCore: WKNavigationDelegate
+{
+}
+
 
