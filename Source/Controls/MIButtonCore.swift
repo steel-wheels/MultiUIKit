@@ -61,4 +61,9 @@ public class MIButtonCore: MICoreView
                         #endif
                 }
         }
+
+        public var isEnabled: Bool {
+                get        { return mButton.isEnabled }
+                set(value) { mButton.isEnabled = value }
+        }
 }

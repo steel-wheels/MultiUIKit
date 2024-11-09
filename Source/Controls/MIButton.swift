@@ -36,6 +36,11 @@ public class MIButton: MIInterfaceView
                 get      { return coreButtonView().title        }
                 set(val) { coreButtonView().title = val         }
         }
+
+        public var isEnabled: Bool {
+                get        { return coreButtonView().isEnabled  }
+                set(value) { coreButtonView().isEnabled = value }
+        }
 }
 
 
