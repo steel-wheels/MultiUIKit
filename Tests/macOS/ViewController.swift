@@ -29,6 +29,10 @@ class ViewController: NSViewController {
 
                 let text0 = MITextField()
                 text0.stringValue = "This is text field"
+                text0.setCallback({
+                        (_ str: String) -> Void in
+                        NSLog("Text is updated")
+                })
                 mStack.addArrangedSubView(text0)
                 
                 let buttons = MIStack()

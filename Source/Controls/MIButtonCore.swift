@@ -23,7 +23,6 @@ public class MIButtonCore: MICoreView
         @IBAction func action(_ sender: NSButton) {
                 pressed()
         }
-
 #else
         @IBOutlet weak var mButton: UIButton!
 

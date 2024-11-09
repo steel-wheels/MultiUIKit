@@ -14,6 +14,8 @@ import  UIKit
 
 public class MITextField: MIInterfaceView
 {
+        public typealias CallbackFunction = MITextFieldCore.CallbackFunction
+
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MITextFieldCore", frameSize: frm.size)
         }
@@ -24,6 +26,10 @@ public class MITextField: MIInterfaceView
                 } else {
                         fatalError("Failed to get core view")
                 }
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                coreTextFieldView().setCallback(cbfunc)
         }
 
         public var stringValue: String {

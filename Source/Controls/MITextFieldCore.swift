@@ -11,8 +11,18 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-public class MITextFieldCore: MICoreView
+#if os(iOS)
+public typealias MITextFieldDelegate = UITextFieldDelegate
+#else   // os(OSX)
+public typealias MITextFieldDelegate = NSTextFieldDelegate
+#endif  // os(OSX)
+
+public class MITextFieldCore: MICoreView, MITextFieldDelegate
 {
+        public typealias CallbackFunction = (_ str: String) -> Void
+
+        private var mCallbackFunction: CallbackFunction? = nil
+
         #if os(OSX)
         @IBOutlet weak var mTextField: NSTextField!
         #else
@@ -21,6 +31,11 @@ public class MITextFieldCore: MICoreView
 
         open override func setup() {
                 super.setup(coreView: mTextField)
+                mTextField.delegate = self
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                mCallbackFunction = cbfunc
         }
 
         public var stringValue: String {
@@ -56,5 +71,21 @@ public class MITextFieldCore: MICoreView
                         #endif
                 }
         }
+
+        /* methods for MITexrFieldDelegate */
+        #if os(iOS)
+        public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+                if let cbfunc = mCallbackFunction {
+                        cbfunc(self.stringValue)
+                }
+                return true
+        }
+        #else
+        public func controlTextDidChange(_ obj: Notification) {
+                if let cbfunc = mCallbackFunction {
+                        cbfunc(self.stringValue)
+                }
+        }
+        #endif
 }
 
