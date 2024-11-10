@@ -14,6 +14,8 @@ import  UIKit
 
 public class MISwitch: MIInterfaceView
 {
+        public typealias CallbackFunction = MISwitchCore.CallbackFunction
+
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MISwitchCore", frameSize: frm.size)
         }
@@ -24,6 +26,10 @@ public class MISwitch: MIInterfaceView
                 } else {
                         fatalError("Failed to get core view")
                 }
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                coreSwitchView().setCallback(cbfunc)
         }
 
         public var state: Bool {

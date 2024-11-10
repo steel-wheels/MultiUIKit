@@ -40,6 +40,9 @@ class ViewController: UIViewController {
 
                 let switch0 = MISwitch()
                 switch0.state = true
+                switch0.setCallback({
+                        (_ state: Bool) -> Void in NSLog("switch0: state \(state)")
+                })
                 buttons.addArrangedSubView(switch0)
 
                 let button0 = MIButton()

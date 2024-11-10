@@ -14,6 +14,9 @@
             <subviews>
                 <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="dnV-5y-6BO">
                     <rect key="frame" x="-2" y="-2" width="42" height="25"/>
+                    <connections>
+                        <action selector="mAction:" target="c22-O7-iKe" id="W7x-oA-cfw"/>
+                    </connections>
                 </switch>
             </subviews>
             <constraints>

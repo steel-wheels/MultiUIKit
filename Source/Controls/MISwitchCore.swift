@@ -13,14 +13,35 @@ import  UIKit
 
 public class MISwitchCore: MICoreView
 {
-        #if os(iOS)
+        public typealias CallbackFunction = (_ state: Bool) -> Void
+
+        private var mCallbackFunction: CallbackFunction? = nil
+
+#if os(iOS)
         @IBOutlet weak var mSwitch: UISwitch!
-        #else
+        @IBAction func mValueChanged(_ sender: UISwitch) {
+                changed()
+        }
+#else
         @IBOutlet weak var mSwitch: NSSwitch!
-        #endif
+
+        @IBAction func mAction(_ sender: NSSwitch) {
+                changed()
+        }
+#endif
 
         open override func setup() {
                 super.setup(coreView: mSwitch)
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                mCallbackFunction = cbfunc
+        }
+
+        private func changed() {
+                if let callback = mCallbackFunction {
+                        callback(self.state)
+                }
         }
 
         public var state: Bool {
