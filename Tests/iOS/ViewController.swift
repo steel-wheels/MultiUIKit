@@ -21,7 +21,7 @@ class ViewController: UIViewController {
                 mStack.addArrangedSubView(label)
 
                 let text0 = MITextField()
-                text0.stringValue = "This is text field"
+                text0.placeholderString = "This is place holder string"
                 text0.setCallback({
                         (_ str: String) -> Void in
                         NSLog("Text is updated")

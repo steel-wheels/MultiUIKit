@@ -55,6 +55,23 @@ public class MITextFieldCore: MICoreView, MITextFieldDelegate
                 }
         }
 
+        public var placeholderString: String? {
+                get {
+                        #if os(iOS)
+                        return mTextField.placeholder
+                        #else
+                        return mTextField.placeholderString
+                        #endif
+                }
+                set(value){
+                        #if os(iOS)
+                        mTextField.placeholder = value
+                        #else
+                        mTextField.placeholderString = value
+                        #endif
+                }
+        }
+
         public var isEditable: Bool {
                 get {
                         #if os(iOS)

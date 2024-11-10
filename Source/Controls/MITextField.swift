@@ -36,6 +36,11 @@ public class MITextField: MIInterfaceView
                 get        { return coreTextFieldView().stringValue  }
                 set(value) { coreTextFieldView().stringValue = value }
         }
+
+        public var placeholderString: String? {
+                get        { return coreTextFieldView().placeholderString }
+                set(value) { coreTextFieldView().placeholderString = value }
+        }
 }
 
 
