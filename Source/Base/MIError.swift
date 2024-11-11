@@ -23,6 +23,7 @@ public class MIError
         public enum ErrorCode: Int {
                 case noError            = 0
                 case bundleError
+                case urlError
         }
 
         public static func error(errorCode ecode: ErrorCode, message msg: String?, location loc: String?) -> NSError {

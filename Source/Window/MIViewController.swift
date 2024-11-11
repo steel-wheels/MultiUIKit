@@ -19,6 +19,12 @@ public typealias MIViewControllerBase = NSViewController
 
 open class MIViewController: MIViewControllerBase
 {
-
+        public func open(URL url: URL) {
+                #if os(iOS)
+                UIApplication.shared.open(url, options: [:])
+                #else
+                NSWorkspace.shared.open(url)
+                #endif
+        }
 }
 
