@@ -20,12 +20,24 @@ class ViewController: NSViewController {
                 label.title = "Hello, world !!"
                 mStack.addArrangedSubView(label)
 
+                let popmenu0 = MIPopupMenu()
+                popmenu0.setMenuItems(items: [
+                        MIPopupMenu.MenuItem(menuId: 1, title: "item A"),
+                        MIPopupMenu.MenuItem(menuId: 2, title: "item B")
+                ])
+                popmenu0.setCallback({
+                        (_ menuId: Int) -> Void in NSLog("popupMenu: \(menuId)")
+                })
+                mStack.addArrangedSubView(popmenu0)
+
+                #if false
                 let web0 = MIWebView()
                 if let url = URL(string: "https://www.apple.com") {
                         let request = URLRequest(url: url)
                         let _ = web0.load(request)
                 }
                 mStack.addArrangedSubView(web0)
+                #endif
 
                 let text0 = MITextField()
                 text0.placeholderString = "This is place holder string"

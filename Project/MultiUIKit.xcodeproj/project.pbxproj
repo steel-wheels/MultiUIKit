@@ -56,6 +56,12 @@
 		05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
 		05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB52CD6183000BA959F /* MISwitch.swift */; };
 		05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB52CD6183000BA959F /* MISwitch.swift */; };
+		05D83E772CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */; };
+		05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */; };
+		05D83E7A2CE24506004ACED7 /* MIPopupMenuCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */; };
+		05D83E7C2CE246EC004ACED7 /* MIPopupMenuCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D83E7B2CE246EC004ACED7 /* MIPopupMenuCore.xib */; };
+		05D83E7E2CE254D7004ACED7 /* MIPopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D83E7D2CE254D7004ACED7 /* MIPopupMenu.swift */; };
+		05D83E7F2CE254D7004ACED7 /* MIPopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D83E7D2CE254D7004ACED7 /* MIPopupMenu.swift */; };
 		05F64B372CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
 		05F64B382CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
 		05F64B3C2CC3AED800AAFAD9 /* MIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B3A2CC3AED800AAFAD9 /* MIError.swift */; };
@@ -155,6 +161,10 @@
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
 		05B93FB52CD6183000BA959F /* MISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitch.swift; sourceTree = "<group>"; };
 		05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPopupMenuCore.swift; sourceTree = "<group>"; };
+		05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIPopupMenuCore.xib; sourceTree = "<group>"; };
+		05D83E7B2CE246EC004ACED7 /* MIPopupMenuCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIPopupMenuCore.xib; sourceTree = "<group>"; };
+		05D83E7D2CE254D7004ACED7 /* MIPopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPopupMenu.swift; sourceTree = "<group>"; };
 		05F64B362CC3ADB900AAFAD9 /* MIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIType.swift; sourceTree = "<group>"; };
 		05F64B392CC3AED800AAFAD9 /* MICoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICoreView.swift; sourceTree = "<group>"; };
 		05F64B3A2CC3AED800AAFAD9 /* MIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIError.swift; sourceTree = "<group>"; };
@@ -332,6 +342,8 @@
 				05F64B442CC3C77000AAFAD9 /* MIButtonCore.swift */,
 				052C60A02CC5049B00E7523B /* MILabel.swift */,
 				052C609B2CC5019F00E7523B /* MILabelCore.swift */,
+				05D83E7D2CE254D7004ACED7 /* MIPopupMenu.swift */,
+				05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */,
 				054721A82CCE25E700F6EEA4 /* MIStack.swift */,
 				05199E092CCE210900A61840 /* MIStackCore.swift */,
 				05B93FB52CD6183000BA959F /* MISwitch.swift */,
@@ -349,6 +361,7 @@
 			children = (
 				0531A8982CC49D1C0053A897 /* MIButtonCore.xib */,
 				052C609E2CC502D400E7523B /* MILabelCore.xib */,
+				05D83E7B2CE246EC004ACED7 /* MIPopupMenuCore.xib */,
 				05199E052CCE208500A61840 /* MIStackCore.xib */,
 				05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */,
 				0567D0762CD6775600595CDD /* MITextFieldCore.xib */,
@@ -362,6 +375,7 @@
 			children = (
 				05F64B4D2CC3C81700AAFAD9 /* MIButtonCore.xib */,
 				052C60992CC5001C00E7523B /* MILabelCore.xib */,
+				05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */,
 				05199E072CCE20D200A61840 /* MIStackCore.xib */,
 				05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */,
 				0567D0742CD6767800595CDD /* MITextFieldCore.xib */,
@@ -578,6 +592,7 @@
 				05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */,
 				0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */,
 				05199E062CCE208500A61840 /* MIStackCore.xib in Resources */,
+				05D83E7C2CE246EC004ACED7 /* MIPopupMenuCore.xib in Resources */,
 				0567D0772CD6775600595CDD /* MITextFieldCore.xib in Resources */,
 				052C609F2CC502D400E7523B /* MILabelCore.xib in Resources */,
 			);
@@ -600,6 +615,7 @@
 				05F64B4E2CC3C81700AAFAD9 /* MIButtonCore.xib in Resources */,
 				05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */,
 				05199E082CCE20D200A61840 /* MIStackCore.xib in Resources */,
+				05D83E7A2CE24506004ACED7 /* MIPopupMenuCore.xib in Resources */,
 				0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */,
 				052C609A2CC5001C00E7523B /* MILabelCore.xib in Resources */,
 			);
@@ -641,6 +657,8 @@
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */,
+				05D83E7F2CE254D7004ACED7 /* MIPopupMenu.swift in Sources */,
+				05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
 				05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
 				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
@@ -666,6 +684,8 @@
 				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
+				05D83E7E2CE254D7004ACED7 /* MIPopupMenu.swift in Sources */,
+				05D83E772CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,

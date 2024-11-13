@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MIPopupMenuCore" customModule="MultiUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="73" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NTN-sj-TXt">
+                    <rect key="frame" x="-3" y="-4" width="80" height="25"/>
+                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="RWZ-Pb-L3J" id="xag-nz-p9X">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="dNv-ve-h2s">
+                            <items>
+                                <menuItem title="Item 1" state="on" id="RWZ-Pb-L3J"/>
+                                <menuItem title="Item 2" id="tLz-rO-XQu"/>
+                                <menuItem title="Item 3" id="hCs-RQ-GEq"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="mAction:" target="c22-O7-iKe" id="ntz-h1-dfk"/>
+                    </connections>
+                </popUpButton>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="NTN-sj-TXt" secondAttribute="bottom" id="CEf-sY-FOc"/>
+                <constraint firstItem="NTN-sj-TXt" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="hTy-wg-0lN"/>
+                <constraint firstItem="NTN-sj-TXt" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ivE-wz-1gT"/>
+                <constraint firstAttribute="trailing" secondItem="NTN-sj-TXt" secondAttribute="trailing" id="sbS-WT-3sh"/>
+            </constraints>
+            <connections>
+                <outlet property="mPopupButton" destination="NTN-sj-TXt" id="t4g-TN-qOs"/>
+            </connections>
+            <point key="canvasLocation" x="-190.5" y="9"/>
+        </customView>
+    </objects>
+</document>
