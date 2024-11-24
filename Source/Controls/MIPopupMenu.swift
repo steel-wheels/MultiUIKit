@@ -33,6 +33,10 @@ public class MIPopupMenu: MIInterfaceView
                 corePopupMenu().setCallback(cbfunc)
         }
 
+        public func setEnable(_ enable: Bool) {
+                corePopupMenu().setEnable(enable)
+        }
+
         public func setMenuItems( items: Array<MenuItem>) {
                 corePopupMenu().setMenuItems(items: items)
         }
