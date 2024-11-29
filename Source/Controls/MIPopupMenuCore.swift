@@ -79,7 +79,7 @@ public class MIPopupMenuCore: MICoreView
                 mPopupButton.isEnabled = enable
         }
 
-        private func selectedTitle() -> String? {
+        public func selectedTitle() -> String? {
                 #if os(iOS)
                 if let menu = mPopupButton.menu {
                         let elms = menu.selectedElements

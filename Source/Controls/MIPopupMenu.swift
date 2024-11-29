@@ -41,6 +41,10 @@ public class MIPopupMenu: MIInterfaceView
                 corePopupMenu().setMenuItems(items: items)
         }
 
+        public func selectedTitle() -> String? {
+                return corePopupMenu().selectedTitle()
+        }
+
         public func selectedItem() -> Int? {
                 return corePopupMenu().selectedItem()
         }
