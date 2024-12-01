@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MISegmentedControlCore" customModule="MultiUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pUn-fU-YN1">
+                    <rect key="frame" x="-2" y="-1" width="244" height="24"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="32y-Kw-HC3">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment width="78"/>
+                            <segment width="77" selected="YES" tag="1"/>
+                            <segment width="77">
+                                <nil key="label"/>
+                            </segment>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="mAction:" target="c22-O7-iKe" id="sGa-ja-5EY"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pUn-fU-YN1" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="62a-ZO-iuP"/>
+                <constraint firstAttribute="bottom" secondItem="pUn-fU-YN1" secondAttribute="bottom" id="90S-GQ-4Sg"/>
+                <constraint firstItem="pUn-fU-YN1" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="cs9-Ya-X1t"/>
+                <constraint firstAttribute="trailing" secondItem="pUn-fU-YN1" secondAttribute="trailing" id="sdn-pa-F5I"/>
+            </constraints>
+            <connections>
+                <outlet property="mSegmentedControl" destination="pUn-fU-YN1" id="ecw-ax-8zq"/>
+            </connections>
+            <point key="canvasLocation" x="-72" y="-161"/>
+        </customView>
+    </objects>
+</document>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MISegmentedControlCore" customModule="MultiUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="131" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ygR-Rc-kyj">
+                    <rect key="frame" x="0.0" y="0.0" width="131" height="31"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <connections>
+                        <action selector="mAction:" destination="iN0-l3-epB" eventType="valueChanged" id="2fH-9H-ZWO"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ygR-Rc-kyj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Cww-SW-KAe"/>
+                <constraint firstAttribute="trailing" secondItem="ygR-Rc-kyj" secondAttribute="trailing" id="UOh-Yg-PD4"/>
+                <constraint firstAttribute="bottom" secondItem="ygR-Rc-kyj" secondAttribute="bottom" id="vxw-a3-P6f"/>
+                <constraint firstItem="ygR-Rc-kyj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yox-Mh-F2u"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mSegmentedControl" destination="ygR-Rc-kyj" id="5k9-kD-DHC"/>
+            </connections>
+            <point key="canvasLocation" x="-200.76335877862596" y="245.07042253521129"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

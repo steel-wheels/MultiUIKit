@@ -15,7 +15,7 @@ import  UIKit
 public class MIPopupMenu: MIInterfaceView
 {
         public typealias CallbackFunction = MIPopupMenuCore.CallbackFunction
-        public typealias MenuItem         = MIPopupMenuCore.MenuItem
+        public typealias MenuItem         = MIMenuItem
 
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIPopupMenuCore", frameSize: frm.size)

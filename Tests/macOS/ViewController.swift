@@ -30,6 +30,21 @@ class ViewController: NSViewController {
                 })
                 mStack.addArrangedSubView(popmenu0)
 
+                let segment0 = MISegmentedControl()
+                segment0.setMenuItems(items: [
+                        MIPopupMenu.MenuItem(menuId: 1, title: "segment A"),
+                        MIPopupMenu.MenuItem(menuId: 2, title: "segment B")
+                ])
+                segment0.setCallback({
+                        (_ item: MIMenuItem?) in
+                        if let item = item {
+                                NSLog("segument0: \(item.title)")
+                        } else {
+                                NSLog("segument0: nil")
+                        }
+                })
+                mStack.addArrangedSubView(segment0)
+
                 #if false
                 let web0 = MIWebView()
                 if let url = URL(string: "https://www.apple.com") {

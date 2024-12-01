@@ -15,16 +15,6 @@ public class MIPopupMenuCore: MICoreView
 {
         public typealias CallbackFunction = (_ menuId: Int) -> Void
 
-        public struct MenuItem {
-                public var menuId:      Int
-                public var title:       String
-
-                public init(menuId: Int, title: String) {
-                        self.menuId = menuId
-                        self.title  = title
-                }
-        }
-
         #if os(iOS)
         @IBOutlet weak var mPopupButton: UIButton!
         #else
@@ -55,7 +45,7 @@ public class MIPopupMenuCore: MICoreView
                 mCallbackFunction = cbfunc
         }
 
-        public func setMenuItems( items: Array<MenuItem>) {
+        public func setMenuItems( items: Array<MIMenuItem>) {
                 for item in items {
                         mMenuItems[item.title] = item.menuId
                 }
@@ -69,6 +59,7 @@ public class MIPopupMenuCore: MICoreView
                 }
                 mPopupButton.menu = UIMenu(children: actions)
                 #else
+                mPopupButton.removeAllItems()
                 for item in items {
                         mPopupButton.addItem(withTitle: item.title)
                 }
