@@ -15,6 +15,7 @@
 		0515E7CB2CC476D300321C89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0515E7C92CC476D300321C89 /* LaunchScreen.storyboard */; };
 		0515E7D42CC4781700321C89 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		0515E7D52CC4781700321C89 /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05198BF02CFDF67F001EE972 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05198BEF2CFDF67F001EE972 /* PreferenceViewController.swift */; };
 		05199E062CCE208500A61840 /* MIStackCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05199E052CCE208500A61840 /* MIStackCore.xib */; };
 		05199E082CCE20D200A61840 /* MIStackCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05199E072CCE20D200A61840 /* MIStackCore.xib */; };
 		05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05199E092CCE210900A61840 /* MIStackCore.swift */; };
@@ -135,6 +136,7 @@
 		0515E7CA2CC476D300321C89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0515E7CC2CC476D300321C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiUIKit.xcframework; path = ../../../Library/Frameworks/MultiUIKit.xcframework; sourceTree = "<group>"; };
+		05198BEF2CFDF67F001EE972 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		05199E052CCE208500A61840 /* MIStackCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIStackCore.xib; sourceTree = "<group>"; };
 		05199E072CCE20D200A61840 /* MIStackCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIStackCore.xib; sourceTree = "<group>"; };
 		05199E092CCE210900A61840 /* MIStackCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStackCore.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				052C608F2CC4F34900E7523B /* Main.storyboard */,
 				052C60922CC4F34900E7523B /* UnitTest_macOS.entitlements */,
 				052C608B2CC4F34700E7523B /* ViewController.swift */,
+				05198BEF2CFDF67F001EE972 /* PreferenceViewController.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 			files = (
 				052C608C2CC4F34700E7523B /* ViewController.swift in Sources */,
 				052C608A2CC4F34700E7523B /* AppDelegate.swift in Sources */,
+				05198BF02CFDF67F001EE972 /* PreferenceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
