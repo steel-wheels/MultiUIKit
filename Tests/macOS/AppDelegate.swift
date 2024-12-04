@@ -12,6 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate
 {
         private var mPreferenceWindow: MIWindow? = nil
+        private var mDidPreferenceWindowOpended  = false
 
         func applicationDidFinishLaunching(_ aNotification: Notification) {
                 // Insert code here to initialize your application
@@ -26,12 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
 
         @IBAction func openSettingWindow(_ sender: NSMenuItem) {
-                if mPreferenceWindow != nil {
+                NSLog("openSettingWindow (1)")
+                if mDidPreferenceWindowOpended {
                         NSLog("the preference window has been opened")
                         return
                 }
 
-                NSLog("openSettingWindow")
+                NSLog("openSettingWindow (2)")
                 let controller = PreferenceViewController()
 
                 let config = MIWindow.WindowConfig(size: NSSize(width: 640, height: 480), title: "Preference", closeable: true, resizable: false)
@@ -39,8 +41,11 @@ class AppDelegate: NSObject, NSApplicationDelegate
                 window.setCallback(windowWillClose: {
                         () -> Void in
                         NSLog("the preference window will be closed")
+                        self.mDidPreferenceWindowOpended = false
                 })
                 mPreferenceWindow = window
+                mDidPreferenceWindowOpended = true
+                NSLog("openSettingWindow (3)")
         }
 }
 

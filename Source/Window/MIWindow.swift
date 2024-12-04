@@ -49,6 +49,7 @@ open class MIWindow: NSWindow, NSWindowDelegate
                 newwindow.contentView = controller.view
                 newwindow.center()
                 newwindow.orderFrontRegardless()
+                newwindow.isReleasedWhenClosed = false
 
                 return newwindow
         }
