@@ -26,5 +26,26 @@ open class MIViewController: MIViewControllerBase
                 NSWorkspace.shared.open(url)
                 #endif
         }
-}
 
+        #if os(iOS)
+
+        public func alert(message msg: String, callback cbfunc: @escaping (_ result: MIAlert.Result) -> Void) {
+                let alert: UIAlertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
+
+                let cancelact = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+                        (action: UIAlertAction) -> Void in
+                        cbfunc(.cancel)
+                })
+                alert.addAction(cancelact)
+
+                let okact = UIAlertAction(title: "OK", style: .default, handler: {
+                        (action: UIAlertAction) -> Void in
+                        cbfunc(.ok)
+                })
+                alert.addAction(okact)
+
+                self.present(alert, animated: true, completion: nil)
+        }
+
+        #endif
+}

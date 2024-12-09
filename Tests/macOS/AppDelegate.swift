@@ -27,13 +27,11 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
 
         @IBAction func openSettingWindow(_ sender: NSMenuItem) {
-                NSLog("openSettingWindow (1)")
                 if mDidPreferenceWindowOpended {
                         NSLog("the preference window has been opened")
                         return
                 }
 
-                NSLog("openSettingWindow (2)")
                 let controller = PreferenceViewController()
 
                 let config = MIWindow.WindowConfig(size: NSSize(width: 640, height: 480), title: "Preference", closeable: true, resizable: false)
@@ -45,7 +43,6 @@ class AppDelegate: NSObject, NSApplicationDelegate
                 })
                 mPreferenceWindow = window
                 mDidPreferenceWindowOpended = true
-                NSLog("openSettingWindow (3)")
         }
 }
 

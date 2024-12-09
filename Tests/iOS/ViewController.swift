@@ -8,7 +8,7 @@
 import MultiUIKit
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: MIViewController {
 
         @IBOutlet weak var mStack: MIStack!
 
@@ -76,6 +76,14 @@ class ViewController: UIViewController {
                 button0.title = "button-0"
                 button0.setCallback({
                         () -> Void in NSLog("button0 pressed")
+                        self.alert(message: "Alert message", callback :{
+                                (_ result: MIAlert.Result) -> Void in
+                                switch result {
+                                case .ok:               NSLog("alert ... ok")
+                                case .cancel:           NSLog("alert ... cancel")
+                                @unknown default:       NSLog("Internal error")
+                                }
+                        })
                 })
                 buttons.addArrangedSubView(button0)
 

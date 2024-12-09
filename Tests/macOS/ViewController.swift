@@ -76,6 +76,12 @@ class ViewController: NSViewController {
                 button0.title = "button-0"
                 button0.setCallback({
                         () -> Void in NSLog("button0 pressed")
+                        let result = MIAlert.open(style: .warning, message: "Alert message", information: "Infomation")
+                        switch result {
+                        case .ok:               NSLog("OK Pressed")
+                        case .cacnel:           NSLog("Cancel pressed")
+                        @unknown default:       NSLog("Cam not happen")
+                        }
                 })
                 buttons.addArrangedSubView(button0)
 
