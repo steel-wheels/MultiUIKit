@@ -27,9 +27,33 @@ open class MIViewController: MIViewControllerBase
                 #endif
         }
 
+        public enum AlertStyle {
+                case critical
+                case warning
+                case informartional
+
+                #if os(iOS)
+                #else  // os(iOS)
+                public func encode() -> NSAlert.Style {
+                        let result: NSAlert.Style
+                        switch self {
+                        case .critical:       result = .critical
+                        case .warning:        result = .warning
+                        case .informartional: result = .informational
+                        }
+                        return result
+                }
+                #endif // os(iOS)
+        }
+
+        public enum AlertResult {
+                case ok
+                case cancel
+        }
+
         #if os(iOS)
 
-        public func alert(message msg: String, callback cbfunc: @escaping (_ result: MIAlert.Result) -> Void) {
+        public func alert(message msg: String, callback cbfunc: @escaping (_ result: AlertResult) -> Void) {
                 let alert: UIAlertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
 
                 let cancelact = UIAlertAction(title: "Cancel", style: .cancel, handler: {
@@ -47,5 +71,33 @@ open class MIViewController: MIViewControllerBase
                 self.present(alert, animated: true, completion: nil)
         }
 
-        #endif
+        #else // if os(iOS)
+
+        public func alert(style styl: AlertStyle, message msg: String, information info: String, callback cbfunc: @escaping (_ result: AlertResult) -> Void) {
+                let alert = NSAlert()
+                alert.messageText       = msg
+                alert.informativeText   = info
+                alert.alertStyle        = styl.encode()
+
+                alert.addButton(withTitle: "OK")        // button 0
+                alert.addButton(withTitle: "Cancel")    // button 1
+
+                let buttons = alert.buttons
+                if buttons.count >= 2 {
+                        buttons[0].keyEquivalent = ""          //
+                        buttons[1].keyEquivalent = "\r"        // enter key
+                } else {
+                        NSLog("[Error] Can not happend at \(#file)")
+                }
+
+                switch alert.runModal() {
+                case .alertFirstButtonReturn:   cbfunc(.ok)
+                case .alertSecondButtonReturn:  cbfunc(.cancel)
+                default:
+                        NSLog("[Error] Can not happend at \(#file)")
+                        cbfunc(.cancel)
+                }
+        }
+
+        #endif // os(iOS)
 }

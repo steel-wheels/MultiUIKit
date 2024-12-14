@@ -77,7 +77,7 @@ class ViewController: MIViewController {
                 button0.setCallback({
                         () -> Void in NSLog("button0 pressed")
                         self.alert(message: "Alert message", callback :{
-                                (_ result: MIAlert.Result) -> Void in
+                                (_ result: AlertResult) -> Void in
                                 switch result {
                                 case .ok:               NSLog("alert ... ok")
                                 case .cancel:           NSLog("alert ... cancel")
