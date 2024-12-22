@@ -76,7 +76,7 @@ class ViewController: MIViewController {
                 button0.title = "button-0"
                 button0.setCallback({
                         () -> Void in NSLog("button0 pressed")
-                        super.alert(style: .warning, message: "Alert message", information: "Information", callback: {
+                        super.alert(message: "Alert message", callback: {
                                 (_ result: AlertResult) -> Void in
                                 switch result {
                                 case .ok:               NSLog("OK Pressed")
