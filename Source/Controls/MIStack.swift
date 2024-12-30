@@ -12,7 +12,7 @@ import  UIKit
 #endif  // os(OSX)
 
 
-public class MIStack: MIInterfaceView
+open class MIStack: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIStackCore", frameSize: frm.size)

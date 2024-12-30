@@ -11,7 +11,7 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-public class MIInterfaceView: MIBaseView
+open class MIInterfaceView: MIBaseView
 {
         private var mCoreView: MICoreView? = nil
 

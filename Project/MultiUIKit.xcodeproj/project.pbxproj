@@ -47,6 +47,9 @@
 		0567D0772CD6775600595CDD /* MITextFieldCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0567D0762CD6775600595CDD /* MITextFieldCore.xib */; };
 		0567D0792CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
 		0567D07A2CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
+		056CBE5B2D1D8BA000772D95 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
+		056CBE5F2D1D8BA000772D95 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
+		056CBE662D1D909E00772D95 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056CBE652D1D909E00772D95 /* TabViews.swift */; };
 		0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */; };
@@ -85,6 +88,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		056CBE612D1D8C7800772D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
+			remoteInfo = Install;
+		};
 		058A19082CCEFC970058997A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
@@ -161,6 +171,9 @@
 		0567D0742CD6767800595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
 		0567D0762CD6775600595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
 		0567D0782CD678E900595CDD /* MITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextField.swift; sourceTree = "<group>"; };
+		056CBE192D1C597900772D95 /* TagViewTest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagViewTest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
+		056CBE652D1D909E00772D95 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		0574C3162CD75A4200E7166F /* MIWebViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIWebViewCore.swift; sourceTree = "<group>"; };
 		0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
 		0574C31B2CD75BE900E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
@@ -194,6 +207,13 @@
 			);
 			target = 0549ED082CC3AAD200BB3940 /* MultiUIKit_macOS */;
 		};
+		056CBE2C2D1C597B00772D95 /* Exceptions for "TagViewTest_iOS" folder in "TagViewTest_iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 056CBE182D1C597900772D95 /* TagViewTest_iOS */;
+		};
 		05CF52BC2CC3AD3A0034E7BF /* Exceptions for "MultiUIKit_iOS" folder in "MultiUIKit_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
@@ -215,6 +235,14 @@
 				0549ED102CC3AAD200BB3940 /* Exceptions for "MultiUIKit_macOS" folder in "MultiUIKit_macOS" target */,
 			);
 			path = MultiUIKit_macOS;
+			sourceTree = "<group>";
+		};
+		056CBE1A2D1C597900772D95 /* TagViewTest_iOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				056CBE2C2D1C597B00772D95 /* Exceptions for "TagViewTest_iOS" folder in "TagViewTest_iOS" target */,
+			);
+			path = TagViewTest_iOS;
 			sourceTree = "<group>";
 		};
 		05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
@@ -253,6 +281,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		056CBE162D1C597900772D95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056CBE5F2D1D8BA000772D95 /* MultiDataKit.xcframework in Frameworks */,
+				056CBE5B2D1D8BA000772D95 /* MultiUIKit.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05CF52B32CC3AD3A0034E7BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,6 +317,7 @@
 		0515E7D22CC4781700321C89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */,
 				0524748F2CD771A700B4D281 /* WebKit.framework */,
 				052474912CD771C000B4D281 /* WebKit.framework */,
 				0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */,
@@ -306,7 +344,6 @@
 				05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */,
 				0549ED0B2CC3AAD200BB3940 /* MultiUIKit_macOS */,
 				05CF52AD2CC3AB750034E7BF /* Source */,
-				05F64B4F2CC3CF0200AAFAD9 /* Tests */,
 				0515E7D22CC4781700321C89 /* Frameworks */,
 				0549ED0A2CC3AAD200BB3940 /* Products */,
 			);
@@ -319,8 +356,17 @@
 				05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */,
 				0515E7BC2CC476D100321C89 /* UnitTest_iOS.app */,
 				052C60872CC4F34700E7523B /* UnitTest_macOS.app */,
+				056CBE192D1C597900772D95 /* TagViewTest_iOS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		056CBE642D1D907500772D95 /* TagView_Common */ = {
+			isa = PBXGroup;
+			children = (
+				056CBE652D1D909E00772D95 /* TabViews.swift */,
+			);
+			path = TagView_Common;
 			sourceTree = "<group>";
 		};
 		05CF52AD2CC3AB750034E7BF /* Source */ = {
@@ -329,6 +375,7 @@
 				05CF52AE2CC3ABCF0034E7BF /* Base */,
 				05F64B422CC3C74400AAFAD9 /* Controls */,
 				050F1FBD2CDBBA0300FAD756 /* Window */,
+				05F64B4F2CC3CF0200AAFAD9 /* Tests */,
 			);
 			name = Source;
 			path = ../Source;
@@ -404,6 +451,8 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				056CBE642D1D907500772D95 /* TagView_Common */,
+				056CBE1A2D1C597900772D95 /* TagViewTest_iOS */,
 				052C60822CC4CAB000E7523B /* macOS */,
 				0515E7D12CC476DD00321C89 /* iOS */,
 			);
@@ -516,6 +565,29 @@
 			productReference = 0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		056CBE182D1C597900772D95 /* TagViewTest_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056CBE2D2D1C597B00772D95 /* Build configuration list for PBXNativeTarget "TagViewTest_iOS" */;
+			buildPhases = (
+				056CBE152D1C597900772D95 /* Sources */,
+				056CBE162D1C597900772D95 /* Frameworks */,
+				056CBE172D1C597900772D95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				056CBE622D1D8C7800772D95 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				056CBE1A2D1C597900772D95 /* TagViewTest_iOS */,
+			);
+			name = TagViewTest_iOS;
+			packageProductDependencies = (
+			);
+			productName = TagViewTest_iOS;
+			productReference = 056CBE192D1C597900772D95 /* TagViewTest_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		05CF52B52CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05CF52BD2CC3AD3A0034E7BF /* Build configuration list for PBXNativeTarget "MultiUIKit_iOS" */;
@@ -547,8 +619,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1610;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					0515E7BB2CC476D100321C89 = {
 						CreatedOnToolsVersion = 16.0;
@@ -558,6 +630,9 @@
 					};
 					0549ED082CC3AAD200BB3940 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					056CBE182D1C597900772D95 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 					05CF52B52CC3AD3A0034E7BF = {
 						CreatedOnToolsVersion = 16.0;
@@ -586,6 +661,7 @@
 				05F64B522CC3CF5100AAFAD9 /* Install */,
 				0515E7BB2CC476D100321C89 /* UnitTest_iOS */,
 				052C60862CC4F34700E7523B /* UnitTest_macOS */,
+				056CBE182D1C597900772D95 /* TagViewTest_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -640,6 +716,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		056CBE172D1C597900772D95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -691,6 +774,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		056CBE152D1C597900772D95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056CBE662D1D909E00772D95 /* TabViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05CF52B22CC3AD3A0034E7BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -722,6 +813,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		056CBE622D1D8C7800772D95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
+			targetProxy = 056CBE612D1D8C7800772D95 /* PBXContainerItemProxy */;
+		};
 		058A19092CCEFC970058997A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
@@ -1087,6 +1183,67 @@
 			};
 			name = Release;
 		};
+		056CBE2A2D1C597B00772D95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/TagViewTest_iOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TrustedSearch.iOS.TagViewTest-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		056CBE2B2D1C597B00772D95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/TagViewTest_iOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TrustedSearch.iOS.TagViewTest-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		05CF52BE2CC3AD3A0034E7BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1236,6 +1393,15 @@
 			buildConfigurations = (
 				0549ED122CC3AAD200BB3940 /* Debug */,
 				0549ED132CC3AAD200BB3940 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		056CBE2D2D1C597B00772D95 /* Build configuration list for PBXNativeTarget "TagViewTest_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056CBE2A2D1C597B00772D95 /* Debug */,
+				056CBE2B2D1C597B00772D95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
