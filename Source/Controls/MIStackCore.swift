@@ -14,6 +14,12 @@ import  UIKit
 public class MIStackCore: MICoreView
 {
         #if os(iOS)
+        public typealias Distribution = UIStackView.Distribution
+        #else
+        public typealias Distribution = NSStackView.Distribution
+        #endif
+
+        #if os(iOS)
         public typealias Axis = NSLayoutConstraint.Axis
         #else
         public typealias Axis = NSUserInterfaceLayoutOrientation
@@ -49,6 +55,11 @@ public class MIStackCore: MICoreView
                                 mStack.orientation = value
                         #endif
                 }
+        }
+
+        public var distribution: Distribution {
+                get         { return mStack.distribution }
+                set(newval) { mStack.distribution = newval }
         }
 
         public func addArrangedSubView(_ view: MIInterfaceView) {

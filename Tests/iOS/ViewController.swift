@@ -93,6 +93,7 @@ class ViewController: MIViewController {
                         () -> Void in NSLog("button1 pressed")
                 })
                 buttons.addArrangedSubView(button1)
+                buttons.distribution = .fillEqually
 
                 mStack.addArrangedSubView(buttons)
         }

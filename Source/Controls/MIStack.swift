@@ -31,6 +31,11 @@ open class MIStack: MIInterfaceView
                 set(value){     coreStackView().axis = value    }
         }
 
+        public var distribution: MIStackCore.Distribution {
+                get         { return coreStackView().distribution   }
+                set(newval) { coreStackView().distribution = newval }
+        }
+
         public func addArrangedSubView(_ view: MIInterfaceView) {
                 coreStackView().addArrangedSubView(view)
                 switch self.axis {
