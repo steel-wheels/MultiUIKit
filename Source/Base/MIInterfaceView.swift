@@ -88,14 +88,9 @@ open class MIInterfaceView: MIBaseView
 
         public func allocateSubviewLayout(subView sview: MICoreView){
                 sview.translatesAutoresizingMaskIntoConstraints = false
-                addConstraint(MIInterfaceView.allocateLayout(fromView: sview,  toView: self,   attribute: .top,    length: 0.0)) ;
-                addConstraint(MIInterfaceView.allocateLayout(fromView: sview,  toView: self,   attribute: .left,   length: 0.0)) ;
-                addConstraint(MIInterfaceView.allocateLayout(fromView: self,   toView: sview,  attribute: .bottom, length: 0.0)) ;
-                addConstraint(MIInterfaceView.allocateLayout(fromView: self,   toView: sview,  attribute: .right,  length: 0.0)) ;
-        }
-
-        private class func allocateLayout(fromView fview : MIBaseView, toView tview: MIBaseView, attribute attr: NSLayoutConstraint.Attribute, length len: CGFloat) -> NSLayoutConstraint {
-                return NSLayoutConstraint(item: fview, attribute: attr, relatedBy: NSLayoutConstraint.Relation.equal, toItem: tview, attribute: attr, multiplier: 1.0, constant: len) ;
+                let space: CGFloat = 0.0
+                MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: self, childView: sview, space: space)
+                MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: self, childView: sview, space: space)
         }
 
         #if os(iOS)
@@ -129,24 +124,24 @@ open class MIInterfaceView: MIBaseView
                 super.invalidateIntrinsicContentSize()
         }
 
-        public typealias LayoutConstraintPriority    = MICoreView.LayoutConstraintPriority
-        public typealias LayoutConstraintOrientation = MICoreView.LayoutConstraintOrientation
+        public typealias LayoutPriority    = MICoreView.LayoutPriority
+        public typealias LayoutOrientation = MICoreView.LayoutOrientation
 
-        public override func setContentHuggingPriority(_ priority: LayoutConstraintPriority , for axis: LayoutConstraintOrientation) {
+        public override func setContentHuggingPriority(_ priority: LayoutPriority , for axis: LayoutOrientation) {
                 super.setContentHuggingPriority(priority, for: axis)
                 if let core = mCoreView {
                         core.setContentHuggingPriority(priority, for: axis)
                 }
         }
 
-        public override func setContentCompressionResistancePriority(_ priority: LayoutConstraintPriority, for axis: LayoutConstraintOrientation) {
+        public override func setContentCompressionResistancePriority(_ priority: LayoutPriority, for axis: LayoutOrientation) {
                 super.setContentCompressionResistancePriority(priority, for: axis)
                 if let core = mCoreView {
                         core.setContentCompressionResistancePriority(priority, for: axis)
                 }
         }
 
-        public func setContentExpansionPriority(_ priority: LayoutConstraintPriority, for axis: LayoutConstraintOrientation) {
+        public func setContentExpansionPriority(_ priority: LayoutPriority, for axis: LayoutOrientation) {
                 setContentHuggingPriority(priority, for: axis)
                 setContentCompressionResistancePriority(priority, for: axis)
         }

@@ -11,7 +11,16 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-public extension MIBaseView {
+public extension MIBaseView
+{
+        #if os(iOS)
+        typealias LayoutPriority    = UILayoutPriority
+        typealias LayoutOrientation = NSLayoutConstraint.Axis
+        #else
+        typealias LayoutPriority    = NSLayoutConstraint.Priority
+        typealias LayoutOrientation = NSLayoutConstraint.Orientation
+        #endif
+
         func activateAutolayout() {
                 self.translatesAutoresizingMaskIntoConstraints = false
                 self.autoresizesSubviews = true
@@ -31,6 +40,24 @@ public extension MIBaseView {
                 #else
                         self.setNeedsDisplay()
                 #endif
+        }
+
+        class func allocateSubviewLayout(axis axs: LayoutOrientation, parentView parent: MIBaseView, childView child: MIBaseView, space spc: CGFloat){
+                child.translatesAutoresizingMaskIntoConstraints = false
+                switch axs {
+                case .horizontal:
+                        parent.addConstraint(allocateLayout(fromView: child, toView: parent, attribute: .left, length: spc))
+                        parent.addConstraint(allocateLayout(fromView: parent, toView: child, attribute: .right, length: spc))
+                case .vertical:
+                        parent.addConstraint(allocateLayout(fromView: child, toView: parent, attribute: .top, length: spc))
+                        parent.addConstraint(allocateLayout(fromView: parent, toView: child, attribute: .bottom, length: spc))
+                @unknown default:
+                        NSLog("Can not happen at \(#function) in \(#file)")
+                }
+        }
+
+        class func allocateLayout(fromView fview : MIBaseView, toView tview: MIBaseView, attribute attr: NSLayoutConstraint.Attribute, length len: CGFloat) -> NSLayoutConstraint {
+                return NSLayoutConstraint(item: fview, attribute: attr, relatedBy: NSLayoutConstraint.Relation.equal, toItem: tview, attribute: attr, multiplier: 1.0, constant: len) ;
         }
 }
 

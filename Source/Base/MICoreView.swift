@@ -57,22 +57,14 @@ public class MICoreView: MIBaseView
                 super.invalidateIntrinsicContentSize()
         }
 
-        #if os(iOS)
-        public typealias LayoutConstraintPriority    = UILayoutPriority
-        public typealias LayoutConstraintOrientation = NSLayoutConstraint.Axis
-        #else
-        public typealias LayoutConstraintPriority    = NSLayoutConstraint.Priority
-        public typealias LayoutConstraintOrientation = NSLayoutConstraint.Orientation
-        #endif
-
-        public override func setContentHuggingPriority(_ priority: LayoutConstraintPriority , for axis: LayoutConstraintOrientation) {
+        public override func setContentHuggingPriority(_ priority: LayoutPriority , for axis: LayoutOrientation) {
                 super.setContentHuggingPriority(priority, for: axis)
                 if let core = mCoreView {
                         core.setContentHuggingPriority(priority, for: axis)
                 }
         }
 
-        public override func setContentCompressionResistancePriority(_ priority: LayoutConstraintPriority, for axis: LayoutConstraintOrientation) {
+        public override func setContentCompressionResistancePriority(_ priority: LayoutPriority, for axis: LayoutOrientation) {
                 super .setContentCompressionResistancePriority(priority, for: axis)
                 if let core = mCoreView {
                         core.setContentCompressionResistancePriority(priority, for: axis)
