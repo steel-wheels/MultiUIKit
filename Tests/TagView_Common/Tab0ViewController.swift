@@ -7,19 +7,14 @@
 
 import MultiUIKit
 
-public class Tab0ViewController: MIViewController
+public class Tab0ViewController: MIStackViewController
 {
         public override func viewDidLoad() {
-                let root = MIStack()
-                self.view.addSubview(root)
+                super.setup(axis: .vertical)
 
-                MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: self.view, childView: root, space: 0.0)
-                MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: self.view, childView: root, space: 0.0)
-
-                root.axis = .vertical
                 let label = MILabel()
                 label.title = "View-0"
-                root.addArrangedSubView(label)
+                self.root.addArrangedSubView(label)
 
                 super.viewDidLoad()
         }
