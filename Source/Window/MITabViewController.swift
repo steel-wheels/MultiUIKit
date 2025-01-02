@@ -19,25 +19,22 @@ public typealias MITabViewControllerBase = NSTabViewController
 
 open class MITabViewController: MITabViewControllerBase
 {
-        public struct ContentView {
-                public var title:    String
-                public var view:     MIStack
-
-                public init(title: String, view: MIStack) {
+        public struct TabController {
+                public var title:       String
+                public var controller:  MIViewController
+                public init(title: String, controller: MIViewController) {
                         self.title = title
-                        self.view  = view
+                        self.controller = controller
                 }
         }
 
-        private var mContentViews: Array<ContentView> = []
+        private var mTabControllers: Array<TabController> = []
 
-        public func addContentView(title ttl: String, contentView cont: MIStack) {
-                mContentViews.append(ContentView(title: ttl, view: cont))
+        public func addContentView(title ttl: String, controller cont: MIViewController) {
+                mTabControllers.append(TabController(title: ttl, controller: cont))
         }
 
         open override func viewDidLoad() {
-                super.viewDidLoad()
-
                 #if os(iOS)
                 self.mode = .tabBar
                 #else
@@ -46,32 +43,26 @@ open class MITabViewController: MITabViewControllerBase
 
                 #if os(iOS)
                 var children: Array<MIViewController> = []
-                for content in mContentViews {
-                        let child  = MIViewController()
-                        child.view.addSubview(content.view)
-                        child.tabBarItem = UITabBarItem(title: content.title, image: nil, tag: children.count)
-                        allocateSubviewLayout(controller: child, view: content.view)
-                        children.append(child)
+                for ctrl in mTabControllers {
+                        ctrl.controller.tabBarItem = UITabBarItem(title: ctrl.title, image: nil, tag: children.count)
+                        children.append(ctrl.controller)
                 }
                 super.setViewControllers(children, animated: false)
                 super.selectedIndex = 0
                 #else
-                for content in mContentViews {
-                        let child  = MIViewController()
-                        child.view.addSubview(content.view)
-                        allocateSubviewLayout(controller: child, view: content.view)
-
-                        let item = NSTabViewItem(viewController: child)
-                        item.label = content.title
-
+                for ctrl in mTabControllers {
+                        let item = NSTabViewItem(viewController: ctrl.controller)
+                        item.label = ctrl.title
                         super.addTabViewItem(item)
                 }
                 super.selectedTabViewItemIndex = 0
                 #endif
+
+                super.viewDidLoad()
         }
 
         /* https://stackoverflow.com/questions/46317061/how-do-i-use-safe-area-layout-programmatically */
-        private func allocateSubviewLayout(controller: MIViewController, view: MIInterfaceView){
+        public class func allocateSubviewLayout(controller: MIViewController, view: MIInterfaceView){
                 view.translatesAutoresizingMaskIntoConstraints = false
 
                 let guide = controller.view.safeAreaLayoutGuide

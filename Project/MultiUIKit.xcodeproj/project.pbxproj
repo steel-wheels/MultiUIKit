@@ -49,7 +49,6 @@
 		0567D07A2CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
 		056CBE5B2D1D8BA000772D95 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		056CBE5F2D1D8BA000772D95 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
-		056CBE662D1D909E00772D95 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056CBE652D1D909E00772D95 /* TabViews.swift */; };
 		0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */; };
@@ -62,7 +61,10 @@
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057DB4FD2D239504008FFC6E /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
 		057DB4FF2D239504008FFC6E /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		057DB5022D239589008FFC6E /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056CBE652D1D909E00772D95 /* TabViews.swift */; };
+		059853462D26115200282098 /* Tab0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853452D26115200282098 /* Tab0ViewController.swift */; };
+		059853472D26115200282098 /* Tab0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853452D26115200282098 /* Tab0ViewController.swift */; };
+		059853492D2611FD00282098 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853482D2611FD00282098 /* Tab1ViewController.swift */; };
+		0598534A2D2611FD00282098 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853482D2611FD00282098 /* Tab1ViewController.swift */; };
 		05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */; };
 		05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */; };
 		05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
@@ -183,7 +185,6 @@
 		0567D0782CD678E900595CDD /* MITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextField.swift; sourceTree = "<group>"; };
 		056CBE192D1C597900772D95 /* TagViewTest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagViewTest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
-		056CBE652D1D909E00772D95 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		0574C3162CD75A4200E7166F /* MIWebViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIWebViewCore.swift; sourceTree = "<group>"; };
 		0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
 		0574C31B2CD75BE900E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
@@ -192,6 +193,8 @@
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
 		057DB4EC2D236D5E008FFC6E /* TagViewTest_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagViewTest_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		059853452D26115200282098 /* Tab0ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab0ViewController.swift; sourceTree = "<group>"; };
+		059853482D2611FD00282098 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
 		05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
@@ -390,7 +393,8 @@
 		056CBE642D1D907500772D95 /* TagView_Common */ = {
 			isa = PBXGroup;
 			children = (
-				056CBE652D1D909E00772D95 /* TabViews.swift */,
+				059853452D26115200282098 /* Tab0ViewController.swift */,
+				059853482D2611FD00282098 /* Tab1ViewController.swift */,
 			);
 			path = TagView_Common;
 			sourceTree = "<group>";
@@ -839,7 +843,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056CBE662D1D909E00772D95 /* TabViews.swift in Sources */,
+				0598534A2D2611FD00282098 /* Tab1ViewController.swift in Sources */,
+				059853462D26115200282098 /* Tab0ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,7 +852,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				057DB5022D239589008FFC6E /* TabViews.swift in Sources */,
+				059853472D26115200282098 /* Tab0ViewController.swift in Sources */,
+				059853492D2611FD00282098 /* Tab1ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
