@@ -32,6 +32,16 @@ open class MIViewController: MIViewControllerBase
                 case cancel
         }
 
+        public func makeLabeledStack(label lab: String, contents views : Array<MIInterfaceView>) -> MIStack {
+                let stack = MIStack()
+                let label = MILabel() ; label.title = lab
+                stack.addArrangedSubView(label)
+                for view in views {
+                        stack.addArrangedSubView(view)
+                }
+                return stack
+        }
+
         #if os(iOS)
 
         public func alert(message msg: String, callback cbfunc: @escaping (_ result: AlertResult) -> Void) {
