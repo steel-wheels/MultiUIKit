@@ -63,6 +63,8 @@
 		05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
 		05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB52CD6183000BA959F /* MISwitch.swift */; };
 		05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB52CD6183000BA959F /* MISwitch.swift */; };
+		05D766EA2D355BB400644698 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
+		05D766EC2D355BB400644698 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		05D83E772CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */; };
 		05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */; };
 		05D83E7A2CE24506004ACED7 /* MIPopupMenuCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */; };
@@ -174,6 +176,7 @@
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
 		05B93FB52CD6183000BA959F /* MISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitch.swift; sourceTree = "<group>"; };
 		05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05D766D52D35566600644698 /* TabView_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabView_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPopupMenuCore.swift; sourceTree = "<group>"; };
 		05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIPopupMenuCore.xib; sourceTree = "<group>"; };
 		05D83E7B2CE246EC004ACED7 /* MIPopupMenuCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIPopupMenuCore.xib; sourceTree = "<group>"; };
@@ -226,6 +229,11 @@
 			path = MultiUIKit_iOS;
 			sourceTree = "<group>";
 		};
+		05D766D62D35566600644698 /* TabView_macOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TabView_macOS;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +266,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D766D22D35566600644698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05D766EC2D355BB400644698 /* MultiUIKit.xcframework in Frameworks */,
+				05D766EA2D355BB400644698 /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +337,7 @@
 				05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */,
 				0515E7BC2CC476D100321C89 /* UnitTest_iOS.app */,
 				052C60872CC4F34700E7523B /* UnitTest_macOS.app */,
+				05D766D52D35566600644698 /* TabView_macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +424,7 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				05D766D62D35566600644698 /* TabView_macOS */,
 				052C60822CC4CAB000E7523B /* macOS */,
 				0515E7D12CC476DD00321C89 /* iOS */,
 			);
@@ -542,6 +561,28 @@
 			productReference = 05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		05D766D42D35566600644698 /* TabView_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05D766E12D35566800644698 /* Build configuration list for PBXNativeTarget "TabView_macOS" */;
+			buildPhases = (
+				05D766D12D35566600644698 /* Sources */,
+				05D766D22D35566600644698 /* Frameworks */,
+				05D766D32D35566600644698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				05D766D62D35566600644698 /* TabView_macOS */,
+			);
+			name = TabView_macOS;
+			packageProductDependencies = (
+			);
+			productName = TabView_macOS;
+			productReference = 05D766D52D35566600644698 /* TabView_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -563,6 +604,9 @@
 					};
 					05CF52B52CC3AD3A0034E7BF = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					05D766D42D35566600644698 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 					05F64B522CC3CF5100AAFAD9 = {
 						CreatedOnToolsVersion = 16.0;
@@ -588,6 +632,7 @@
 				05F64B522CC3CF5100AAFAD9 /* Install */,
 				0515E7BB2CC476D100321C89 /* UnitTest_iOS */,
 				052C60862CC4F34700E7523B /* UnitTest_macOS */,
+				05D766D42D35566600644698 /* TabView_macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -639,6 +684,13 @@
 				0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */,
 				052C609A2CC5001C00E7523B /* MILabelCore.xib in Resources */,
 				057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D766D32D35566600644698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +770,13 @@
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05F64B3E2CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D766D12D35566600644698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1233,62 @@
 			};
 			name = Release;
 		};
+		05D766E22D35566800644698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ../Tests/TabView_macOS/TabView_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TabView.macOS.TabView-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		05D766E32D35566800644698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ../Tests/TabView_macOS/TabView_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TabView.macOS.TabView-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		05F64B542CC3CF5100AAFAD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1247,6 +1362,15 @@
 			buildConfigurations = (
 				05CF52BE2CC3AD3A0034E7BF /* Debug */,
 				05CF52BF2CC3AD3A0034E7BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05D766E12D35566800644698 /* Build configuration list for PBXNativeTarget "TabView_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05D766E22D35566800644698 /* Debug */,
+				05D766E32D35566800644698 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
