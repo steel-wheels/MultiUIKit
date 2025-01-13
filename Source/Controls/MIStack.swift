@@ -38,18 +38,6 @@ open class MIStack: MIInterfaceView
 
         public func addArrangedSubView(_ view: MIInterfaceView) {
                 coreStackView().addArrangedSubView(view)
-                switch self.axis {
-                case .vertical:
-                        view.setContentExpansionPriority(.defaultLow, for: .horizontal)
-                        MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: self, childView: view, space: 4.0)
-                        view.invalidateIntrinsicContentSize()
-                case .horizontal:
-                        view.setContentExpansionPriority(.defaultLow, for: .vertical)
-                        MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: self, childView: view, space: 4.0)
-                        view.invalidateIntrinsicContentSize()
-                @unknown default:
-                        NSLog("can not happen")
-                }
         }
 
         public var arrangedSubviews: Array<MIInterfaceView> { get {

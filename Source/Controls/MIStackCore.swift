@@ -63,11 +63,17 @@ public class MIStackCore: MICoreView
         }
 
         public func addArrangedSubView(_ view: MIInterfaceView) {
-                #if os(OSX)
                 mStack.addArrangedSubview(view)
-                #else
-                mStack.addArrangedSubview(view)
-                #endif
+                switch self.axis {
+                case .horizontal:
+                        MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: mStack, childView: view, space: 0.0)
+                        view.setContentExpansionPriority(.defaultLow, for: .horizontal)
+                case .vertical:
+                        MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: mStack, childView: view, space: 0.0)
+                        view.setContentExpansionPriority(.defaultLow, for: .vertical)
+                @unknown default:
+                        NSLog("[Error] Unknown case")
+                }
         }
 
         public var arrangedSubviews: Array<MIInterfaceView> { get {
