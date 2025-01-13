@@ -47,8 +47,6 @@
 		0567D0772CD6775600595CDD /* MITextFieldCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0567D0762CD6775600595CDD /* MITextFieldCore.xib */; };
 		0567D0792CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
 		0567D07A2CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
-		056CBE5B2D1D8BA000772D95 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		056CBE5F2D1D8BA000772D95 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
 		0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */; };
@@ -59,12 +57,6 @@
 		057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */; };
 		057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
-		057DB4FD2D239504008FFC6E /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
-		057DB4FF2D239504008FFC6E /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		059853462D26115200282098 /* Tab0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853452D26115200282098 /* Tab0ViewController.swift */; };
-		059853472D26115200282098 /* Tab0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853452D26115200282098 /* Tab0ViewController.swift */; };
-		059853492D2611FD00282098 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853482D2611FD00282098 /* Tab1ViewController.swift */; };
-		0598534A2D2611FD00282098 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059853482D2611FD00282098 /* Tab1ViewController.swift */; };
 		05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */; };
 		05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */; };
 		05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
@@ -93,20 +85,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		056CBE612D1D8C7800772D95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
-			remoteInfo = Install;
-		};
-		057DB4FB2D239461008FFC6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
-			remoteInfo = Install;
-		};
 		058A19082CCEFC970058997A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
@@ -183,7 +161,6 @@
 		0567D0742CD6767800595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
 		0567D0762CD6775600595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
 		0567D0782CD678E900595CDD /* MITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextField.swift; sourceTree = "<group>"; };
-		056CBE192D1C597900772D95 /* TagViewTest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagViewTest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
 		0574C3162CD75A4200E7166F /* MIWebViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIWebViewCore.swift; sourceTree = "<group>"; };
 		0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
@@ -192,9 +169,6 @@
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
-		057DB4EC2D236D5E008FFC6E /* TagViewTest_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagViewTest_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		059853452D26115200282098 /* Tab0ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab0ViewController.swift; sourceTree = "<group>"; };
-		059853482D2611FD00282098 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
 		05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
@@ -221,13 +195,6 @@
 			);
 			target = 0549ED082CC3AAD200BB3940 /* MultiUIKit_macOS */;
 		};
-		056CBE2C2D1C597B00772D95 /* Exceptions for "TagViewTest_iOS" folder in "TagViewTest_iOS" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 056CBE182D1C597900772D95 /* TagViewTest_iOS */;
-		};
 		05CF52BC2CC3AD3A0034E7BF /* Exceptions for "MultiUIKit_iOS" folder in "MultiUIKit_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
@@ -249,19 +216,6 @@
 				0549ED102CC3AAD200BB3940 /* Exceptions for "MultiUIKit_macOS" folder in "MultiUIKit_macOS" target */,
 			);
 			path = MultiUIKit_macOS;
-			sourceTree = "<group>";
-		};
-		056CBE1A2D1C597900772D95 /* TagViewTest_iOS */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				056CBE2C2D1C597B00772D95 /* Exceptions for "TagViewTest_iOS" folder in "TagViewTest_iOS" target */,
-			);
-			path = TagViewTest_iOS;
-			sourceTree = "<group>";
-		};
-		057DB4ED2D236D5E008FFC6E /* TagViewTest_macOS */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TagViewTest_macOS;
 			sourceTree = "<group>";
 		};
 		05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
@@ -297,24 +251,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		056CBE162D1C597900772D95 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				056CBE5F2D1D8BA000772D95 /* MultiDataKit.xcframework in Frameworks */,
-				056CBE5B2D1D8BA000772D95 /* MultiUIKit.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		057DB4E92D236D5E008FFC6E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				057DB4FF2D239504008FFC6E /* MultiUIKit.xcframework in Frameworks */,
-				057DB4FD2D239504008FFC6E /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,19 +320,8 @@
 				05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */,
 				0515E7BC2CC476D100321C89 /* UnitTest_iOS.app */,
 				052C60872CC4F34700E7523B /* UnitTest_macOS.app */,
-				056CBE192D1C597900772D95 /* TagViewTest_iOS.app */,
-				057DB4EC2D236D5E008FFC6E /* TagViewTest_macOS.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		056CBE642D1D907500772D95 /* TagView_Common */ = {
-			isa = PBXGroup;
-			children = (
-				059853452D26115200282098 /* Tab0ViewController.swift */,
-				059853482D2611FD00282098 /* Tab1ViewController.swift */,
-			);
-			path = TagView_Common;
 			sourceTree = "<group>";
 		};
 		05CF52AD2CC3AB750034E7BF /* Source */ = {
@@ -481,9 +406,6 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				056CBE642D1D907500772D95 /* TagView_Common */,
-				057DB4ED2D236D5E008FFC6E /* TagViewTest_macOS */,
-				056CBE1A2D1C597900772D95 /* TagViewTest_iOS */,
 				052C60822CC4CAB000E7523B /* macOS */,
 				0515E7D12CC476DD00321C89 /* iOS */,
 			);
@@ -596,52 +518,6 @@
 			productReference = 0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		056CBE182D1C597900772D95 /* TagViewTest_iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 056CBE2D2D1C597B00772D95 /* Build configuration list for PBXNativeTarget "TagViewTest_iOS" */;
-			buildPhases = (
-				056CBE152D1C597900772D95 /* Sources */,
-				056CBE162D1C597900772D95 /* Frameworks */,
-				056CBE172D1C597900772D95 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				056CBE622D1D8C7800772D95 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				056CBE1A2D1C597900772D95 /* TagViewTest_iOS */,
-			);
-			name = TagViewTest_iOS;
-			packageProductDependencies = (
-			);
-			productName = TagViewTest_iOS;
-			productReference = 056CBE192D1C597900772D95 /* TagViewTest_iOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		057DB4EB2D236D5E008FFC6E /* TagViewTest_macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 057DB4F82D236D60008FFC6E /* Build configuration list for PBXNativeTarget "TagViewTest_macOS" */;
-			buildPhases = (
-				057DB4E82D236D5E008FFC6E /* Sources */,
-				057DB4E92D236D5E008FFC6E /* Frameworks */,
-				057DB4EA2D236D5E008FFC6E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				057DB4FC2D239461008FFC6E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				057DB4ED2D236D5E008FFC6E /* TagViewTest_macOS */,
-			);
-			name = TagViewTest_macOS;
-			packageProductDependencies = (
-			);
-			productName = TagViewTest_macOS;
-			productReference = 057DB4EC2D236D5E008FFC6E /* TagViewTest_macOS.app */;
-			productType = "com.apple.product-type.application";
-		};
 		05CF52B52CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05CF52BD2CC3AD3A0034E7BF /* Build configuration list for PBXNativeTarget "MultiUIKit_iOS" */;
@@ -685,12 +561,6 @@
 					0549ED082CC3AAD200BB3940 = {
 						CreatedOnToolsVersion = 16.0;
 					};
-					056CBE182D1C597900772D95 = {
-						CreatedOnToolsVersion = 16.2;
-					};
-					057DB4EB2D236D5E008FFC6E = {
-						CreatedOnToolsVersion = 16.2;
-					};
 					05CF52B52CC3AD3A0034E7BF = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -718,8 +588,6 @@
 				05F64B522CC3CF5100AAFAD9 /* Install */,
 				0515E7BB2CC476D100321C89 /* UnitTest_iOS */,
 				052C60862CC4F34700E7523B /* UnitTest_macOS */,
-				056CBE182D1C597900772D95 /* TagViewTest_iOS */,
-				057DB4EB2D236D5E008FFC6E /* TagViewTest_macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -774,20 +642,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		056CBE172D1C597900772D95 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		057DB4EA2D236D5E008FFC6E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -839,24 +693,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		056CBE152D1C597900772D95 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0598534A2D2611FD00282098 /* Tab1ViewController.swift in Sources */,
-				059853462D26115200282098 /* Tab0ViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		057DB4E82D236D5E008FFC6E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				059853472D26115200282098 /* Tab0ViewController.swift in Sources */,
-				059853492D2611FD00282098 /* Tab1ViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		05CF52B22CC3AD3A0034E7BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -888,16 +724,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		056CBE622D1D8C7800772D95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
-			targetProxy = 056CBE612D1D8C7800772D95 /* PBXContainerItemProxy */;
-		};
-		057DB4FC2D239461008FFC6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
-			targetProxy = 057DB4FB2D239461008FFC6E /* PBXContainerItemProxy */;
-		};
 		058A19092CCEFC970058997A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
@@ -1263,123 +1089,6 @@
 			};
 			name = Release;
 		};
-		056CBE2A2D1C597B00772D95 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ../Tests/TagViewTest_iOS/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TrustedSearch.iOS.TagViewTest-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		056CBE2B2D1C597B00772D95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ../Tests/TagViewTest_iOS/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TrustedSearch.iOS.TagViewTest-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		057DB4F92D236D60008FFC6E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ../Tests/TagViewTest_macOS/TagViewTest_macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TrustedSearch.iOS.TagViewTest-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		057DB4FA2D236D60008FFC6E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ../Tests/TagViewTest_macOS/TagViewTest_macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TrustedSearch.iOS.TagViewTest-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		05CF52BE2CC3AD3A0034E7BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1529,24 +1238,6 @@
 			buildConfigurations = (
 				0549ED122CC3AAD200BB3940 /* Debug */,
 				0549ED132CC3AAD200BB3940 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		056CBE2D2D1C597B00772D95 /* Build configuration list for PBXNativeTarget "TagViewTest_iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				056CBE2A2D1C597B00772D95 /* Debug */,
-				056CBE2B2D1C597B00772D95 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		057DB4F82D236D60008FFC6E /* Build configuration list for PBXNativeTarget "TagViewTest_macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				057DB4F92D236D60008FFC6E /* Debug */,
-				057DB4FA2D236D60008FFC6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
