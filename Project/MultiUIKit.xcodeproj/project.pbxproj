@@ -41,6 +41,8 @@
 		054721AA2CCE25E700F6EEA4 /* MIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054721A82CCE25E700F6EEA4 /* MIStack.swift */; };
 		054B43042CD75F92000CCD12 /* MIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054B43032CD75F92000CCD12 /* MIWebView.swift */; };
 		054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054B43032CD75F92000CCD12 /* MIWebView.swift */; };
+		05583F752D36A91B00294E1E /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
+		05583F772D36A91B00294E1E /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0712CD6760500595CDD /* MITextFieldCore.swift */; };
 		0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0712CD6760500595CDD /* MITextFieldCore.swift */; };
 		0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0567D0742CD6767800595CDD /* MITextFieldCore.xib */; };
@@ -177,6 +179,7 @@
 		05B93FB52CD6183000BA959F /* MISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitch.swift; sourceTree = "<group>"; };
 		05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D766D52D35566600644698 /* TabView_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabView_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05D766F32D355DB800644698 /* TabView_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabView_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPopupMenuCore.swift; sourceTree = "<group>"; };
 		05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIPopupMenuCore.xib; sourceTree = "<group>"; };
 		05D83E7B2CE246EC004ACED7 /* MIPopupMenuCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIPopupMenuCore.xib; sourceTree = "<group>"; };
@@ -205,6 +208,13 @@
 			);
 			target = 05CF52B52CC3AD3A0034E7BF /* MultiUIKit_iOS */;
 		};
+		05D767042D355DBA00644698 /* Exceptions for "TabView_iOS" folder in "TabView_iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 05D766F22D355DB800644698 /* TabView_iOS */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -232,6 +242,14 @@
 		05D766D62D35566600644698 /* TabView_macOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TabView_macOS;
+			sourceTree = "<group>";
+		};
+		05D766F42D355DB800644698 /* TabView_iOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				05D767042D355DBA00644698 /* Exceptions for "TabView_iOS" folder in "TabView_iOS" target */,
+			);
+			path = TabView_iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -275,6 +293,15 @@
 			files = (
 				05D766EC2D355BB400644698 /* MultiUIKit.xcframework in Frameworks */,
 				05D766EA2D355BB400644698 /* MultiDataKit.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D766F02D355DB800644698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05583F772D36A91B00294E1E /* MultiUIKit.xcframework in Frameworks */,
+				05583F752D36A91B00294E1E /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +352,7 @@
 				05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */,
 				0549ED0B2CC3AAD200BB3940 /* MultiUIKit_macOS */,
 				05CF52AD2CC3AB750034E7BF /* Source */,
+				05F64B4F2CC3CF0200AAFAD9 /* Tests */,
 				0515E7D22CC4781700321C89 /* Frameworks */,
 				0549ED0A2CC3AAD200BB3940 /* Products */,
 			);
@@ -338,6 +366,7 @@
 				0515E7BC2CC476D100321C89 /* UnitTest_iOS.app */,
 				052C60872CC4F34700E7523B /* UnitTest_macOS.app */,
 				05D766D52D35566600644698 /* TabView_macOS.app */,
+				05D766F32D355DB800644698 /* TabView_iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,7 +377,6 @@
 				05CF52AE2CC3ABCF0034E7BF /* Base */,
 				05F64B422CC3C74400AAFAD9 /* Controls */,
 				050F1FBD2CDBBA0300FAD756 /* Window */,
-				05F64B4F2CC3CF0200AAFAD9 /* Tests */,
 			);
 			name = Source;
 			path = ../Source;
@@ -424,6 +452,7 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				05D766F42D355DB800644698 /* TabView_iOS */,
 				05D766D62D35566600644698 /* TabView_macOS */,
 				052C60822CC4CAB000E7523B /* macOS */,
 				0515E7D12CC476DD00321C89 /* iOS */,
@@ -583,6 +612,28 @@
 			productReference = 05D766D52D35566600644698 /* TabView_macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		05D766F22D355DB800644698 /* TabView_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05D767052D355DBA00644698 /* Build configuration list for PBXNativeTarget "TabView_iOS" */;
+			buildPhases = (
+				05D766EF2D355DB800644698 /* Sources */,
+				05D766F02D355DB800644698 /* Frameworks */,
+				05D766F12D355DB800644698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				05D766F42D355DB800644698 /* TabView_iOS */,
+			);
+			name = TabView_iOS;
+			packageProductDependencies = (
+			);
+			productName = TabView_iOS;
+			productReference = 05D766F32D355DB800644698 /* TabView_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -606,6 +657,9 @@
 						CreatedOnToolsVersion = 16.0;
 					};
 					05D766D42D35566600644698 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					05D766F22D355DB800644698 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 					05F64B522CC3CF5100AAFAD9 = {
@@ -633,6 +687,7 @@
 				0515E7BB2CC476D100321C89 /* UnitTest_iOS */,
 				052C60862CC4F34700E7523B /* UnitTest_macOS */,
 				05D766D42D35566600644698 /* TabView_macOS */,
+				05D766F22D355DB800644698 /* TabView_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -688,6 +743,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		05D766D32D35566600644698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D766F12D355DB800644698 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -774,6 +836,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		05D766D12D35566600644698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D766EF2D355DB800644698 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1289,6 +1358,67 @@
 			};
 			name = Release;
 		};
+		05D767062D355DBA00644698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/TabView_iOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TabView.iOS.TabView-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		05D767072D355DBA00644698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/TabView_iOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TabView.iOS.TabView-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		05F64B542CC3CF5100AAFAD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1371,6 +1501,15 @@
 			buildConfigurations = (
 				05D766E22D35566800644698 /* Debug */,
 				05D766E32D35566800644698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05D767052D355DBA00644698 /* Build configuration list for PBXNativeTarget "TabView_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05D767062D355DBA00644698 /* Debug */,
+				05D767072D355DBA00644698 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
