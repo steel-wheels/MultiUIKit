@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="-440.45801526717554" y="-680.28169014084506"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="gsz-7Z-9D6">
             <objects>
-                <tabBarController id="HhX-uz-D2J" sceneMemberID="viewController">
+                <tabBarController id="HhX-uz-D2J" customClass="MITabViewController" customModule="MultiUIKit" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fbh-M5-3X3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
