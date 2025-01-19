@@ -62,6 +62,10 @@ class ViewController: MIViewController {
                 mStack.addArrangedSubView(web0)
                 #endif
 
+                let table0 = MITable()
+                table0.setTableData(["Hello", "GoodMorinig"])
+                mStack.addArrangedSubView(table0)
+                
                 let buttons = MIStack()
                 buttons.axis = .horizontal
 

@@ -35,6 +35,14 @@
 		052C60A12CC5049B00E7523B /* MILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60A02CC5049B00E7523B /* MILabel.swift */; };
 		052C60A22CC5049B00E7523B /* MILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60A02CC5049B00E7523B /* MILabel.swift */; };
 		0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531A8982CC49D1C0053A897 /* MIButtonCore.xib */; };
+		053A7F3D2D3B34D2007C178B /* MITableCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053A7F3C2D3B34D2007C178B /* MITableCore.xib */; };
+		053A7F3F2D3B35DB007C178B /* MITableCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053A7F3E2D3B35DB007C178B /* MITableCore.xib */; };
+		053A7F412D3B3702007C178B /* MITableCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A7F402D3B3702007C178B /* MITableCore.swift */; };
+		053A7F422D3B3702007C178B /* MITableCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A7F402D3B3702007C178B /* MITableCore.swift */; };
+		053A7F442D3B3955007C178B /* MITable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A7F432D3B3955007C178B /* MITable.swift */; };
+		053A7F452D3B3955007C178B /* MITable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A7F432D3B3955007C178B /* MITable.swift */; };
+		053A7F552D3BDB1A007C178B /* MITableCelllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A7F542D3BDB1A007C178B /* MITableCelllView.swift */; };
+		053A7F562D3BDB1B007C178B /* MITableCelllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A7F542D3BDB1A007C178B /* MITableCelllView.swift */; };
 		053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B48AA2CD596F90008AD33 /* MIBaseView.swift */; };
 		053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B48AA2CD596F90008AD33 /* MIBaseView.swift */; };
 		054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054721A82CCE25E700F6EEA4 /* MIStack.swift */; };
@@ -157,6 +165,11 @@
 		052C609E2CC502D400E7523B /* MILabelCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MILabelCore.xib; sourceTree = "<group>"; };
 		052C60A02CC5049B00E7523B /* MILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MILabel.swift; sourceTree = "<group>"; };
 		0531A8982CC49D1C0053A897 /* MIButtonCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIButtonCore.xib; sourceTree = "<group>"; };
+		053A7F3C2D3B34D2007C178B /* MITableCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITableCore.xib; sourceTree = "<group>"; };
+		053A7F3E2D3B35DB007C178B /* MITableCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITableCore.xib; sourceTree = "<group>"; };
+		053A7F402D3B3702007C178B /* MITableCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITableCore.swift; sourceTree = "<group>"; };
+		053A7F432D3B3955007C178B /* MITable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITable.swift; sourceTree = "<group>"; };
+		053A7F542D3BDB1A007C178B /* MITableCelllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITableCelllView.swift; sourceTree = "<group>"; };
 		053B48AA2CD596F90008AD33 /* MIBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIBaseView.swift; sourceTree = "<group>"; };
 		054721A82CCE25E700F6EEA4 /* MIStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStack.swift; sourceTree = "<group>"; };
 		0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,6 +424,9 @@
 				05199E092CCE210900A61840 /* MIStackCore.swift */,
 				05B93FB52CD6183000BA959F /* MISwitch.swift */,
 				05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */,
+				053A7F432D3B3955007C178B /* MITable.swift */,
+				053A7F402D3B3702007C178B /* MITableCore.swift */,
+				053A7F542D3BDB1A007C178B /* MITableCelllView.swift */,
 				0567D0782CD678E900595CDD /* MITextField.swift */,
 				0567D0712CD6760500595CDD /* MITextFieldCore.swift */,
 				054B43032CD75F92000CCD12 /* MIWebView.swift */,
@@ -430,6 +446,7 @@
 				0567D0762CD6775600595CDD /* MITextFieldCore.xib */,
 				0574C31B2CD75BE900E7166F /* MIWebViewCore.xib */,
 				057C1D942CFA092E00073559 /* MISegmentedControlCore.xib */,
+				053A7F3E2D3B35DB007C178B /* MITableCore.xib */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -445,6 +462,7 @@
 				0567D0742CD6767800595CDD /* MITextFieldCore.xib */,
 				0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */,
 				057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */,
+				053A7F3C2D3B34D2007C178B /* MITableCore.xib */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -707,6 +725,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053A7F3F2D3B35DB007C178B /* MITableCore.xib in Resources */,
 				0574C31C2CD75BE900E7166F /* MIWebViewCore.xib in Resources */,
 				05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */,
 				0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */,
@@ -731,6 +750,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053A7F3D2D3B34D2007C178B /* MITableCore.xib in Resources */,
 				0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */,
 				05F64B4E2CC3C81700AAFAD9 /* MIButtonCore.xib in Resources */,
 				05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */,
@@ -785,9 +805,11 @@
 			files = (
 				05F64B382CC3ADB900AAFAD9 /* MIType.swift in Sources */,
 				05F64B3F2CC3AED800AAFAD9 /* MIError.swift in Sources */,
+				053A7F442D3B3955007C178B /* MITable.swift in Sources */,
 				052C60A12CC5049B00E7523B /* MILabel.swift in Sources */,
 				054721AA2CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B472CC3C77000AAFAD9 /* MIButton.swift in Sources */,
+				053A7F422D3B3702007C178B /* MITableCore.swift in Sources */,
 				057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */,
@@ -798,6 +820,7 @@
 				057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */,
 				05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
 				05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
+				053A7F562D3BDB1B007C178B /* MITableCelllView.swift in Sources */,
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
 				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05F64B482CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
@@ -813,9 +836,11 @@
 			files = (
 				05F64B372CC3ADB900AAFAD9 /* MIType.swift in Sources */,
 				05F64B3C2CC3AED800AAFAD9 /* MIError.swift in Sources */,
+				053A7F452D3B3955007C178B /* MITable.swift in Sources */,
 				052C60A22CC5049B00E7523B /* MILabel.swift in Sources */,
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
+				053A7F412D3B3702007C178B /* MITableCore.swift in Sources */,
 				057C1D972CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43042CD75F92000CCD12 /* MIWebView.swift in Sources */,
@@ -826,6 +851,7 @@
 				05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
 				05D83E7E2CE254D7004ACED7 /* MIPopupMenu.swift in Sources */,
 				05D83E772CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
+				053A7F552D3BDB1A007C178B /* MITableCelllView.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
