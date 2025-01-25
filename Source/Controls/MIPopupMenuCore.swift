@@ -64,6 +64,8 @@ public class MIPopupMenuCore: MICoreView
                         mPopupButton.addItem(withTitle: item.title)
                 }
                 #endif
+                mPopupButton.invalidateIntrinsicContentSize()
+                mPopupButton.requireLayout()
         }
 
         public func setEnable(_ enable: Bool) {

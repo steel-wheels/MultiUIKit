@@ -43,6 +43,7 @@ open class MIViewController: MIViewControllerBase
                         }
                 } else { // views.count == 1 or 0
                         stack.axis = .horizontal
+                        stack.distribution = .fillProportionally
                         stack.addArrangedSubView(label)
                         for view in views {
                                 stack.addArrangedSubView(view)
