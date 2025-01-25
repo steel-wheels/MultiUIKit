@@ -19,12 +19,14 @@ public typealias MIBaseView = UIView
 
 public struct MIMenuItem {
         public enum Value {
+                case none
                 case intValue(Int)
                 case stringValue(String)
 
                 public func toString() -> String {
                         let result: String
                         switch self {
+                        case .none:                     result = "<none>"
                         case .intValue(let ival):       result = "\(ival)"
                         case .stringValue(let sval):    result = sval
                         }
