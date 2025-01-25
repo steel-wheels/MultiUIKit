@@ -13,7 +13,7 @@ import  UIKit
 
 public class MIPopupMenuCore: MICoreView
 {
-        public typealias CallbackFunction = (_ menuId: Int) -> Void
+        public typealias CallbackFunction = (_ value: MIMenuItem.Value) -> Void
 
         #if os(iOS)
         @IBOutlet weak var mPopupButton: UIButton!
@@ -30,7 +30,7 @@ public class MIPopupMenuCore: MICoreView
         #endif
 
         private var mCallbackFunction:  CallbackFunction? = nil
-        private var mMenuItems:         Dictionary<String, Int> = [:]
+        private var mMenuItems:         Dictionary<String, MIMenuItem.Value> = [:]
 
         open override func setup() {
                 super.setup(coreView: mPopupButton)
@@ -47,7 +47,7 @@ public class MIPopupMenuCore: MICoreView
 
         public func setMenuItems( items: Array<MIMenuItem>) {
                 for item in items {
-                        mMenuItems[item.title] = item.menuId
+                        mMenuItems[item.title] = item.value
                 }
 
                 #if os(iOS)
@@ -86,7 +86,7 @@ public class MIPopupMenuCore: MICoreView
                 return nil
         }
 
-        public func selectedItem() -> Int? {
+        public func selectedItem() -> MIMenuItem.Value? {
                 if let title = selectedTitle() {
                         return mMenuItems[title]
                 } else {

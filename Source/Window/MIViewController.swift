@@ -35,9 +35,18 @@ open class MIViewController: MIViewControllerBase
         public func makeLabeledStack(label lab: String, contents views : Array<MIInterfaceView>) -> MIStack {
                 let stack = MIStack()
                 let label = MILabel() ; label.title = lab
-                stack.addArrangedSubView(label)
-                for view in views {
-                        stack.addArrangedSubView(view)
+                if views.count > 1 {
+                        stack.axis = .vertical
+                        stack.addArrangedSubView(label)
+                        for view in views {
+                                stack.addArrangedSubView(view)
+                        }
+                } else { // views.count == 1 or 0
+                        stack.axis = .horizontal
+                        stack.addArrangedSubView(label)
+                        for view in views {
+                                stack.addArrangedSubView(view)
+                        }
                 }
                 return stack
         }

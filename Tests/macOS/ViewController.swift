@@ -22,18 +22,18 @@ class ViewController: MIViewController {
 
                 let popmenu0 = MIPopupMenu()
                 popmenu0.setMenuItems(items: [
-                        MIPopupMenu.MenuItem(menuId: 1, title: "item A"),
-                        MIPopupMenu.MenuItem(menuId: 2, title: "item B")
+                        MIPopupMenu.MenuItem(title: "item A", value: .intValue(1)),
+                        MIPopupMenu.MenuItem(title: "item B", value: .intValue(2))
                 ])
                 popmenu0.setCallback({
-                        (_ menuId: Int) -> Void in NSLog("popupMenu: \(menuId)")
+                        (_ value: MIMenuItem.Value) -> Void in NSLog("popupMenu: " + value.toString())
                 })
                 mStack.addArrangedSubView(popmenu0)
 
                 let segment0 = MISegmentedControl()
                 segment0.setMenuItems(items: [
-                        MIPopupMenu.MenuItem(menuId: 1, title: "segment A"),
-                        MIPopupMenu.MenuItem(menuId: 2, title: "segment B")
+                        MIPopupMenu.MenuItem(title: "segment A", value: .intValue(1)),
+                        MIPopupMenu.MenuItem(title: "segment B", value: .intValue(2))
                 ])
                 segment0.setCallback({
                         (_ item: MIMenuItem?) in

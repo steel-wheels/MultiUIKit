@@ -34,7 +34,7 @@ open class MITabViewController: UITabBarController, UITabBarControllerDelegate
         }
 
         open func shouldTransition(from fvc: MIViewControllerBase, to tvc: MIViewControllerBase) -> Bool {
-                NSLog("Should translate at \(#function)")
+                NSLog("Must be override: Should translate at \(#function)")
                 return true
         }
 }
@@ -71,7 +71,7 @@ open class MITabViewController: NSTabViewController
         }
 
         open func shouldTransition(from fvc: MIViewControllerBase, to tvc: MIViewControllerBase) -> Bool {
-                NSLog("Should translate at \(#function)")
+                NSLog("Must be override: Should translate at \(#function)")
                 return true
         }
 }
