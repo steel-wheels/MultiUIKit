@@ -32,6 +32,31 @@ public struct MIMenuItem {
                         }
                         return result
                 }
+
+                public static func isSame(_ s0: MIMenuItem.Value, _ s1: MIMenuItem.Value) -> Bool {
+                        let result: Bool
+                        switch s0 {
+                        case .none:
+                                switch s1 {
+                                case .none:                     result = true
+                                case .intValue(_):              result = false
+                                case .stringValue(_):           result = false
+                                }
+                        case .intValue(let i0):
+                                switch s1 {
+                                case .none:                     result = false
+                                case .intValue(let i1):         result = (i0 == i1)
+                                case .stringValue(_):           result = false
+                                }
+                        case .stringValue(let s0):
+                                switch s1 {
+                                case .none:                     result = false
+                                case .intValue(_):              result = false
+                                case .stringValue(let s1):      result = (s0 == s1)
+                                }
+                        }
+                        return result
+                }
         }
 
         public var title:       String

@@ -88,12 +88,47 @@ public class MIPopupMenuCore: MICoreView
                 return nil
         }
 
-        public func selectedItem() -> MIMenuItem.Value? {
+        public func selectedValue() -> MIMenuItem.Value? {
                 if let title = selectedTitle() {
                         return mMenuItems[title]
                 } else {
                         return nil
                 }
+        }
+
+        public func selectByTitle(_ title: String) -> Bool {
+                #if os(iOS)
+                if let menu = mPopupButton.menu {
+                        for item in menu.children {
+                                if let act = item as? UIAction {
+                                        if act.title == title {
+                                                act.state = .on
+                                        } else {
+                                                act.state = .off
+                                        }
+                                }
+                        }
+                }
+                #else
+                for item in mPopupButton.itemArray {
+                        if item .title == title {
+                                mPopupButton.select(item)
+                                return true
+                        }
+                }
+                #endif
+                return false
+        }
+
+        public func selectByValue(_ value: MIMenuItem.Value) -> Bool {
+                for (title, ival) in mMenuItems {
+                        if MIMenuItem.Value.isSame(value, ival) {
+                                if selectByTitle(title) {
+                                        return true
+                                }
+                        }
+                }
+                return false
         }
 
         private func receiveEvent(title ttl: String) {
