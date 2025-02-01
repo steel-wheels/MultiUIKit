@@ -68,6 +68,18 @@ public class MIPopupMenuCore: MICoreView
                 mPopupButton.requireLayout()
         }
 
+        public var numberOfItems: Int { get {
+                #if os(iOS)
+                if let menu = mPopupButton.menu {
+                        return menu.children.count
+                } else {
+                        return 0
+                }
+                #else
+                return mPopupButton.numberOfItems
+                #endif
+        }}
+
         public func setEnable(_ enable: Bool) {
                 mPopupButton.isEnabled = enable
         }

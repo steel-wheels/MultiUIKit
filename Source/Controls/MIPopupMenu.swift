@@ -29,6 +29,10 @@ public class MIPopupMenu: MIInterfaceView
                 }
         }
 
+        public var numberOfItems: Int { get {
+                return corePopupMenu().numberOfItems
+        }}
+
         public func setCallback(_ cbfunc: @escaping CallbackFunction){
                 corePopupMenu().setCallback(cbfunc)
         }
