@@ -45,7 +45,12 @@ public class MIPopupMenuCore: MICoreView
                 mCallbackFunction = cbfunc
         }
 
-        public func setMenuItems( items: Array<MIMenuItem>) {
+        public func setMenuItems(items: Array<MIMenuItem>) {
+                guard !hasSameItems(items: items) else {
+                        return // needless to update
+                }
+
+                mMenuItems = [:]
                 for item in items {
                         mMenuItems[item.title] = item.value
                 }
@@ -64,8 +69,31 @@ public class MIPopupMenuCore: MICoreView
                         mPopupButton.addItem(withTitle: item.title)
                 }
                 #endif
+                mPopupButton.isEnabled = items.count > 1
                 mPopupButton.invalidateIntrinsicContentSize()
                 mPopupButton.requireLayout()
+        }
+
+        private func hasSameItems(items: Array<MIMenuItem>) -> Bool {
+                guard items.count == mMenuItems.count else {
+                        return false
+                }
+                var result = true
+                loop: for newitem in items {
+                        if let curval = mMenuItems[newitem.title] {
+                                let newval = newitem.value
+                                if MIMenuItem.Value.isSame(curval, newval) {
+                                        /* continue */
+                                } else {
+                                        result = false
+                                        break loop
+                                }
+                        } else {
+                                result = false
+                                break loop
+                        }
+                }
+                return result
         }
 
         public var numberOfItems: Int { get {
