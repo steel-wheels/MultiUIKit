@@ -56,6 +56,10 @@ public class MIPopupMenu: MIInterfaceView
         public func selectByTitle(_ title: String) -> Bool {
                 return corePopupMenu().selectByTitle(title)
         }
+
+        public func selectByValue(_ value: MIMenuItem.Value) -> Bool {
+                return corePopupMenu().selectByValue(value)
+        }
 }
 
 
