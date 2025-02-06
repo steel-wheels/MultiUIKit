@@ -30,6 +30,10 @@ public class MITable: MIInterfaceView
                 coreTableView().setTableData(data)
         }
 
+        public func setHeaderTitle(_ title: String?) {
+                coreTableView().setHeaderTitle(title)
+        }
+
         public func reload() {
                 coreTableView().reload()
         }

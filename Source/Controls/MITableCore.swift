@@ -30,18 +30,50 @@ public class MITableCore: MICoreView, MITableDataSource, MITableViewDelegate
         #endif
 
         private var mTableData: Array<String> = []
+        private var mHeaderTitle: String?    = "Untitled"
+        #if os(OSX)
+        private var mHeaderView: NSTableHeaderView? = nil
+        #endif
 
         open override func setup() {
                 super.setup(coreView: mTableView)
                 //NSLog("setup table view")
                 mTableView.dataSource = self
                 mTableView.delegate   = self
+                #if os(OSX)
+                mHeaderView = mTableView.headerView
+                #endif
         }
 
         public func setTableData(_ data: Array<String>) {
                 //NSLog("set table data")
                 mTableData = data
                 self.reload()
+        }
+
+        public func setHeaderTitle(_ title: String?) {
+                mHeaderTitle = title
+
+                #if os(OSX)
+                /* keep header view */
+                if mHeaderView == nil {
+                        mHeaderView = mTableView.headerView
+                }
+                if let str = title {
+                        if mTableView.headerView == nil {
+                                mTableView.headerView = mHeaderView
+                        }
+                        let columns = mTableView.tableColumns
+                        if columns.count > 0 {
+                                let cell = columns[0]
+                                cell.title = str
+                        } else {
+                                NSLog("No table column")
+                        }
+                } else {
+                        mTableView.headerView = nil
+                }
+                #endif
         }
 
         public func reload() {
@@ -81,6 +113,10 @@ public class MITableCore: MICoreView, MITableDataSource, MITableViewDelegate
                         label.text = value
                 }
                 return cell
+        }
+
+        public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+                return mHeaderTitle
         }
         #else
 
