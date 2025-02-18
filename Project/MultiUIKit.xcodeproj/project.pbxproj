@@ -61,6 +61,10 @@
 		0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */; };
 		0574C31C2CD75BE900E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C31B2CD75BE900E7166F /* MIWebViewCore.xib */; };
+		057B43002D61768B00C08E5E /* MIPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B42FF2D61768B00C08E5E /* MIPanel.swift */; };
+		057B43012D61768B00C08E5E /* MIPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B42FF2D61768B00C08E5E /* MIPanel.swift */; };
+		057B43032D617AEB00C08E5E /* MIBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B43022D617AEB00C08E5E /* MIBookmark.swift */; };
+		057B43042D617AEB00C08E5E /* MIBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B43022D617AEB00C08E5E /* MIBookmark.swift */; };
 		057C1D952CFA092E00073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D942CFA092E00073559 /* MISegmentedControlCore.xib */; };
 		057C1D972CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */; };
 		057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */; };
@@ -182,6 +186,8 @@
 		0574C3162CD75A4200E7166F /* MIWebViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIWebViewCore.swift; sourceTree = "<group>"; };
 		0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
 		0574C31B2CD75BE900E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
+		057B42FF2D61768B00C08E5E /* MIPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPanel.swift; sourceTree = "<group>"; };
+		057B43022D617AEB00C08E5E /* MIBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIBookmark.swift; sourceTree = "<group>"; };
 		057C1D942CFA092E00073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				053B48AA2CD596F90008AD33 /* MIBaseView.swift */,
+				057B43022D617AEB00C08E5E /* MIBookmark.swift */,
 				05F64B392CC3AED800AAFAD9 /* MICoreView.swift */,
 				05F64B3A2CC3AED800AAFAD9 /* MIError.swift */,
 				05F64B3B2CC3AED800AAFAD9 /* MIInterfaceView.swift */,
@@ -416,6 +423,7 @@
 				05F64B442CC3C77000AAFAD9 /* MIButtonCore.swift */,
 				052C60A02CC5049B00E7523B /* MILabel.swift */,
 				052C609B2CC5019F00E7523B /* MILabelCore.swift */,
+				057B42FF2D61768B00C08E5E /* MIPanel.swift */,
 				05D83E7D2CE254D7004ACED7 /* MIPopupMenu.swift */,
 				05D83E762CE23F22004ACED7 /* MIPopupMenuCore.swift */,
 				057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */,
@@ -815,6 +823,7 @@
 				054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */,
+				057B43002D61768B00C08E5E /* MIPanel.swift in Sources */,
 				05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				05D83E7F2CE254D7004ACED7 /* MIPopupMenu.swift in Sources */,
 				057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */,
@@ -824,6 +833,7 @@
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
 				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05F64B482CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
+				057B43042D617AEB00C08E5E /* MIBookmark.swift in Sources */,
 				0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B402CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05F64B412CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,
@@ -845,6 +855,7 @@
 				05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43042CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				057B43012D61768B00C08E5E /* MIPanel.swift in Sources */,
 				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */,
@@ -854,6 +865,7 @@
 				053A7F552D3BDB1A007C178B /* MITableCelllView.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
+				057B43032D617AEB00C08E5E /* MIBookmark.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
