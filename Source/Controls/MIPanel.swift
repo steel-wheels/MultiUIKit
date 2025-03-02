@@ -63,5 +63,34 @@ import UniformTypeIdentifiers
                         cbfunc(nil)
                 }
         }
+
+        public static func savePanel(title tl: String, outputDirectory outdir: URL?, callback cbfunc: @escaping ((_: URL?) -> Void))
+        {
+                let panel = NSSavePanel()
+                panel.title = tl
+                panel.canCreateDirectories = true
+                panel.showsTagField = false
+                if let odir = outdir {
+                        panel.directoryURL = odir
+                }
+                switch panel.runModal() {
+                case .OK:
+                        if let newurl = panel.url {
+                                if FileManager.default.fileExists(atPath: newurl.path) {
+                                        /* Bookmark this URL */
+                                        Task { await MIBookmark.shared.add(URL: newurl) }
+                                }
+                                cbfunc(newurl)
+                        } else {
+                                cbfunc(nil)
+                        }
+                case .cancel:
+                        cbfunc(nil)
+                default:
+                        NSLog("[Error] Unsupported result at \(#function) in \(#file)")
+                        cbfunc(nil)
+                }
+        }
+
         #endif
 }

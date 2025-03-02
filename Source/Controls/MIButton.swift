@@ -41,6 +41,10 @@ public class MIButton: MIInterfaceView
                 get        { return coreButtonView().isEnabled  }
                 set(value) { coreButtonView().isEnabled = value }
         }
+
+        public func setImage(_ img: MIImage) {
+                coreButtonView().setImage(img)
+        }
 }
 
 

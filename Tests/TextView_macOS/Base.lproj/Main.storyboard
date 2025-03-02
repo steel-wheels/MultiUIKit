@@ -11,29 +11,25 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="UnitTest_macOS" id="1Xt-HY-uBw">
+                            <menuItem title="TextView_macOS" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="UnitTest_macOS" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="TextView_macOS" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About UnitTest_macOS" id="5kV-Vb-QxS">
+                                        <menuItem title="About TextView_macOS" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                            <connections>
-                                                <action selector="openSettingWindow:" target="Voe-Tx-rLC" id="he0-OJ-K41"/>
-                                            </connections>
-                                        </menuItem>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide UnitTest_macOS" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide TextView_macOS" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -51,7 +47,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit UnitTest_macOS" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit TextView_macOS" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -664,7 +660,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="UnitTest_macOS Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="TextView_macOS Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -678,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="UnitTest_macOS" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="TextView_macOS" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -708,29 +704,29 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="UnitTest_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="TextView_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1Ti-rd-nC3" customClass="MIStack" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="400"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="jbi-Hb-fvM" customClass="MITextView" customModule="MultiUIKit">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1Ti-rd-nC3" secondAttribute="trailing" id="4n9-PW-JZf"/>
-                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="AyN-Y3-sqH"/>
-                            <constraint firstAttribute="bottom" secondItem="1Ti-rd-nC3" secondAttribute="bottom" id="BLj-hH-3jZ"/>
-                            <constraint firstItem="1Ti-rd-nC3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Nzl-ft-Ude"/>
+                            <constraint firstItem="jbi-Hb-fvM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="32r-38-NCG"/>
+                            <constraint firstAttribute="bottom" secondItem="jbi-Hb-fvM" secondAttribute="bottom" id="QSi-Or-duI"/>
+                            <constraint firstItem="jbi-Hb-fvM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="XiW-kQ-mrq"/>
+                            <constraint firstAttribute="trailing" secondItem="jbi-Hb-fvM" secondAttribute="trailing" id="xdH-Da-ZKf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mStack" destination="1Ti-rd-nC3" id="X3X-p8-b8F"/>
+                        <outlet property="mTextView" destination="jbi-Hb-fvM" id="652-6p-De7"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="649"/>
+            <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
 </document>

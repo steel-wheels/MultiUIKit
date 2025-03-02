@@ -66,6 +66,12 @@ class ViewController: MIViewController {
                 table0.setTableData(["Hello", "GoodMorinig"])
                 mStack.addArrangedSubView(table0)
 
+                let icon0 = MIButton()
+                let sym0  = MISymbolTable.shared.load(symbol: .pencil, size: .regular)
+                icon0.title = "Icon0"
+                icon0.setImage(sym0)
+                mStack.addArrangedSubView(icon0)
+
                 let buttons = MIStack()
                 buttons.axis = .horizontal
 

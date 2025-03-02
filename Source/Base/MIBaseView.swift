@@ -11,6 +11,12 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
+#if os(OSX)
+public typealias MIBaseView = NSView
+#else  // os(OSX)
+public typealias MIBaseView = UIView
+#endif // os(OSX)
+
 public extension MIBaseView
 {
         #if os(iOS)

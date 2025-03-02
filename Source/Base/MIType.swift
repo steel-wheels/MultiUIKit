@@ -11,12 +11,6 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-#if os(OSX)
-public typealias MIBaseView = NSView
-#else  // os(OSX)
-public typealias MIBaseView = UIView
-#endif // os(OSX)
-
 public struct MIMenuItem {
         public enum Value {
                 case none
