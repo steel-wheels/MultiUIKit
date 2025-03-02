@@ -16,17 +16,18 @@ class ViewController: NSViewController
         override func viewDidLoad() {
                 super.viewDidLoad()
 
-                // Do any additional setup after loading the view.
-                mTextView.textBackgroundColor = NSColor.blue
-                mTextView.textColor = NSColor.yellow
+                mTextView.textBackgroundColor = MIColor.blue
 
                 let storage = mTextView.textStorage
                 let commands: Array<MITextStorage.Command> = [
+                        .font(MIFont.monospacedSystemFont(ofSize: MIFont.systemFontSize, weight: .regular)),
                         .textColor(NSColor.yellow),
+                        .backgroundColor(NSColor.blue),
                         .append("Hello, world")
                 ]
                 storage.update(commands: commands)
                 NSLog("storage = \(storage.string)")
+
                 mTextView.needsDisplay = true
         }
 

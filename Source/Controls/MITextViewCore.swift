@@ -31,6 +31,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 mTextView.delegate  = self
 
                 let storage  = allocateTextStorage()
+
                 var commands: Array<MITextStorage.Command> = []
                 if let color = mTextView.textColor {
                         commands.append(.textColor(color))
@@ -42,6 +43,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         commands.append(.backgroundColor(color))
                 }
                 #endif
+                storage.update(commands: commands)
                 mStorage = storage
         }
 
@@ -56,6 +58,19 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 #else
                 newstorage = MITextStorage(string: mTextView.textStorage)
                 #endif
+
+                let layoutManager = NSLayoutManager()
+                #if os(OSX)
+                if let container = mTextView.textContainer {
+                        layoutManager.addTextContainer(container)
+                } else {
+                        NSLog("No text container")
+                }
+                #else
+                let container = mTextView.textContainer
+                layoutManager.addTextContainer(container)
+                #endif
+                newstorage.addLayoutManager(layoutManager)
                 return newstorage
         }
 
