@@ -27,6 +27,7 @@ class ViewController: NSViewController
                 ]
                 storage.update(commands: commands)
                 NSLog("storage = \(storage.string)")
+                NSLog("screen_size = \(storage.screenWidth) x \(storage.screenHeight)")
         }
 
         override var representedObject: Any? {

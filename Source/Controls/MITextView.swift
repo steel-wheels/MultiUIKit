@@ -11,7 +11,7 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-public class MITextView: MIInterfaceView
+open class MITextView: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MITextViewCore", frameSize: frm.size)

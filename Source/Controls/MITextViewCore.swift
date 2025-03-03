@@ -44,6 +44,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 }
                 #endif
                 storage.update(commands: commands)
+                storage.setFrameSize(mTextView.frame.size)
                 mStorage = storage
         }
 
@@ -92,6 +93,13 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         if let newcol = newcolp {
                                 mTextView.backgroundColor = newcol
                         }
+                }
+        }
+
+        public override func setFrameSize(_ newsize: CGSize) {
+                super.setFrameSize(newsize)
+                if let storage = mStorage {
+                        storage.setFrameSize(newsize)
                 }
         }
 }

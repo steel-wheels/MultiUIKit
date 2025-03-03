@@ -36,12 +36,15 @@ public class MITextStorage
         private var mCurrentIndex:      String.Index
         private var mParagraphStyle:    NSMutableParagraphStyle
         private var mTextAtrribute:     TextAttribute
+        private var mFrameSize:         CGSize
 
         public init(string str: NSTextStorage){
                 mStorage               = str
                 mCurrentIndex          = mStorage.string.startIndex
                 mParagraphStyle        = NSMutableParagraphStyle()
                 mTextAtrribute         = TextAttribute()
+                mFrameSize             = CGSize.zero
+
                 /* init style */
                 mParagraphStyle.headIndent              = 0.0
                 mParagraphStyle.firstLineHeadIndent     = 0.0
@@ -57,6 +60,10 @@ public class MITextStorage
                 mParagraphStyle.lineSpacing             =  2.0
                 mParagraphStyle.paragraphSpacing        =  0.0
                 mParagraphStyle.paragraphSpacingBefore  =  2.0
+        }
+
+        public func setFrameSize(_ size: CGSize) {
+                mFrameSize = size
         }
 
         public var string: String { get {
