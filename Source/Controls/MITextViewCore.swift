@@ -58,19 +58,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 #else
                 newstorage = MITextStorage(string: mTextView.textStorage)
                 #endif
-
-                let layoutManager = NSLayoutManager()
-                #if os(OSX)
-                if let container = mTextView.textContainer {
-                        layoutManager.addTextContainer(container)
-                } else {
-                        NSLog("No text container")
-                }
-                #else
-                let container = mTextView.textContainer
-                layoutManager.addTextContainer(container)
-                #endif
-                newstorage.addLayoutManager(layoutManager)
                 return newstorage
         }
 

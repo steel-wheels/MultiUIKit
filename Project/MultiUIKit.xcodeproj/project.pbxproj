@@ -104,6 +104,10 @@
 		05DF74EE2D73E81A000EB93D /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		05DF74F42D742D28000EB93D /* MITextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74F32D742D28000EB93D /* MITextStorage.swift */; };
 		05DF74F52D742D28000EB93D /* MITextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74F32D742D28000EB93D /* MITextStorage.swift */; };
+		05DF75142D74A9BC000EB93D /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
+		05DF75152D74A9BC000EB93D /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05DF75172D74A9BD000EB93D /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
+		05DF75182D74A9BD000EB93D /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05F64B372CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
 		05F64B382CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
 		05F64B3C2CC3AED800AAFAD9 /* MIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B3A2CC3AED800AAFAD9 /* MIError.swift */; };
@@ -141,6 +145,13 @@
 			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
 			remoteInfo = Install;
 		};
+		05DF75192D74A9FB000EB93D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
+			remoteInfo = Install;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -162,6 +173,18 @@
 			dstSubfolderSpec = 10;
 			files = (
 				052C60972CC4F4FD00E7523B /* MultiUIKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05DF75162D74A9BC000EB93D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05DF75182D74A9BD000EB93D /* MultiUIKit.xcframework in Embed Frameworks */,
+				05DF75152D74A9BC000EB93D /* MultiDataKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +263,7 @@
 		05DF74D62D73D057000EB93D /* MIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIFont.swift; sourceTree = "<group>"; };
 		05DF74DD2D73E748000EB93D /* TextView_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextView_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF74F32D742D28000EB93D /* MITextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextStorage.swift; sourceTree = "<group>"; };
+		05DF74FA2D74A5E5000EB93D /* TextView_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextView_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F64B362CC3ADB900AAFAD9 /* MIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIType.swift; sourceTree = "<group>"; };
 		05F64B392CC3AED800AAFAD9 /* MICoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICoreView.swift; sourceTree = "<group>"; };
 		05F64B3A2CC3AED800AAFAD9 /* MIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIError.swift; sourceTree = "<group>"; };
@@ -270,6 +294,13 @@
 				Info.plist,
 			);
 			target = 05D766F22D355DB800644698 /* TabView_iOS */;
+		};
+		05DF750B2D74A5E8000EB93D /* Exceptions for "TextView_iOS" folder in "TextView_iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 05DF74F92D74A5E5000EB93D /* TextView_iOS */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -311,6 +342,14 @@
 		05DF74DE2D73E748000EB93D /* TextView_macOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TextView_macOS;
+			sourceTree = "<group>";
+		};
+		05DF74FB2D74A5E5000EB93D /* TextView_iOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				05DF750B2D74A5E8000EB93D /* Exceptions for "TextView_iOS" folder in "TextView_iOS" target */,
+			);
+			path = TextView_iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -371,6 +410,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DF74EE2D73E81A000EB93D /* MultiUIKit.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05DF74F72D74A5E5000EB93D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DF75172D74A9BD000EB93D /* MultiUIKit.xcframework in Frameworks */,
+				05DF75142D74A9BC000EB93D /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +485,7 @@
 				05D766D52D35566600644698 /* TabView_macOS.app */,
 				05D766F32D355DB800644698 /* TabView_iOS.app */,
 				05DF74DD2D73E748000EB93D /* TextView_macOS.app */,
+				05DF74FA2D74A5E5000EB93D /* TextView_iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -539,6 +588,7 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				05DF74FB2D74A5E5000EB93D /* TextView_iOS */,
 				05DF74DE2D73E748000EB93D /* TextView_macOS */,
 				05D766F42D355DB800644698 /* TabView_iOS */,
 				05D766D62D35566600644698 /* TabView_macOS */,
@@ -745,6 +795,30 @@
 			productReference = 05DF74DD2D73E748000EB93D /* TextView_macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		05DF74F92D74A5E5000EB93D /* TextView_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05DF750C2D74A5E8000EB93D /* Build configuration list for PBXNativeTarget "TextView_iOS" */;
+			buildPhases = (
+				05DF74F62D74A5E5000EB93D /* Sources */,
+				05DF74F72D74A5E5000EB93D /* Frameworks */,
+				05DF74F82D74A5E5000EB93D /* Resources */,
+				05DF75162D74A9BC000EB93D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05DF751A2D74A9FB000EB93D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				05DF74FB2D74A5E5000EB93D /* TextView_iOS */,
+			);
+			name = TextView_iOS;
+			packageProductDependencies = (
+			);
+			productName = TextView_iOS;
+			productReference = 05DF74FA2D74A5E5000EB93D /* TextView_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -776,6 +850,9 @@
 					05DF74DC2D73E748000EB93D = {
 						CreatedOnToolsVersion = 16.2;
 					};
+					05DF74F92D74A5E5000EB93D = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					05F64B522CC3CF5100AAFAD9 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -803,6 +880,7 @@
 				05D766D42D35566600644698 /* TabView_macOS */,
 				05D766F22D355DB800644698 /* TabView_iOS */,
 				05DF74DC2D73E748000EB93D /* TextView_macOS */,
+				05DF74F92D74A5E5000EB93D /* TextView_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -876,6 +954,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		05DF74DB2D73E748000EB93D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05DF74F82D74A5E5000EB93D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1008,6 +1093,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		05DF74F62D74A5E5000EB93D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1025,6 +1117,11 @@
 			isa = PBXTargetDependency;
 			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
 			targetProxy = 05DF74F12D73F8A2000EB93D /* PBXContainerItemProxy */;
+		};
+		05DF751A2D74A9FB000EB93D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
+			targetProxy = 05DF75192D74A9FB000EB93D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1608,7 +1705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TerminalKit.iOS.TextView-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -1637,7 +1734,78 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TerminalKit.iOS.TextView-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		05DF750D2D74A5E8000EB93D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/TextView_iOS/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TerminalKit.TextView-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		05DF750E2D74A5E8000EB93D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/TextView_iOS/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.TerminalKit.TextView-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1741,6 +1909,15 @@
 			buildConfigurations = (
 				05DF74EA2D73E74B000EB93D /* Debug */,
 				05DF74EB2D73E74B000EB93D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05DF750C2D74A5E8000EB93D /* Build configuration list for PBXNativeTarget "TextView_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DF750D2D74A5E8000EB93D /* Debug */,
+				05DF750E2D74A5E8000EB93D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
