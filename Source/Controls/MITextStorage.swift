@@ -17,7 +17,11 @@ public class MITextStorage
                 case textColor(MIColor)
                 case backgroundColor(MIColor)
                 case font(MIFont)
-                case append(String)
+                case moveBackward(Int)
+                case moveForward(Int)
+                case removeLeft(Int)
+                case removeRight(Int)
+                case insert(String)
         }
 
         private struct TextAttribute {
@@ -33,14 +37,14 @@ public class MITextStorage
         }
 
         private var mStorage:           NSTextStorage
-        private var mCurrentIndex:      String.Index
+        private var mCurrentIndex:      Int
         private var mParagraphStyle:    NSMutableParagraphStyle
         private var mTextAtrribute:     TextAttribute
         private var mFrameSize:         CGSize
 
         public init(string str: NSTextStorage){
                 mStorage               = str
-                mCurrentIndex          = mStorage.string.startIndex
+                mCurrentIndex          = 0
                 mParagraphStyle        = NSMutableParagraphStyle()
                 mTextAtrribute         = TextAttribute()
                 mFrameSize             = CGSize.zero
@@ -62,9 +66,25 @@ public class MITextStorage
                 mParagraphStyle.paragraphSpacingBefore  =  2.0
         }
 
-        public func setFrameSize(_ size: CGSize) {
-                mFrameSize = size
+        public var frameSize: CGSize {
+                get { return mFrameSize }
+                set(newval){ mFrameSize = newval }
         }
+
+        public var fontSize: CGSize { get {
+                let astr  = allocate(" ")
+                let fsize = astr.size()
+                return CGSize(width:  fsize.width,
+                              height: fsize.height + mParagraphStyle.lineSpacing)
+        }}
+
+        public var currentIndex: Int { get {
+                return mCurrentIndex
+        }}
+
+        public var length: Int { get {
+                return mStorage.length
+        }}
 
         public var string: String { get {
                 return mStorage.string
@@ -74,15 +94,15 @@ public class MITextStorage
                 mStorage.addLayoutManager(manager)
         }
 
-        public func update(commands cmds: Array<Command>) {
+        public func execute(commands cmds: Array<Command>) {
                 mStorage.beginEditing()
                 for cmd in cmds {
-                        update(command: cmd)
+                        execute(command: cmd)
                 }
                 mStorage.endEditing()
         }
 
-        private func update(command cmd: Command) {
+        private func execute(command cmd: Command) {
                 switch cmd {
                 case .font(let font):
                         mTextAtrribute.font = font
@@ -91,9 +111,26 @@ public class MITextStorage
                         mTextAtrribute.textColor       = col
                 case .backgroundColor(let col):
                         mTextAtrribute.backgroundColor = col
-                case .append(let str):
-                        mStorage.append(allocate(str))
-                        mCurrentIndex = mStorage.string.endIndex
+                case .moveBackward(let off):
+                        mCurrentIndex = max(0, mCurrentIndex - off)
+                case .moveForward(let off):
+                        mCurrentIndex = min(mStorage.length - 1, mCurrentIndex + off)
+                case .removeLeft(let off):
+                        let len   = min(mStorage.length, off)
+                        let loc   = min(0, mCurrentIndex - len)
+                        let range = NSRange(location: loc, length: len)
+                        mStorage.replaceCharacters(in: range, with: "")
+                        mCurrentIndex -= len
+                case .removeRight(let off):
+                        let len  = min(mStorage.length - mCurrentIndex, off)
+                        let loc  = mCurrentIndex
+                        let range = NSRange(location: loc, length: len)
+                        mStorage.replaceCharacters(in: range, with: "")
+                        // current index is not changed
+                case .insert(let str):
+                        let astr = allocate(str)
+                        mStorage.insert(astr, at: mCurrentIndex)
+                        mCurrentIndex += astr.length
                 }
         }
 

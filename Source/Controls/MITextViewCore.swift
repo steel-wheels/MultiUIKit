@@ -43,8 +43,8 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         commands.append(.backgroundColor(color))
                 }
                 #endif
-                storage.update(commands: commands)
-                storage.setFrameSize(mTextView.frame.size)
+                storage.execute(commands: commands)
+                storage.frameSize = mTextView.frame.size
                 mStorage = storage
         }
 
@@ -75,11 +75,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 set(newval) { mTextView.isEditable = newval }
         }
 
-        public var font: MIFont? {
-                get          { return mTextView.font    }
-                set(newfont) { mTextView.font = newfont }
-        }
-
         public var textColor: MIColor? {
                 get         { return mTextView.textColor }
                 set(newcol) { mTextView.textColor = newcol }
@@ -99,7 +94,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         public override func setFrameSize(_ newsize: CGSize) {
                 super.setFrameSize(newsize)
                 if let storage = mStorage {
-                        storage.setFrameSize(newsize)
+                        storage.frameSize = newsize
                 }
         }
 }

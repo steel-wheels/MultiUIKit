@@ -34,11 +34,6 @@ open class MITextView: MIInterfaceView
                 set(newval) { coreTextView().isEditable = newval }
         }
 
-        public var font: MIFont? {
-                get { return coreTextView().font }
-                set(newfont) { coreTextView().font = newfont }
-        }
-
         public var textColor: MIColor? {
                 get         { return coreTextView().textColor }
                 set(newcol) { coreTextView().textColor = newcol }

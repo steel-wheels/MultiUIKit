@@ -16,3 +16,10 @@ public typealias MIFont = NSFont
 #else
 public typealias MIFont = UIFont
 #endif
+
+public extension MIFont
+{
+        static func terminalFont(size sz: CGFloat) -> MIFont? {
+                return MIFont(name: "CourierNewPSMT", size: sz)
+        }
+}

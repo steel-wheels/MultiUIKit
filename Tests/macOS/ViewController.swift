@@ -15,6 +15,14 @@ class ViewController: MIViewController {
         override func viewDidLoad() {
                 super.viewDidLoad()
 
+                if let names = NSFontManager.shared.availableFontNames(with: .fixedPitchFontMask) {
+                        var str = ""
+                        for name in names {
+                                str = str + name + ", "
+                        }
+                        NSLog("avaiable font names = " + str)
+                }
+
                 // Do any additional setup after loading the view.
                 let label = MILabel()
                 label.title = "Hello, world !!"

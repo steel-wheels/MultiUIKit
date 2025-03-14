@@ -23,10 +23,15 @@ class ViewController: UIViewController
                         .font(MIFont.monospacedSystemFont(ofSize: MIFont.systemFontSize, weight: .regular)),
                         .textColor(MIColor.yellow),
                         .backgroundColor(MIColor.blue),
-                        .append("Hello, world")
+                        .insert("Hello, world"),
+                        .moveBackward(5),
+                        .insert("every ")
                 ]
                 storage.update(commands: commands)
                 NSLog("storage = \(storage.string)")
+
+                let fsize = storage.fontSize
+                NSLog("fontsize = \(fsize.width) * \(fsize.height)")
         }
 }
 
