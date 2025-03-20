@@ -52,12 +52,18 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 let newstorage: MITextStorage
                 #if os(OSX)
                 if let txtstorage = mTextView.textStorage {
-                        newstorage = MITextStorage(string: txtstorage)
+                        newstorage = MITextStorage(string: txtstorage, notification: {
+                                (attr: MITextStorage.TextAttribute) -> Void in
+                                self.notifyUpdate(attr)
+                        })
                 } else {
                         fatalError("Failed to allocate storage")
                 }
                 #else
-                newstorage = MITextStorage(string: mTextView.textStorage)
+                newstorage = MITextStorage(string: mTextView.textStorage, notification: {
+                        (attr: MITextStorage.TextAttribute) -> Void in
+                        self.notifyUpdate(attr)
+                })
                 #endif
                 return newstorage
         }
@@ -96,6 +102,18 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 if let storage = mStorage {
                         storage.frameSize = newsize
                 }
+        }
+
+        public override var intrinsicContentSize: CGSize { get {
+                if let csize = textStorage.contentsSize {
+                        return csize
+                } else {
+                        return super.intrinsicContentSize
+                }
+        }}
+
+        private func notifyUpdate(_ attr: MITextStorage.TextAttribute) {
+                mTextView.font = attr.font
         }
 }
 

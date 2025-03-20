@@ -38,7 +38,6 @@ class ViewController: NSViewController
                         .insert("every ")
                 ]
                 storage.execute(commands: commands)
-                NSLog("storage = \(storage.string)")
 
                 let fsize = storage.fontSize
                 NSLog("fontsize = \(fsize.width) * \(fsize.height)")

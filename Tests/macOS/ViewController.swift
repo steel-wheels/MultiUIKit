@@ -23,6 +23,8 @@ class ViewController: MIViewController {
                         NSLog("avaiable font names = " + str)
                 }
 
+                stringTest()
+
                 // Do any additional setup after loading the view.
                 let label = MILabel()
                 label.title = "Hello, world !!"
@@ -122,6 +124,20 @@ class ViewController: MIViewController {
                 }
         }
 
+        private func stringTest() {
+                divideTest(string: "a\nb")
+                divideTest(string: "a\nb\n\nc\n")
+                divideTest(string: "\na--\nb----\n\nc--\n-")
+        }
 
+        private func divideTest(string str: String) {
+                let astr  = NSAttributedString(string: str)
+                let lines = NSAttributedString.devideByNewline(source: astr)
+                NSLog("{source: \(str)")
+                for line in lines {
+                        NSLog("line: \"" + line.string + "\"")
+                }
+                NSLog("}")
+        }
 }
 

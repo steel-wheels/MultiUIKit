@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050CE8E62D89C98B0092B36E /* MIAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8E52D89C98B0092B36E /* MIAttributedString.swift */; };
+		050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8E52D89C98B0092B36E /* MIAttributedString.swift */; };
 		0515E7BF2CC476D100321C89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515E7BE2CC476D100321C89 /* AppDelegate.swift */; };
 		0515E7C12CC476D100321C89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515E7C02CC476D100321C89 /* SceneDelegate.swift */; };
 		0515E7C32CC476D100321C89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515E7C22CC476D100321C89 /* ViewController.swift */; };
@@ -192,6 +194,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		050CE8E52D89C98B0092B36E /* MIAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAttributedString.swift; sourceTree = "<group>"; };
 		0515E7BC2CC476D100321C89 /* UnitTest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitTest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0515E7BE2CC476D100321C89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0515E7C02CC476D100321C89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -504,6 +507,7 @@
 		05CF52AE2CC3ABCF0034E7BF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				050CE8E52D89C98B0092B36E /* MIAttributedString.swift */,
 				053B48AA2CD596F90008AD33 /* MIBaseView.swift */,
 				057B43022D617AEB00C08E5E /* MIBookmark.swift */,
 				05DF74C92D731593000EB93D /* MIColor.swift */,
@@ -1008,6 +1012,7 @@
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */,
 				0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				057B43002D61768B00C08E5E /* MIPanel.swift in Sources */,
 				05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */,
@@ -1049,6 +1054,7 @@
 				05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43042CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				050CE8E62D89C98B0092B36E /* MIAttributedString.swift in Sources */,
 				057B43012D61768B00C08E5E /* MIPanel.swift in Sources */,
 				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */,

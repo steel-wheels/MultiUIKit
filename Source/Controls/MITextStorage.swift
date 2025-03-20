@@ -13,6 +13,8 @@ import  UIKit
 
 public class MITextStorage
 {
+        public typealias NotifyUpdateFunc = (_ : TextAttribute) -> Void
+
         public enum Command {
                 case textColor(MIColor)
                 case backgroundColor(MIColor)
@@ -21,10 +23,11 @@ public class MITextStorage
                 case moveForward(Int)
                 case removeLeft(Int)
                 case removeRight(Int)
+                case clear
                 case insert(String)
         }
 
-        private struct TextAttribute {
+        public struct TextAttribute {
                 public var font:                MIFont
                 public var textColor:           MIColor
                 public var backgroundColor:     MIColor
@@ -41,13 +44,17 @@ public class MITextStorage
         private var mParagraphStyle:    NSMutableParagraphStyle
         private var mTextAtrribute:     TextAttribute
         private var mFrameSize:         CGSize
+        private var mContentsSize:      CGSize?
+        private var mNotifyUpdate:      NotifyUpdateFunc
 
-        public init(string str: NSTextStorage){
+        public init(string str: NSTextStorage, notification notif: @escaping NotifyUpdateFunc){
                 mStorage               = str
                 mCurrentIndex          = 0
                 mParagraphStyle        = NSMutableParagraphStyle()
                 mTextAtrribute         = TextAttribute()
                 mFrameSize             = CGSize.zero
+                mContentsSize          = nil
+                mNotifyUpdate          = notif
 
                 /* init style */
                 mParagraphStyle.headIndent              = 0.0
@@ -71,11 +78,20 @@ public class MITextStorage
                 set(newval){ mFrameSize = newval }
         }
 
+        public var contentsSize: CGSize? {
+                get { return mContentsSize }
+                set(newval){ mContentsSize = newval }
+        }
+
         public var fontSize: CGSize { get {
                 let astr  = allocate(" ")
                 let fsize = astr.size()
                 return CGSize(width:  fsize.width,
                               height: fsize.height + mParagraphStyle.lineSpacing)
+        }}
+
+        public var lineSpacing: CGFloat { get {
+                return mParagraphStyle.lineSpacing
         }}
 
         public var currentIndex: Int { get {
@@ -84,10 +100,6 @@ public class MITextStorage
 
         public var length: Int { get {
                 return mStorage.length
-        }}
-
-        public var string: String { get {
-                return mStorage.string
         }}
 
         public func addLayoutManager(_ manager: NSLayoutManager) {
@@ -127,11 +139,16 @@ public class MITextStorage
                         let range = NSRange(location: loc, length: len)
                         mStorage.replaceCharacters(in: range, with: "")
                         // current index is not changed
+                case .clear:
+                        let range  = NSRange(location: 0, length: mStorage.length)
+                        mStorage.replaceCharacters(in: range, with: "")
                 case .insert(let str):
                         let astr = allocate(str)
                         mStorage.insert(astr, at: mCurrentIndex)
                         mCurrentIndex += astr.length
                 }
+                /* callback */
+                mNotifyUpdate(mTextAtrribute)
         }
 
         private func allocate(_ str: String) -> NSAttributedString {
