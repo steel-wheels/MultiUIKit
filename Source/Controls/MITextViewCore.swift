@@ -29,8 +29,14 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         open override func setup() {
                 super.setup(coreView: mTextView)
                 mTextView.delegate  = self
+        }
 
-                let storage  = allocateTextStorage()
+        public func setup(storage strg: MITextStorage) {
+                strg.setCoreStorage(coreStorage())
+                strg.setNotification({
+                        (ntype: MITextStorage.EventType) -> Void in
+                        self.notifyUpdate(ntype)
+                })
 
                 var commands: Array<MITextStorage.Command> = []
                 if let color = mTextView.textColor {
@@ -43,30 +49,24 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         commands.append(.backgroundColor(color))
                 }
                 #endif
-                storage.execute(commands: commands)
-                storage.frameSize = mTextView.frame.size
-                mStorage = storage
+                strg.execute(commands: commands)
+                strg.frameSize = mTextView.frame.size
+                mStorage = strg
         }
 
-        private func allocateTextStorage() -> MITextStorage {
-                let newstorage: MITextStorage
-                #if os(OSX)
-                if let txtstorage = mTextView.textStorage {
-                        newstorage = MITextStorage(string: txtstorage, notification: {
-                                (attr: MITextStorage.TextAttribute) -> Void in
-                                self.notifyUpdate(attr)
-                        })
+        #if os(OSX)
+        private func coreStorage() -> NSTextStorage {
+                if let strg = mTextView.textStorage {
+                        return strg
                 } else {
-                        fatalError("Failed to allocate storage")
+                        fatalError("[Error] No core storage")
                 }
-                #else
-                newstorage = MITextStorage(string: mTextView.textStorage, notification: {
-                        (attr: MITextStorage.TextAttribute) -> Void in
-                        self.notifyUpdate(attr)
-                })
-                #endif
-                return newstorage
         }
+        #else
+        private func coreStorage() -> NSTextStorage {
+                return mTextView.textStorage
+        }
+        #endif
 
         public var textStorage: MITextStorage { get {
                 if let storage = mStorage {
@@ -112,8 +112,11 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 }
         }}
 
-        private func notifyUpdate(_ attr: MITextStorage.TextAttribute) {
-                mTextView.font = attr.font
+        private func notifyUpdate(_ ntype: MITextStorage.EventType) {
+                switch ntype {
+                case .textAttribute(let attr):
+                        mTextView.font = attr.font
+                }
         }
 }
 

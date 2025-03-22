@@ -27,8 +27,7 @@ class ViewController: UIViewController
                         .moveBackward(5),
                         .insert("every ")
                 ]
-                storage.update(commands: commands)
-                NSLog("storage = \(storage.string)")
+                storage.execute(commands: commands)
 
                 let fsize = storage.fontSize
                 NSLog("fontsize = \(fsize.width) * \(fsize.height)")

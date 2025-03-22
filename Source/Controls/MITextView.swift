@@ -15,6 +15,11 @@ open class MITextView: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MITextViewCore", frameSize: frm.size)
+                coreTextView().setup(storage: allocateStorage())
+        }
+
+        open func allocateStorage() -> MITextStorage {
+                return MITextStorage()
         }
 
         private func coreTextView() -> MITextViewCore {
