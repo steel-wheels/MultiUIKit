@@ -59,7 +59,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 if let strg = mTextView.textStorage {
                         return strg
                 } else {
-                        fatalError("[Error] No core storage")
+                        fatalError("[Error] No core storage at \(#function) in \(#file)")
                 }
         }
         #else

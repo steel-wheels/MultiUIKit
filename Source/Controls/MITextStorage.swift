@@ -25,6 +25,7 @@ open class MITextStorage
                 case removeRight(Int)
                 case clear
                 case insert(String)
+                case fullReplace(NSAttributedString)
         }
 
         public struct TextAttribute {
@@ -96,10 +97,17 @@ open class MITextStorage
         }
 
         public var fontSize: CGSize { get {
-                let astr  = allocate(" ")
-                let fsize = astr.size()
-                return CGSize(width:  fsize.width,
-                              height: fsize.height + mParagraphStyle.lineSpacing)
+                let astr  = allocateString(" ")
+                return astr.size()
+        }}
+
+        public var context: NSAttributedString { get {
+                if let strg = mStorage {
+                        return strg
+                } else {
+                        NSLog("[Error] No core storage at \(#function) in \(#file)")
+                        return NSMutableAttributedString(string: "")
+                }
         }}
 
         public var lineSpacing: CGFloat { get {
@@ -129,7 +137,7 @@ open class MITextStorage
 
         public func execute(commands cmds: Array<Command>) {
                 guard let strg = mStorage else {
-                        NSLog("[Error] No core storage")
+                        NSLog("[Error] No core storage at \(#function) in \(#file)")
                         return
                 }
                 strg.beginEditing()
@@ -168,9 +176,15 @@ open class MITextStorage
                         let range  = NSRange(location: 0, length: strg.length)
                         strg.replaceCharacters(in: range, with: "")
                 case .insert(let str):
-                        let astr = allocate(str)
+                        let astr = allocateString(str)
                         strg.insert(astr, at: mCurrentIndex)
                         mCurrentIndex += astr.length
+                case .fullReplace(let newcontext):
+                        /* erace all context */
+                        let range = NSRange(location: 0, length: strg.length)
+                        strg.deleteCharacters(in: range)
+                        /* append new context */
+                        strg.append(newcontext)
                 }
                 /* callback */
                 if let notify = mNotifyUpdate {
@@ -178,13 +192,17 @@ open class MITextStorage
                 }
         }
 
-        private func allocate(_ str: String) -> NSAttributedString {
+        public var currentAttributes: Dictionary<NSAttributedString.Key, Any> { get {
                 let attrs: Dictionary<NSAttributedString.Key, Any> = [
                         NSAttributedString.Key.paragraphStyle:  mParagraphStyle,
                         NSAttributedString.Key.font:            mTextAtrribute.font,
                         NSAttributedString.Key.foregroundColor: mTextAtrribute.textColor,
                         NSAttributedString.Key.backgroundColor: mTextAtrribute.backgroundColor
                 ]
-                return NSAttributedString(string: str, attributes: attrs)
+                return attrs
+        }}
+
+        private func allocateString(_ str: String) -> NSAttributedString {
+                return NSAttributedString(string: str, attributes: self.currentAttributes)
         }
 }
