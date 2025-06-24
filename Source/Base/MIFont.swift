@@ -20,6 +20,6 @@ public typealias MIFont = UIFont
 public extension MIFont
 {
         static func terminalFont(size sz: CGFloat) -> MIFont? {
-                return MIFont(name: "CourierNewPSMT", size: sz)
+                return MIFont(name: "Monaco", size: sz)
         }
 }
