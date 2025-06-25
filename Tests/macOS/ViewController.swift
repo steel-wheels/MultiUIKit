@@ -55,6 +55,11 @@ class ViewController: MIViewController {
                 })
                 mStack.addArrangedSubView(segment0)
 
+                /* image */
+                let imgview = MIImageView()
+                imgview.set(symbol: .pencil, size: .regular)
+                mStack.addArrangedSubView(imgview)
+
                 #if false
                 let web0 = MIWebView()
                 if let url = URL(string: "https://www.apple.com") {
