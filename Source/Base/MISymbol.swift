@@ -40,6 +40,7 @@ public enum MISymbol: Int
         public static let EnumName      = "Symbols"
         public static let InterfaceName = "SymbolIF"
 
+        case buttonHorizontal
         case character
         case checkmarkSquare
         case chevronBackward
@@ -77,6 +78,7 @@ public enum MISymbol: Int
 
         public static var allCases: Array<MISymbol> { get {
                 return [
+                        .buttonHorizontal,
                         .character,
                         .checkmarkSquare,
                         .chevronBackward,
@@ -118,6 +120,7 @@ public enum MISymbol: Int
         public var name: String { get {
                 let result: String
                 switch self {
+                case .buttonHorizontal:         result = "button.horizontal"
                 case .character:                result = "character"
                 case .checkmarkSquare:          result = "checkmark.square"
                 case .chevronBackward:          result = "chevron.backward"
@@ -160,18 +163,19 @@ public enum MISymbol: Int
         public var identifier: String { get {
                 let result: String
                 switch self {
+                case .buttonHorizontal:       result = "buttonHorizontal"
                 case .checkmarkSquare:        result = "checkmarkSquare"
-                case .character:        result = "character"
+                case .character:              result = "character"
                 case .chevronBackward:        result = "chevronBackward"
-                case .chevronDown:        result = "chevronDown"
-                case .chevronForward:        result = "chevronForward"
-                case .chevronUp:        result = "chevronUp"
-                case .game:                result = "gamecontroller"
-                case .gearshape:        result = "gearshape"
-                case .handPointUp:        result = "handPointUp"
-                case .handRaised:        result = "handRaised"
-                case .house:                result = "house"
-                case .lineDiagonal:        result = "lineDiagonal"
+                case .chevronDown:            result = "chevronDown"
+                case .chevronForward:         result = "chevronForward"
+                case .chevronUp:              result = "chevronUp"
+                case .game:                   result = "gamecontroller"
+                case .gearshape:              result = "gearshape"
+                case .handPointUp:            result = "handPointUp"
+                case .handRaised:             result = "handRaised"
+                case .house:                  result = "house"
+                case .lineDiagonal:           result = "lineDiagonal"
                 case .line_1p:                result = "line1p"
                 case .line_2p:                result = "line2p"
                 case .line_4p:                result = "line4p"
