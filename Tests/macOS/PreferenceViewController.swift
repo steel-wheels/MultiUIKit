@@ -16,10 +16,15 @@ public class PreferenceViewController: MIViewController
                 let root = MIStack()
                 root.axis = .vertical
 
+                let icon0 = MIIconView()
+                icon0.set(symbol: .buttonHorizontalTopPress, size: .regular)
+                root.addArrangedSubView(icon0)
+
                 let button = MIButton()
                 button.title = "Hello"
                 root.addArrangedSubView(button)
 
                 self.view = root
+                root.setFrameSize(NSSize(width: 320, height: 240))
         }
 }

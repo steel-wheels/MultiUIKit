@@ -11,8 +11,7 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-
-public class MIImageView: MIInterfaceView
+open class MIImageView: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIImageCore", frameSize: frm.size)

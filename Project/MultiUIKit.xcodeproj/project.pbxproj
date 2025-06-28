@@ -57,6 +57,7 @@
 		055618EE2E0AECDD00BEB418 /* MIImageCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055618EC2E0AECDD00BEB418 /* MIImageCore.swift */; };
 		055618F02E0AF14500BEB418 /* MIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055618EF2E0AF14500BEB418 /* MIImageView.swift */; };
 		055618F12E0AF14500BEB418 /* MIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055618EF2E0AF14500BEB418 /* MIImageView.swift */; };
+		055619082E0F65F300BEB418 /* MIIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055619072E0F65F300BEB418 /* MIIconView.swift */; };
 		05583F752D36A91B00294E1E /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
 		05583F772D36A91B00294E1E /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0712CD6760500595CDD /* MITextFieldCore.swift */; };
@@ -240,6 +241,7 @@
 		055618EA2E0AEC2300BEB418 /* MIImageCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIImageCore.xib; sourceTree = "<group>"; };
 		055618EC2E0AECDD00BEB418 /* MIImageCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIImageCore.swift; sourceTree = "<group>"; };
 		055618EF2E0AF14500BEB418 /* MIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIImageView.swift; sourceTree = "<group>"; };
+		055619072E0F65F300BEB418 /* MIIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIIconView.swift; sourceTree = "<group>"; };
 		0567D0712CD6760500595CDD /* MITextFieldCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextFieldCore.swift; sourceTree = "<group>"; };
 		0567D0742CD6767800595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
 		0567D0762CD6775600595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				05F64B4A2CC3C7D100AAFAD9 /* macOS */,
 				05F64B432CC3C77000AAFAD9 /* MIButton.swift */,
 				05F64B442CC3C77000AAFAD9 /* MIButtonCore.swift */,
+				055619072E0F65F300BEB418 /* MIIconView.swift */,
 				055618EF2E0AF14500BEB418 /* MIImageView.swift */,
 				055618EC2E0AECDD00BEB418 /* MIImageCore.swift */,
 				052C60A02CC5049B00E7523B /* MILabel.swift */,
@@ -1047,6 +1050,7 @@
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
 				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05F64B482CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
+				055619082E0F65F300BEB418 /* MIIconView.swift in Sources */,
 				057B43042D617AEB00C08E5E /* MIBookmark.swift in Sources */,
 				0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B402CC3AED800AAFAD9 /* MICoreView.swift in Sources */,

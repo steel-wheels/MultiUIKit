@@ -41,6 +41,7 @@ public enum MISymbol: Int
         public static let InterfaceName = "SymbolIF"
 
         case buttonHorizontal
+        case buttonHorizontalTopPress
         case character
         case checkmarkSquare
         case chevronBackward
@@ -79,6 +80,7 @@ public enum MISymbol: Int
         public static var allCases: Array<MISymbol> { get {
                 return [
                         .buttonHorizontal,
+                        .buttonHorizontalTopPress,
                         .character,
                         .checkmarkSquare,
                         .chevronBackward,
@@ -121,6 +123,7 @@ public enum MISymbol: Int
                 let result: String
                 switch self {
                 case .buttonHorizontal:         result = "button.horizontal"
+                case .buttonHorizontalTopPress: result = "button.horizontal.top.press"
                 case .character:                result = "character"
                 case .checkmarkSquare:          result = "checkmark.square"
                 case .chevronBackward:          result = "chevron.backward"
@@ -163,7 +166,8 @@ public enum MISymbol: Int
         public var identifier: String { get {
                 let result: String
                 switch self {
-                case .buttonHorizontal:       result = "buttonHorizontal"
+                case .buttonHorizontal:         result = "buttonHorizontal"
+                case .buttonHorizontalTopPress: result = "button.horizontalTopPress"
                 case .checkmarkSquare:        result = "checkmarkSquare"
                 case .character:              result = "character"
                 case .chevronBackward:        result = "chevronBackward"
