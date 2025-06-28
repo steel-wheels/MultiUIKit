@@ -23,7 +23,9 @@ class ViewController: MIViewController {
                         NSLog("avaiable font names = " + str)
                 }
 
+                /* init tests */
                 stringTest()
+                symbolTest()
 
                 // Do any additional setup after loading the view.
                 let label = MILabel()
@@ -141,6 +143,21 @@ class ViewController: MIViewController {
                 divideTest(string: "a\nb")
                 divideTest(string: "a\nb\n\nc\n")
                 divideTest(string: "\na--\nb----\n\nc--\n-")
+        }
+
+        private func symbolTest() {
+                let symbol = MISymbol.pencil
+                let url    = symbol.encodeToURL()
+                NSLog("symbol url: \(url.path)")
+                if let ressym = MISymbol.decode(fromURL: url) {
+                        if ressym == symbol {
+                                NSLog("decoded symbol: \(ressym.identifier)")
+                        } else {
+                                NSLog("[Error] unexpected symbol \(ressym.name) at \(#function)")
+                        }
+                } else {
+                        NSLog("[Error] Failed to decode at \(#function)")
+                }
         }
 
         private func divideTest(string str: String) {

@@ -14,8 +14,15 @@ import  UIKit
 
 public class MIDropView: MIInterfaceView
 {
+        #if os(OSX)
+        private var mDroppableTypes: Set<NSPasteboard.PasteboardType> = []
+        #endif
+
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIDropViewCore", frameSize: frm.size)
+                #if os(OSX)
+                registerForDraggedTypes(Array(mDroppableTypes))
+                #endif
         }
 
         private func dropCoreView() -> MIDropViewCore {

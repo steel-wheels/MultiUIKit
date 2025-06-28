@@ -230,6 +230,25 @@ public enum MISymbol: Int
                 }
                 return nil
         }
+
+        public func encodeToURL() -> URL {
+                let bundle = Bundle(for: MISymbolImage.self)
+                if let url = bundle.resourceURL {
+                        let murl = url.appendingPathComponent("Symbols/" + self.name)
+                        return murl
+                } else {
+                        NSLog("[Error] Failed to allocate URL at \(#function)")
+                        return URL(filePath: self.name + ".png")
+                }
+        }
+
+        public static func decode(fromURL url: URL) -> MISymbol? {
+                if let url = MISymbol.decode(fromName: url.lastPathComponent) {
+                        return url
+                } else {
+                        return nil
+                }
+        }
 }
 
 private class MISymbolImage
