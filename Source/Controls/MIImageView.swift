@@ -30,8 +30,8 @@ open class MIImageView: MIInterfaceView
                 set(val){ coreImageView().image = val  }
         }
 
-        public func set(symbol sym: MISymbol, size sz: MISymbolSize){
-                self.image = MISymbolTable.shared.load(symbol: sym, size: sz)
+        open func set(symbol sym: MISymbol, size sz: MISymbolSize){
+                self.image   = MISymbolTable.shared.load(symbol: sym, size: sz)
         }
 }
 

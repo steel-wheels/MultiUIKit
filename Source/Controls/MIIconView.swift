@@ -11,7 +11,11 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-/* MIIconView extend MIImageView to support draggin */
+/* MIIconView extend MIImageView to support draggin
+ * Reference:
+ *    Drag and Drop Tutorial for macOS
+ *    https://srcw.net/wiki/?Drag+and+Drop+Tutorial+for+macOS#iba71ca8
+ */
 public class MIIconView: MIImageView, NSDraggingSource, NSPasteboardItemDataProvider
 {
         open override func mouseDown(with event: NSEvent) {
@@ -33,6 +37,7 @@ public class MIIconView: MIImageView, NSDraggingSource, NSPasteboardItemDataProv
         }
 
         public func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: NSPasteboard.PasteboardType) {
+                NSLog("paste board at \(#function)")
         }
 }
 
