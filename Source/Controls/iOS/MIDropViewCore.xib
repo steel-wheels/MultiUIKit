@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MIDropViewCore" customModule="MultiUIKit">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="243"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbm-rZ-nSi" customClass="MIStack" customModule="MultiUIKit" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="243"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wbm-rZ-nSi" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="dVp-3g-yHt"/>
+                <constraint firstAttribute="bottom" secondItem="wbm-rZ-nSi" secondAttribute="bottom" id="iW6-e5-9Zd"/>
+                <constraint firstItem="wbm-rZ-nSi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iiq-Jm-MRe"/>
+                <constraint firstItem="wbm-rZ-nSi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xsg-gJ-Dp4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mStack" destination="wbm-rZ-nSi" id="axv-hb-XE5"/>
+                <outlet property="mStackView" destination="wbm-rZ-nSi" id="JZ8-mK-M7r"/>
+            </connections>
+            <point key="canvasLocation" x="139.69465648854961" y="-271.47887323943661"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -80,6 +80,12 @@
 		057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */; };
 		057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
+		05B64A762E0FE8650047CBDF /* MIDropViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */; };
+		05B64A782E0FEA8D0047CBDF /* MIDropViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */; };
+		05B64A7A2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */; };
+		05B64A7B2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */; };
+		05B64A7D2E0FEE800047CBDF /* MIDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64A7C2E0FEE800047CBDF /* MIDropView.swift */; };
+		05B64A7E2E0FEE800047CBDF /* MIDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64A7C2E0FEE800047CBDF /* MIDropView.swift */; };
 		05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */; };
 		05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */; };
 		05B93FB32CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
@@ -256,6 +262,10 @@
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
+		05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
+		05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
+		05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDropViewCore.swift; sourceTree = "<group>"; };
+		05B64A7C2E0FEE800047CBDF /* MIDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDropView.swift; sourceTree = "<group>"; };
 		05B93FAE2CD5FDA800BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
@@ -542,6 +552,8 @@
 				05F64B4A2CC3C7D100AAFAD9 /* macOS */,
 				05F64B432CC3C77000AAFAD9 /* MIButton.swift */,
 				05F64B442CC3C77000AAFAD9 /* MIButtonCore.swift */,
+				05B64A7C2E0FEE800047CBDF /* MIDropView.swift */,
+				05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */,
 				055619072E0F65F300BEB418 /* MIIconView.swift */,
 				055618EF2E0AF14500BEB418 /* MIImageView.swift */,
 				055618EC2E0AECDD00BEB418 /* MIImageCore.swift */,
@@ -574,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				0531A8982CC49D1C0053A897 /* MIButtonCore.xib */,
+				05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */,
 				055618EA2E0AEC2300BEB418 /* MIImageCore.xib */,
 				052C609E2CC502D400E7523B /* MILabelCore.xib */,
 				05D83E7B2CE246EC004ACED7 /* MIPopupMenuCore.xib */,
@@ -592,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				05F64B4D2CC3C81700AAFAD9 /* MIButtonCore.xib */,
+				05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */,
 				055618E82E0AEB6500BEB418 /* MIImageCore.xib */,
 				052C60992CC5001C00E7523B /* MILabelCore.xib */,
 				05D83E792CE24506004ACED7 /* MIPopupMenuCore.xib */,
@@ -922,6 +936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053A7F3F2D3B35DB007C178B /* MITableCore.xib in Resources */,
+				05B64A782E0FEA8D0047CBDF /* MIDropViewCore.xib in Resources */,
 				0574C31C2CD75BE900E7166F /* MIWebViewCore.xib in Resources */,
 				05DF74D52D734799000EB93D /* MITextViewCore.xib in Resources */,
 				055618EB2E0AEC2300BEB418 /* MIImageCore.xib in Resources */,
@@ -949,6 +964,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053A7F3D2D3B34D2007C178B /* MITableCore.xib in Resources */,
+				05B64A762E0FE8650047CBDF /* MIDropViewCore.xib in Resources */,
 				0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */,
 				05DF74D32D73464A000EB93D /* MITextViewCore.xib in Resources */,
 				055618E92E0AEB6500BEB418 /* MIImageCore.xib in Resources */,
@@ -1028,6 +1044,8 @@
 				054721AA2CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B472CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				053A7F422D3B3702007C178B /* MITableCore.swift in Sources */,
+				05B64A7B2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
+				05B64A7D2E0FEE800047CBDF /* MIDropView.swift in Sources */,
 				057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				055618ED2E0AECDD00BEB418 /* MIImageCore.swift in Sources */,
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
@@ -1069,6 +1087,7 @@
 				05F64B3C2CC3AED800AAFAD9 /* MIError.swift in Sources */,
 				05DF74CB2D731593000EB93D /* MIColor.swift in Sources */,
 				053A7F452D3B3955007C178B /* MITable.swift in Sources */,
+				05B64A7E2E0FEE800047CBDF /* MIDropView.swift in Sources */,
 				052C60A22CC5049B00E7523B /* MILabel.swift in Sources */,
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
@@ -1094,6 +1113,7 @@
 				05D201CF2D6AEE2800114347 /* MISize.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
+				05B64A7A2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
 				057B43032D617AEB00C08E5E /* MIBookmark.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
