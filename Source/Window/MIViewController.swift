@@ -27,6 +27,12 @@ open class MIViewController: MIViewControllerBase
                 #endif
         }
 
+        open func viewWillBecomeForeground() {
+        }
+
+        open func viewWillBecomeBackground() {
+        }
+
         public enum AlertResult {
                 case ok
                 case cancel
