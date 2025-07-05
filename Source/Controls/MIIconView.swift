@@ -18,10 +18,17 @@ import  UIKit
  */
 public class MIIconView: MIImageView, NSDraggingSource, NSPasteboardItemDataProvider
 {
+        private var mSymbol: MISymbol? = nil
+
+        public override func set(symbol sym: MISymbol, size sz: MISymbolSize){
+                super.set(symbol: sym, size: sz)
+                mSymbol = sym
+        }
+
         open override func mouseDown(with event: NSEvent) {
                 if let img = self.image {
                         let pasteboardItem = NSPasteboardItem()
-                        pasteboardItem.setDataProvider(self, forTypes: [.png])
+                        pasteboardItem.setDataProvider(self, forTypes: [.png, .fileURL])
 
                         let draggingItem = NSDraggingItem(pasteboardWriter: pasteboardItem)
                         draggingItem.setDraggingFrame(self.bounds, contents: img)
@@ -37,7 +44,29 @@ public class MIIconView: MIImageView, NSDraggingSource, NSPasteboardItemDataProv
         }
 
         public func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: NSPasteboard.PasteboardType) {
-                NSLog("paste board at \(#function)")
+                guard let pboard = pasteboard else {
+                        NSLog("[Error: pasteboard.setData: no board")
+                        return
+                }
+                switch type {
+                case .png:
+                        if let img = super.image {
+                                //NSLog("pasteboard.setData: image")
+                                pboard.setData(img.pngData(), forType: .png)
+                        } else {
+                                NSLog("[Error] Not image at \(#function)")
+                        }
+                case .fileURL, .URL:
+                        if let sym = mSymbol {
+                                //NSLog("pasteboard.setData: fileURL")
+                                let url = sym.encodeToURL() as NSURL
+                                pboard.setData(url.dataRepresentation, forType: .fileURL)
+                        } else {
+                                NSLog("[Error] Not fileurl at \(#function)")
+                        }
+                default:
+                        NSLog("[Error] Unsupported type")
+                }
         }
 }
 

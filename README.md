@@ -14,10 +14,18 @@ Copyright (C) 2024-2035 [Steel Wheels Project](https://github.com/steel-wheels/P
 ## Components
 Following GUI components are supported:
 * MIButton:     Push button.
+* MIDropView:   The view to put dragged object
+* MIIconView:   Symbol view
+* MIImageView:  Image view
 * MILabel:      One line text label.
 * MIPopupMenu:  Popup menu
 * MIStack:      The box to layout sub views horizontally or vertically.
 * MISwitch:     On/Off switch
+* MITable:      Table view
+* MITextField:  Editable text
+
+## Bugs
+See [Bugs](./Documents/Bugs.md).
 
 ## Refereces:
 * [MultiUIKit](https://github.com/steel-wheels/MultiUIKit): MultiUIKit web page

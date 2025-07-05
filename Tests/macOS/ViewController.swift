@@ -62,13 +62,13 @@ class ViewController: MIViewController {
                 dropview.contentsView.axis = .vertical
                 mStack.addArrangedSubView(dropview)
 
-                let imgview0 = MIImageView()
-                imgview0.set(symbol: .pencil, size: .regular)
-                dropview.contentsView.addArrangedSubView(imgview0)
+                //let imgview0 = MIImageView()
+                //imgview0.set(symbol: .pencil, size: .regular)
+                //dropview.contentsView.addArrangedSubView(imgview0)
 
-                let imgview1 = MIImageView()
-                imgview1.set(symbol: .buttonHorizontal, size: .regular)
-                dropview.contentsView.addArrangedSubView(imgview1)
+                //let imgview1 = MIImageView()
+                //imgview1.set(symbol: .buttonHorizontal, size: .regular)
+                //dropview.contentsView.addArrangedSubView(imgview1)
 
                 #if false
                 let web0 = MIWebView()

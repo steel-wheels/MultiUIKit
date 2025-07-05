@@ -243,8 +243,8 @@ public enum MISymbol: Int
         }
 
         public static func decode(fromURL url: URL) -> MISymbol? {
-                if let url = MISymbol.decode(fromName: url.lastPathComponent) {
-                        return url
+                if let sym = MISymbol.decode(fromName: url.lastPathComponent) {
+                        return sym
                 } else {
                         return nil
                 }
