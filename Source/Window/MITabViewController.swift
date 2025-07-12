@@ -15,6 +15,7 @@ import  UIKit
 open class MITabViewController: UITabBarController, UITabBarControllerDelegate
 {
         open override func viewDidLoad() {
+                super.viewDidLoad()
                 self.delegate = self
         }
 
