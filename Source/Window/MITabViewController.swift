@@ -102,6 +102,14 @@ public extension MITabViewController
                 #endif
         }
 
+        func currentViewIndex() -> Int {
+                #if os(OSX)
+                        return self.selectedTabViewItemIndex
+                #else
+                        return self.selectedIndex
+                #endif
+        }
+
         func currentViewController() -> MIViewController? {
                 #if os(OSX)
                         let idx = self.selectedTabViewItemIndex
