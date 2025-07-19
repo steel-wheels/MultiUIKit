@@ -18,7 +18,7 @@ import  UIKit
  *   https://www.kodeco.com/1016-drag-and-drop-tutorial-for-macos
  */
 
-public class MIDropView: MIInterfaceView
+open class MIDropView: MIInterfaceView
 {
         #if os(OSX)
         var acceptableTypes: Set<NSPasteboard.PasteboardType> { return [ .fileURL, .png ] }

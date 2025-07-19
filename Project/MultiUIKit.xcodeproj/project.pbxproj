@@ -123,6 +123,8 @@
 		05DF75152D74A9BC000EB93D /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05DF75172D74A9BD000EB93D /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		05DF75182D74A9BD000EB93D /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05E346D32E2B203F009DFD0D /* MIConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E346D22E2B203F009DFD0D /* MIConsole.swift */; };
+		05E346D42E2B203F009DFD0D /* MIConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E346D22E2B203F009DFD0D /* MIConsole.swift */; };
 		05F64B372CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
 		05F64B382CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
 		05F64B3C2CC3AED800AAFAD9 /* MIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B3A2CC3AED800AAFAD9 /* MIError.swift */; };
@@ -289,6 +291,7 @@
 		05DF74DD2D73E748000EB93D /* TextView_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextView_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF74F32D742D28000EB93D /* MITextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextStorage.swift; sourceTree = "<group>"; };
 		05DF74FA2D74A5E5000EB93D /* TextView_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextView_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E346D22E2B203F009DFD0D /* MIConsole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIConsole.swift; sourceTree = "<group>"; };
 		05F64B362CC3ADB900AAFAD9 /* MIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIType.swift; sourceTree = "<group>"; };
 		05F64B392CC3AED800AAFAD9 /* MICoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICoreView.swift; sourceTree = "<group>"; };
 		05F64B3A2CC3AED800AAFAD9 /* MIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIError.swift; sourceTree = "<group>"; };
@@ -576,6 +579,7 @@
 				05DF74CF2D734598000EB93D /* MITextView.swift */,
 				05DF74CC2D73455F000EB93D /* MITextViewCore.swift */,
 				05DF74F32D742D28000EB93D /* MITextStorage.swift */,
+				05E346D22E2B203F009DFD0D /* MIConsole.swift */,
 				054B43032CD75F92000CCD12 /* MIWebView.swift */,
 				0574C3162CD75A4200E7166F /* MIWebViewCore.swift */,
 			);
@@ -1046,6 +1050,7 @@
 				053A7F422D3B3702007C178B /* MITableCore.swift in Sources */,
 				05B64A7B2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
 				05B64A7D2E0FEE800047CBDF /* MIDropView.swift in Sources */,
+				05E346D42E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				055618ED2E0AECDD00BEB418 /* MIImageCore.swift in Sources */,
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
@@ -1115,6 +1120,7 @@
 				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
 				05B64A7A2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
 				057B43032D617AEB00C08E5E /* MIBookmark.swift in Sources */,
+				05E346D32E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
