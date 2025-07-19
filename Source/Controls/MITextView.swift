@@ -18,7 +18,7 @@ open class MITextView: MIInterfaceView
                 coreTextView().setup(storage: allocateStorage())
         }
 
-        open func allocateStorage() -> MITextStorage {
+        private func allocateStorage() -> MITextStorage {
                 return MITextStorage()
         }
 

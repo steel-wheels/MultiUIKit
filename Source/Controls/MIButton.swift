@@ -12,11 +12,11 @@ import  UIKit
 #endif  // os(OSX)
 
 
-public class MIButton: MIInterfaceView
+open class MIButton: MIInterfaceView
 {
         public typealias CallbackFunction = MIButtonCore.CallbackFunction
 
-        open override func setup(frame frm: CGRect) {
+        public override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIButtonCore", frameSize: frm.size)
         }
 
