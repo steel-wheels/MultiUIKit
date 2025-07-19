@@ -54,7 +54,7 @@ open class MIDropView: MIInterfaceView
                 } else {
                         canAccept = false
                 }
-                NSLog("shouldAllowDrag: \(canAccept)")
+                //NSLog("shouldAllowDrag: \(canAccept)")
                 return canAccept
         }
 
@@ -104,22 +104,19 @@ open class MIDropView: MIInterfaceView
                                 for type in pasteboarditem.types {
                                         switch type {
                                         case .png:
-                                                //NSLog("performDragOperation: png data")
                                                 if let data = pasteboarditem.data(forType: type) {
                                                         //NSLog("performDragOperation: get data")
                                                         if let image = NSImage(data: data) {
-                                                                NSLog("performDragOperation: result: image")
+                                                                didDropped(point: point, image: image)
                                                                 result = true
                                                         } else {
                                                                 NSLog("[Error] Failed to get image at \(#function)")
                                                         }
                                                 }
                                         case .fileURL, .URL:
-                                                //NSLog("performDragOperation: URL")
                                                 if let data = pasteboarditem.data(forType: type) {
-                                                        //NSLog("performDragOperation: get url")
                                                         let url = NSURL(dataRepresentation: data, relativeTo: nil) as URL
-                                                        NSLog("performDragOperation: result: url \(url.path)")
+                                                        didDropped(point: point, URL: url)
                                                         result = true
                                                 }
                                         default:
@@ -128,10 +125,14 @@ open class MIDropView: MIInterfaceView
                                 }
                         }
                 }
-
-                NSLog("performDragOperation: \(result)")
-
                 return result
+        }
+
+        open func didDropped(point pt: CGPoint, image img: NSImage) {
+        }
+
+        open func didDropped(point pt: CGPoint, URL url: URL) {
+                NSLog("didDropped Point:\(pt.x):\(pt.y) URL:\(url.path) at \(#file)")
         }
 
         #endif
