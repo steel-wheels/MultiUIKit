@@ -132,7 +132,15 @@ open class MIDropView: MIInterfaceView
         }
 
         open func didDropped(point pt: CGPoint, URL url: URL) {
-                NSLog("didDropped Point:\(pt.x):\(pt.y) URL:\(url.path) at \(#file)")
+                if let sym = MISymbol.decode(fromURL: url) {
+                        didDropped(point: pt, symbol: sym)
+                } else {
+                        NSLog("didDropped Point:\(pt.x):\(pt.y) URL:\(url.path) at \(#file)")
+                }
+        }
+
+        open func didDropped(point pt: CGPoint, symbol sym: MISymbol) {
+                NSLog("didDropped Point:\(pt.x):\(pt.y) Symbol:\(sym.name) at \(#file)")
         }
 
         #endif
