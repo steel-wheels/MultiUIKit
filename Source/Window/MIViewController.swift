@@ -33,6 +33,26 @@ open class MIViewController: MIViewControllerBase
         open func viewWillBecomeBackground() {
         }
 
+        open func requireLayout() {
+                #if os(OSX)
+                        self.view.needsLayout = true
+                #else
+                        if let view = self.view {
+                                view.setNeedsLayout()
+                        }
+                #endif
+        }
+
+        open func requireDisplay() {
+                #if os(OSX)
+                        self.view.needsDisplay = true
+                #else
+                        if let view = self.view {
+                                view.setNeedsDisplay()
+                        }
+                #endif
+        }
+
         public enum AlertResult {
                 case ok
                 case cancel
