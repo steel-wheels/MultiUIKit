@@ -43,6 +43,10 @@ open class MIStack: MIInterfaceView
         public var arrangedSubviews: Array<MIInterfaceView> { get {
                 return coreStackView().arrangedSubviews
         }}
+
+        public func removeAllSubviews() {
+                coreStackView().removeAllSubviews()
+        }
 }
 
 

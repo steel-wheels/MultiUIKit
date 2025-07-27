@@ -87,5 +87,17 @@ public class MIStackCore: MICoreView
                 }
                 return result
         }}
+
+        public func removeAllSubviews() {
+                #if os(OSX)
+                while mStack.views.count > 0 {
+                        mStack.removeView(mStack.views[0])
+                }
+                #else
+                while mStack.arrangedSubviews.count > 0 {
+                        mStack.removeArrangedSubview(mStack.arrangedSubviews[0])
+                }
+                #endif
+        }
 }
 
