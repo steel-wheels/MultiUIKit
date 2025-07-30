@@ -13,9 +13,9 @@ import  UIKit
 
 public class MIButtonCore: MICoreView
 {
-        public typealias CallbackFunction = () -> Void
+        public typealias ButtonPressedCallback = () -> Void
 
-        private var mCallbackFunction: CallbackFunction? = nil
+        private var mButtonPressedCallback: ButtonPressedCallback? = nil
 
 #if os(OSX)
         @IBOutlet weak var mButton: NSButton!
@@ -46,12 +46,12 @@ public class MIButtonCore: MICoreView
                 #endif
         }
 
-        public func setCallback(_ cbfunc: @escaping CallbackFunction){
-                mCallbackFunction = cbfunc
+        public func setButtonPressedCallback(_ cbfunc: @escaping ButtonPressedCallback){
+                mButtonPressedCallback = cbfunc
         }
 
         private func pressed() {
-                if let callback = mCallbackFunction {
+                if let callback = mButtonPressedCallback {
                         callback()
                 }
         }

@@ -14,7 +14,7 @@ import  UIKit
 
 open class MIButton: MIInterfaceView
 {
-        public typealias CallbackFunction = MIButtonCore.CallbackFunction
+        public typealias ButtonPressedCallback = MIButtonCore.ButtonPressedCallback
 
         public override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIButtonCore", frameSize: frm.size)
@@ -28,8 +28,8 @@ open class MIButton: MIInterfaceView
                 }
         }
 
-        public func setCallback(_ cbfunc: @escaping CallbackFunction){
-                self.coreButtonView().setCallback(cbfunc)
+        public func setButtonPressedCallback(_ cbfunc: @escaping ButtonPressedCallback){
+                self.coreButtonView().setButtonPressedCallback(cbfunc)
         }
 
         public var title: String {

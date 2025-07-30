@@ -109,7 +109,7 @@ class ViewController: MIViewController {
 
                 let button0 = MIButton()
                 button0.title = "button-0"
-                button0.setCallback({
+                button0.setButtonPressedCallback({
                         () -> Void in NSLog("button0 pressed")
                         super.alert(message: "Alert message", callback: {
                                 (_ result: AlertResult) -> Void in
@@ -124,7 +124,7 @@ class ViewController: MIViewController {
 
                 let button1 = MIButton()
                 button1.title = "button-1"
-                button1.setCallback({
+                button1.setButtonPressedCallback({
                         () -> Void in NSLog("button1 pressed")
                 })
                 buttons.addArrangedSubView(button1)

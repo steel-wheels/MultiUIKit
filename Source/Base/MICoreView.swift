@@ -13,7 +13,10 @@ import  UIKit
 
 public class MICoreView: MIBaseView
 {
-        private var mCoreView:  MIBaseView?             = nil
+        public typealias RightMouseDownCallback = (_ event: MIEvent) -> Void
+
+        private var mCoreView:                  MIBaseView?             = nil
+        private var mRightMouseDownCallback:    RightMouseDownCallback? = nil
 
         open func setup() {
                 NSLog("Must be override: MICoreView")
@@ -23,6 +26,10 @@ public class MICoreView: MIBaseView
                 mCoreView  = core
                 self.activateAutolayout()
                 core.activateAutolayout()
+        }
+
+        public func setRightMouseDownCallback(_ cbfunc: RightMouseDownCallback) {
+                mRightMouseDownCallback = nil
         }
 
         #if os(iOS)
