@@ -28,8 +28,8 @@ public class MICoreView: MIBaseView
                 core.activateAutolayout()
         }
 
-        public func setRightMouseDownCallback(_ cbfunc: RightMouseDownCallback) {
-                mRightMouseDownCallback = nil
+        public func setRightMouseDownCallback(_ cbfunc: @escaping RightMouseDownCallback) {
+                mRightMouseDownCallback = cbfunc
         }
 
         #if os(iOS)
@@ -47,6 +47,16 @@ public class MICoreView: MIBaseView
                 }
         }
         #endif // os(iOS)
+
+        #if os(OSX)
+        public override func rightMouseUp(with event: MIEvent) {
+                if let cbfunc = mRightMouseDownCallback {
+                        cbfunc(event)
+                } else {
+                        super.rightMouseUp(with: event)
+                }
+        }
+        #endif
 
         public override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {
