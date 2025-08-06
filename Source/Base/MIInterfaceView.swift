@@ -13,8 +13,6 @@ import  UIKit
 
 open class MIInterfaceView: MIBaseView
 {
-        public typealias RightMouseDownCallback = MICoreView.RightMouseDownCallback
-
         private var mCoreView: MICoreView? = nil
 
         public func coreView<T>() -> T? {
@@ -110,12 +108,6 @@ open class MIInterfaceView: MIBaseView
                 }
         }
         #endif // os(iOS)
-
-        public func setRightMouseDownCallback(_ cbfunc: @escaping RightMouseDownCallback) {
-                if let core = mCoreView {
-                        core.setRightMouseDownCallback(cbfunc)
-                }
-        }
         
         public override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {

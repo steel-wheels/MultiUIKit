@@ -17,7 +17,7 @@ public typealias MIViewControllerBase = UIViewController
 public typealias MIViewControllerBase = NSViewController
 #endif
 
-open class MIViewController: MIViewControllerBase
+open class MIViewController: MIViewControllerBase, MIViewEventReceiver
 {
         public func open(URL url: URL) {
                 #if os(iOS)
@@ -76,6 +76,10 @@ open class MIViewController: MIViewControllerBase
                         }
                 }
                 return stack
+        }
+
+        open func acceptViewEvent(_ event: MIViewEvent) {
+                NSLog("acceptViewEvent: \(event.toString()) at \(#file)")
         }
 
         #if os(iOS)

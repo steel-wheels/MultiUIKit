@@ -84,8 +84,8 @@ class ViewController: MIViewController {
 
                 let button0 = MIButton()
                 button0.title = "button-0"
-                button0.setCallback({
-                        () -> Void in NSLog("button0 pressed")
+                button0.setRightMouseDownCallback({
+                        (_ event: MICallbackEvent) -> Void in
                         self.alert(message: "Alert message", callback :{
                                 (_ result: AlertResult) -> Void in
                                 switch result {
@@ -99,7 +99,7 @@ class ViewController: MIViewController {
 
                 let button1 = MIButton()
                 button1.title = "button-1"
-                button1.setCallback({
+                button1.setButtonPressedCallback({
                         () -> Void in NSLog("button1 pressed")
                 })
                 buttons.addArrangedSubView(button1)

@@ -11,6 +11,12 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
+#if os(OSX)
+public typealias MIResponder                = NSResponder
+#else
+public typealias MIResponder                = UIResponder
+#endif
+
 public struct MIMenuItem {
         public enum Value {
                 case none
