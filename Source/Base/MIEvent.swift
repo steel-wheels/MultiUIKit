@@ -24,9 +24,14 @@ public typealias MIEvent = UIEvent
         }
 
         private var mEventType: EventType
+        private var mTagValue:  Int
 
-        public init(eventType etype: EventType){
+        public var type: EventType { get { mEventType }}
+        public var tag:  Int       { get { mTagValue  }}
+
+        public init(eventType etype: EventType, tag tagval: Int){
                 self.mEventType = etype
+                self.mTagValue  = tagval
         }
 
         public func toString() -> String {

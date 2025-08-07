@@ -13,7 +13,8 @@ import  UIKit
 
 public class MICoreView: MIBaseView
 {
-        private var mCoreView:                  MIBaseView?             = nil
+        private var mCoreView:  MIBaseView?     = nil
+        private var mTagValue:  Int             = -1
 
         open func setup() {
                 NSLog("Must be override: MICoreView")
@@ -23,6 +24,11 @@ public class MICoreView: MIBaseView
                 mCoreView  = core
                 self.activateAutolayout()
                 core.activateAutolayout()
+        }
+
+        public override var tag: Int {
+                set(val) { mTagValue = val  }
+                get      { return mTagValue }
         }
 
         #if os(iOS)
@@ -43,7 +49,7 @@ public class MICoreView: MIBaseView
 
         #if os(OSX)
         public override func rightMouseUp(with event: MIEvent) {
-                notifyViewEvent(MIViewEvent(eventType: .rightMouseDown))
+                notifyViewEvent(MIViewEvent(eventType: .rightMouseDown, tag: self.tag))
         }
         #endif
 
