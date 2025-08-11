@@ -86,6 +86,14 @@ open class MIInterfaceView: MIBaseView
                 return nil
         }
 
+        public func set(contentSize csize: MIContentSize){
+                if let core = mCoreView {
+                        core.set(contentSize: csize)
+                } else {
+                        NSLog("[Error] No core view at \(#function)")
+                }
+        }
+
         public func allocateSubviewLayout(subView sview: MICoreView){
                 sview.translatesAutoresizingMaskIntoConstraints = false
                 let space: CGFloat = 0.0
