@@ -40,6 +40,10 @@ open class MIStack: MIInterfaceView
                 coreStackView().addArrangedSubView(view)
         }
 
+        public func insertArrangedSubView(_ view: MIInterfaceView, at index: Int) {
+                coreStackView().insertArrangedSubView(view, at: index)
+        }
+
         public var arrangedSubviews: Array<MIInterfaceView> { get {
                 return coreStackView().arrangedSubviews
         }}
