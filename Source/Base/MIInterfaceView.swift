@@ -89,6 +89,7 @@ open class MIInterfaceView: MIBaseView
         public func set(contentSize csize: MIContentSize){
                 if let core = mCoreView {
                         core.set(contentSize: csize)
+                        self.invalidateIntrinsicContentSize()
                 } else {
                         NSLog("[Error] No core view at \(#function)")
                 }
