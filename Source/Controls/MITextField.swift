@@ -37,6 +37,21 @@ public class MITextField: MIInterfaceView
                 set(value) { coreTextFieldView().stringValue = value }
         }
 
+        public var signedIntValue: Int? {
+                get        { return coreTextFieldView().signedIntValue  }
+                set(value) { coreTextFieldView().signedIntValue = value }
+        }
+
+        public var unsignedIntValue: UInt? {
+                get        { return coreTextFieldView().unsignedIntValue  }
+                set(value) { coreTextFieldView().unsignedIntValue = value }
+        }
+
+        public var floatValue: Double? {
+                get        { return coreTextFieldView().floatValue  }
+                set(value) { coreTextFieldView().floatValue = value }
+        }
+
         public var placeholderString: String? {
                 get        { return coreTextFieldView().placeholderString }
                 set(value) { coreTextFieldView().placeholderString = value }

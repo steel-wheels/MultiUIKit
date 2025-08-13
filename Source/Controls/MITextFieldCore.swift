@@ -55,6 +55,45 @@ public class MITextFieldCore: MICoreView, MITextFieldDelegate
                 }
         }
 
+        public var signedIntValue: Int? {
+                get {
+                        return Int(self.stringValue)
+                }
+                set(value) {
+                        if let val = value {
+                                self.stringValue = String(format: "%d", val)
+                        } else {
+                                self.stringValue = ""
+                        }
+                }
+        }
+
+        public var unsignedIntValue: UInt? {
+                get {
+                        return UInt(self.stringValue)
+                }
+                set(value) {
+                        if let val = value {
+                                self.stringValue = String(format: "%u", val)
+                        } else {
+                                self.stringValue = ""
+                        }
+                }
+        }
+
+        public var floatValue: Double? {
+                get {
+                        return Double(self.stringValue)
+                }
+                set(value) {
+                        if let val = value {
+                                self.stringValue = String(format: "%.2f", val)
+                        } else {
+                                self.stringValue = ""
+                        }
+                }
+        }
+
         public var placeholderString: String? {
                 get {
                         #if os(iOS)
