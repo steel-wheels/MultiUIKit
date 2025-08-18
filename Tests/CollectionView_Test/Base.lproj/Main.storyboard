@@ -715,7 +715,7 @@
                                     <constraint firstAttribute="height" constant="130" id="upF-ak-Ru4"/>
                                 </constraints>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="7qi-ca-6LO">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="7qi-ca-6LO" customClass="MIDropView" customModule="MultiUIKit">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="132"/>
                             </customView>
                         </subviews>
@@ -731,6 +731,7 @@
                     </view>
                     <connections>
                         <outlet property="mCollectionView" destination="p87-Gj-ejA" id="DpS-ut-OSc"/>
+                        <outlet property="mDropView" destination="7qi-ca-6LO" id="kmj-5s-ara"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

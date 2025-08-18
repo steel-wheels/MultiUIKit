@@ -12,6 +12,7 @@ class ViewController: NSViewController
 {
 
         @IBOutlet weak var mCollectionView: MICollectionView!
+        @IBOutlet weak var mDropView: MIDropView!
         
         override func viewDidLoad() {
                 super.viewDidLoad()
