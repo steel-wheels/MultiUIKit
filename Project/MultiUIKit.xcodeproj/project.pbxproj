@@ -70,6 +70,14 @@
 		0567D0772CD6775600595CDD /* MITextFieldCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0567D0762CD6775600595CDD /* MITextFieldCore.xib */; };
 		0567D0792CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
 		0567D07A2CD678E900595CDD /* MITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567D0782CD678E900595CDD /* MITextField.swift */; };
+		0573DF032E520A6E00F8051B /* MICollectionViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573DF022E520A6E00F8051B /* MICollectionViewCore.xib */; };
+		0573DF052E520AA100F8051B /* MICollectionViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573DF042E520AA100F8051B /* MICollectionViewCore.swift */; };
+		0573DF062E520AA100F8051B /* MICollectionViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573DF042E520AA100F8051B /* MICollectionViewCore.swift */; };
+		0573DF082E520BEE00F8051B /* MICollectionViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573DF072E520BEE00F8051B /* MICollectionViewCore.xib */; };
+		0573DF0A2E52B23500F8051B /* MICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573DF092E52B23500F8051B /* MICollectionView.swift */; };
+		0573DF0B2E52B23500F8051B /* MICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573DF092E52B23500F8051B /* MICollectionView.swift */; };
+		0573DF1F2E531D3200F8051B /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
+		0573DF202E531D3200F8051B /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */; };
@@ -198,6 +206,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0573DF212E531D3200F8051B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0573DF202E531D3200F8051B /* MultiUIKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05DF75162D74A9BC000EB93D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +280,11 @@
 		0567D0762CD6775600595CDD /* MITextFieldCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextFieldCore.xib; sourceTree = "<group>"; };
 		0567D0782CD678E900595CDD /* MITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextField.swift; sourceTree = "<group>"; };
 		056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
+		0573DF022E520A6E00F8051B /* MICollectionViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MICollectionViewCore.xib; sourceTree = "<group>"; };
+		0573DF042E520AA100F8051B /* MICollectionViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICollectionViewCore.swift; sourceTree = "<group>"; };
+		0573DF072E520BEE00F8051B /* MICollectionViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MICollectionViewCore.xib; sourceTree = "<group>"; };
+		0573DF092E52B23500F8051B /* MICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICollectionView.swift; sourceTree = "<group>"; };
+		0573DF102E52CD6200F8051B /* CollectionView_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionView_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0574C3162CD75A4200E7166F /* MIWebViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIWebViewCore.swift; sourceTree = "<group>"; };
 		0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
 		0574C31B2CD75BE900E7166F /* MIWebViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIWebViewCore.xib; sourceTree = "<group>"; };
@@ -352,6 +376,11 @@
 			path = MultiUIKit_macOS;
 			sourceTree = "<group>";
 		};
+		0573DF112E52CD6200F8051B /* CollectionView_Test */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CollectionView_Test;
+			sourceTree = "<group>";
+		};
 		05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -411,6 +440,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0573DF0D2E52CD6200F8051B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0573DF1F2E531D3200F8051B /* MultiUIKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +557,7 @@
 				05D766F32D355DB800644698 /* TabView_iOS.app */,
 				05DF74DD2D73E748000EB93D /* TextView_macOS.app */,
 				05DF74FA2D74A5E5000EB93D /* TextView_iOS.app */,
+				0573DF102E52CD6200F8051B /* CollectionView_Test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -563,6 +601,8 @@
 				05F64B4A2CC3C7D100AAFAD9 /* macOS */,
 				05F64B432CC3C77000AAFAD9 /* MIButton.swift */,
 				05F64B442CC3C77000AAFAD9 /* MIButtonCore.swift */,
+				0573DF092E52B23500F8051B /* MICollectionView.swift */,
+				0573DF042E520AA100F8051B /* MICollectionViewCore.swift */,
 				05B64A7C2E0FEE800047CBDF /* MIDropView.swift */,
 				05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */,
 				055619072E0F65F300BEB418 /* MIIconView.swift */,
@@ -598,6 +638,7 @@
 			isa = PBXGroup;
 			children = (
 				0531A8982CC49D1C0053A897 /* MIButtonCore.xib */,
+				0573DF072E520BEE00F8051B /* MICollectionViewCore.xib */,
 				05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */,
 				055618EA2E0AEC2300BEB418 /* MIImageCore.xib */,
 				052C609E2CC502D400E7523B /* MILabelCore.xib */,
@@ -617,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				05F64B4D2CC3C81700AAFAD9 /* MIButtonCore.xib */,
+				0573DF022E520A6E00F8051B /* MICollectionViewCore.xib */,
 				05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */,
 				055618E82E0AEB6500BEB418 /* MIImageCore.xib */,
 				052C60992CC5001C00E7523B /* MILabelCore.xib */,
@@ -635,6 +677,7 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0573DF112E52CD6200F8051B /* CollectionView_Test */,
 				05DF74FB2D74A5E5000EB93D /* TextView_iOS */,
 				05DF74DE2D73E748000EB93D /* TextView_macOS */,
 				05D766F42D355DB800644698 /* TabView_iOS */,
@@ -750,6 +793,29 @@
 			productName = MultiUIKit_macOS;
 			productReference = 0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		0573DF0F2E52CD6200F8051B /* CollectionView_Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0573DF1C2E52CD6400F8051B /* Build configuration list for PBXNativeTarget "CollectionView_Test" */;
+			buildPhases = (
+				0573DF0C2E52CD6200F8051B /* Sources */,
+				0573DF0D2E52CD6200F8051B /* Frameworks */,
+				0573DF0E2E52CD6200F8051B /* Resources */,
+				0573DF212E531D3200F8051B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0573DF112E52CD6200F8051B /* CollectionView_Test */,
+			);
+			name = CollectionView_Test;
+			packageProductDependencies = (
+			);
+			productName = CollectionView_Test;
+			productReference = 0573DF102E52CD6200F8051B /* CollectionView_Test.app */;
+			productType = "com.apple.product-type.application";
 		};
 		05CF52B52CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
 			isa = PBXNativeTarget;
@@ -873,7 +939,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					0515E7BB2CC476D100321C89 = {
@@ -884,6 +950,9 @@
 					};
 					0549ED082CC3AAD200BB3940 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					0573DF0F2E52CD6200F8051B = {
+						CreatedOnToolsVersion = 16.4;
 					};
 					05CF52B52CC3AD3A0034E7BF = {
 						CreatedOnToolsVersion = 16.0;
@@ -928,6 +997,7 @@
 				05D766F22D355DB800644698 /* TabView_iOS */,
 				05DF74DC2D73E748000EB93D /* TextView_macOS */,
 				05DF74F92D74A5E5000EB93D /* TextView_iOS */,
+				0573DF0F2E52CD6200F8051B /* CollectionView_Test */,
 			);
 		};
 /* End PBXProject section */
@@ -954,6 +1024,7 @@
 				055618EB2E0AEC2300BEB418 /* MIImageCore.xib in Resources */,
 				05B93FAF2CD5FDA800BA959F /* MISwitchCore.xib in Resources */,
 				0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */,
+				0573DF082E520BEE00F8051B /* MICollectionViewCore.xib in Resources */,
 				057C1D952CFA092E00073559 /* MISegmentedControlCore.xib in Resources */,
 				05199E062CCE208500A61840 /* MIStackCore.xib in Resources */,
 				05D83E7C2CE246EC004ACED7 /* MIPopupMenuCore.xib in Resources */,
@@ -982,11 +1053,19 @@
 				055618E92E0AEB6500BEB418 /* MIImageCore.xib in Resources */,
 				05F64B4E2CC3C81700AAFAD9 /* MIButtonCore.xib in Resources */,
 				05B93FB12CD5FDD900BA959F /* MISwitchCore.xib in Resources */,
+				0573DF032E520A6E00F8051B /* MICollectionViewCore.xib in Resources */,
 				05199E082CCE20D200A61840 /* MIStackCore.xib in Resources */,
 				05D83E7A2CE24506004ACED7 /* MIPopupMenuCore.xib in Resources */,
 				0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */,
 				052C609A2CC5001C00E7523B /* MILabelCore.xib in Resources */,
 				057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0573DF0E2E52CD6200F8051B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,6 +1128,7 @@
 				05F64B382CC3ADB900AAFAD9 /* MIType.swift in Sources */,
 				05D201CC2D6AA78400114347 /* MIImage.swift in Sources */,
 				05DF74F52D742D28000EB93D /* MITextStorage.swift in Sources */,
+				0573DF0B2E52B23500F8051B /* MICollectionView.swift in Sources */,
 				05F64B3F2CC3AED800AAFAD9 /* MIError.swift in Sources */,
 				05DF74CA2D731593000EB93D /* MIColor.swift in Sources */,
 				053A7F442D3B3955007C178B /* MITable.swift in Sources */,
@@ -1078,6 +1158,7 @@
 				05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
 				05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
 				05073A2A2E4A1EF50021CBC6 /* MIContentSize.swift in Sources */,
+				0573DF062E520AA100F8051B /* MICollectionViewCore.swift in Sources */,
 				053A7F562D3BDB1B007C178B /* MITableCelllView.swift in Sources */,
 				05D201CE2D6AEE2800114347 /* MISize.swift in Sources */,
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
@@ -1088,6 +1169,13 @@
 				0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B402CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05F64B412CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0573DF0C2E52CD6200F8051B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,6 +1193,7 @@
 				053A7F452D3B3955007C178B /* MITable.swift in Sources */,
 				05B64A7E2E0FEE800047CBDF /* MIDropView.swift in Sources */,
 				052C60A22CC5049B00E7523B /* MILabel.swift in Sources */,
+				0573DF0A2E52B23500F8051B /* MICollectionView.swift in Sources */,
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				053A7F412D3B3702007C178B /* MITableCore.swift in Sources */,
@@ -1113,6 +1202,7 @@
 				05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43042CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				0573DF052E520AA100F8051B /* MICollectionViewCore.swift in Sources */,
 				050CE8E62D89C98B0092B36E /* MIAttributedString.swift in Sources */,
 				057B43012D61768B00C08E5E /* MIPanel.swift in Sources */,
 				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
@@ -1550,6 +1640,64 @@
 			};
 			name = Release;
 		};
+		0573DF1D2E52CD6400F8051B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ../Tests/CollectionView_Test/CollectionView_Test.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.ArisiaScript.UnitTest.CollectionView-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0573DF1E2E52CD6400F8051B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ../Tests/CollectionView_Test/CollectionView_Test.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.ArisiaScript.UnitTest.CollectionView-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		05CF52BE2CC3AD3A0034E7BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1947,6 +2095,15 @@
 			buildConfigurations = (
 				0549ED122CC3AAD200BB3940 /* Debug */,
 				0549ED132CC3AAD200BB3940 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0573DF1C2E52CD6400F8051B /* Build configuration list for PBXNativeTarget "CollectionView_Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0573DF1D2E52CD6400F8051B /* Debug */,
+				0573DF1E2E52CD6400F8051B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
