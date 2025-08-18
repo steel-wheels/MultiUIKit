@@ -25,7 +25,8 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
         @IBOutlet weak var mCollectionView: UICollectionView!
         #endif
 
-        private var mSymbols: Array<MISymbol> = []
+        private var mSymbols:    Array<MISymbol> = []
+        private var mSymbolSize: MISymbolSize    = .regular
 
         open override func setup() {
                 super.setup(coreView: mCollectionView)
@@ -34,6 +35,10 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
 
         public func set(symbols syms: Array<MISymbol>){
                 mSymbols = syms
+        }
+
+        public func set(symbolSize size: MISymbolSize){
+                mSymbolSize = size
         }
 
         private func symbol(at index: Int) -> MISymbol {
@@ -52,7 +57,7 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
         }
 
         public func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-                return MICollectionViewItem(symbol: symbol(at: indexPath.item))
+                return MICollectionViewItem(symbol: symbol(at: indexPath.item), size: mSymbolSize)
         }
         #else
 
@@ -83,13 +88,13 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
 
 public class MICollectionViewItem: NSCollectionViewItem
 {
-        private var mImageView:         MIImageView
+        private var mIconView:         MIIconView
 
-        public init(symbol sym: MISymbol){
-                mImageView = MIImageView()
-                mImageView.set(symbol: sym, size: .regular)
+        public init(symbol sym: MISymbol, size sz: MISymbolSize){
+                mIconView = MIIconView()
+                mIconView.set(symbol: sym, size: sz)
                 super.init(nibName: nil, bundle: nil)
-                self.view = mImageView
+                self.view = mIconView
         }
 
         required init?(coder: NSCoder) {
@@ -97,41 +102,16 @@ public class MICollectionViewItem: NSCollectionViewItem
         }
 
         public var intrinsicContentsSize: CGSize { get {
-                return mImageView.intrinsicContentSize
+                return mIconView.intrinsicContentSize
         }}
 
         public func setFrameSize(_ size: CGSize) {
                 self.view.setFrameSize(size)
-                mImageView.setFrameSize(size)
+                mIconView.setFrameSize(size)
         }
 }
 
 #endif
 
-/*
-public class MICollectionViewItem: UICollectionViewCell
-{
-        public typealias CallbackFunction = (_ index: Int) -> Void
-        public var buttonPressedCallback: CallbackFunction? = nil
-
-        private var mImageView:         MIImageView? = nil
-
-        public func set(symbol sym: MISymbol){
-                let imgview = MIImageView()
-                imgview.set(symbol: sym, size: .regular)
-                mImageView = imgview
-                self. = imgview
-        }
-
-        public var intrinsicContentsSize: CGSize { get {
-                if let imgview = mImageView {
-                        return imgview.intrinsicContentSize
-                } else {
-                        return CGSize.zero
-                }
-        }}
-}
-
-*/
 
 

@@ -710,14 +710,23 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="p87-Gj-ejA" customClass="MICollectionView" customModule="MultiUIKit">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <rect key="frame" x="0.0" y="140" width="480" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="upF-ak-Ru4"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="7qi-ca-6LO">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="132"/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="p87-Gj-ejA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="022-9G-pyS"/>
-                            <constraint firstAttribute="trailing" secondItem="p87-Gj-ejA" secondAttribute="trailing" id="LEw-xk-iuk"/>
-                            <constraint firstItem="p87-Gj-ejA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="W8k-4I-cEA"/>
-                            <constraint firstAttribute="bottom" secondItem="p87-Gj-ejA" secondAttribute="bottom" id="oeA-Qg-TTy"/>
+                            <constraint firstAttribute="bottom" secondItem="7qi-ca-6LO" secondAttribute="bottom" id="3LU-xE-I6a"/>
+                            <constraint firstItem="7qi-ca-6LO" firstAttribute="top" secondItem="p87-Gj-ejA" secondAttribute="bottom" constant="8" symbolic="YES" id="Xia-PY-OlT"/>
+                            <constraint firstAttribute="trailing" secondItem="7qi-ca-6LO" secondAttribute="trailing" id="bj4-Il-NEB"/>
+                            <constraint firstItem="p87-Gj-ejA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="fRu-fe-mIp"/>
+                            <constraint firstAttribute="trailing" secondItem="p87-Gj-ejA" secondAttribute="trailing" id="ogh-OB-CXg"/>
+                            <constraint firstItem="p87-Gj-ejA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="pJT-rB-cqc"/>
+                            <constraint firstItem="7qi-ca-6LO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="zw7-9U-VgC"/>
                         </constraints>
                     </view>
                     <connections>
