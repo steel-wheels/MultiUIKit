@@ -67,6 +67,7 @@ public enum MISymbol: Int
         case pencil
         case pencilCircle
         case pencilCircleFill
+        case photo
         case play
         case questionmark
         case rainbow
@@ -106,6 +107,7 @@ public enum MISymbol: Int
                         .pencil,
                         .pencilCircle,
                         .pencilCircleFill,
+                        .photo,
                         .play,
                         .questionmark,
                         .rainbow,
@@ -146,9 +148,10 @@ public enum MISymbol: Int
                 case .oval:                     result = "oval"
                 case .ovalFill:                 result = "oval.fill"
                 case .paintbrush:               result = "paintbrush"
-                case .pencil:                result = "pencil"
-                case .pencilCircle:        result = "pencil.circle"
-                case .pencilCircleFill:        result = "pencil.circle.fill"
+                case .pencil:                   result = "pencil"
+                case .pencilCircle:             result = "pencil.circle"
+                case .pencilCircleFill:         result = "pencil.circle.fill"
+                case .photo:                    result = "photo"
                 case .play:                result = "play"
                 case .questionmark:        result = "questionmark"
                 case .rainbow:          result = "rainbow"
@@ -193,6 +196,7 @@ public enum MISymbol: Int
                 case .pencil:                result = "pencil"
                 case .pencilCircle:        result = "pencilCircle"
                 case .pencilCircleFill:        result = "pencilCircleFill"
+                case .photo:                    result = "photo"
                 case .play:                result = "play"
                 case .questionmark:        result = "questionmark"
                 case .rainbow:          result = "rainbow"
