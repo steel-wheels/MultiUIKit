@@ -33,15 +33,12 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
                 mCollectionView.dataSource = self
         }
 
-        public func set(symbols syms: Array<MISymbol>){
-                mSymbols = syms
+        public func set(symbols syms: Array<MISymbol>, size sz: MISymbolSize){
+                mSymbols        = syms
+                mSymbolSize     = sz
                 #if os(OSX)
-                        updateLayout(symbols: syms)
+                        updateLayout(symbols: syms, size: sz)
                 #endif
-        }
-
-        public func set(symbolSize size: MISymbolSize){
-                mSymbolSize = size
         }
 
         private func symbol(at index: Int) -> MISymbol {
@@ -55,7 +52,7 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
         }
 
         #if os(OSX)
-        private func updateLayout(symbols syms: Array<MISymbol>) {
+        private func updateLayout(symbols syms: Array<MISymbol>, size sz: MISymbolSize) {
                 let layout = NSCollectionViewGridLayout()
 
                 layout.maximumNumberOfRows      = 4
@@ -64,7 +61,7 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
                 var symsize = CGSize.zero
                 for sym in syms {
                         let table = MISymbolTable.shared
-                        let img   = table.load(symbol: sym, size: mSymbolSize)
+                        let img   = table.load(symbol: sym, size: sz)
                         symsize.width  = max(symsize.width,  img.size.width )
                         symsize.height = max(symsize.height, img.size.height)
                 }

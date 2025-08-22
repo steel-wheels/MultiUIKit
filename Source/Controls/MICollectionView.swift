@@ -26,12 +26,8 @@ open class MICollectionView: MIInterfaceView
                 }
         }
 
-        public func set(symbols syms: Array<MISymbol>){
-                coreCollectionView().set(symbols: syms)
-        }
-
-        public func set(symbolSize size: MISymbolSize){
-                coreCollectionView().set(symbolSize: size)
+        public func set(symbols syms: Array<MISymbol>, size sz: MISymbolSize){
+                coreCollectionView().set(symbols: syms, size: sz)
         }
 }
 

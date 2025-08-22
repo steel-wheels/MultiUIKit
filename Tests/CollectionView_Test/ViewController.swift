@@ -22,8 +22,7 @@ class ViewController: NSViewController
                         .pencil,
                         .buttonHorizontalTopPress
                 ]
-                mCollectionView.set(symbols: symbols)
-                mCollectionView.set(symbolSize: .regular)
+                mCollectionView.set(symbols: symbols, size: .regular)
         }
 
         override var representedObject: Any? {
