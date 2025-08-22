@@ -25,8 +25,8 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
         @IBOutlet weak var mCollectionView: UICollectionView!
         #endif
 
-        private var mSymbols:    Array<MISymbol> = []
-        private var mSymbolSize: MISymbolSize    = .regular
+        private var mSymbols:    Array<MISymbol>                = []
+        private var mSymbolSize: MISymbolSize                   = .regular
 
         open override func setup() {
                 super.setup(coreView: mCollectionView)
@@ -35,6 +35,9 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
 
         public func set(symbols syms: Array<MISymbol>){
                 mSymbols = syms
+                #if os(OSX)
+                        updateLayout(symbols: syms)
+                #endif
         }
 
         public func set(symbolSize size: MISymbolSize){
@@ -50,6 +53,27 @@ public class MICollectionViewCore: MICoreView, MICollectionViewDataSource
                 }
                 return symbol
         }
+
+        #if os(OSX)
+        private func updateLayout(symbols syms: Array<MISymbol>) {
+                let layout = NSCollectionViewGridLayout()
+
+                layout.maximumNumberOfRows      = 4
+                layout.maximumNumberOfColumns   = 4
+
+                var symsize = CGSize.zero
+                for sym in syms {
+                        let table = MISymbolTable.shared
+                        let img   = table.load(symbol: sym, size: mSymbolSize)
+                        symsize.width  = max(symsize.width,  img.size.width )
+                        symsize.height = max(symsize.height, img.size.height)
+                }
+                layout.minimumItemSize = symsize
+                layout.maximumItemSize = symsize
+
+                mCollectionView.collectionViewLayout = layout
+        }
+        #endif // os(OSX)
 
         #if os(OSX)
         public func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
