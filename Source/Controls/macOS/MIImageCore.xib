@@ -18,10 +18,10 @@
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Zlb-fs-Cs2" secondAttribute="trailing" id="6ub-X8-yjK"/>
-                <constraint firstItem="Zlb-fs-Cs2" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="9Kd-Eb-4FP"/>
-                <constraint firstAttribute="bottom" secondItem="Zlb-fs-Cs2" secondAttribute="bottom" id="Pmi-Uz-817"/>
-                <constraint firstItem="Zlb-fs-Cs2" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="U3q-Dj-xtn"/>
+                <constraint firstItem="Zlb-fs-Cs2" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ATd-gI-a65"/>
+                <constraint firstAttribute="trailing" secondItem="Zlb-fs-Cs2" secondAttribute="trailing" id="QdC-IR-Xn7"/>
+                <constraint firstItem="Zlb-fs-Cs2" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="gsu-KW-GV8"/>
+                <constraint firstAttribute="bottom" secondItem="Zlb-fs-Cs2" secondAttribute="bottom" id="iWu-K5-dyp"/>
             </constraints>
             <connections>
                 <outlet property="mImageView" destination="Zlb-fs-Cs2" id="Rgr-9K-Ob6"/>

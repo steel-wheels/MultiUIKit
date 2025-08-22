@@ -127,10 +127,6 @@ class ViewController: MIViewController {
                 button1.setButtonPressedCallback({
                         () -> Void in NSLog("button1 pressed")
                 })
-                button1.setRightMouseDownCallback({
-                        (_ event: MICallbackEvent) -> Void in
-                        NSLog("right button pressed")
-                })
                 buttons.addArrangedSubView(button1)
                 buttons.distribution = .fillEqually
 

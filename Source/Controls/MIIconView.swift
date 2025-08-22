@@ -31,7 +31,8 @@ public class MIIconView: MIImageView, NSDraggingSource, NSPasteboardItemDataProv
                         pasteboardItem.setDataProvider(self, forTypes: [.png, .fileURL])
 
                         let draggingItem = NSDraggingItem(pasteboardWriter: pasteboardItem)
-                        draggingItem.setDraggingFrame(self.bounds, contents: img)
+                        let imgframe     = CGRect(origin: CGPoint.zero, size: img.size)
+                        draggingItem.setDraggingFrame(imgframe, contents: img)
 
                         beginDraggingSession(with: [draggingItem], event: event, source: self)
                 } else {
