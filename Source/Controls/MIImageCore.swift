@@ -39,6 +39,7 @@ public class MIImageCore: MICoreView
                                 csize = MIContentSize(width: width, height: height)
                         }
                         super.set(contentSize: csize)
+                        super.requireDisplay()
                 }
         }
 }
