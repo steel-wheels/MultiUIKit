@@ -24,10 +24,10 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="As2-W7-CsB" secondAttribute="trailing" id="I2o-05-gQL"/>
-                <constraint firstAttribute="bottom" secondItem="As2-W7-CsB" secondAttribute="bottom" id="NZt-ye-oyu"/>
-                <constraint firstItem="As2-W7-CsB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="aXz-lt-3bg"/>
-                <constraint firstItem="As2-W7-CsB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="lUg-Kj-aec"/>
+                <constraint firstAttribute="bottom" secondItem="As2-W7-CsB" secondAttribute="bottom" id="DIZ-8K-Y6o"/>
+                <constraint firstItem="As2-W7-CsB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Hz5-Kv-VcP"/>
+                <constraint firstItem="As2-W7-CsB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="KvT-Av-2kT"/>
+                <constraint firstAttribute="trailing" secondItem="As2-W7-CsB" secondAttribute="trailing" id="Nsm-vB-flh"/>
             </constraints>
             <connections>
                 <outlet property="mButton" destination="As2-W7-CsB" id="eoY-eP-ZDe"/>

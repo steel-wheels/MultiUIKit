@@ -15,6 +15,11 @@ class ViewController: MIViewController {
         override func viewDidLoad() {
                 super.viewDidLoad()
 
+                loadStackTest()
+                //loadDropView()
+        }
+
+        private func loadDropView() {
                 if let names = NSFontManager.shared.availableFontNames(with: .fixedPitchFontMask) {
                         var str = ""
                         for name in names {
@@ -131,6 +136,20 @@ class ViewController: MIViewController {
                 buttons.distribution = .fillEqually
 
                 mStack.addArrangedSubView(buttons)
+        }
+
+        private func loadStackTest() {
+                mStack.distribution = .fill
+
+                let button0 = MIButton()
+                button0.title = "button 0"
+                button0.setContentExpansionPriority(.defaultLow, for: .vertical)
+                mStack.addArrangedSubView(button0)
+
+                let button1 = MIButton()
+                button1.title = "button 1"
+                button1.setContentExpansionPriority(.defaultLow, for: .vertical)
+                mStack.addArrangedSubView(button1)
         }
 
         override var representedObject: Any? {
