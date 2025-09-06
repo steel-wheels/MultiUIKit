@@ -86,7 +86,7 @@ public class MICoreView: MIBaseView
         }
 
         public override func setContentCompressionResistancePriority(_ priority: LayoutPriority, for axis: LayoutOrientation) {
-                super .setContentCompressionResistancePriority(priority, for: axis)
+                super.setContentCompressionResistancePriority(priority, for: axis)
                 if let core = mCoreView {
                         core.setContentCompressionResistancePriority(priority, for: axis)
                 }

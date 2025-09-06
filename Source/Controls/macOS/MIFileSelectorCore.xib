@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MIFileSelectorCore" customModule="MultiUIKit">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="hPk-hX-Wlv" customClass="MIStack" customModule="MultiUIKit" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="56"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hPk-hX-Wlv" secondAttribute="bottom" id="7pY-OD-V28"/>
+                <constraint firstItem="hPk-hX-Wlv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="evw-Ym-zw8"/>
+                <constraint firstAttribute="trailing" secondItem="hPk-hX-Wlv" secondAttribute="trailing" id="mrC-5K-cLl"/>
+                <constraint firstItem="hPk-hX-Wlv" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="vJM-NT-aDU"/>
+            </constraints>
+            <connections>
+                <outlet property="mStack" destination="hPk-hX-Wlv" id="fez-0H-Dx0"/>
+            </connections>
+            <point key="canvasLocation" x="-258" y="-233"/>
+        </customView>
+    </objects>
+</document>

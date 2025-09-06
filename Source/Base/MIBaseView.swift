@@ -19,6 +19,11 @@ public typealias MIBaseView = UIView
 
 public extension MIBaseView
 {
+        enum ExpansionPriority {
+                case high
+                case low
+        }
+
         #if os(iOS)
         typealias LayoutPriority    = UILayoutPriority
         typealias LayoutOrientation = NSLayoutConstraint.Axis
@@ -64,6 +69,21 @@ public extension MIBaseView
 
         class func allocateLayout(fromView fview : MIBaseView, toView tview: MIBaseView, attribute attr: NSLayoutConstraint.Attribute, length len: CGFloat) -> NSLayoutConstraint {
                 return NSLayoutConstraint(item: fview, attribute: attr, relatedBy: NSLayoutConstraint.Relation.equal, toItem: tview, attribute: attr, multiplier: 1.0, constant: len) ;
+        }
+
+        func setContentExpansionPriority(_ priority: ExpansionPriority, for axs: LayoutOrientation) {
+                let hugging:    LayoutPriority
+                let registance: LayoutPriority
+                switch priority {
+                case .low:
+                        hugging    = .defaultHigh
+                        registance = .defaultHigh
+                case .high:
+                        hugging    = .defaultLow
+                        registance = .defaultLow
+                }
+                setContentHuggingPriority(hugging, for: axs)
+                setContentCompressionResistancePriority(registance, for: axs)
         }
 }
 

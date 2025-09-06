@@ -67,10 +67,10 @@ public class MIStackCore: MICoreView
                 switch self.axis {
                 case .horizontal:
                         MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.defaultLow, for: .horizontal)
+                        view.setContentExpansionPriority(.high, for: .vertical)
                 case .vertical:
                         MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.defaultLow, for: .vertical)
+                        view.setContentExpansionPriority(.high, for: .horizontal)
                 @unknown default:
                         NSLog("[Error] Unknown case")
                 }
@@ -93,10 +93,10 @@ public class MIStackCore: MICoreView
                 switch self.axis {
                 case .horizontal:
                         MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.defaultLow, for: .horizontal)
+                        view.setContentExpansionPriority(.high, for: .vertical)
                 case .vertical:
                         MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.defaultLow, for: .vertical)
+                        view.setContentExpansionPriority(.high, for: .horizontal)
                 @unknown default:
                         NSLog("[Error] Unknown case")
                 }

@@ -15,8 +15,9 @@ class ViewController: MIViewController {
         override func viewDidLoad() {
                 super.viewDidLoad()
 
-                loadStackTest()
+                //loadStackTest()
                 //loadDropView()
+                loadFileSelectorTest()
         }
 
         private func loadDropView() {
@@ -143,13 +144,16 @@ class ViewController: MIViewController {
 
                 let button0 = MIButton()
                 button0.title = "button 0"
-                button0.setContentExpansionPriority(.defaultLow, for: .vertical)
                 mStack.addArrangedSubView(button0)
 
                 let button1 = MIButton()
                 button1.title = "button 1"
-                button1.setContentExpansionPriority(.defaultLow, for: .vertical)
                 mStack.addArrangedSubView(button1)
+        }
+
+        private func loadFileSelectorTest() {
+                let selector = MIFileSelector()
+                mStack.addArrangedSubView(selector)
         }
 
         override var representedObject: Any? {

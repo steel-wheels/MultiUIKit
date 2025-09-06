@@ -167,9 +167,4 @@ open class MIInterfaceView: MIBaseView
                         core.setContentCompressionResistancePriority(priority, for: axis)
                 }
         }
-
-        public func setContentExpansionPriority(_ priority: LayoutPriority, for axis: LayoutOrientation) {
-                setContentHuggingPriority(priority, for: axis)
-                setContentCompressionResistancePriority(priority, for: axis)
-        }
 }
