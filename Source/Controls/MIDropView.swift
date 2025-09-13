@@ -97,31 +97,34 @@ open class MIDropView: MIInterfaceView
 
                 //NSLog("performDragOperation: start")
 
+                guard let pasteboardItems = pasteBoard.pasteboardItems else {
+                        NSLog("[Error] No pasteboard item at \(#file)")
+                        return false
+                }
+
                 var result = false
-                if let pasteboardItems = pasteBoard.pasteboardItems {
-                        //NSLog("performDragOperation: item num: \(pasteboardItems.count)")
-                        for pasteboarditem in pasteboardItems {
-                                for type in pasteboarditem.types {
-                                        switch type {
-                                        case .png:
-                                                if let data = pasteboarditem.data(forType: type) {
-                                                        //NSLog("performDragOperation: get data")
-                                                        if let image = NSImage(data: data) {
-                                                                didDropped(point: point, image: image)
-                                                                result = true
-                                                        } else {
-                                                                NSLog("[Error] Failed to get image at \(#function)")
-                                                        }
-                                                }
-                                        case .fileURL, .URL:
-                                                if let data = pasteboarditem.data(forType: type) {
-                                                        let url = NSURL(dataRepresentation: data, relativeTo: nil) as URL
-                                                        didDropped(point: point, URL: url)
+                //NSLog("performDragOperation: item num: \(pasteboardItems.count)")
+                for pasteboarditem in pasteboardItems {
+                        for type in pasteboarditem.types {
+                                switch type {
+                                case .png:
+                                        if let data = pasteboarditem.data(forType: type) {
+                                                //NSLog("performDragOperation: get data")
+                                                if let image = NSImage(data: data) {
+                                                        didDropped(point: point, image: image)
                                                         result = true
+                                                } else {
+                                                        NSLog("[Error] Failed to get image at \(#function)")
                                                 }
-                                        default:
-                                                NSLog("[Error] performDragOperation: Others")
                                         }
+                                case .fileURL, .URL:
+                                        if let data = pasteboarditem.data(forType: type) {
+                                                let url = NSURL(dataRepresentation: data, relativeTo: nil) as URL
+                                                didDropped(point: point, URL: url)
+                                                result = true
+                                        }
+                                default:
+                                        NSLog("[Error] performDragOperation: Others")
                                 }
                         }
                 }
