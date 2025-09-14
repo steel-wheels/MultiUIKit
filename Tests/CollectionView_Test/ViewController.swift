@@ -12,7 +12,7 @@ class ViewController: NSViewController
 {
 
         @IBOutlet weak var mCollectionView: MICollectionView!
-        @IBOutlet weak var mDropView: MIDropView!
+        @IBOutlet weak var mStackView: MIStack!
         
         override func viewDidLoad() {
                 super.viewDidLoad()
@@ -23,6 +23,11 @@ class ViewController: NSViewController
                         .buttonHorizontalTopPress
                 ]
                 mCollectionView.set(symbols: symbols, size: .regular)
+
+                mStackView.set(droppedCallback: {
+                        (_ stack: MIStack, _ point: CGPoint, _ symbol: MISymbol) -> Void in
+                        NSLog("dropped symbol \(symbol.name) at (\(point.x), \(point.y))")
+                })
         }
 
         override var representedObject: Any? {
