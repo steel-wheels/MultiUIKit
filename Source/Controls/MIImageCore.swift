@@ -21,6 +21,13 @@ public class MIImageCore: MICoreView
 
         open override func setup() {
                 super.setup(coreView: mImageView)
+                /*
+                 * Cocoa NSView subview blocking drag/drop
+                 * https://stackoverflow.com/questions/5892464/cocoa-nsview-subview-blocking-drag-drop
+                 */
+                #if os(OSX)
+                mImageView.unregisterDraggedTypes()
+                #endif
         }
 
         public var image: MIImage? {

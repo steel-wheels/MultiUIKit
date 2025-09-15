@@ -241,7 +241,7 @@ public enum MISymbol: Int
                         let murl = url.appendingPathComponent("Symbols/" + self.name)
                         return murl
                 } else {
-                        NSLog("[Error] Failed to allocate URL at \(#function)")
+                        NSLog("[Error] Failed to allocate URL at \(#function)  in \(#file)")
                         return URL(filePath: self.name + ".png")
                 }
         }

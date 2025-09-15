@@ -63,7 +63,7 @@ public extension MIBaseView
                         parent.addConstraint(allocateLayout(fromView: child, toView: parent, attribute: .top, length: spc))
                         parent.addConstraint(allocateLayout(fromView: parent, toView: child, attribute: .bottom, length: spc))
                 @unknown default:
-                        NSLog("Can not happen at \(#function) in \(#file)")
+                        NSLog("[Error] Can not happen at \(#function) in \(#file)")
                 }
         }
 

@@ -18,7 +18,7 @@ public class MICoreView: MIBaseView
         private var mContentSize:       MIContentSize?  = nil
 
         open func setup() {
-                NSLog("Must be override: MICoreView")
+                NSLog("[Error] Must be override in \(#file)")
         }
 
         public func setup(coreView core: MIBaseView) {
@@ -66,7 +66,7 @@ public class MICoreView: MIBaseView
                                 return core.intrinsicContentSize
                         }
                 } else {
-                        NSLog("Failed to get core")
+                        NSLog("[Error] Failed to get core in \(#file)")
                         return super.intrinsicContentSize
                 }
         }}

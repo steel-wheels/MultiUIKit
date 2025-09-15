@@ -42,7 +42,7 @@ open class MIInterfaceView: MIBaseView
         }
 
         open func setup(frame frm: CGRect) {
-                NSLog("Must be override: MIInterfaceView")
+                NSLog("[Error] Must be override in \(#file)")
         }
 
         public func setup(nibName nm: String, frameSize size: CGSize) {
@@ -54,7 +54,7 @@ open class MIInterfaceView: MIBaseView
                         mCoreView = child
                         setFrameSize(size)
                 } else {
-                        NSLog("Failed to load bundle: \(nm)")
+                        NSLog("[Error] Failed to load bundle: \(nm) in \(#file)")
                 }
                 self.activateAutolayout()
         }
@@ -91,7 +91,7 @@ open class MIInterfaceView: MIBaseView
                         core.set(contentSize: csize)
                         self.invalidateIntrinsicContentSize()
                 } else {
-                        NSLog("[Error] No core view at \(#function)")
+                        NSLog("[Error] No core view at \(#function) in \(#file)")
                 }
         }
 
@@ -107,7 +107,7 @@ open class MIInterfaceView: MIBaseView
                         if let core = mCoreView {
                                 return core.tag
                         } else {
-                                NSLog("[Error] No core view at \(#function)")
+                                NSLog("[Error] No core view at \(#function) in \(#file)")
                                 return -1
                         }
                 }
@@ -115,7 +115,7 @@ open class MIInterfaceView: MIBaseView
                         if let core = mCoreView {
                                 core.tag = val
                         } else {
-                                NSLog("[Error] No core view at \(#function)")
+                                NSLog("[Error] No core view at \(#function)  in \(#file)")
                         }
                 }
         }

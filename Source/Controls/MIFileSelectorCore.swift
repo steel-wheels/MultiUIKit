@@ -54,7 +54,7 @@ public class MIFileSelectorCore: MICoreView
                         if let cur = mCurrentURL {
                                 return cur
                         } else {
-                                NSLog("[Error] No valid url at \(#file)")
+                                NSLog("[Error] No valid url at \(#file) in \(#file)")
                                 return URL(fileURLWithPath: "/dev/null")
                         }
                 }
@@ -63,7 +63,7 @@ public class MIFileSelectorCore: MICoreView
                         if let label = mLabel {
                                 label.title = newval.lastPathComponent
                         } else {
-                                NSLog("[Error] No valid field at \(#file)")
+                                NSLog("[Error] No valid field at \(#file)  in \(#file)")
                         }
                 }
         }
