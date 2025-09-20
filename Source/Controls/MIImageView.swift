@@ -33,5 +33,9 @@ open class MIImageView: MIInterfaceView
         open func set(symbol sym: MISymbol, size sz: MISymbolSize){
                 self.image   = MISymbolTable.shared.load(symbol: sym, size: sz)
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(imageView: self)
+        }
 }
 

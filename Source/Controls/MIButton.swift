@@ -45,6 +45,10 @@ open class MIButton: MIInterfaceView
         public func setImage(_ img: MIImage) {
                 coreButtonView().setImage(img)
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(button: self)
+        }
 }
 
 

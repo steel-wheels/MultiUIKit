@@ -34,5 +34,9 @@ public class MISegmentedControl: MIInterfaceView
         public func setMenuItems( items: Array<MIMenuItem>) {
                 coreSegmentedControl().setMenuItems(items: items)
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(segmentedControl: self)
+        }
 }
 

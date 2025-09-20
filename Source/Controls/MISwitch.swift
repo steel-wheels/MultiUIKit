@@ -36,6 +36,10 @@ public class MISwitch: MIInterfaceView
                 get        { return coreSwitchView().state }
                 set(value) { coreSwitchView().state = value }
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(switchView: self)
+        }
 }
 
 

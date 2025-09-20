@@ -56,6 +56,10 @@ public class MITextField: MIInterfaceView
                 get        { return coreTextFieldView().placeholderString }
                 set(value) { coreTextFieldView().placeholderString = value }
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(textField: self)
+        }
 }
 
 

@@ -29,4 +29,8 @@ open class MIFileSelector: MIInterfaceView
                 get             { return coreSelectorView().url }
                 set(newval)     { coreSelectorView().url = newval }
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(fileSelector: self)
+        }
 }

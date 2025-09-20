@@ -51,6 +51,10 @@ open class MIStack: MIInterfaceView
         public func removeAllSubviews() {
                 coreStackView().removeAllSubviews()
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(stack: self)
+        }
 }
 
 

@@ -29,4 +29,8 @@ public class MIWebView: MIInterfaceView
         public func load(_ request: URLRequest) -> WKNavigation? {
                 return coreWebView().load(request)
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(webView: self)
+        }
 }

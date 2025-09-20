@@ -11,6 +11,10 @@
 		05073A2B2E4A1EF50021CBC6 /* MIContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05073A292E4A1EF50021CBC6 /* MIContentSize.swift */; };
 		050CE8E62D89C98B0092B36E /* MIAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8E52D89C98B0092B36E /* MIAttributedString.swift */; };
 		050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8E52D89C98B0092B36E /* MIAttributedString.swift */; };
+		05137F4A2E7D9C5A00139CF0 /* MIRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F492E7D9C5A00139CF0 /* MIRect.swift */; };
+		05137F4B2E7D9C5A00139CF0 /* MIRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F492E7D9C5A00139CF0 /* MIRect.swift */; };
+		05137F4D2E7D9CDD00139CF0 /* MIPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */; };
+		05137F4E2E7D9CDD00139CF0 /* MIPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */; };
 		0515E7BF2CC476D100321C89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515E7BE2CC476D100321C89 /* AppDelegate.swift */; };
 		0515E7C12CC476D100321C89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515E7C02CC476D100321C89 /* SceneDelegate.swift */; };
 		0515E7C32CC476D100321C89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515E7C22CC476D100321C89 /* ViewController.swift */; };
@@ -24,6 +28,8 @@
 		05199E082CCE20D200A61840 /* MIStackCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05199E072CCE20D200A61840 /* MIStackCore.xib */; };
 		05199E0A2CCE210900A61840 /* MIStackCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05199E092CCE210900A61840 /* MIStackCore.swift */; };
 		05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05199E092CCE210900A61840 /* MIStackCore.swift */; };
+		051C47522E79A6E600F1FC55 /* MIVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C47512E79A6E600F1FC55 /* MIVisitor.swift */; };
+		051C47532E79A6E600F1FC55 /* MIVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C47512E79A6E600F1FC55 /* MIVisitor.swift */; };
 		052474902CD771A700B4D281 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0524748F2CD771A700B4D281 /* WebKit.framework */; };
 		052474922CD771C000B4D281 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052474912CD771C000B4D281 /* WebKit.framework */; };
 		05287CC22E3A523000823FAD /* MIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05287CC12E3A523000823FAD /* MIEvent.swift */; };
@@ -240,6 +246,8 @@
 /* Begin PBXFileReference section */
 		05073A292E4A1EF50021CBC6 /* MIContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIContentSize.swift; sourceTree = "<group>"; };
 		050CE8E52D89C98B0092B36E /* MIAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAttributedString.swift; sourceTree = "<group>"; };
+		05137F492E7D9C5A00139CF0 /* MIRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIRect.swift; sourceTree = "<group>"; };
+		05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPoint.swift; sourceTree = "<group>"; };
 		0515E7BC2CC476D100321C89 /* UnitTest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitTest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0515E7BE2CC476D100321C89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0515E7C02CC476D100321C89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +261,7 @@
 		05199E052CCE208500A61840 /* MIStackCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIStackCore.xib; sourceTree = "<group>"; };
 		05199E072CCE20D200A61840 /* MIStackCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIStackCore.xib; sourceTree = "<group>"; };
 		05199E092CCE210900A61840 /* MIStackCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStackCore.swift; sourceTree = "<group>"; };
+		051C47512E79A6E600F1FC55 /* MIVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIVisitor.swift; sourceTree = "<group>"; };
 		0524748F2CD771A700B4D281 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.1.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		052474912CD771C000B4D281 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		05287CC12E3A523000823FAD /* MIEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIEvent.swift; sourceTree = "<group>"; };
@@ -598,8 +607,11 @@
 				05F64B3A2CC3AED800AAFAD9 /* MIError.swift */,
 				05D201CA2D6AA78400114347 /* MIImage.swift */,
 				05F64B3B2CC3AED800AAFAD9 /* MIInterfaceView.swift */,
+				05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */,
+				05137F492E7D9C5A00139CF0 /* MIRect.swift */,
 				05D201CD2D6AEE2800114347 /* MISize.swift */,
 				05D201C72D6A9F4300114347 /* MISymbol.swift */,
+				051C47512E79A6E600F1FC55 /* MIVisitor.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1156,6 +1168,7 @@
 				05B64A7D2E0FEE800047CBDF /* MIDropView.swift in Sources */,
 				05E346D42E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
+				051C47532E79A6E600F1FC55 /* MIVisitor.swift in Sources */,
 				055618ED2E0AECDD00BEB418 /* MIImageCore.swift in Sources */,
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */,
@@ -1171,6 +1184,7 @@
 				05DF74CD2D73455F000EB93D /* MITextViewCore.swift in Sources */,
 				05DF74D82D73D057000EB93D /* MIFont.swift in Sources */,
 				05D201C92D6A9F4300114347 /* MISymbol.swift in Sources */,
+				05137F4D2E7D9CDD00139CF0 /* MIPoint.swift in Sources */,
 				05287CC32E3A523000823FAD /* MIEvent.swift in Sources */,
 				057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */,
 				05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
@@ -1182,6 +1196,7 @@
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
 				053B48AC2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				05F64B482CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
+				05137F4A2E7D9C5A00139CF0 /* MIRect.swift in Sources */,
 				055619082E0F65F300BEB418 /* MIIconView.swift in Sources */,
 				057B43042D617AEB00C08E5E /* MIBookmark.swift in Sources */,
 				0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
@@ -1208,6 +1223,7 @@
 				05DF74F42D742D28000EB93D /* MITextStorage.swift in Sources */,
 				05F64B3C2CC3AED800AAFAD9 /* MIError.swift in Sources */,
 				05DF74CB2D731593000EB93D /* MIColor.swift in Sources */,
+				05137F4B2E7D9C5A00139CF0 /* MIRect.swift in Sources */,
 				053A7F452D3B3955007C178B /* MITable.swift in Sources */,
 				05B64A7E2E0FEE800047CBDF /* MIDropView.swift in Sources */,
 				052C60A22CC5049B00E7523B /* MILabel.swift in Sources */,
@@ -1219,6 +1235,7 @@
 				055618EE2E0AECDD00BEB418 /* MIImageCore.swift in Sources */,
 				05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43042CD75F92000CCD12 /* MIWebView.swift in Sources */,
+				051C47522E79A6E600F1FC55 /* MIVisitor.swift in Sources */,
 				05FB6EA62E6BB16900F53D76 /* MIFileSelector.swift in Sources */,
 				052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				0573DF052E520AA100F8051B /* MICollectionViewCore.swift in Sources */,
@@ -1244,6 +1261,7 @@
 				05E346D32E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
+				05137F4E2E7D9CDD00139CF0 /* MIPoint.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05073A2B2E4A1EF50021CBC6 /* MIContentSize.swift in Sources */,
 				05F64B3E2CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,

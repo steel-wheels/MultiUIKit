@@ -37,6 +37,10 @@ public class MITable: MIInterfaceView
         public func reload() {
                 coreTableView().reload()
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(table: self)
+        }
 }
 
 

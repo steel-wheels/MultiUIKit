@@ -167,4 +167,8 @@ open class MIInterfaceView: MIBaseView
                         core.setContentCompressionResistancePriority(priority, for: axis)
                 }
         }
+
+        open func accept(visitor vis: MIVisitor) {
+                NSLog("[Error] Override this visitor method at \(#file)")
+        }
 }

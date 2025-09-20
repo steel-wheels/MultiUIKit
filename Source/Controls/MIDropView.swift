@@ -147,4 +147,8 @@ open class MIDropView: MIInterfaceView
         }
 
         #endif
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(dropView: self)
+        }
 }

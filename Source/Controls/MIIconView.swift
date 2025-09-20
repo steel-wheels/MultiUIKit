@@ -69,5 +69,9 @@ public class MIIconView: MIImageView, NSDraggingSource, NSPasteboardItemDataProv
                         NSLog("[Error] Unsupported type")
                 }
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(iconView: self)
+        }
 }
 

@@ -30,6 +30,10 @@ public class MILabel: MIInterfaceView
                 get {     return coreLabelView().title }
                 set(val){ coreLabelView().title = val }
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(label: self)
+        }
 }
 
 

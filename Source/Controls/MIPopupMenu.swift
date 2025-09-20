@@ -60,6 +60,10 @@ public class MIPopupMenu: MIInterfaceView
         public func selectByValue(_ value: MIMenuItem.Value) -> Bool {
                 return corePopupMenu().selectByValue(value)
         }
+
+        public override func accept(visitor vis: MIVisitor) {
+                vis.visit(popupMenu: self)
+        }
 }
 
 
