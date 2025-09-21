@@ -34,6 +34,10 @@ open class MIImageView: MIInterfaceView
                 self.image   = MISymbolTable.shared.load(symbol: sym, size: sz)
         }
 
+        public func imageFrame() -> CGRect {
+                coreImageView().imageFrame()
+        }
+
         public override func accept(visitor vis: MIVisitor) {
                 vis.visit(imageView: self)
         }

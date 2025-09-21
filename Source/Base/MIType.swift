@@ -17,6 +17,29 @@ public typealias MIResponder                = NSResponder
 public typealias MIResponder                = UIResponder
 #endif
 
+public enum MIHorizontalAlignment {
+        case left
+        case middle
+        case right
+}
+
+public enum MIVerticalAlignment {
+        case top
+        case center
+        case bottom
+}
+
+public struct MIAlignment
+{
+        public var horizonralAlignment: MIHorizontalAlignment
+        public var verticalAlignment:   MIVerticalAlignment
+
+        public init(horizontal h: MIHorizontalAlignment, vertical v: MIVerticalAlignment){
+                self.horizonralAlignment = h
+                self.verticalAlignment   = v
+        }
+}
+
 public struct MIMenuItem {
         public enum Value {
                 case none
