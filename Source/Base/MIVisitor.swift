@@ -54,13 +54,6 @@ import Foundation
                 NSLog("[Error] Must be override \(#function) at \(#file)")
         }
 
-        open func visitAllSubviews(stack src: MIStack) {
-                let subviews = src.arrangedSubviews
-                for subview in subviews {
-                        subview.accept(visitor: self)
-                }
-        }
-
         open func visit(switchView src: MISwitch) {
                 NSLog("[Error] Must be override \(#function) at \(#file)")
         }

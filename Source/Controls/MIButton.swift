@@ -46,6 +46,10 @@ open class MIButton: MIInterfaceView
                 coreButtonView().setImage(img)
         }
 
+        public func buttonFrame() -> CGRect {
+                return coreButtonView().buttonFrame()
+        }
+
         public override func accept(visitor vis: MIVisitor) {
                 vis.visit(button: self)
         }

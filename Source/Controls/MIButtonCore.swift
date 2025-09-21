@@ -94,4 +94,16 @@ public class MIButtonCore: MICoreView
                 get        { return mButton.isEnabled }
                 set(value) { mButton.isEnabled = value }
         }
+
+        public func buttonFrame() -> CGRect {
+                let frame    = mButton.frame
+                let orgx     = frame.origin.x
+                let orgy     = frame.origin.y
+                let width    = frame.width
+                let height   = frame.height
+                let cellsize = mButton.sizeThatFits(frame.size)
+                let newx = orgx + (width  - cellsize.width)  / 2.0
+                let newy = orgy + (height - cellsize.height) / 2.0
+                return CGRect(x: newx, y: newy, width: cellsize.width, height: cellsize.height)
+        }
 }
