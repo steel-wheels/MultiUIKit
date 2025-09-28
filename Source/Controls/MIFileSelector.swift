@@ -13,6 +13,9 @@ import  UIKit
 
 open class MIFileSelector: MIInterfaceView
 {
+        public typealias FileType = MIFileSelectorCore.FileType
+        public typealias CallbackFunction = MIFileSelectorCore.CallbackFunction
+
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MIFileSelectorCore", frameSize: frm.size)
         }
@@ -23,6 +26,15 @@ open class MIFileSelector: MIInterfaceView
                 } else {
                         fatalError("Failed to get core view")
                 }
+        }
+
+        public var fileType: FileType {
+                get        { return coreSelectorView().fileType }
+                set(ftype) { coreSelectorView().fileType = ftype }
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                coreSelectorView().setCallback(cbfunc)
         }
 
         public var url: URL {

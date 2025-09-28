@@ -13,13 +13,21 @@ import  UIKit
 
 public class MIFileSelectorCore: MICoreView
 {
+        public enum FileType {
+                case image
+        }
+
+        public typealias CallbackFunction = (_ url: URL) -> Void
+
 #if os(OSX)
         @IBOutlet weak var mStack: MIStack!
 #else
         @IBOutlet weak var mStack: MIStack!
 #endif
-        private var mButton:    MIButton?       = nil
-        private var mLabel:     MILabel?        = nil
+        private var mButton:    MIButton?               = nil
+        private var mLabel:     MILabel?                = nil
+        private var mFileType:  FileType                = .image
+        private var mCallback:  CallbackFunction?       = nil
 
         private var mCurrentURL: URL?           = nil
 
@@ -49,6 +57,15 @@ public class MIFileSelectorCore: MICoreView
                 return mStack
         }}
 
+        public var fileType: FileType {
+                get        { return mFileType }
+                set(ftype) { mFileType = ftype }
+        }
+
+        public func setCallback(_ cbfunc: @escaping CallbackFunction){
+                mCallback = cbfunc
+        }
+
         public var url: URL {
                 get {
                         if let cur = mCurrentURL {
@@ -69,6 +86,25 @@ public class MIFileSelectorCore: MICoreView
         }
 
         private func buttonPressed() {
-
+                let target:     String
+                let extensions: Array<String>
+                switch mFileType {
+                case .image:
+                        target     = "image"
+                        extensions = ["png", "jpg", "jpeg"]
+                }
+                #if os(OSX)
+                MIPanel.openPanel(title: "Select \(target)", type: .file, fileExtensions: extensions, callback: {
+                        (_ urlp: URL?) -> Void in
+                        if let url = urlp, let label = self.mLabel {
+                                label.title = url.path
+                                /* update path */
+                                self.mCurrentURL = url
+                                if let cbfunc = self.mCallback {
+                                        cbfunc(url)
+                                }
+                        }
+                })
+                #endif // os(OSX)
         }
 }
