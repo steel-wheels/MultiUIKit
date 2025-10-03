@@ -66,23 +66,9 @@ public class MIFileSelectorCore: MICoreView
                 mCallback = cbfunc
         }
 
-        public var url: URL {
-                get {
-                        if let cur = mCurrentURL {
-                                return cur
-                        } else {
-                                NSLog("[Error] No valid url at \(#file) in \(#file)")
-                                return URL(fileURLWithPath: "/dev/null")
-                        }
-                }
-                set(newval) {
-                        mCurrentURL = newval
-                        if let label = mLabel {
-                                label.title = newval.lastPathComponent
-                        } else {
-                                NSLog("[Error] No valid field at \(#file)  in \(#file)")
-                        }
-                }
+        public var url: URL? {
+                get         { return mCurrentURL   }
+                set(newval) { mCurrentURL = newval }
         }
 
         private func buttonPressed() {
@@ -96,12 +82,16 @@ public class MIFileSelectorCore: MICoreView
                 #if os(OSX)
                 MIPanel.openPanel(title: "Select \(target)", type: .file, fileExtensions: extensions, callback: {
                         (_ urlp: URL?) -> Void in
-                        if let url = urlp, let label = self.mLabel {
-                                label.title = url.path
-                                /* update path */
-                                self.mCurrentURL = url
-                                if let cbfunc = self.mCallback {
-                                        cbfunc(url)
+                        if let label = self.mLabel {
+                                if let url = urlp {
+                                        label.title = url.path
+                                        /* update path */
+                                        self.mCurrentURL = url
+                                        if let cbfunc = self.mCallback {
+                                                cbfunc(url)
+                                        }
+                                } else {
+                                        label.title = ""
                                 }
                         }
                 })

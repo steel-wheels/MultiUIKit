@@ -37,7 +37,7 @@ open class MIFileSelector: MIInterfaceView
                 coreSelectorView().setCallback(cbfunc)
         }
 
-        public var url: URL {
+        public var url: URL? {
                 get             { return coreSelectorView().url }
                 set(newval)     { coreSelectorView().url = newval }
         }
