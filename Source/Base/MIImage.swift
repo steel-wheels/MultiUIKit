@@ -65,36 +65,22 @@ public extension MIImage
         }
 
         #if os(OSX)
-        /* https://stackoverflow.com/questions/11949250/how-to-resize-nsimage */
-        func resize(to _size: NSSize) -> NSImage? {
-                let targetsize = self.size.resizeWithKeepingAscpect(inSize: _size)
-                if let bitmapRep = NSBitmapImageRep(
-                    bitmapDataPlanes: nil, pixelsWide: Int(targetsize.width), pixelsHigh: Int(targetsize.height),
-                    bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false,
-                    colorSpaceName: .calibratedRGB, bytesPerRow: 0, bitsPerPixel: 0
-                ) {
-                    bitmapRep.size = targetsize
-                    NSGraphicsContext.saveGraphicsState()
-                    NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmapRep)
-                    draw(in: NSRect(x: 0, y: 0, width: targetsize.width, height: targetsize.height), from: .zero, operation: .copy, fraction: 1.0)
-                    NSGraphicsContext.restoreGraphicsState()
-
-                    let resizedImage = NSImage(size: targetsize)
-                    resizedImage.addRepresentation(bitmapRep)
-                    return resizedImage
-                }
-            return nil
+        func resize(to newsize: NSSize) -> MIImage {
+                let resizedImage = MIImage(size: newsize)
+                resizedImage.lockFocus()
+                self.draw(in: NSRect(origin: .zero, size: newsize),
+                        from: NSRect(origin: .zero, size: self.size),
+                        operation: .copy,
+                        fraction: 1.0)
+                resizedImage.unlockFocus()
+                return resizedImage
         }
         #else
-        func resize(to _size: CGSize) -> UIImage? {
-                /* Copied from https://develop.hateblo.jp/entry/iosapp-uiimage-resize */
-
-                let targetsize = self.size.resizeWithKeepingAscpect(inSize: _size)
-                UIGraphicsBeginImageContextWithOptions(targetsize, false, 0.0)
-                draw(in: CGRect(origin: .zero, size: targetsize))
-                let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-
+        func resize(to newsize: CGSize) -> MIImage {
+                let renderer = UIGraphicsImageRenderer(size: newsize)
+                let resizedImage = renderer.image { _ in
+                        self.draw(in: CGRect(origin: .zero, size: newsize))
+                }
                 return resizedImage
         }
         #endif

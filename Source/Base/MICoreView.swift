@@ -15,7 +15,7 @@ public class MICoreView: MIBaseView
 {
         private var mCoreView:          MIBaseView?     = nil
         private var mTagValue:          Int             = -1
-        private var mContentSize:       MIContentSize?  = nil
+        private var mContentSize:       CGSize?         = nil
 
         open func setup() {
                 NSLog("[Error] Must be override in \(#file)")
@@ -32,7 +32,7 @@ public class MICoreView: MIBaseView
                 get      { return mTagValue }
         }
 
-        public func set(contentSize csize: MIContentSize){
+        public func set(contentSize csize: CGSize){
                 mContentSize = csize
         }
 
@@ -61,7 +61,7 @@ public class MICoreView: MIBaseView
         public override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {
                         if let csize = mContentSize {
-                                return csize.adjustSize(size: core.intrinsicContentSize)
+                                return csize
                         } else {
                                 return core.intrinsicContentSize
                         }

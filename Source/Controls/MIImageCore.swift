@@ -34,18 +34,6 @@ public class MIImageCore: MICoreView
                 get      { return mImageView.image      }
                 set(img) {
                         mImageView.image = img
-
-                        let csize: MIContentSize
-                        if let rimg = img {
-                                let width:  MIContentSize.Length = .immediate(rimg.size.width)
-                                let height: MIContentSize.Length = .immediate(rimg.size.height)
-                                csize = MIContentSize(width: width, height: height)
-                        } else {
-                                let width:  MIContentSize.Length = .immediate(0.0)
-                                let height: MIContentSize.Length = .immediate(0.0)
-                                csize = MIContentSize(width: width, height: height)
-                        }
-                        super.set(contentSize: csize)
                         super.requireDisplay()
                 }
         }

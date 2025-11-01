@@ -26,8 +26,15 @@ open class MIImageView: MIInterfaceView
         }
 
         public var image: MIImage? {
-                get {     return coreImageView().image }
-                set(val){ coreImageView().image = val  }
+                get {
+                        return coreImageView().image
+                }
+                set(val){
+                        coreImageView().image = val
+                        if let img = val {
+                                super.set(contentSize: img.size)
+                        }
+                }
         }
 
         open func set(symbol sym: MISymbol, size sz: MISymbolSize){
