@@ -18,6 +18,7 @@ public class MIImageCore: MICoreView
         #else
         @IBOutlet weak var mImageView: UIImageView!
         #endif
+        private var mOriginalImage:     MIImage? = nil
 
         open override func setup() {
                 super.setup(coreView: mImageView)
@@ -31,10 +32,33 @@ public class MIImageCore: MICoreView
         }
 
         public var image: MIImage? {
-                get      { return mImageView.image      }
+                get {
+                        return mImageView.image
+                }
                 set(img) {
+                        mOriginalImage   = img
+                        mImageView.image = updateImage()
+                        super.requireDisplay()
+                }
+        }
+
+        open override func set(contentSize csize: CGSize) {
+                super.set(contentSize: csize)
+                if let img = updateImage() {
                         mImageView.image = img
                         super.requireDisplay()
+                }
+        }
+
+        private func updateImage() -> MIImage? {
+                if let img = mOriginalImage {
+                        if let csize = super.contentSize {
+                                return img.resize(to: csize)
+                        } else {
+                                return img
+                        }
+                } else {
+                        return nil
                 }
         }
 

@@ -66,20 +66,34 @@ public extension MIImage
 
         #if os(OSX)
         func resize(to newsize: NSSize) -> MIImage {
-                let resizedImage = MIImage(size: newsize)
+                let originalSize = self.size
+                let widthRatio   = newsize.width / originalSize.width
+                let heightRatio  = newsize.height / originalSize.height
+                let scaleFactor = min(widthRatio, heightRatio, 1.0)
+                let newSize = NSSize(width:  originalSize.width * scaleFactor,
+                                     height: originalSize.height * scaleFactor)
+                let resizedImage = NSImage(size: newSize)
                 resizedImage.lockFocus()
-                self.draw(in: NSRect(origin: .zero, size: newsize),
-                        from: NSRect(origin: .zero, size: self.size),
-                        operation: .copy,
-                        fraction: 1.0)
+                self.draw(in: NSRect(origin: .zero, size: newSize),
+                          from: NSRect(origin: .zero, size: originalSize),
+                          operation: .copy,
+                          fraction: 1.0)
                 resizedImage.unlockFocus()
                 return resizedImage
         }
         #else
         func resize(to newsize: CGSize) -> MIImage {
-                let renderer = UIGraphicsImageRenderer(size: newsize)
+                let originalSize = self.size
+                let widthRatio   = newsize.width / originalSize.width
+                let heightRatio  = newsize.height / originalSize.height
+                let scaleFactor  = min(widthRatio, heightRatio, 1.0)
+
+                let newSize = CGSize(width: originalSize.width * scaleFactor,
+                                     height: originalSize.height * scaleFactor)
+
+                let renderer = UIGraphicsImageRenderer(size: newSize)
                 let resizedImage = renderer.image { _ in
-                        self.draw(in: CGRect(origin: .zero, size: newsize))
+                        self.draw(in: CGRect(origin: .zero, size: newSize))
                 }
                 return resizedImage
         }

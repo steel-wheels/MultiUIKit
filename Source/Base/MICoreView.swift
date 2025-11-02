@@ -32,6 +32,10 @@ public class MICoreView: MIBaseView
                 get      { return mTagValue }
         }
 
+        public var contentSize: CGSize? { get {
+                return mContentSize
+        }}
+
         public func set(contentSize csize: CGSize){
                 mContentSize = csize
         }

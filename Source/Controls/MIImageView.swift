@@ -31,14 +31,13 @@ open class MIImageView: MIInterfaceView
                 }
                 set(val){
                         coreImageView().image = val
-                        if let img = val {
-                                super.set(contentSize: img.size)
-                        }
                 }
         }
 
         open func set(symbol sym: MISymbol, size sz: MISymbolSize){
-                self.image   = MISymbolTable.shared.load(symbol: sym, size: sz)
+                let img = MISymbolTable.shared.load(symbol: sym, size: sz)
+                self.image = img
+                super.set(contentSize: img.size)
         }
 
         public func imageFrame() -> CGRect {
