@@ -19,10 +19,10 @@ public class MIPreLayouter: MIVisitor
                 }
         }
 
-        private var mViewStack:         Array<ParentView>
+        private var mViewStack:                 Array<ParentView>
 
         public override init() {
-                mViewStack      = []
+                mViewStack              = []
         }
 
         public func layout(rootView root: MIStack) {
@@ -75,7 +75,8 @@ public class MIPreLayouter: MIVisitor
 
         public override func visit(imageView src: MIImageView) {
                 if let img = src.image {
-                        let size = img.size
+                        let size = currentParentView().contentSize
+                        src.set(contentSize: size)
                         NSLog("image size: width=\(size.width) height=\(size.height)")
                 } else {
                         NSLog("image size: width=none height=none")

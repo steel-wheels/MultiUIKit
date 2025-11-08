@@ -70,11 +70,11 @@ public extension MIImage
                 let widthRatio   = newsize.width / originalSize.width
                 let heightRatio  = newsize.height / originalSize.height
                 let scaleFactor = min(widthRatio, heightRatio, 1.0)
-                let newSize = NSSize(width:  originalSize.width * scaleFactor,
+                let nextSize = NSSize(width:  originalSize.width * scaleFactor,
                                      height: originalSize.height * scaleFactor)
-                let resizedImage = NSImage(size: newSize)
+                let resizedImage = NSImage(size: nextSize)
                 resizedImage.lockFocus()
-                self.draw(in: NSRect(origin: .zero, size: newSize),
+                self.draw(in: NSRect(origin: .zero, size: nextSize),
                           from: NSRect(origin: .zero, size: originalSize),
                           operation: .copy,
                           fraction: 1.0)
@@ -88,12 +88,11 @@ public extension MIImage
                 let heightRatio  = newsize.height / originalSize.height
                 let scaleFactor  = min(widthRatio, heightRatio, 1.0)
 
-                let newSize = CGSize(width: originalSize.width * scaleFactor,
+                let nextSize = CGSize(width: originalSize.width * scaleFactor,
                                      height: originalSize.height * scaleFactor)
-
-                let renderer = UIGraphicsImageRenderer(size: newSize)
+                let renderer = UIGraphicsImageRenderer(size: nextSize)
                 let resizedImage = renderer.image { _ in
-                        self.draw(in: CGRect(origin: .zero, size: newSize))
+                        self.draw(in: CGRect(origin: .zero, size: nextSize))
                 }
                 return resizedImage
         }

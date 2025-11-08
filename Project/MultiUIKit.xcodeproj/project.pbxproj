@@ -112,6 +112,8 @@
 		05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */; };
 		05B93FB62CD6183000BA959F /* MISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB52CD6183000BA959F /* MISwitch.swift */; };
 		05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B93FB52CD6183000BA959F /* MISwitch.swift */; };
+		05B9AC992EBEC26F00583A4F /* MIViewDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9AC982EBEC26F00583A4F /* MIViewDumper.swift */; };
+		05B9AC9A2EBEC26F00583A4F /* MIViewDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9AC982EBEC26F00583A4F /* MIViewDumper.swift */; };
 		05D201C82D6A9F4300114347 /* MISymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D201C72D6A9F4300114347 /* MISymbol.swift */; };
 		05D201C92D6A9F4300114347 /* MISymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D201C72D6A9F4300114347 /* MISymbol.swift */; };
 		05D201CB2D6AA78400114347 /* MIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D201CA2D6AA78400114347 /* MIImage.swift */; };
@@ -320,6 +322,7 @@
 		05B93FB02CD5FDD900BA959F /* MISwitchCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISwitchCore.xib; sourceTree = "<group>"; };
 		05B93FB22CD5FF3B00BA959F /* MISwitchCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitchCore.swift; sourceTree = "<group>"; };
 		05B93FB52CD6183000BA959F /* MISwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISwitch.swift; sourceTree = "<group>"; };
+		05B9AC982EBEC26F00583A4F /* MIViewDumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIViewDumper.swift; sourceTree = "<group>"; };
 		05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D201C72D6A9F4300114347 /* MISymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISymbol.swift; sourceTree = "<group>"; };
 		05D201CA2D6AA78400114347 /* MIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIImage.swift; sourceTree = "<group>"; };
@@ -584,11 +587,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		05B9AC972EBEC1FF00583A4F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				05B9AC982EBEC26F00583A4F /* MIViewDumper.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		05CF52AD2CC3AB750034E7BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				05CF52AE2CC3ABCF0034E7BF /* Base */,
 				05F64B422CC3C74400AAFAD9 /* Controls */,
+				05B9AC972EBEC1FF00583A4F /* Utility */,
 				050F1FBD2CDBBA0300FAD756 /* Window */,
 			);
 			name = Source;
@@ -1196,6 +1208,7 @@
 				05D83E782CE23F22004ACED7 /* MIPopupMenuCore.swift in Sources */,
 				05B93FB42CD5FF3B00BA959F /* MISwitchCore.swift in Sources */,
 				0573DF062E520AA100F8051B /* MICollectionViewCore.swift in Sources */,
+				05B9AC992EBEC26F00583A4F /* MIViewDumper.swift in Sources */,
 				053A7F562D3BDB1B007C178B /* MITableCelllView.swift in Sources */,
 				05D201CE2D6AEE2800114347 /* MISize.swift in Sources */,
 				0567D0792CD678E900595CDD /* MITextField.swift in Sources */,
@@ -1233,6 +1246,7 @@
 				05B64A7E2E0FEE800047CBDF /* MIDropView.swift in Sources */,
 				052C60A22CC5049B00E7523B /* MILabel.swift in Sources */,
 				0573DF0A2E52B23500F8051B /* MICollectionView.swift in Sources */,
+				05B9AC9A2EBEC26F00583A4F /* MIViewDumper.swift in Sources */,
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				053A7F412D3B3702007C178B /* MITableCore.swift in Sources */,

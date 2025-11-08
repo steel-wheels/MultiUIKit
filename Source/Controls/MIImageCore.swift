@@ -38,7 +38,6 @@ public class MIImageCore: MICoreView
                 set(img) {
                         mOriginalImage   = img
                         mImageView.image = updateImage()
-                        super.requireDisplay()
                 }
         }
 
@@ -46,7 +45,6 @@ public class MIImageCore: MICoreView
                 super.set(contentSize: csize)
                 if let img = updateImage() {
                         mImageView.image = img
-                        super.requireDisplay()
                 }
         }
 
