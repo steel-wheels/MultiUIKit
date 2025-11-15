@@ -24,9 +24,10 @@ public class MIViewDumper: MIVisitor
         private func dump(view v: MIInterfaceView) {
                 let spaces    = generateSpaces()
                 let className = String(describing: type(of: v))
+                let tag       = v.tag
                 let framestr  = v.frame.description
                 let boundsstr = v.bounds.description
-                NSLog(spaces + "\(className) frame:\(framestr) bounds:\(boundsstr)")
+                NSLog(spaces + "\(className) tag:\(tag) frame:\(framestr) bounds:\(boundsstr)")
         }
 
         private func dump(image img: MIImage) {

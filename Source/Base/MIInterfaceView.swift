@@ -102,18 +102,17 @@ open class MIInterfaceView: MIBaseView
                 MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: self, childView: sview, space: space)
         }
 
-        public var coreTag: Int {
+        public override var tag: Int {
                 get {
                         if let core = mCoreView {
-                                return core.tag
+                                return MICoreTagToInterfaceTag(coreTag: core.tag)
                         } else {
-                                NSLog("[Error] No core view at \(#function) in \(#file)")
-                                return -1
+                                return MINullTagId
                         }
                 }
                 set(val){
                         if let core = mCoreView {
-                                core.tag = val
+                                core.tag = MIInterfaceTagToCoreTag(interfaceTag: val)
                         } else {
                                 NSLog("[Error] No core view at \(#function)  in \(#file)")
                         }

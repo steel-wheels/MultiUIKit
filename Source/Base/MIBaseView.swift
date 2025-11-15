@@ -17,6 +17,17 @@ public typealias MIBaseView = NSView
 public typealias MIBaseView = UIView
 #endif // os(OSX)
 
+public let MINullTagId : Int     = -1
+public let MITagBits:    Int     = 1
+
+public func MICoreTagToInterfaceTag(coreTag tag: Int) -> Int {
+        return tag != MINullTagId ? tag & ~MITagBits : MINullTagId
+}
+
+public func MIInterfaceTagToCoreTag(interfaceTag tag: Int) -> Int {
+        return tag != MINullTagId ? tag | MITagBits : MINullTagId
+}
+
 public extension MIBaseView
 {
         enum ExpansionPriority {

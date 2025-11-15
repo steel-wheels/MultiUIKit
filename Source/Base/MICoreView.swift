@@ -14,8 +14,8 @@ import  UIKit
 public class MICoreView: MIBaseView
 {
         private var mCoreView:          MIBaseView?     = nil
-        private var mTagValue:          Int             = -1
         private var mContentSize:       CGSize?         = nil
+        private var mTagValue:          Int             = MINullTagId
 
         open func setup() {
                 NSLog("[Error] Must be override in \(#file)")
