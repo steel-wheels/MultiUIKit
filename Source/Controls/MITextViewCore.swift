@@ -97,31 +97,12 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 }
         }
 
-        #if os(OSX)
-
-        public override func setFrameOrigin(_ neworigin: NSPoint) {
-                super.setFrameOrigin(neworigin)
-        }
-
-        public override func setFrameSize(_ newsize: NSSize) {
+        public override func setFrameSize(_ newsize: CGSize) {
                 super.setFrameSize(newsize)
                 if let storage = mStorage {
                         storage.frameSize = newsize
                 }
         }
-
-        #else
-
-        public override var frame: CGRect {
-                get { return super.frame       }
-                set(newval){
-                        super.frame = newval
-                        if let storage = mStorage {
-                                storage.frameSize = newval.size
-                        }
-                }
-        }
-        #endif
 
         public override var intrinsicContentSize: CGSize { get {
                 if let csize = textStorage.contentsSize {

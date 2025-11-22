@@ -64,34 +64,22 @@ public extension MIBaseView
                 #endif
         }
 
-        func addLeftSideConstraint(childView child: MIBaseView, space spc: CGFloat) {
-                let constr = NSLayoutConstraint(item: child, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: spc)
-                addConstraint(constr)
+        class func allocateSubviewLayout(axis axs: LayoutOrientation, parentView parent: MIBaseView, childView child: MIBaseView, space spc: CGFloat){
+                child.translatesAutoresizingMaskIntoConstraints = false
+                switch axs {
+                case .horizontal:
+                        parent.addConstraint(allocateLayout(fromView: child, toView: parent, attribute: .left, length: spc))
+                        parent.addConstraint(allocateLayout(fromView: parent, toView: child, attribute: .right, length: spc))
+                case .vertical:
+                        parent.addConstraint(allocateLayout(fromView: child, toView: parent, attribute: .top, length: spc))
+                        parent.addConstraint(allocateLayout(fromView: parent, toView: child, attribute: .bottom, length: spc))
+                @unknown default:
+                        NSLog("[Error] Can not happen at \(#function) in \(#file)")
+                }
         }
 
-        func addRightSideConstraint(childView child: MIBaseView, space spc: CGFloat) {
-                let constr = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: child, attribute: .right, multiplier: 1.0, constant: spc)
-                addConstraint(constr)
-        }
-
-        func addTopSideConstraint(childView child: MIBaseView, space spc: CGFloat) {
-                let constr = NSLayoutConstraint(item: child, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: spc)
-                addConstraint(constr)
-        }
-
-        func addBottomSideConstraint(childView child: MIBaseView, space spc: CGFloat) {
-                let constr = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: child, attribute: .bottom, multiplier: 1.0, constant: spc)
-                addConstraint(constr)
-        }
-
-        func addInterConstraint(upperView uview: MIBaseView, lowerView lview: MIBaseView, space spc: CGFloat){
-                let constr = NSLayoutConstraint(item: uview, attribute: .bottom, relatedBy: .equal, toItem: lview, attribute: .top, multiplier: 1.0, constant: spc)
-                addConstraint(constr)
-        }
-
-        func addInterConstraint(leftView lview: MIBaseView, rightView rview: MIBaseView, space spc: CGFloat){
-                let constr = NSLayoutConstraint(item: lview, attribute: .right, relatedBy: .equal, toItem: rview, attribute: .left, multiplier: 1.0, constant: spc)
-                addConstraint(constr)
+        class func allocateLayout(fromView fview : MIBaseView, toView tview: MIBaseView, attribute attr: NSLayoutConstraint.Attribute, length len: CGFloat) -> NSLayoutConstraint {
+                return NSLayoutConstraint(item: fview, attribute: attr, relatedBy: NSLayoutConstraint.Relation.equal, toItem: tview, attribute: attr, multiplier: 1.0, constant: len) ;
         }
 
         func setContentExpansionPriority(_ priority: ExpansionPriority, for axs: LayoutOrientation) {
