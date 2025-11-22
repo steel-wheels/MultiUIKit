@@ -52,6 +52,10 @@ open class MIStack: MIInterfaceView
                 coreStackView().removeAllSubviews()
         }
 
+        public func insertConstraints(space spc: CGFloat) {
+                coreStackView().insertConstraints(space: spc)
+        }
+
         public override func accept(visitor vis: MIVisitor) {
                 vis.visit(stack: self)
         }

@@ -50,9 +50,15 @@ open class MIInterfaceView: MIBaseView
                         child.setup()
                         self.addSubview(child)
                         child.activateAutolayout()
-                        allocateSubviewLayout(subView: child)
+                        setCoreLayout(coreView: child, space: 0.0)
                         mCoreView = child
+
+                        #if os(OSX)
                         setFrameSize(size)
+                        #else
+                        let orgfrm = self.frame
+                        self.frame = CGRect(origin: orgfrm.origin, size: size)
+                        #endif
                 } else {
                         NSLog("[Error] Failed to load bundle: \(nm) in \(#file)")
                 }
@@ -95,11 +101,11 @@ open class MIInterfaceView: MIBaseView
                 }
         }
 
-        public func allocateSubviewLayout(subView sview: MICoreView){
-                sview.translatesAutoresizingMaskIntoConstraints = false
-                let space: CGFloat = 0.0
-                MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: self, childView: sview, space: space)
-                MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: self, childView: sview, space: space)
+        public func setCoreLayout(coreView core: MICoreView, space spc: CGFloat){
+                self.addTopSideConstraint(childView: core, space: spc)
+                self.addBottomSideConstraint(childView: core, space: spc)
+                self.addLeftSideConstraint(childView: core, space: spc)
+                self.addRightSideConstraint(childView: core, space: spc)
         }
 
         public override var tag: Int {
@@ -119,21 +125,36 @@ open class MIInterfaceView: MIBaseView
                 }
         }
 
-        #if os(iOS)
-        public func setFrameSize(_ newsize: CGSize) {
-                self.frame.size = newsize
-                if let core = mCoreView {
-                        core.frame.size = newsize
-                }
-        }
-        #else // os(iOS)
+        #if os(OSX)
         public override func setFrameSize(_ newsize: NSSize) {
                 super.setFrameSize(newsize)
                 if let core = mCoreView {
                         core.setFrameSize(newsize)
                 }
         }
-        #endif // os(iOS)
+
+        public override func setFrameOrigin(_ neworigin: NSPoint) {
+                super.setFrameOrigin(neworigin)
+                if let core = mCoreView {
+                        core.setFrameOrigin(neworigin)
+                }
+        }
+
+        #else   // os(OSX)
+
+        public override var frame: CGRect {
+                get {
+                        return super.frame
+                }
+                set(newval){
+                        super.frame = newval
+                        if let core = mCoreView {
+                                core.frame = newval
+                        }
+                }
+        }
+
+        #endif  // os(OSX)
         
         open override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {

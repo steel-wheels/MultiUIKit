@@ -74,7 +74,7 @@ public class MIPreLayouter: MIVisitor
         #endif
 
         public override func visit(imageView src: MIImageView) {
-                if let img = src.image {
+                if let _ = src.image {
                         let size = currentParentView().contentSize
                         src.set(contentSize: size)
                         NSLog("image size: width=\(size.width) height=\(size.height)")

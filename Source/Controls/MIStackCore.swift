@@ -64,16 +64,10 @@ public class MIStackCore: MICoreView
 
         public func addArrangedSubView(_ view: MIInterfaceView) {
                 mStack.addArrangedSubview(view)
-                switch self.axis {
-                case .horizontal:
-                        MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.high, for: .vertical)
-                case .vertical:
-                        MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.high, for: .horizontal)
-                @unknown default:
-                        NSLog("[Error] Unknown case")
-                }
+        }
+
+        public func insertArrangedSubView(_ view: MIInterfaceView, at index: Int) {
+                mStack.insertArrangedSubview(view, at: index)
         }
 
         public var arrangedSubviews: Array<MIInterfaceView> { get {
@@ -88,20 +82,6 @@ public class MIStackCore: MICoreView
                 return result
         }}
 
-        public func insertArrangedSubView(_ view: MIInterfaceView, at index: Int) {
-                mStack.insertArrangedSubview(view, at: index)
-                switch self.axis {
-                case .horizontal:
-                        MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.high, for: .vertical)
-                case .vertical:
-                        MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: mStack, childView: view, space: 0.0)
-                        view.setContentExpansionPriority(.high, for: .horizontal)
-                @unknown default:
-                        NSLog("[Error] Unknown case")
-                }
-        }
-
         public func removeAllSubviews() {
                 #if os(OSX)
                 while mStack.views.count > 0 {
@@ -112,6 +92,68 @@ public class MIStackCore: MICoreView
                         mStack.removeArrangedSubview(mStack.arrangedSubviews[0])
                 }
                 #endif
+        }
+
+        public func insertConstraints(space spc: CGFloat) {
+                let subviews = self.arrangedSubviews
+                let count    = subviews.count
+                guard count > 0 else {
+                        return // nothing have to do
+                }
+                switch self.axis {
+                case .vertical:
+                        insertConstraintsForVerticalStack(subviews: subviews, space: spc)
+                case .horizontal:
+                        insertConstraintsForHolizontalStack(subviews: subviews, space: spc)
+                @unknown default:
+                        NSLog("[Error] Can not happen at \(#file)")
+                }
+        }
+
+        private func insertConstraintsForHolizontalStack(subviews: Array<MIInterfaceView>, space spc: CGFloat) {
+                /* left side */
+                if let firstview = subviews.first {
+                        mStack.addLeftSideConstraint(childView: firstview, space: spc)
+                }
+                /* right side */
+                if let lastview = subviews.last {
+                        mStack.addRightSideConstraint(childView: lastview, space: spc)
+                }
+                /* middle */
+                var prevview: MIInterfaceView = subviews[0]
+                for i in 1..<subviews.count {
+                        let curview = subviews[i]
+                        mStack.addInterConstraint(leftView: prevview, rightView: curview, space: spc)
+                        prevview = curview
+                }
+                /* vertical constraings */
+                for subview in subviews {
+                        mStack.addTopSideConstraint(childView: subview, space: spc)
+                        mStack.addBottomSideConstraint(childView: subview, space: spc)
+                }
+        }
+
+        private func insertConstraintsForVerticalStack(subviews: Array<MIInterfaceView>, space spc: CGFloat) {
+                /* top side */
+                if let firstview = subviews.first {
+                        mStack.addTopSideConstraint(childView: firstview, space: spc)
+                }
+                /* bottom side */
+                if let lastview = subviews.last {
+                        mStack.addBottomSideConstraint(childView: lastview, space: spc)
+                }
+                /* middle */
+                var prevview: MIInterfaceView = subviews[0]
+                for i in 1..<subviews.count {
+                        let curview = subviews[i]
+                        mStack.addInterConstraint(upperView: prevview, lowerView: curview, space: spc)
+                        prevview = curview
+                }
+                /* holizontal constraings */
+                for subview in subviews {
+                        mStack.addLeftSideConstraint(childView: subview, space: spc)
+                        mStack.addRightSideConstraint(childView: subview, space: spc)
+                }
         }
 }
 

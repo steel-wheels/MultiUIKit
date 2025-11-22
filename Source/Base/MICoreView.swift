@@ -40,21 +40,37 @@ public class MICoreView: MIBaseView
                 mContentSize = csize
         }
 
-        #if os(iOS)
-        public func setFrameSize(_ newsize: CGSize) {
-                self.frame.size = newsize
+        #if os(OSX)
+
+        public override func setFrameOrigin(_ newOrigin: NSPoint) {
+                super.setFrameOrigin(newOrigin)
                 if let core = mCoreView {
-                        core.frame.size = newsize
+                        core.setFrameOrigin(newOrigin)
                 }
         }
-        #else // os(iOS)
+
         public override func setFrameSize(_ newsize: NSSize) {
                 super.setFrameSize(newsize)
                 if let core = mCoreView {
                         core.setFrameSize(newsize)
                 }
         }
-        #endif // os(iOS)
+
+        #else
+
+        public override var frame: CGRect {
+                set(newval) {
+                        super.frame = newval
+                        if let core = mCoreView {
+                                core.frame = newval
+                        }
+                }
+                get {
+                        return super.frame
+                }
+        }
+
+        #endif // os(OSX)
 
         #if os(OSX)
         public override func rightMouseUp(with event: MIEvent) {
