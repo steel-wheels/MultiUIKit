@@ -98,8 +98,8 @@ open class MIInterfaceView: MIBaseView
         public func allocateSubviewLayout(subView sview: MICoreView){
                 sview.translatesAutoresizingMaskIntoConstraints = false
                 let space: CGFloat = 0.0
-                MIBaseView.allocateSubviewLayout(axis: .horizontal, parentView: self, childView: sview, space: space)
-                MIBaseView.allocateSubviewLayout(axis: .vertical, parentView: self, childView: sview, space: space)
+                allocateSubviewLayout(axis: .horizontal, childView: sview, space: space)
+                allocateSubviewLayout(axis: .vertical, childView: sview, space: space)
         }
 
         public override var tag: Int {
@@ -119,6 +119,37 @@ open class MIInterfaceView: MIBaseView
                 }
         }
 
+        #if os(OSX)
+
+        public override func setFrameSize(_ newsize: NSSize) {
+                super.setFrameSize(newsize)
+                if let core = mCoreView {
+                        core.setFrameSize(newsize)
+                }
+        }
+
+        public override func setFrameOrigin(_ neworigin: NSPoint) {
+                super.setFrameOrigin(neworigin)
+                if let core = mCoreView {
+                        core.setFrameOrigin(neworigin)
+                }
+        }
+
+        #else
+
+        public override var frame: CGRect {
+                get     { return super.frame }
+                set(newval) {
+                        super.frame = newval
+                        if let core = mCoreView {
+                                core.frame = newval
+                        }
+                }
+        }
+
+        #endif
+
+
         #if os(iOS)
         public func setFrameSize(_ newsize: CGSize) {
                 self.frame.size = newsize
@@ -127,12 +158,7 @@ open class MIInterfaceView: MIBaseView
                 }
         }
         #else // os(iOS)
-        public override func setFrameSize(_ newsize: NSSize) {
-                super.setFrameSize(newsize)
-                if let core = mCoreView {
-                        core.setFrameSize(newsize)
-                }
-        }
+
         #endif // os(iOS)
         
         open override var intrinsicContentSize: CGSize { get {
