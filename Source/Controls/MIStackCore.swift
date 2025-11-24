@@ -34,9 +34,11 @@ public class MIStackCore: MICoreView
         open override func setup() {
                 super.setup(coreView: mStack)
                 #if os(iOS)
-                mStack.alignment = .fill
+                mStack.distribution = .fillEqually
+                mStack.alignment    = .fill
                 #else
-                mStack.alignment = .width
+                mStack.distribution = .fillEqually
+                mStack.alignment    = .width
                 #endif
         }
 
