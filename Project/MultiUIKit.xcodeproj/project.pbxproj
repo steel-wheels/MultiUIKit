@@ -22,9 +22,7 @@
 		0515E7D42CC4781700321C89 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
 		0515E7D52CC4781700321C89 /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0517FA122EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517FA112EB6C94F00BBA3B7 /* MIScalableImage.swift */; };
-		0517FA132EB6C94F00BBA3B7 /* MIPreLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517FA102EB6C94F00BBA3B7 /* MIPreLayouter.swift */; };
 		0517FA142EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517FA112EB6C94F00BBA3B7 /* MIScalableImage.swift */; };
-		0517FA152EB6C94F00BBA3B7 /* MIPreLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517FA102EB6C94F00BBA3B7 /* MIPreLayouter.swift */; };
 		05198BF02CFDF67F001EE972 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05198BEF2CFDF67F001EE972 /* PreferenceViewController.swift */; };
 		05199E062CCE208500A61840 /* MIStackCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05199E052CCE208500A61840 /* MIStackCore.xib */; };
 		05199E082CCE20D200A61840 /* MIStackCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05199E072CCE20D200A61840 /* MIStackCore.xib */; };
@@ -260,7 +258,6 @@
 		0515E7CA2CC476D300321C89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0515E7CC2CC476D300321C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiUIKit.xcframework; path = ../../../Library/Frameworks/MultiUIKit.xcframework; sourceTree = "<group>"; };
-		0517FA102EB6C94F00BBA3B7 /* MIPreLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPreLayouter.swift; sourceTree = "<group>"; };
 		0517FA112EB6C94F00BBA3B7 /* MIScalableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIScalableImage.swift; sourceTree = "<group>"; };
 		05198BEF2CFDF67F001EE972 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		05199E052CCE208500A61840 /* MIStackCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIStackCore.xib; sourceTree = "<group>"; };
@@ -617,7 +614,6 @@
 				05F64B392CC3AED800AAFAD9 /* MICoreView.swift */,
 				05287CC12E3A523000823FAD /* MIEvent.swift */,
 				05DF74D62D73D057000EB93D /* MIFont.swift */,
-				0517FA102EB6C94F00BBA3B7 /* MIPreLayouter.swift */,
 				0517FA112EB6C94F00BBA3B7 /* MIScalableImage.swift */,
 				05F64B362CC3ADB900AAFAD9 /* MIType.swift */,
 				05F64B3A2CC3AED800AAFAD9 /* MIError.swift */,
@@ -1189,7 +1185,6 @@
 				05B93FB72CD6183000BA959F /* MISwitch.swift in Sources */,
 				054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				0517FA142EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */,
-				0517FA152EB6C94F00BBA3B7 /* MIPreLayouter.swift in Sources */,
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */,
 				05FB6EA32E6B3AD800F53D76 /* MIFileSelectorCore.swift in Sources */,
@@ -1274,7 +1269,6 @@
 				053A7F552D3BDB1A007C178B /* MITableCelllView.swift in Sources */,
 				05D201CF2D6AEE2800114347 /* MISize.swift in Sources */,
 				0517FA122EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */,
-				0517FA132EB6C94F00BBA3B7 /* MIPreLayouter.swift in Sources */,
 				05199E0B2CCE210900A61840 /* MIStackCore.swift in Sources */,
 				0567D07A2CD678E900595CDD /* MITextField.swift in Sources */,
 				05B64A7A2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
