@@ -36,6 +36,10 @@ open class MIStack: MIInterfaceView
                 set(newval) { coreStackView().distribution = newval }
         }
 
+        public var spacing: CGFloat {
+                get { return coreStackView().spacing }
+        }
+
         public func addArrangedSubView(_ view: MIInterfaceView) {
                 coreStackView().addArrangedSubView(view)
         }

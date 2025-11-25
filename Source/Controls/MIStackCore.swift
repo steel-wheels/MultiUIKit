@@ -59,6 +59,10 @@ public class MIStackCore: MICoreView
                 }
         }
 
+        public var spacing: CGFloat {
+                get { return mStack.spacing }
+        }
+
         public var distribution: Distribution {
                 get         { return mStack.distribution }
                 set(newval) { mStack.distribution = newval }

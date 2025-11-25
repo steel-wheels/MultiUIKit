@@ -46,6 +46,8 @@
 		052C609F2CC502D400E7523B /* MILabelCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052C609E2CC502D400E7523B /* MILabelCore.xib */; };
 		052C60A12CC5049B00E7523B /* MILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60A02CC5049B00E7523B /* MILabel.swift */; };
 		052C60A22CC5049B00E7523B /* MILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60A02CC5049B00E7523B /* MILabel.swift */; };
+		052FE66D2ED51D240020484E /* MIPreLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052FE66C2ED51D240020484E /* MIPreLayouter.swift */; };
+		052FE66E2ED51D240020484E /* MIPreLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052FE66C2ED51D240020484E /* MIPreLayouter.swift */; };
 		0531A89B2CC49DE00053A897 /* MIButtonCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0531A8982CC49D1C0053A897 /* MIButtonCore.xib */; };
 		053A7F3D2D3B34D2007C178B /* MITableCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053A7F3C2D3B34D2007C178B /* MITableCore.xib */; };
 		053A7F3F2D3B35DB007C178B /* MITableCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053A7F3E2D3B35DB007C178B /* MITableCore.xib */; };
@@ -277,6 +279,7 @@
 		052C609B2CC5019F00E7523B /* MILabelCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MILabelCore.swift; sourceTree = "<group>"; };
 		052C609E2CC502D400E7523B /* MILabelCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MILabelCore.xib; sourceTree = "<group>"; };
 		052C60A02CC5049B00E7523B /* MILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MILabel.swift; sourceTree = "<group>"; };
+		052FE66C2ED51D240020484E /* MIPreLayouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPreLayouter.swift; sourceTree = "<group>"; };
 		0531A8982CC49D1C0053A897 /* MIButtonCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIButtonCore.xib; sourceTree = "<group>"; };
 		053A7F3C2D3B34D2007C178B /* MITableCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITableCore.xib; sourceTree = "<group>"; };
 		053A7F3E2D3B35DB007C178B /* MITableCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITableCore.xib; sourceTree = "<group>"; };
@@ -587,6 +590,7 @@
 		05B9AC972EBEC1FF00583A4F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				052FE66C2ED51D240020484E /* MIPreLayouter.swift */,
 				05B9AC982EBEC26F00583A4F /* MIViewDumper.swift */,
 			);
 			path = Utility;
@@ -1164,6 +1168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052FE66D2ED51D240020484E /* MIPreLayouter.swift in Sources */,
 				055618F12E0AF14500BEB418 /* MIImageView.swift in Sources */,
 				05F64B382CC3ADB900AAFAD9 /* MIType.swift in Sources */,
 				05D201CC2D6AA78400114347 /* MIImage.swift in Sources */,
@@ -1258,6 +1263,7 @@
 				053B48AB2CD596F90008AD33 /* MIBaseView.swift in Sources */,
 				0567D0722CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				05DF74D12D734598000EB93D /* MITextView.swift in Sources */,
+				052FE66E2ED51D240020484E /* MIPreLayouter.swift in Sources */,
 				05DF74CE2D73455F000EB93D /* MITextViewCore.swift in Sources */,
 				05DF74D72D73D057000EB93D /* MIFont.swift in Sources */,
 				057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */,
