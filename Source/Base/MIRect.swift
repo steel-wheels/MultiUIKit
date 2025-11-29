@@ -10,10 +10,10 @@ import Foundation
 public extension CGRect
 {
         var description: String { get {
-                let x = self.origin.x
-                let y = self.origin.y
-                let w = self.size.width
-                let h = self.size.height
+                let x = String(format: "%.2f", self.origin.x)
+                let y = String(format: "%.2f", self.origin.y)
+                let w = String(format: "%.2f", self.size.width)
+                let h = String(format: "%.2f", self.size.height)
                 return "{x:\(x), y:\(y), width:\(w), height: \(h)}"
         }}
 }

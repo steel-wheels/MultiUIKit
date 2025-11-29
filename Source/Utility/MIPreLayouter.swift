@@ -113,6 +113,11 @@ public class MIPreLayouter: MIVisitor
                 guard count > 0 else {
                         return
                 }
+                if count == 1 {
+                        let subview = src.arrangedSubviews[0]
+                        subview.accept(visitor: self)
+                        return
+                }
                 switch src.axis {
                 case .vertical:
                         visitVerticalStack(tack: src)
@@ -153,7 +158,7 @@ public class MIPreLayouter: MIVisitor
                 let subwidth  = max(curwidth  - spacing * 2.0, 0.0)
 
                 var subframe  = CGRect(x: spacing, y: spacing, width: subwidth, height: subheight)
-                for subview in src.arrangedSubviews {
+                for subview in src.arrangedSubviews.reversed() {
                         pushCurrentFrame(frame: subframe)
                         subview.accept(visitor: self)
                         popCurrentFrame()

@@ -10,8 +10,8 @@ import Foundation
 public extension CGPoint
 {
         var description: String { get {
-                let x = self.x
-                let y = self.y
+                let x = String(format: "%.2f", self.x)
+                let y = String(format: "%.2f", self.y)
                 return "{x:\(x), y:\(y)}"
         }}
 }
