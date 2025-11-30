@@ -100,6 +100,8 @@
 		057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */; };
 		057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
+		05B2C7D02EDB4245001EFB34 /* MIViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */; };
+		05B2C7D12EDB4245001EFB34 /* MIViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */; };
 		05B64A762E0FE8650047CBDF /* MIDropViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */; };
 		05B64A782E0FEA8D0047CBDF /* MIDropViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */; };
 		05B64A7A2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */; };
@@ -314,6 +316,7 @@
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
+		05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIViewFinder.swift; sourceTree = "<group>"; };
 		05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
 		05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
 		05B64A792E0FEBFA0047CBDF /* MIDropViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDropViewCore.swift; sourceTree = "<group>"; };
@@ -591,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				052FE66C2ED51D240020484E /* MIPreLayouter.swift */,
+				05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */,
 				05B9AC982EBEC26F00583A4F /* MIViewDumper.swift */,
 			);
 			path = Utility;
@@ -1191,6 +1195,7 @@
 				054B43052CD75F92000CCD12 /* MIWebView.swift in Sources */,
 				0517FA142EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */,
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
+				05B2C7D02EDB4245001EFB34 /* MIViewFinder.swift in Sources */,
 				050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */,
 				05FB6EA32E6B3AD800F53D76 /* MIFileSelectorCore.swift in Sources */,
 				0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */,
@@ -1248,6 +1253,7 @@
 				0573DF0A2E52B23500F8051B /* MICollectionView.swift in Sources */,
 				05B9AC9A2EBEC26F00583A4F /* MIViewDumper.swift in Sources */,
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
+				05B2C7D12EDB4245001EFB34 /* MIViewFinder.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
 				053A7F412D3B3702007C178B /* MITableCore.swift in Sources */,
 				057C1D972CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,

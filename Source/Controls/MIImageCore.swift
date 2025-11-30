@@ -18,7 +18,8 @@ public class MIImageCore: MICoreView
         #else
         @IBOutlet weak var mImageView: UIImageView!
         #endif
-        private var mOriginalImage:     MIImage? = nil
+        private var mOriginalImage:             MIImage? = nil
+        private var mExplicitContentsSize:      CGSize?  = nil
 
         open override func setup() {
                 super.setup(coreView: mImageView)
@@ -35,22 +36,31 @@ public class MIImageCore: MICoreView
                 get {
                         return mImageView.image
                 }
-                set(img) {
-                        mOriginalImage   = img
-                        mImageView.image = updateImage()
+                set(imgp) {
+                        mOriginalImage        = imgp
+                        if let img = imgp {
+                                mExplicitContentsSize = img.size
+                                mImageView.image = updateImage()
+                        } else {
+                                mExplicitContentsSize = nil
+                                mImageView.image = nil
+                        }
                 }
         }
 
-        open override func set(contentSize csize: CGSize) {
-                super.set(contentSize: csize)
-                if let img = updateImage() {
-                        mImageView.image = img
+        public var explicitContentsSize: CGSize? {
+                get { return mExplicitContentsSize }
+                set(newsize) {
+                        mExplicitContentsSize = newsize
+                        if let img = updateImage() {
+                                mImageView.image = img
+                        }
                 }
         }
 
         private func updateImage() -> MIImage? {
                 if let img = mOriginalImage {
-                        if let csize = super.contentSize {
+                        if let csize = mExplicitContentsSize {
                                 return img.resize(to: csize)
                         } else {
                                 return img
@@ -59,6 +69,14 @@ public class MIImageCore: MICoreView
                         return nil
                 }
         }
+
+        public override var intrinsicContentSize: CGSize { get {
+                if let img = mImageView.image {
+                        return img.size
+                } else {
+                        return mImageView.intrinsicContentSize
+                }
+        }}
 
         public func imageFrame() -> CGRect {
                 let frame  = mImageView.frame

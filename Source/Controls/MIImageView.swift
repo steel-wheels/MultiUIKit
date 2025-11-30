@@ -37,11 +37,40 @@ open class MIImageView: MIInterfaceView
         open func set(symbol sym: MISymbol, size sz: MISymbolSize){
                 let img = MISymbolTable.shared.load(symbol: sym, size: sz)
                 self.image = img
-                super.set(contentSize: img.size)
+                self.explicitContentsSize = img.size
+        }
+
+        public var explicitContentsSize: CGSize? {
+                get         { return coreImageView().explicitContentsSize   }
+                set(newval) { coreImageView().explicitContentsSize = newval }
         }
 
         public func imageFrame() -> CGRect {
                 coreImageView().imageFrame()
+        }
+
+        public func rellocateSubviewLayout(){
+                let coreview = coreImageView()
+                coreview.translatesAutoresizingMaskIntoConstraints = false
+
+                guard let coresize = explicitContentsSize else {
+                        return
+                }
+
+                let parentsize  = self.frame
+                let hspace = (parentsize.width  - coresize.width ) / 2.0
+                let vspace = (parentsize.height - coresize.height) / 2.0
+
+                guard hspace >= 0.0 && vspace > 0.0 else {
+                        return
+                }
+
+                removeAllConstraints()
+
+                addTopSideConstraint(childView: coreview, space: vspace)
+                addBottomSideConstraint(childView: coreview, space: vspace)
+                addLeftSideConstraint(childView: coreview, space: hspace)
+                addRightSideConstraint(childView: coreview, space: hspace)
         }
 
         public override func accept(visitor vis: MIVisitor) {

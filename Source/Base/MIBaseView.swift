@@ -122,10 +122,9 @@ public extension MIBaseView
                 self.addConstraint(constr)
         }
 
-        /*
-        class func allocateLayout(fromView fview : MIBaseView, toView tview: MIBaseView, attribute attr: NSLayoutConstraint.Attribute, length len: CGFloat) -> NSLayoutConstraint {
-                return NSLayoutConstraint(item: fview, attribute: attr, relatedBy: NSLayoutConstraint.Relation.equal, toItem: tview, attribute: attr, multiplier: 1.0, constant: len) ;
-        }*/
+        func removeAllConstraints() {
+                self.removeConstraints(self.constraints)
+        }
 
         func setContentExpansionPriority(_ priority: ExpansionPriority, for axs: LayoutOrientation) {
                 let hugging:    LayoutPriority

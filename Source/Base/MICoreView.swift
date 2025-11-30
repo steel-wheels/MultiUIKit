@@ -14,7 +14,6 @@ import  UIKit
 public class MICoreView: MIBaseView
 {
         private var mCoreView:          MIBaseView?     = nil
-        private var mContentSize:       CGSize?         = nil
         private var mTagValue:          Int             = MINullTagId
 
         open func setup() {
@@ -30,14 +29,6 @@ public class MICoreView: MIBaseView
         public override var tag: Int {
                 set(val) { mTagValue = val  }
                 get      { return mTagValue }
-        }
-
-        public var contentSize: CGSize? { get {
-                return mContentSize
-        }}
-
-        public func set(contentSize csize: CGSize){
-                mContentSize = csize
         }
 
         #if os(OSX)
@@ -73,11 +64,7 @@ public class MICoreView: MIBaseView
 
         public override var intrinsicContentSize: CGSize { get {
                 if let core = mCoreView {
-                        if let csize = mContentSize {
-                                return csize
-                        } else {
-                                return core.intrinsicContentSize
-                        }
+                        return core.intrinsicContentSize
                 } else {
                         NSLog("[Error] Failed to get core in \(#file)")
                         return super.intrinsicContentSize

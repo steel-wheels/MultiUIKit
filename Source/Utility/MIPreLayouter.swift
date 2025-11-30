@@ -18,7 +18,9 @@ public class MIPreLayouter: MIVisitor
 
         public static func layout(rootView root: MIInterfaceView){
                 let layouter = MIPreLayouter()
-                layouter.pushCurrentFrame(frame: root.frame)
+
+                let rootfrm = CGRect(origin: CGPoint.zero, size: root.frame.size)
+                layouter.pushCurrentFrame(frame: rootfrm)
                 root.accept(visitor: layouter)
         }
 
@@ -47,75 +49,85 @@ public class MIPreLayouter: MIVisitor
                 }
         }
 
-        private func adjustFrame(view v: MIInterfaceView) {
-                let curframe = currentFrame()
-                v.frame  = curframe
-                v.bounds = CGRect(origin: CGPoint.zero, size: curframe.size)
+        private func updateSize(view v: MIInterfaceView, size sz: CGSize){
+                v.frame.size  = sz
+                v.bounds.size = sz
+        }
+
+        private func updateOrigin(view v: MIInterfaceView, point pt: CGPoint){
+                v.frame.origin = pt
         }
 
         public override func visit(button src: MIButton) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(collectionView src: MICollectionView) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(dropView src: MIDropView) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
 
                 let content = src.contentsView
-                pushCurrentFrame(frame: content.frame)
+                pushCurrentFrame(frame: CGRect(origin: CGPoint.zero, size: content.frame.size))
                 content.accept(visitor: self)
                 popCurrentFrame()
         }
 
         public override func visit(fileSelector src: MIFileSelector) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         #if os(OSX)
         public override func visit(iconView src: MIIconView) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
         #endif
 
         public override func visit(imageView src: MIImageView) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
+
                 guard let img = src.image else {
                         return
                 }
-                let parentsz = currentFrame().size
+                let parentsz = curframe.size
                 let imgsz    = img.size
                 if parentsz.width != imgsz.width || parentsz.height != imgsz.height {
                         /* update image size */
-                        src.set(contentSize: parentsz)
+                        src.explicitContentsSize = parentsz
                 }
                 src.frame.size  = parentsz
                 src.bounds.size = parentsz
         }
 
         public override func visit(label src: MILabel) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(popupMenu src: MIPopupMenu) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(segmentedControl src: MISegmentedControl) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(stack src: MIStack) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
+
                 let count = src.arrangedSubviews.count
                 guard count > 0 else {
-                        return
-                }
-                if count == 1 {
-                        let subview = src.arrangedSubviews[0]
-                        subview.accept(visitor: self)
                         return
                 }
                 switch src.axis {
@@ -135,11 +147,12 @@ public class MIPreLayouter: MIVisitor
 
                 let curheight = curframe.size.height
                 let curwidth  = curframe.size.width
-                let subheight = max(curheight - spacing * 2.0, 0.0)
-                let subwidth  = max(curwidth  - spacing * CGFloat(count + 1), 0.0) / CGFloat(count)
+                let subheight = max(curheight, 0.0)
+                let subwidth  = max(curwidth  - spacing * CGFloat(count - 1), 0.0) / CGFloat(count)
 
-                var subframe  = CGRect(x: spacing, y: spacing, width: subwidth, height: subheight)
+                var subframe  = CGRect(x: 0.0, y: 0.0, width: subwidth, height: subheight)
                 for subview in src.arrangedSubviews {
+                        updateOrigin(view: subview, point: subframe.origin)
                         pushCurrentFrame(frame: subframe)
                         subview.accept(visitor: self)
                         popCurrentFrame()
@@ -154,11 +167,12 @@ public class MIPreLayouter: MIVisitor
 
                 let curheight = curframe.size.height
                 let curwidth  = curframe.size.width
-                let subheight = max(curheight - spacing * CGFloat(count + 1), 0.0) / CGFloat(count)
-                let subwidth  = max(curwidth  - spacing * 2.0, 0.0)
+                let subheight = max(curheight - spacing * CGFloat(count - 1), 0.0) / CGFloat(count)
+                let subwidth  = max(curwidth, 0.0)
 
-                var subframe  = CGRect(x: spacing, y: spacing, width: subwidth, height: subheight)
+                var subframe  = CGRect(x: 0.0, y: 0.0, width: subwidth, height: subheight)
                 for subview in src.arrangedSubviews.reversed() {
+                        updateOrigin(view: subview, point: subframe.origin)
                         pushCurrentFrame(frame: subframe)
                         subview.accept(visitor: self)
                         popCurrentFrame()
@@ -167,23 +181,28 @@ public class MIPreLayouter: MIVisitor
         }
 
         public override func visit(switchView src: MISwitch) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(table src: MITable) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(textField src: MITextField) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(textView src: MITextView) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 
         public override func visit(webView src: MIWebView) {
-                adjustFrame(view: src)
+                let curframe = currentFrame()
+                updateSize(view: src, size: curframe.size)
         }
 }
 

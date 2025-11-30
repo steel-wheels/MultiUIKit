@@ -12,7 +12,6 @@ import UIKit
 #endif
 import Foundation
 
-
 public class MIViewDumper: MIVisitor
 {
         private var mIndent: Int
