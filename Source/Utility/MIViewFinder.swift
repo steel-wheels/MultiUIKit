@@ -14,52 +14,35 @@ import Foundation
 
 public class MIViewFinder: MIVisitor
 {
-        public enum HorizontalPoint {
+        public enum Position {
                 case left
-                case center
                 case right
-
-                public var description: String {
-                        let result: String
-                        switch self {
-                        case .left:   result = "left"
-                        case .center: result = "center"
-                        case .right:  result = "right"
-                        }
-                        return result
-                }
-        }
-
-        public enum VerticalPoint {
                 case top
-                case middle
                 case bottom
 
                 public var description: String {
                         let result: String
                         switch self {
-                        case .top:    result = "top"
-                        case .middle: result = "middle"
-                        case .bottom: result = "bottom"
+                        case .left:     result = "left"
+                        case .right:    result = "right"
+                        case .top:      result = "top"
+                        case .bottom:   result = "bottom"
                         }
                         return result
                 }
         }
 
         public struct DetectedPoint {
-                var horizontalPoint     : HorizontalPoint
-                var verticalPoint       : VerticalPoint
-                var tag                 : Int
+                public var position            : Position
+                public var tag                 : Int
 
-                public init(horizontalPoint: HorizontalPoint, verticalPoint: VerticalPoint, tag: Int) {
-                        self.horizontalPoint    = horizontalPoint
-                        self.verticalPoint      = verticalPoint
-                        self.tag                = tag
+                public init(position p: Position, tag t: Int) {
+                        self.position    = p
+                        self.tag         = t
                 }
 
                 public var description: String { get {
-                        return "{" + horizontalPoint.description + ", "
-                        + verticalPoint.description + "}"
+                        return "{tag: \(self.tag), position: \(position.description)}"
                 }}
         }
 
@@ -99,38 +82,67 @@ public class MIViewFinder: MIVisitor
                 }
         }
 
+        private func cross_product(u: CGPoint, v: CGPoint) -> CGFloat {
+                return u.x * v.y - u.y * v.x;
+        }
+
+        private func create_vector(point1 p1: CGPoint, point2 p2: CGPoint) -> CGPoint {
+                return CGPoint(x: p2.x - p1.x, y: p2.y - p1.y)
+        }
+
         private func didClicked(view v: MIInterfaceView, point pt: CGPoint) -> DetectedPoint? {
-                let frame  = v.frame
+                let frame       = v.frame
+
                 let left   = frame.origin.x
                 let right  = frame.origin.x + frame.size.width
                 let top    = frame.origin.y
                 let bottom = frame.origin.y + frame.size.height
-                if left <= pt.x && pt.x < right && top <= pt.y && pt.y < bottom {
-                        let hpos: HorizontalPoint
-                        if left + (frame.size.width * 2.0 / 3.0) <= pt.x {
-                                hpos = .right
-                        } else if left + (frame.size.width * 1.0 / 3.0) <= pt.x {
-                                hpos = .center
-                        } else {
-                                hpos = .left
-                        }
 
-                        let vpos: VerticalPoint
-                        if top + (frame.size.height * 2.0 / 3.0) <= pt.y {
-                                vpos = .top
-                        } else if top + (frame.size.height * 1.0 / 3.0) <= pt.y {
-                                vpos = .middle
-                        } else {
-                                vpos = .bottom
-                        }
-
-                        let dpt = DetectedPoint(horizontalPoint: hpos, verticalPoint: vpos, tag: v.tag)
-                        log(view: v, message: "pt:\(pt.description) in frame:\(frame.description) -> \(dpt.description)")
-                        return dpt
-                } else {
+                guard left <= pt.x && pt.x < right && top <= pt.y && pt.y < bottom else {
                         log(view: v, message: "pt:\(pt.description) in frame:\(frame.description) -> nil")
                         return nil
                 }
+
+                /*
+                 長方形を2本の対角線で4分割したとき、ある点がどの領域に属するか判定する C 言語の関数
+                 */
+
+                /* rect ABCD */
+                let pointA      = CGPoint(x: left,  y: bottom)          // left bottom
+                let pointB      = CGPoint(x: right, y: bottom)          // right bottom
+                let pointC      = CGPoint(x: right, y: top)             // right top
+                let pointD      = CGPoint(x: left,  y: top)             // left top
+
+                let pointO      = CGPoint(x: (right  - left) / 2.0 + left,
+                                          y: (bottom - top ) / 2.0 + top)        // center
+
+                let vec_OA      = create_vector(point1: pointO, point2: pointA)
+                let vec_OB      = create_vector(point1: pointO, point2: pointB)
+                let vec_OC      = create_vector(point1: pointO, point2: pointC)
+                let vec_OD      = create_vector(point1: pointO, point2: pointD)
+                let vec_OP      = create_vector(point1: pointO, point2: pt)
+
+                let c_OA_OP = cross_product(u: vec_OA, v: vec_OP);
+                let c_OB_OP = cross_product(u: vec_OB, v: vec_OP);
+                let c_OC_OP = cross_product(u: vec_OC, v: vec_OP);
+                let c_OD_OP = cross_product(u: vec_OD, v: vec_OP);
+
+                let pos: Position
+                if (c_OA_OP >= 0.0 && c_OB_OP <= 0.0) {
+                        pos = .bottom   // OAB
+                } else if (c_OB_OP >= 0.0 && c_OC_OP <= 0.0) {
+                        pos = .right    // OBC
+                } else if (c_OC_OP >= 0.0 && c_OD_OP <= 0.0) {
+                        pos = .top      // OCD
+                } else if (c_OD_OP >= 0.0 && c_OA_OP <= 0.0) {
+                        pos = .left     // ODA
+                } else {
+                        return nil // no match
+                }
+
+                let dpt = DetectedPoint(position: pos, tag: v.tag)
+                log(view: v, message: "pt:\(pt.description) in frame:\(frame.description) -> \(dpt.description)")
+                return dpt
         }
 
         private func log(view v: MIInterfaceView, message msg: String){
@@ -206,7 +218,6 @@ public class MIViewFinder: MIVisitor
                 var newpoint = clickedPoint()
                 newpoint.x = max(newpoint.x - dx, 0.0)
                 newpoint.y = max(newpoint.y - dy, 0.0)
-                NSLog("point: \(clickedPoint().description) -> \(newpoint.description)")
                 pushClickedPoint(point: newpoint)
 
                 for subview in src.arrangedSubviews {
