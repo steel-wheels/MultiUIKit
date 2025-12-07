@@ -82,67 +82,45 @@ public class MIViewFinder: MIVisitor
                 }
         }
 
-        private func cross_product(u: CGPoint, v: CGPoint) -> CGFloat {
-                return u.x * v.y - u.y * v.x;
-        }
+        /*
+        長方形を2本の対角線で4分割したとき、ある点がどの領域に属するか判定する swiftdeの関数。
+        macOS用でPointにはCGPoint。矩形にはCGRectを使って下さい。領域は、
+         上, 下, 左 もしくは右で、enumで定義して、領域外にはnilを返して下さい。
+        コメントは英語でお願いします。
 
-        private func create_vector(point1 p1: CGPoint, point2 p2: CGPoint) -> CGPoint {
-                return CGPoint(x: p2.x - p1.x, y: p2.y - p1.y)
-        }
+        Here’s a Swift implementation for macOS that classifies a point into one of four regions
+        (top, bottom, left, right) when a rectangle is divided by its two diagonals.
+        If the point lies outside the rectangle, the function returns nil.
+        */
 
-        private func didClicked(view v: MIInterfaceView, point pt: CGPoint) -> DetectedPoint? {
-                let frame       = v.frame
-
-                let left   = frame.origin.x
-                let right  = frame.origin.x + frame.size.width
-                let top    = frame.origin.y
-                let bottom = frame.origin.y + frame.size.height
-
-                guard left <= pt.x && pt.x < right && top <= pt.y && pt.y < bottom else {
-                        log(view: v, message: "pt:\(pt.description) in frame:\(frame.description) -> nil")
+        /// Determine which region a point belongs to
+        /// - Parameters:
+        ///   - point: The point to classify
+        ///   - rect: The rectangle whose diagonals define the regions
+        /// - Returns: The region (top, bottom, left, right), or nil if the point is outside
+        private func didClicked(view v: MIInterfaceView, point pt: CGPoint) -> Position? {
+                // Return nil if the point is outside the rectangle
+                let frame = v.frame
+                guard frame.contains(pt) else {
                         return nil
                 }
 
-                /*
-                 長方形を2本の対角線で4分割したとき、ある点がどの領域に属するか判定する C 言語の関数
-                 */
+                // Calculate the center of the rectangle (intersection of diagonals)
+                let cx = frame.midX
+                let cy = frame.midY
 
-                /* rect ABCD */
-                let pointA      = CGPoint(x: left,  y: bottom)          // left bottom
-                let pointB      = CGPoint(x: right, y: bottom)          // right bottom
-                let pointC      = CGPoint(x: right, y: top)             // right top
-                let pointD      = CGPoint(x: left,  y: top)             // left top
+                // Vector from center to the point
+                let dx = pt.x - cx
+                let dy = pt.y - cy
 
-                let pointO      = CGPoint(x: (right  - left) / 2.0 + left,
-                                          y: (bottom - top ) / 2.0 + top)        // center
-
-                let vec_OA      = create_vector(point1: pointO, point2: pointA)
-                let vec_OB      = create_vector(point1: pointO, point2: pointB)
-                let vec_OC      = create_vector(point1: pointO, point2: pointC)
-                let vec_OD      = create_vector(point1: pointO, point2: pointD)
-                let vec_OP      = create_vector(point1: pointO, point2: pt)
-
-                let c_OA_OP = cross_product(u: vec_OA, v: vec_OP);
-                let c_OB_OP = cross_product(u: vec_OB, v: vec_OP);
-                let c_OC_OP = cross_product(u: vec_OC, v: vec_OP);
-                let c_OD_OP = cross_product(u: vec_OD, v: vec_OP);
-
-                let pos: Position
-                if (c_OA_OP >= 0.0 && c_OB_OP <= 0.0) {
-                        pos = .bottom   // OAB
-                } else if (c_OB_OP >= 0.0 && c_OC_OP <= 0.0) {
-                        pos = .right    // OBC
-                } else if (c_OC_OP >= 0.0 && c_OD_OP <= 0.0) {
-                        pos = .top      // OCD
-                } else if (c_OD_OP >= 0.0 && c_OA_OP <= 0.0) {
-                        pos = .left     // ODA
+                // Compare absolute values of dx and dy
+                // If vertical component dominates, classify as top/bottom
+                // If horizontal component dominates, classify as left/right
+                if abs(dy) >= abs(dx) {
+                        return dy >= 0 ? .top : .bottom
                 } else {
-                        return nil // no match
+                        return dx >= 0 ? .right : .left
                 }
-
-                let dpt = DetectedPoint(position: pos, tag: v.tag)
-                log(view: v, message: "pt:\(pt.description) in frame:\(frame.description) -> \(dpt.description)")
-                return dpt
         }
 
         private func log(view v: MIInterfaceView, message msg: String){
@@ -156,58 +134,58 @@ public class MIViewFinder: MIVisitor
         }
 
         public override func visit(button src: MIButton) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(collectionView src: MICollectionView) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(dropView src: MIDropView) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(fileSelector src: MIFileSelector) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         #if os(OSX)
         public override func visit(iconView src: MIIconView) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
         #endif
 
         public override func visit(imageView src: MIImageView) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(label src: MILabel) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(popupMenu src: MIPopupMenu) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(segmentedControl src: MISegmentedControl) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
@@ -230,37 +208,39 @@ public class MIViewFinder: MIVisitor
                 let _ = popClickedPoint()
 
                 if mDetectedPoint == nil {
-                        mDetectedPoint = didClicked(view: src, point: clickedPoint())
+                        if let pos = didClicked(view: src, point: clickedPoint()) {
+                                mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
+                        }
                 }
         }
 
         public override func visit(switchView src: MISwitch) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(table src: MITable) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(textField src: MITextField) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(textView src: MITextView) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 
         public override func visit(webView src: MIWebView) {
-                if let dpc = didClicked(view: src, point: clickedPoint()) {
-                        mDetectedPoint = dpc
+                if let pos = didClicked(view: src, point: clickedPoint()) {
+                        mDetectedPoint = DetectedPoint(position: pos, tag: src.tag)
                 }
         }
 }
