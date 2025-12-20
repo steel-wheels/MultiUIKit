@@ -60,7 +60,7 @@ open class MIDropView: MIInterfaceView
 
         public var isReceivingDrag = false {
                 didSet {
-                        needsDisplay = true
+                        requireDisplay()
                 }
         }
 
@@ -82,11 +82,18 @@ open class MIDropView: MIInterfaceView
         public override func draw(_ dirtyRect: NSRect) {
                 super.draw(dirtyRect)
                 if isReceivingDrag {
-                        NSColor.selectedControlColor.set()
 
-                        let path = NSBezierPath(rect:bounds)
-                        path.lineWidth = 2.0 // Appearance.lineWidth
-                        path.stroke()
+                        if let view = MIDropFinder.detectDroppedView(rootView: self, dropRect: dirtyRect) {
+                                NSLog("Dropped view: \(view.tag) \(view)　\(dirtyRect.description)")
+
+                                let drawrect = self.convert(view.frame, from: view.superview)
+                                NSColor.selectedControlColor.set()
+                                let path = NSBezierPath(rect: drawrect)
+                                path.lineWidth = 2.0 // Appearance.lineWidth
+                                path.stroke()
+                        } else {
+                                NSLog("Dropped view: none")
+                        }
                 }
         }
 
