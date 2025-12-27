@@ -70,35 +70,60 @@ open class MIDropView: MIInterfaceView
         }
 
         public override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+                super.draggingEntered(sender)
+
                 let allow = shouldAllowDrag(sender)
                 isReceivingDrag = allow
+                NSLog("draggingEntered: \(isReceivingDrag)")
                 return allow ? .copy : NSDragOperation()
         }
 
-        public override func draggingExited(_ sender: NSDraggingInfo?) {
-                isReceivingDrag = false
+        private var mHighlightedView: MIInterfaceView? = nil
+
+        public override func draggingUpdated(_ sender: NSDraggingInfo) -> NSDragOperation {
+                let result = super.draggingUpdated(sender)
+
+                let locationInWindow = sender.draggingLocation
+                let locationInRoot   = convert(locationInWindow, from: nil)
+
+                /* check the mouse on this view */
+                if let mview = parentStack(of: hitTest(locationInRoot)) {
+                        NSLog("draggingUpdated \(mview)")
+                        if mHighlightedView != mview {
+                                mHighlightedView?.isHighlighted = false
+                                mview.isHighlighted = true
+                                mHighlightedView = mview
+                        }
+                } else {
+                        NSLog("draggingUpdated nil")
+                        mHighlightedView?.isHighlighted = false
+                        mHighlightedView = nil
+                }
+
+                return result
         }
 
-        public override func draw(_ dirtyRect: NSRect) {
-                super.draw(dirtyRect)
-                if isReceivingDrag {
-
-                        if let view = MIDropFinder.detectDroppedView(rootView: self, dropRect: dirtyRect) {
-                                NSLog("Dropped view: \(view.tag) \(view)　\(dirtyRect.description)")
-
-                                let drawrect = self.convert(view.frame, from: view.superview)
-                                NSColor.selectedControlColor.set()
-                                let path = NSBezierPath(rect: drawrect)
-                                path.lineWidth = 2.0 // Appearance.lineWidth
-                                path.stroke()
-                        } else {
-                                NSLog("Dropped view: none")
-                        }
+        private func parentStack(of viewp: NSView?) -> MIStack? {
+                guard let view = viewp else {
+                        return nil
+                }
+                if let stack = view as? MIStack {
+                        return stack
+                }
+                if let parent = view.superview {
+                        return parentStack(of: parent)
+                } else {
+                        return nil
                 }
         }
 
-        public override func performDragOperation(_ draggingInfo: NSDraggingInfo) -> Bool {
+        public override func draggingExited(_ sender: NSDraggingInfo?) {
+                super.draggingExited(sender)
+                NSLog("draggingExited")
                 isReceivingDrag = false
+        }
+
+        public override func performDragOperation(_ draggingInfo: NSDraggingInfo) -> Bool {
                 let pasteBoard = draggingInfo.draggingPasteboard
                 let point = convert(draggingInfo.draggingLocation, from: nil)
 
@@ -144,6 +169,8 @@ open class MIDropView: MIInterfaceView
         open func didDropped(point pt: CGPoint, URL url: URL) {
                 if let sym = MISymbol.decode(fromURL: url) {
                         didDropped(point: pt, symbol: sym)
+                        isReceivingDrag = false
+                        NSLog("didDropped: \(isReceivingDrag)")
                 } else {
                         NSLog("didDropped Point:\(pt.x):\(pt.y) URL:\(url.path) at \(#file)")
                 }

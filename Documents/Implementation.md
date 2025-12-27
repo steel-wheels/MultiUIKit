@@ -52,3 +52,26 @@ func region(of point: CGPoint, in rect: CGRect) -> DiagonalRegion? {
     }
 }
 
+### <code>pdateTrackingAreas</code> in MIDropView
+
+/*
+ツリー構造になっているNSViewについて、マウスがある場所のframeの枠線を示す方法
+ */
+
+<pre>
+override func updateTrackingAreas() {
+        super.updateTrackingAreas()
+
+        let options: NSTrackingArea.Options = [
+            .mouseMoved,
+            .activeInActiveApp,
+            .inVisibleRect
+        ]
+
+        let trackingArea = NSTrackingArea(rect: bounds,
+                                          options: options,
+                                          owner: self,
+                                          userInfo: nil)
+        addTrackingArea(trackingArea)
+}    
+</pre>

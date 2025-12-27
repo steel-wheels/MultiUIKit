@@ -13,23 +13,24 @@ import  UIKit
 
 open class MIInterfaceView: MIBaseView
 {
-        private var mCoreView: MICoreView? = nil
+        private var mCoreView:  MICoreView? = nil
+        private var mDoHilight: Bool         = false
 
         public func coreView<T>() -> T? {
                 return mCoreView as? T
         }
 
-        #if os(OSX)
+#if os(OSX)
         public override init(frame : NSRect){
                 super.init(frame: frame)
                 setup(frame: frame)
         }
-        #else
+#else
         public override init(frame: CGRect){
                 super.init(frame: frame)
                 setup(frame: frame)
         }
-        #endif
+#endif
 
         public convenience init(){
                 let frame = CGRect(x: 0.0, y: 0.0, width: 160, height: 32)
@@ -61,7 +62,7 @@ open class MIInterfaceView: MIBaseView
 
         private func loadChildXib(thisClass tc: AnyClass, nibName nn: String) -> MICoreView? {
                 let bundle : Bundle = Bundle(for: tc) ;
-                #if os(iOS)
+#if os(iOS)
                 let nib = UINib(nibName: nn, bundle: bundle)
                 let views = nib.instantiate(withOwner: nil, options: nil)
                 for view in views {
@@ -69,7 +70,7 @@ open class MIInterfaceView: MIBaseView
                                 return v ;
                         }
                 }
-                #else   // os(iOS)
+#else   // os(iOS)
                 if let nib = NSNib(nibNamed: nn, bundle: bundle) {
                         var viewsp : NSArray? = NSArray()
                         if(nib.instantiate(withOwner: nil, topLevelObjects: &viewsp)){
@@ -82,7 +83,7 @@ open class MIInterfaceView: MIBaseView
                                 }
                         }
                 }
-                #endif
+#endif
                 return nil
         }
 
@@ -91,6 +92,10 @@ open class MIInterfaceView: MIBaseView
                 let space: CGFloat = 0.0
                 allocateSubviewLayout(axis: .horizontal, childView: sview, space: space)
                 allocateSubviewLayout(axis: .vertical, childView: sview, space: space)
+        }
+
+        public var isHighlighted = false {
+                didSet { requireDisplay() }
         }
 
         public override var tag: Int {
@@ -183,6 +188,19 @@ open class MIInterfaceView: MIBaseView
                         core.setContentCompressionResistancePriority(priority, for: axis)
                 }
         }
+
+        public override func draw(_ dirtyRect: CGRect) {
+                super.draw(dirtyRect)
+                #if os(OSX)
+                if isHighlighted {
+                        NSColor.systemCyan.setStroke()
+                        let path = NSBezierPath(rect: bounds.insetBy(dx: 2, dy: 2))
+                        path.lineWidth = 3
+                        path.stroke()
+                }
+                #endif
+        }
+
 
         open func accept(visitor vis: MIVisitor) {
                 NSLog("[Error] Override this visitor method at \(#file)")
