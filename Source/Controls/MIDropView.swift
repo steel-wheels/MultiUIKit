@@ -88,14 +88,14 @@ open class MIDropView: MIInterfaceView
 
                 /* check the mouse on this view */
                 if let mview = parentStack(of: hitTest(locationInRoot)) {
-                        NSLog("draggingUpdated \(mview)")
+                        //NSLog("draggingUpdated \(mview)")
                         if mHighlightedView != mview {
                                 mHighlightedView?.isHighlighted = false
                                 mview.isHighlighted = true
                                 mHighlightedView = mview
                         }
                 } else {
-                        NSLog("draggingUpdated nil")
+                        //NSLog("draggingUpdated nil")
                         mHighlightedView?.isHighlighted = false
                         mHighlightedView = nil
                 }
@@ -170,9 +170,8 @@ open class MIDropView: MIInterfaceView
                 if let sym = MISymbol.decode(fromURL: url) {
                         didDropped(point: pt, symbol: sym)
                         isReceivingDrag = false
-                        NSLog("didDropped: \(isReceivingDrag)")
                 } else {
-                        NSLog("didDropped Point:\(pt.x):\(pt.y) URL:\(url.path) at \(#file)")
+                        NSLog("[Error] unknown dropped URL:\(url.path) at \(#file)")
                 }
         }
 
