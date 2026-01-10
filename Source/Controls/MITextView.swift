@@ -44,11 +44,6 @@ open class MITextView: MIInterfaceView
                 set(newcol) { coreTextView().textColor = newcol }
         }
 
-        public var textBackgroundColor: MIColor? {
-                get         { return coreTextView().textBackgroundColor }
-                set(newcol) { coreTextView().textBackgroundColor = newcol }
-        }
-
         public override func accept(visitor vis: MIVisitor) {
                 vis.visit(textView: self)
         }

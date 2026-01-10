@@ -48,6 +48,28 @@ public extension MIBaseView
                 self.autoresizesSubviews = true
         }
 
+        #if os(OSX)
+        @objc open var backgroundColor: MIColor? {
+                get {
+                        if let layer = self.layer {
+                                if let col = layer.backgroundColor {
+                                        return NSColor(cgColor: col)
+                                }
+                        }
+                        return nil
+                }
+                set(colp){
+                        if let layer = self.layer {
+                                if let col = colp {
+                                        layer.backgroundColor = col.cgColor
+                                } else {
+                                        layer.backgroundColor = nil
+                                }
+                        }
+                }
+        }
+        #endif // os(OSX)
+
         func requireLayout() {
                 #if os(OSX)
                         self.needsLayout = true

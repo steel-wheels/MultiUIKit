@@ -86,14 +86,11 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 set(newcol) { mTextView.textColor = newcol }
         }
 
-        public var textBackgroundColor: MIColor? {
-                get {
-                        return mTextView.backgroundColor
-                }
-                set(newcolp) {
-                        if let newcol = newcolp {
-                                mTextView.backgroundColor = newcol
-                        }
+        public override var backgroundColor: MIColor? {
+                get      { return mTextView.backgroundColor }
+                set(col) {
+                        mTextView.backgroundColor = col
+                        super.backgroundColor = col
                 }
         }
 

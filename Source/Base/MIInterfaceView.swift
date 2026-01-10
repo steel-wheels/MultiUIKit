@@ -189,6 +189,23 @@ open class MIInterfaceView: MIBaseView
                 }
         }
 
+        public override var backgroundColor: MIColor? {
+                get {
+                        if let core = mCoreView {
+                                return core.backgroundColor
+                        } else {
+                                return super.backgroundColor
+                        }
+                }
+                set(col){
+                        if let core = mCoreView {
+                                core.backgroundColor = col
+                        } else {
+                                super.backgroundColor = col
+                        }
+                }
+        }
+
         public override func draw(_ dirtyRect: CGRect) {
                 super.draw(dirtyRect)
                 #if os(OSX)
