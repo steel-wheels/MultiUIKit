@@ -39,6 +39,11 @@ open class MITextView: MIInterfaceView
                 set(newval) { coreTextView().isEditable = newval }
         }
 
+        public var insertionPointColor: MIColor {
+                get         { return coreTextView().insertionPointColor }
+                set(newval) { coreTextView().insertionPointColor = newval }
+        }
+
         public override func accept(visitor vis: MIVisitor) {
                 vis.visit(textView: self)
         }

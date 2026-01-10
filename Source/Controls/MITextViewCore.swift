@@ -81,6 +81,23 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 set(newval) { mTextView.isEditable = newval }
         }
 
+        public var insertionPointColor: MIColor {
+                get      {
+                        #if os(OSX)
+                        return mTextView.insertionPointColor
+                        #else
+                        return mTextView.tintColor
+                        #endif
+                }
+                set(col) {
+                        #if os(OSX)
+                        mTextView.insertionPointColor = col
+                        #else
+                        mTextView.tintColor = col
+                        #endif
+                }
+        }
+
         public override var backgroundColor: MIColor? {
                 get      { return mTextView.backgroundColor }
                 set(col) {
