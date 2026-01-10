@@ -192,7 +192,7 @@ open class MITextStorage
                 }
         }
 
-        public var currentAttributes: Dictionary<NSAttributedString.Key, Any> { get {
+        private var currentAttributes: Dictionary<NSAttributedString.Key, Any> { get {
                 let attrs: Dictionary<NSAttributedString.Key, Any> = [
                         NSAttributedString.Key.paragraphStyle:  mParagraphStyle,
                         NSAttributedString.Key.font:            mTextAtrribute.font,

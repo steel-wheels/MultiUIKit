@@ -81,11 +81,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 set(newval) { mTextView.isEditable = newval }
         }
 
-        public var textColor: MIColor? {
-                get         { return mTextView.textColor }
-                set(newcol) { mTextView.textColor = newcol }
-        }
-
         public override var backgroundColor: MIColor? {
                 get      { return mTextView.backgroundColor }
                 set(col) {
