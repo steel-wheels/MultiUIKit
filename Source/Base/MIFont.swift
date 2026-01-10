@@ -19,7 +19,13 @@ public typealias MIFont = UIFont
 
 public extension MIFont
 {
-        static func terminalFont(size sz: CGFloat) -> MIFont? {
-                return MIFont(name: "Monaco", size: sz)
+        static func terminalFont(size sz: CGFloat) -> MIFont {
+                if let fnt = MIFont(name: "Menlo", size: sz) {
+                        return fnt
+                } else if let fnt = MIFont(name: "Monaco", size: sz) {
+                        return fnt
+                } else {
+                        fatalError("No terminal font")
+                }
         }
 }

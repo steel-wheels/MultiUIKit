@@ -16,14 +16,14 @@ open class MITextStorage
         public typealias NotifyUpdateFunc = (_ : EventType) -> Void
 
         public enum Command {
-                case textColor(MIColor)
-                case backgroundColor(MIColor)
-                case font(MIFont)
+                case setTextColor(MIColor)
+                case setBackgroundColor(MIColor)
+                case setFont(MIFont)
                 case moveBackward(Int)
                 case moveForward(Int)
                 case removeLeft(Int)
                 case removeRight(Int)
-                case clear
+                case removeAll
                 case insert(String)
                 case fullReplace(NSAttributedString)
         }
@@ -149,12 +149,12 @@ open class MITextStorage
 
         private func execute(command cmd: Command, storage strg: NSTextStorage) {
                 switch cmd {
-                case .font(let font):
+                case .setFont(let font):
                         mTextAtrribute.font = font
                         updateParagraphStyle(fontSize: font.pointSize)
-                case .textColor(let col):
+                case .setTextColor(let col):
                         mTextAtrribute.textColor       = col
-                case .backgroundColor(let col):
+                case .setBackgroundColor(let col):
                         mTextAtrribute.backgroundColor = col
                 case .moveBackward(let off):
                         mCurrentIndex = max(0, mCurrentIndex - off)
@@ -172,7 +172,7 @@ open class MITextStorage
                         let range = NSRange(location: loc, length: len)
                         strg.replaceCharacters(in: range, with: "")
                         // current index is not changed
-                case .clear:
+                case .removeAll:
                         let range  = NSRange(location: 0, length: strg.length)
                         strg.replaceCharacters(in: range, with: "")
                 case .insert(let str):

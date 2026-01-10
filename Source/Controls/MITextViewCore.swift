@@ -40,13 +40,13 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
 
                 var commands: Array<MITextStorage.Command> = []
                 if let color = mTextView.textColor {
-                        commands.append(.textColor(color))
+                        commands.append(.setTextColor(color))
                 }
                 #if os(OSX)
-                commands.append(.backgroundColor(mTextView.backgroundColor))
+                commands.append(.setBackgroundColor(mTextView.backgroundColor))
                 #else
                 if let color = mTextView.backgroundColor {
-                        commands.append(.backgroundColor(color))
+                        commands.append(.setBackgroundColor(color))
                 }
                 #endif
                 strg.execute(commands: commands)
