@@ -37,19 +37,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         (ntype: MITextStorage.EventType) -> Void in
                         self.notifyUpdate(ntype)
                 })
-
-                var commands: Array<MITextStorage.Command> = []
-                if let color = mTextView.textColor {
-                        commands.append(.setTextColor(color))
-                }
-                #if os(OSX)
-                commands.append(.setBackgroundColor(mTextView.backgroundColor))
-                #else
-                if let color = mTextView.backgroundColor {
-                        commands.append(.setBackgroundColor(color))
-                }
-                #endif
-                strg.execute(commands: commands)
                 strg.frameSize = mTextView.frame.size
                 mStorage = strg
         }

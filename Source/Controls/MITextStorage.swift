@@ -11,20 +11,11 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-open class MITextStorage
+public class MITextStorage
 {
         public typealias NotifyUpdateFunc = (_ : EventType) -> Void
 
         public enum Command {
-                case setTextColor(MIColor)
-                case setBackgroundColor(MIColor)
-                case setFont(MIFont)
-                case moveBackward(Int)
-                case moveForward(Int)
-                case removeLeft(Int)
-                case removeRight(Int)
-                case removeAll
-                case insert(String)
                 case fullReplace(NSAttributedString)
         }
 
@@ -110,13 +101,14 @@ open class MITextStorage
                 }
         }}
 
-        public var lineSpacing: CGFloat { get {
+        public var lineSpacing: CGFloat {get {
                 return mParagraphStyle.lineSpacing
         }}
 
-        public var currentIndex: Int { get {
-                return mCurrentIndex
-        }}
+        public var currentIndex: Int {
+                get      { return mCurrentIndex }
+                set(val) { mCurrentIndex = val}
+        }
 
         public var length: Int { get {
                 if let storage = mStorage {
@@ -135,60 +127,65 @@ open class MITextStorage
                 }
         }
 
-        public func execute(commands cmds: Array<Command>) {
-                guard let strg = mStorage else {
-                        NSLog("[Error] No core storage at \(#function) in \(#file)")
-                        return
-                }
-                strg.beginEditing()
-                for cmd in cmds {
-                        execute(command: cmd, storage: strg)
-                }
-                strg.endEditing()
+        public func beginEditing() {
+                mStorage?.beginEditing()
         }
 
-        private func execute(command cmd: Command, storage strg: NSTextStorage) {
-                switch cmd {
-                case .setFont(let font):
-                        mTextAtrribute.font = font
-                        updateParagraphStyle(fontSize: font.pointSize)
-                case .setTextColor(let col):
-                        mTextAtrribute.textColor       = col
-                case .setBackgroundColor(let col):
-                        mTextAtrribute.backgroundColor = col
-                case .moveBackward(let off):
-                        mCurrentIndex = max(0, mCurrentIndex - off)
-                case .moveForward(let off):
-                        mCurrentIndex = min(strg.length - 1, mCurrentIndex + off)
-                case .removeLeft(let off):
-                        let len   = min(strg.length, off)
-                        let loc   = min(0, mCurrentIndex - len)
-                        let range = NSRange(location: loc, length: len)
-                        strg.replaceCharacters(in: range, with: "")
-                        mCurrentIndex -= len
-                case .removeRight(let off):
-                        let len  = min(strg.length - mCurrentIndex, off)
-                        let loc  = mCurrentIndex
-                        let range = NSRange(location: loc, length: len)
-                        strg.replaceCharacters(in: range, with: "")
-                        // current index is not changed
-                case .removeAll:
-                        let range  = NSRange(location: 0, length: strg.length)
-                        strg.replaceCharacters(in: range, with: "")
-                case .insert(let str):
-                        let astr = allocateString(str)
-                        strg.insert(astr, at: mCurrentIndex)
-                        mCurrentIndex += astr.length
-                case .fullReplace(let newcontext):
-                        /* erace all context */
-                        let range = NSRange(location: 0, length: strg.length)
-                        strg.deleteCharacters(in: range)
-                        /* append new context */
-                        strg.append(newcontext)
-                }
-                /* callback */
-                if let notify = mNotifyUpdate {
-                        notify(.textAttribute(mTextAtrribute))
+        public func endEditing() {
+                mStorage?.endEditing()
+        }
+
+        public func insert(string str: String) {
+                let astr = allocateString(str)
+                mStorage?.insert(astr, at: mCurrentIndex)
+                mCurrentIndex += astr.length
+        }
+
+        public func moveCursorForword(offset off: Int) {
+                mCurrentIndex = min(self.length - 1, mCurrentIndex + off)
+        }
+
+        public func moveCursorBackword(offset off: Int) {
+                mCurrentIndex = max(0, mCurrentIndex - off)
+        }
+
+        public func removeForward(length off: Int) {
+                let len  = min(self.length - mCurrentIndex, off)
+                let loc  = mCurrentIndex
+                let range = NSRange(location: loc, length: len)
+                mStorage?.replaceCharacters(in: range, with: "")
+                // current index is not changed
+        }
+
+        public func removeBackward(length off: Int) {
+                let len   = min(self.length, off)
+                let loc   = min(0, mCurrentIndex - len)
+                let range = NSRange(location: loc, length: len)
+                mStorage?.replaceCharacters(in: range, with: "")
+                mCurrentIndex -= len
+        }
+
+        public func removeAll() {
+                let range  = NSRange(location: 0, length: self.length)
+                mStorage?.replaceCharacters(in: range, with: "")
+        }
+
+        public func setFont(_ font: MIFont) {
+                mTextAtrribute.font = font
+                updateParagraphStyle(fontSize: font.pointSize)
+        }
+
+        public func setTextColor(color col: MIColor) {
+                mTextAtrribute.textColor = col
+        }
+
+        public func setBackgoundColor(color col: MIColor) {
+                mTextAtrribute.backgroundColor = col
+        }
+
+        public func notify() {
+                if let notiffunc = mNotifyUpdate {
+                        notiffunc(.textAttribute(mTextAtrribute))
                 }
         }
 

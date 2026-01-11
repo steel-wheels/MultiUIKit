@@ -20,9 +20,6 @@ import  UIKit
         }
 
         public func print(string str: String){
-                let cmds: Array<MITextStorage.Command> = [
-                        .insert(str)
-                ]
-                mTextStorage.execute(commands: cmds)
+                mTextStorage.insert(string: str)
         }
 }
