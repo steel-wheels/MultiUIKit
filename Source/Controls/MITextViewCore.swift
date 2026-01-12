@@ -20,7 +20,7 @@ typealias MITextViewDelegate = UITextViewDelegate
 public class MITextViewCore: MICoreView, MITextViewDelegate
 {
         #if os(OSX)
-        @IBOutlet var mTextView: NSTextView!
+        @IBOutlet var mTextView: NSTextViewWrapper!
         #else
         @IBOutlet var mTextView: UITextView!
         #endif
@@ -29,6 +29,16 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         open override func setup() {
                 super.setup(coreView: mTextView)
                 mTextView.delegate  = self
+
+                /*
+                 * Call rawBlockCursor instead of drawInsertionPoint to draw cursor
+                 */
+                #if os(OSX)
+                mTextView.drawBlockCursorFunc = {
+                        (rect: NSRect, color: NSColor, flag: Bool) -> Void in
+                        self.drawBlockCursor(in: rect, color: color, turnedOn: flag)
+                }
+                #endif
         }
 
         public func setup(storage strg: MITextStorage) {
@@ -68,6 +78,13 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 set(newval) { mTextView.isEditable = newval }
         }
 
+        #if os(OSX)
+        public var cursorMode: NSTextViewWrapper.CursorMode {
+                get       { return mTextView.cursorMode }
+                set(mode) { mTextView.cursorMode = mode }
+        }
+        #endif
+
         public var insertionPointColor: MIColor {
                 get      {
                         #if os(OSX)
@@ -85,10 +102,23 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 }
         }
 
+        public var textColor: MIColor? {
+                get {
+                        let obj = mTextView.typingAttributes[NSAttributedString.Key.foregroundColor]
+                        return obj as? MIColor
+                }
+                set(col){
+                        mTextView.typingAttributes[NSAttributedString.Key.foregroundColor] = col
+                }
+        }
+
         public override var backgroundColor: MIColor? {
-                get      { return mTextView.backgroundColor }
+                get      {
+                        return mTextView.backgroundColor
+                }
                 set(col) {
                         mTextView.backgroundColor = col
+                        mTextView.typingAttributes[NSAttributedString.Key.backgroundColor] = col
                         super.backgroundColor = col
                 }
         }
@@ -125,6 +155,10 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 case .textAttribute(let attr):
                         mTextView.font = attr.font
                 }
+        }
+
+        open func drawBlockCursor(in rect: CGRect, color: MIColor, turnedOn flag: Bool) {
+                NSLog("drawBlockCursor")
         }
 }
 

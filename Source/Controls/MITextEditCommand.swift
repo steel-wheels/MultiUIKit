@@ -65,8 +65,10 @@ extension MITextViewCore
                         strg.setFont(font)
                 case .setTextColor(let col):
                         strg.setTextColor(color: col)
+                        self.textColor = col
                 case .setBackgroundColor(let col):
                         strg.setBackgoundColor(color: col)
+                        self.backgroundColor = col
                 }
         }
 }

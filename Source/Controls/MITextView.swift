@@ -39,6 +39,13 @@ open class MITextView: MIInterfaceView
                 set(newval) { coreTextView().isEditable = newval }
         }
 
+        #if os(OSX)
+        public var cursorMode: NSTextViewWrapper.CursorMode {
+                get       { return coreTextView().cursorMode }
+                set(mode) { coreTextView().cursorMode = mode }
+        }
+        #endif
+
         public var insertionPointColor: MIColor {
                 get         { return coreTextView().insertionPointColor }
                 set(newval) { coreTextView().insertionPointColor = newval }

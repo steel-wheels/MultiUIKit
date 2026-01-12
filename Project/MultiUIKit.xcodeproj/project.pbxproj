@@ -102,6 +102,7 @@
 		057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */; };
 		057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
+		059FBE052F138890001E2F0F /* NSTextViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FBE042F138890001E2F0F /* NSTextViewWrapper.swift */; };
 		05B2C7D02EDB4245001EFB34 /* MIViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */; };
 		05B2C7D12EDB4245001EFB34 /* MIViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */; };
 		05B64A762E0FE8650047CBDF /* MIDropViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */; };
@@ -321,6 +322,7 @@
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
+		059FBE042F138890001E2F0F /* NSTextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextViewWrapper.swift; sourceTree = "<group>"; };
 		05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIViewFinder.swift; sourceTree = "<group>"; };
 		05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
 		05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 				057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */,
 				053A7F3C2D3B34D2007C178B /* MITableCore.xib */,
 				05DF74D22D73464A000EB93D /* MITextViewCore.xib */,
+				059FBE042F138890001E2F0F /* NSTextViewWrapper.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1196,6 +1199,7 @@
 				053A7F422D3B3702007C178B /* MITableCore.swift in Sources */,
 				05B64A7B2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
 				05B64A7D2E0FEE800047CBDF /* MIDropView.swift in Sources */,
+				059FBE052F138890001E2F0F /* NSTextViewWrapper.swift in Sources */,
 				05E346D42E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				051C47532E79A6E600F1FC55 /* MIVisitor.swift in Sources */,
