@@ -22,7 +22,6 @@
 		0515E7C82CC476D300321C89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0515E7C72CC476D300321C89 /* Assets.xcassets */; };
 		0515E7CB2CC476D300321C89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0515E7C92CC476D300321C89 /* LaunchScreen.storyboard */; };
 		0515E7D42CC4781700321C89 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		0515E7D52CC4781700321C89 /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0517FA122EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517FA112EB6C94F00BBA3B7 /* MIScalableImage.swift */; };
 		0517FA142EB6C94F00BBA3B7 /* MIScalableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517FA112EB6C94F00BBA3B7 /* MIScalableImage.swift */; };
 		05198BF02CFDF67F001EE972 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05198BEF2CFDF67F001EE972 /* PreferenceViewController.swift */; };
@@ -41,7 +40,6 @@
 		052C608E2CC4F34900E7523B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 052C608D2CC4F34900E7523B /* Assets.xcassets */; };
 		052C60912CC4F34900E7523B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 052C608F2CC4F34900E7523B /* Main.storyboard */; };
 		052C60962CC4F4FD00E7523B /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		052C60972CC4F4FD00E7523B /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		052C609A2CC5001C00E7523B /* MILabelCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052C60992CC5001C00E7523B /* MILabelCore.xib */; };
 		052C609C2CC5019F00E7523B /* MILabelCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C609B2CC5019F00E7523B /* MILabelCore.swift */; };
 		052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C609B2CC5019F00E7523B /* MILabelCore.swift */; };
@@ -87,7 +85,6 @@
 		0573DF0A2E52B23500F8051B /* MICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573DF092E52B23500F8051B /* MICollectionView.swift */; };
 		0573DF0B2E52B23500F8051B /* MICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573DF092E52B23500F8051B /* MICollectionView.swift */; };
 		0573DF1F2E531D3200F8051B /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		0573DF202E531D3200F8051B /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574C3162CD75A4200E7166F /* MIWebViewCore.swift */; };
 		0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */; };
@@ -102,7 +99,6 @@
 		057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */; };
 		057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
-		059FBE052F138890001E2F0F /* NSTextViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059FBE042F138890001E2F0F /* NSTextViewWrapper.swift */; };
 		05B2C7D02EDB4245001EFB34 /* MIViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */; };
 		05B2C7D12EDB4245001EFB34 /* MIViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */; };
 		05B64A762E0FE8650047CBDF /* MIDropViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */; };
@@ -149,9 +145,7 @@
 		05DF74F42D742D28000EB93D /* MITextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74F32D742D28000EB93D /* MITextStorage.swift */; };
 		05DF74F52D742D28000EB93D /* MITextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74F32D742D28000EB93D /* MITextStorage.swift */; };
 		05DF75142D74A9BC000EB93D /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; };
-		05DF75152D74A9BC000EB93D /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 056CBE5E2D1D8BA000772D95 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05DF75172D74A9BD000EB93D /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; };
-		05DF75182D74A9BD000EB93D /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0515E7D32CC4781700321C89 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05E346D32E2B203F009DFD0D /* MIConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E346D22E2B203F009DFD0D /* MIConsole.swift */; };
 		05E346D42E2B203F009DFD0D /* MIConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E346D22E2B203F009DFD0D /* MIConsole.swift */; };
 		05F64B372CC3ADB900AAFAD9 /* MIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F64B362CC3ADB900AAFAD9 /* MIType.swift */; };
@@ -205,54 +199,6 @@
 			remoteInfo = Install;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		0515E7D62CC4781700321C89 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0515E7D52CC4781700321C89 /* MultiUIKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		052C60982CC4F4FD00E7523B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				052C60972CC4F4FD00E7523B /* MultiUIKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0573DF212E531D3200F8051B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0573DF202E531D3200F8051B /* MultiUIKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		05DF75162D74A9BC000EB93D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				05DF75182D74A9BD000EB93D /* MultiUIKit.xcframework in Embed Frameworks */,
-				05DF75152D74A9BC000EB93D /* MultiDataKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		050CE8E52D89C98B0092B36E /* MIAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAttributedString.swift; sourceTree = "<group>"; };
@@ -322,7 +268,6 @@
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
-		059FBE042F138890001E2F0F /* NSTextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextViewWrapper.swift; sourceTree = "<group>"; };
 		05B2C7CF2EDB4245001EFB34 /* MIViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIViewFinder.swift; sourceTree = "<group>"; };
 		05B64A752E0FE8650047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
 		05B64A772E0FEA8D0047CBDF /* MIDropViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDropViewCore.xib; sourceTree = "<group>"; };
@@ -726,7 +671,6 @@
 				057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */,
 				053A7F3C2D3B34D2007C178B /* MITableCore.xib */,
 				05DF74D22D73464A000EB93D /* MITextViewCore.xib */,
-				059FBE042F138890001E2F0F /* NSTextViewWrapper.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -792,7 +736,6 @@
 				0515E7B82CC476D100321C89 /* Sources */,
 				0515E7B92CC476D100321C89 /* Frameworks */,
 				0515E7BA2CC476D100321C89 /* Resources */,
-				0515E7D62CC4781700321C89 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -813,7 +756,6 @@
 				052C60832CC4F34700E7523B /* Sources */,
 				052C60842CC4F34700E7523B /* Frameworks */,
 				052C60852CC4F34700E7523B /* Resources */,
-				052C60982CC4F4FD00E7523B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -858,7 +800,6 @@
 				0573DF0C2E52CD6200F8051B /* Sources */,
 				0573DF0D2E52CD6200F8051B /* Frameworks */,
 				0573DF0E2E52CD6200F8051B /* Resources */,
-				0573DF212E531D3200F8051B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -972,7 +913,6 @@
 				05DF74F62D74A5E5000EB93D /* Sources */,
 				05DF74F72D74A5E5000EB93D /* Frameworks */,
 				05DF74F82D74A5E5000EB93D /* Resources */,
-				05DF75162D74A9BC000EB93D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -997,7 +937,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					0515E7BB2CC476D100321C89 = {
 						CreatedOnToolsVersion = 16.0;
@@ -1199,7 +1139,6 @@
 				053A7F422D3B3702007C178B /* MITableCore.swift in Sources */,
 				05B64A7B2E0FEBFA0047CBDF /* MIDropViewCore.swift in Sources */,
 				05B64A7D2E0FEE800047CBDF /* MIDropView.swift in Sources */,
-				059FBE052F138890001E2F0F /* NSTextViewWrapper.swift in Sources */,
 				05E346D42E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				057C1D982CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				051C47532E79A6E600F1FC55 /* MIVisitor.swift in Sources */,
@@ -1398,7 +1337,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GCC_OPTIMIZATION_LEVEL = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ../Tests/iOS/Info.plist;
@@ -1430,7 +1368,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GCC_OPTIMIZATION_LEVEL = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ../Tests/iOS/Info.plist;
@@ -1466,11 +1403,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
 				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
 				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
@@ -1507,11 +1443,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
 				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
 				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
@@ -1548,7 +1483,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				DSTROOT = "/tmp/$(PROJECT_NAME)_macOS.dst";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1589,7 +1523,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				DSTROOT = "/tmp/$(PROJECT_NAME)_macOS.dst";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1657,6 +1590,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1680,6 +1614,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1724,6 +1659,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1740,6 +1676,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1755,8 +1692,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1784,8 +1722,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1811,7 +1750,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				DSTROOT = "/tmp/$(PROJECT_NAME)_iOS.dst";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1854,7 +1792,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				DSTROOT = "/tmp/$(PROJECT_NAME)_iOS.dst";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1900,8 +1837,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1928,8 +1866,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1954,7 +1893,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ../Tests/TabView_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1984,7 +1922,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ../Tests/TabView_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2017,8 +1954,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -2046,8 +1984,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -2073,7 +2012,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ../Tests/TextView_iOS/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
@@ -2108,7 +2046,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ../Tests/TextView_iOS/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
@@ -2144,7 +2081,6 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEBUGGING_SYMBOLS = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				OTHER_CFLAGS = "";
@@ -2159,7 +2095,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = TR2DNF3P93;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -20,25 +20,16 @@ typealias MITextViewDelegate = UITextViewDelegate
 public class MITextViewCore: MICoreView, MITextViewDelegate
 {
         #if os(OSX)
-        @IBOutlet var mTextView: NSTextViewWrapper!
+        @IBOutlet var mTextView: NSTextView!
         #else
         @IBOutlet var mTextView: UITextView!
         #endif
-        private var mStorage:   MITextStorage? = nil
+
+        private var mStorage:           MITextStorage?  = nil
 
         open override func setup() {
                 super.setup(coreView: mTextView)
                 mTextView.delegate  = self
-
-                /*
-                 * Call rawBlockCursor instead of drawInsertionPoint to draw cursor
-                 */
-                #if os(OSX)
-                mTextView.drawBlockCursorFunc = {
-                        (rect: NSRect, color: NSColor, flag: Bool) -> Void in
-                        self.drawBlockCursor(in: rect, color: color, turnedOn: flag)
-                }
-                #endif
         }
 
         public func setup(storage strg: MITextStorage) {
@@ -77,13 +68,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 get { return mTextView.isEditable }
                 set(newval) { mTextView.isEditable = newval }
         }
-
-        #if os(OSX)
-        public var cursorMode: NSTextViewWrapper.CursorMode {
-                get       { return mTextView.cursorMode }
-                set(mode) { mTextView.cursorMode = mode }
-        }
-        #endif
 
         public var insertionPointColor: MIColor {
                 get      {
@@ -155,10 +139,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 case .textAttribute(let attr):
                         mTextView.font = attr.font
                 }
-        }
-
-        open func drawBlockCursor(in rect: CGRect, color: MIColor, turnedOn flag: Bool) {
-                NSLog("drawBlockCursor")
         }
 }
 
