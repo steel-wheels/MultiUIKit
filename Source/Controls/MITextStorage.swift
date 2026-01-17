@@ -15,39 +15,26 @@ public class MITextStorage
 {
         public typealias NotifyUpdateFunc = (_ : EventType) -> Void
 
-        public enum Command {
-                case fullReplace(NSAttributedString)
-        }
-
-        public struct TextAttribute {
-                public var font:                MIFont
-                public var textColor:           MIColor
-                public var backgroundColor:     MIColor
-
-                public init(){
-                        font             = MIFont.systemFont(ofSize: 12.0)
-                        textColor        = MIColor.black
-                        backgroundColor  = MIColor.white
-                }
-        }
-
         public enum EventType {
-                case textAttribute(TextAttribute)
+                case textAttribute(MITextAttribute)
         }
 
-        private var mStorage:           NSTextStorage?
+        /*
+         * The storage contains the last space to put the cursor
+         */
+        private var mStorage:           NSTextStorage
         private var mCurrentIndex:      Int
         private var mParagraphStyle:    NSMutableParagraphStyle
-        private var mTextAtrribute:     TextAttribute
+        private var mTextAtrributes:    MITextAttributes
         private var mFrameSize:         CGSize
         private var mContentsSize:      CGSize?
         private var mNotifyUpdate:      NotifyUpdateFunc?
 
         public init(){
-                mStorage               = nil
+                mStorage               = NSTextStorage()
                 mCurrentIndex          = 0
                 mParagraphStyle        = NSMutableParagraphStyle()
-                mTextAtrribute         = TextAttribute()
+                mTextAtrributes        = MITextAttributes()
                 mFrameSize             = CGSize.zero
                 mContentsSize          = nil
                 mNotifyUpdate          = nil
@@ -57,7 +44,8 @@ public class MITextStorage
                 mParagraphStyle.firstLineHeadIndent     = 0.0
                 mParagraphStyle.tailIndent              = 0.0
 
-                updateParagraphStyle(fontSize: mTextAtrribute.font.pointSize)
+                let fontsz = mTextAtrributes.current.font.pointSize
+                updateParagraphStyle(fontSize: fontsz)
         }
 
         private func updateParagraphStyle(fontSize sz: CGFloat) {
@@ -70,8 +58,16 @@ public class MITextStorage
         }
 
         public func setCoreStorage(_ strg: NSTextStorage) {
-                mStorage = strg
+                mStorage        = strg
+                mCurrentIndex   = 0
+                /* put last space */
+                let astr = allocateString(" ")
+                mStorage.insert(astr, at: mCurrentIndex)
         }
+
+        public var validLength: Int { get {
+                return mStorage.length - 1
+        }}
 
         public func setNotification(_ notif: @escaping NotifyUpdateFunc) {
                 mNotifyUpdate = notif
@@ -93,12 +89,7 @@ public class MITextStorage
         }}
 
         public var context: NSAttributedString { get {
-                if let strg = mStorage {
-                        return strg
-                } else {
-                        NSLog("[Error] No core storage at \(#function) in \(#file)")
-                        return NSMutableAttributedString(string: "")
-                }
+                return mStorage
         }}
 
         public var lineSpacing: CGFloat {get {
@@ -110,39 +101,37 @@ public class MITextStorage
                 set(val) { mCurrentIndex = val}
         }
 
-        public var length: Int { get {
-                if let storage = mStorage {
-                        return storage.length
-                } else {
-                        NSLog("[Error] No core storage at \(#function) in \(#file)")
-                        return 0
-                }
-        }}
-
         public func addLayoutManager(_ manager: NSLayoutManager) {
-                if let storage = mStorage {
-                        storage.addLayoutManager(manager)
-                } else {
-                        NSLog("[Error] No core storage at \(#function) in \(#file)")
-                }
+                mStorage.addLayoutManager(manager)
         }
 
         public func beginEditing() {
-                mStorage?.beginEditing()
+                mStorage.beginEditing()
         }
 
         public func endEditing() {
-                mStorage?.endEditing()
+                mStorage.endEditing()
+        }
+
+        public func character(at idx: Int) -> String {
+                let range = NSRange(location: idx, length: 1)
+                return mStorage.attributedSubstring(from: range).string
+        }
+
+        public func attribute(at idx: Int) -> MITextAttribute {
+                var range = NSRange(location: 0, length: 1)
+                let attrs = mStorage.attributes(at: idx, effectiveRange: &range)
+                return MITextAttribute.fromAttribute(attrs)
         }
 
         public func insert(string str: String) {
                 let astr = allocateString(str)
-                mStorage?.insert(astr, at: mCurrentIndex)
+                mStorage.insert(astr, at: mCurrentIndex)
                 mCurrentIndex += astr.length
         }
 
         public func moveCursorForword(offset off: Int) {
-                mCurrentIndex = min(self.length - 1, mCurrentIndex + off)
+                mCurrentIndex = min(self.validLength - 1, mCurrentIndex + off)
         }
 
         public func moveCursorBackword(offset off: Int) {
@@ -150,56 +139,47 @@ public class MITextStorage
         }
 
         public func removeForward(length off: Int) {
-                let len  = min(self.length - mCurrentIndex, off)
+                let len  = min(self.validLength - mCurrentIndex, off)
                 let loc  = mCurrentIndex
                 let range = NSRange(location: loc, length: len)
-                mStorage?.replaceCharacters(in: range, with: "")
+                mStorage.replaceCharacters(in: range, with: "")
                 // current index is not changed
         }
 
         public func removeBackward(length off: Int) {
-                let len   = min(self.length, off)
+                let len   = min(self.validLength, off)
                 let loc   = min(0, mCurrentIndex - len)
                 let range = NSRange(location: loc, length: len)
-                mStorage?.replaceCharacters(in: range, with: "")
+                mStorage.replaceCharacters(in: range, with: "")
                 mCurrentIndex -= len
         }
 
         public func removeAll() {
-                let range  = NSRange(location: 0, length: self.length)
-                mStorage?.replaceCharacters(in: range, with: "")
+                let range  = NSRange(location: 0, length: self.validLength)
+                mStorage.replaceCharacters(in: range, with: "")
         }
 
         public func setFont(_ font: MIFont) {
-                mTextAtrribute.font = font
+                mTextAtrributes.current.font = font
                 updateParagraphStyle(fontSize: font.pointSize)
         }
 
         public func setTextColor(color col: MIColor) {
-                mTextAtrribute.textColor = col
+                mTextAtrributes.current.textColor = col
         }
 
         public func setBackgoundColor(color col: MIColor) {
-                mTextAtrribute.backgroundColor = col
+                mTextAtrributes.current.backgroundColor = col
         }
 
         public func notify() {
                 if let notiffunc = mNotifyUpdate {
-                        notiffunc(.textAttribute(mTextAtrribute))
+                        notiffunc(.textAttribute(mTextAtrributes.current))
                 }
         }
 
-        private var currentAttributes: Dictionary<NSAttributedString.Key, Any> { get {
-                let attrs: Dictionary<NSAttributedString.Key, Any> = [
-                        NSAttributedString.Key.paragraphStyle:  mParagraphStyle,
-                        NSAttributedString.Key.font:            mTextAtrribute.font,
-                        NSAttributedString.Key.foregroundColor: mTextAtrribute.textColor,
-                        NSAttributedString.Key.backgroundColor: mTextAtrribute.backgroundColor
-                ]
-                return attrs
-        }}
-
         private func allocateString(_ str: String) -> NSAttributedString {
-                return NSAttributedString(string: str, attributes: self.currentAttributes)
+                let attr = mTextAtrributes.current.attributes
+                return NSAttributedString(string: str, attributes: attr)
         }
 }
