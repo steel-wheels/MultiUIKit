@@ -30,8 +30,8 @@ open class MITextView: MIInterfaceView
                 }
         }
 
-        public var textStorage: MITextStorage { get {
-                return coreTextView().textStorage
+        public var storage: MITextStorage { get {
+                return coreTextView().storage
         }}
 
         public var isEditable: Bool {

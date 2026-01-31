@@ -38,13 +38,13 @@ extension MITextView
 extension MITextViewCore
 {
         public func execute(commands cmds: Array<MITextEditCommand>) {
-                let storage = self.textStorage
-                storage.beginEditing()
+                let strg = self.storage
+                strg.beginEditing()
                 for cmd in cmds {
                         execute(command: cmd, storage: storage)
                 }
-                storage.endEditing()
-                storage.notify()
+                strg.endEditing()
+                strg.notify()
         }
 
         private func execute(command cmd: MITextEditCommand, storage strg: MITextStorage) {

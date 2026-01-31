@@ -56,7 +56,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         }
         #endif
 
-        public var textStorage: MITextStorage { get {
+        public var storage: MITextStorage { get {
                 if let storage = mStorage {
                         return storage
                 } else {
@@ -127,7 +127,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         #endif
 
         public override var intrinsicContentSize: CGSize { get {
-                if let csize = textStorage.contentsSize {
+                if let csize = storage.contentsSize {
                         return csize
                 } else {
                         return super.intrinsicContentSize

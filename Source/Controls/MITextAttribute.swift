@@ -31,6 +31,13 @@ public class MITextAttribute
                 self.backgroundColor    = bcol
         }
 
+        public var description: String { get {
+                return    "{" + "font:" + font.fontName + ", "
+                              + "text:" + self.textColor.toRGBADescription() + ", "
+                              + "background:" + self.backgroundColor.toRGBADescription()
+                        + "}"
+        }}
+
         public func clone() -> MITextAttribute {
                 return MITextAttribute(font: self.font,
                                        textColor: self.textColor,
