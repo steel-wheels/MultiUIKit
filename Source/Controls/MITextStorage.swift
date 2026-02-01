@@ -164,11 +164,11 @@ public class MITextStorage
                 updateParagraphStyle(fontSize: font.pointSize)
         }
 
-        public func setTextColor(color col: MITextColor) {
+        public func setTextColor(color col: MIColor) {
                 mTextAtrributes.current.textColor = col
         }
 
-        public func setBackgoundColor(color col: MITextColor) {
+        public func setBackgoundColor(color col: MIColor) {
                 mTextAtrributes.current.backgroundColor = col
         }
 
