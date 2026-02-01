@@ -130,6 +130,10 @@ public class MITextStorage
                 mCurrentIndex += astr.length
         }
 
+        public func moveCursorToHome() {
+                mCurrentIndex = 0
+        }
+
         public func moveCursorForword(offset off: Int) {
                 mCurrentIndex = min(self.validLength - 1, mCurrentIndex + off)
         }
