@@ -16,16 +16,16 @@ public class MITextAttribute
         public typealias Key = NSAttributedString.Key
 
         public var font:                MIFont
-        public var textColor:           MIColor
-        public var backgroundColor:     MIColor
+        public var textColor:           MITextColor
+        public var backgroundColor:     MITextColor
 
         public init(){
                 font             = MIFont.systemFont(ofSize: 12.0)
-                textColor        = MIColor.black
-                backgroundColor  = MIColor.white
+                textColor        = .black
+                backgroundColor  = .white
         }
 
-        public init(font fnt: MIFont, textColor tcol: MIColor, backgroundColor bcol: MIColor) {
+        public init(font fnt: MIFont, textColor tcol: MITextColor, backgroundColor bcol: MITextColor) {
                 self.font               = fnt
                 self.textColor          = tcol
                 self.backgroundColor    = bcol
@@ -33,8 +33,8 @@ public class MITextAttribute
 
         public var description: String { get {
                 return    "{" + "font:" + font.fontName + ", "
-                              + "text:" + self.textColor.toRGBADescription() + ", "
-                              + "background:" + self.backgroundColor.toRGBADescription()
+                              + "text:" + self.textColor.name + ", "
+                              + "background:" + self.backgroundColor.name
                         + "}"
         }}
 
@@ -47,8 +47,8 @@ public class MITextAttribute
         public var attributes: Dictionary<Key, NSObject> { get {
                 let attrs: Dictionary<Key, NSObject> = [
                         Key.font:            self.font,
-                        Key.foregroundColor: self.textColor,
-                        Key.backgroundColor: self.backgroundColor
+                        Key.foregroundColor: self.textColor.value,
+                        Key.backgroundColor: self.backgroundColor.value
                 ]
                 return attrs
         }}
@@ -61,7 +61,9 @@ public class MITextAttribute
                         NSLog("[Error] Failed to decode at \(#file)")
                         return MITextAttribute()
                 }
-                return MITextAttribute(font: font, textColor: fcol, backgroundColor: bcol)
+                let fval = MITextColor.decode(color: fcol)
+                let bval = MITextColor.decode(color: bcol)
+                return MITextAttribute(font: font, textColor: fval, backgroundColor: bval)
         }
 }
 

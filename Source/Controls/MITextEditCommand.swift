@@ -20,8 +20,8 @@ public enum MITextEditCommand
         case removeBackward(Int)
         case removeAll
         case setFont(MIFont)
-        case setTextColor(MIColor)
-        case setBackgroundColor(MIColor)
+        case setTextColor(MITextColor)
+        case setBackgroundColor(MITextColor)
 }
 
 extension MITextView
@@ -65,10 +65,10 @@ extension MITextViewCore
                         strg.setFont(font)
                 case .setTextColor(let col):
                         strg.setTextColor(color: col)
-                        self.textColor = col
+                        self.textColor = col.value
                 case .setBackgroundColor(let col):
                         strg.setBackgoundColor(color: col)
-                        self.backgroundColor = col
+                        self.backgroundColor = col.value
                 }
         }
 }
