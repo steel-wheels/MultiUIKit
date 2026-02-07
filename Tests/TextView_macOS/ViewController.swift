@@ -16,6 +16,21 @@ class ViewController: NSViewController
         override func viewDidLoad() {
                 super.viewDidLoad()
 
+                self.execute(commands: [
+                        .insertText("ab")
+                ])
+
+                self.execute(commands: [
+                        .moveCursorBackward(1),
+                        .moveCursorForward(2)
+                ])
+
+                self.execute(commands: [
+                        .insertText("de"),
+                        .insertText("c")
+                ])
+
+                /*
                 mTextView.textBackgroundColor = MIColor.blue
 
                 let fontsize = 20.0 // MIFont.systemFontSize
@@ -28,8 +43,8 @@ class ViewController: NSViewController
                         font = MIFont.monospacedSystemFont(ofSize: fontsize, weight: .regular)
                 }
 
-                let storage = mTextView.textStorage
-                let commands: Array<MITextStorage.Command> = [
+
+
                         .font(font),
                         .textColor(MIColor.yellow),
                         .backgroundColor(MIColor.blue),
@@ -37,11 +52,19 @@ class ViewController: NSViewController
                         .moveBackward(5),
                         .insert("every ")
                 ]
-                storage.execute(commands: commands)
+
 
                 let fsize = storage.fontSize
                 NSLog("fontsize = \(fsize.width) * \(fsize.height)")
+                 */
         }
+
+        private func execute(commands cmds: Array<MITextEditCommand>) {
+                mTextView.execute(commands: cmds)
+                let storage = mTextView.storage
+                NSLog("storage: length=\(storage.validLength) pos=\(storage.cursorPosition)")
+        }
+
 
         override var representedObject: Any? {
                 didSet {

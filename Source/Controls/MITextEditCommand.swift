@@ -55,15 +55,15 @@ extension MITextViewCore
                 case .moveCursorToHome:
                         strg.moveCursorToHome()
                 case .moveCursorForward(let offset):
-                        strg.moveCursorForword(offset: offset)
+                        strg.moveCursorForward(offset: offset)
                 case .moveCursorBackward(let offset):
-                        strg.moveCursorBackword(offset: offset)
+                        strg.moveCursorBackward(offset: offset)
                 case .removeForward(let len):
-                        strg.removeForward(length: len)
+                        strg.deleteForward(length: len)
                 case .removeBackward(let len):
-                        strg.removeBackward(length: len)
+                        strg.deleteBackward(length: len)
                 case .removeAll:
-                        strg.removeAll()
+                        strg.deleteAll()
                 case .setFont(let font):
                         strg.setFont(font)
                 case .setTextColor(let col):

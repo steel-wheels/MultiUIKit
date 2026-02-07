@@ -23,7 +23,7 @@ public class MITextStorage
          * The storage contains the last space to put the cursor
          */
         private var mStorage:           NSTextStorage
-        private var mCurrentIndex:      Int
+        private var mCurrentIndex:      String.Index
         private var mParagraphStyle:    NSMutableParagraphStyle
         private var mTextAtrributes:    MITextAttributes
         private var mFrameSize:         CGSize
@@ -32,7 +32,7 @@ public class MITextStorage
 
         public init(){
                 mStorage               = NSTextStorage()
-                mCurrentIndex          = 0
+                mCurrentIndex          = mStorage.string.startIndex
                 mParagraphStyle        = NSMutableParagraphStyle()
                 mTextAtrributes        = MITextAttributes()
                 mFrameSize             = CGSize.zero
@@ -59,14 +59,17 @@ public class MITextStorage
 
         public func setCoreStorage(_ strg: NSTextStorage) {
                 mStorage        = strg
-                mCurrentIndex   = 0
+                mCurrentIndex   = strg.string.startIndex
                 /* put last space */
-                let astr = allocateString(" ")
-                mStorage.insert(astr, at: mCurrentIndex)
+                insert(string: " ")
         }
 
+        public var cursorPosition: Int { get {
+                return mCurrentIndex.utf16Offset(in: mStorage.string)
+        }}
+
         public var validLength: Int { get {
-                return mStorage.length - 1
+                return mStorage.string.lengthOfBytes(using: .utf8) - 1
         }}
 
         public func setNotification(_ notif: @escaping NotifyUpdateFunc) {
@@ -96,11 +99,6 @@ public class MITextStorage
                 return mParagraphStyle.lineSpacing
         }}
 
-        public var currentIndex: Int {
-                get      { return mCurrentIndex }
-                set(val) { mCurrentIndex = val}
-        }
-
         public func addLayoutManager(_ manager: NSLayoutManager) {
                 mStorage.addLayoutManager(manager)
         }
@@ -113,54 +111,10 @@ public class MITextStorage
                 mStorage.endEditing()
         }
 
-        public func character(at idx: Int) -> String {
-                let range = NSRange(location: idx, length: 1)
-                return mStorage.attributedSubstring(from: range).string
-        }
-
         public func attribute(at idx: Int) -> MITextAttribute {
                 var range = NSRange(location: 0, length: 1)
                 let attrs = mStorage.attributes(at: idx, effectiveRange: &range)
                 return MITextAttribute.fromAttribute(attrs)
-        }
-
-        public func insert(string str: String) {
-                let astr = allocateString(str)
-                mStorage.insert(astr, at: mCurrentIndex)
-                mCurrentIndex += astr.length
-        }
-
-        public func moveCursorToHome() {
-                mCurrentIndex = 0
-        }
-
-        public func moveCursorForword(offset off: Int) {
-                mCurrentIndex = min(self.validLength - 1, mCurrentIndex + off)
-        }
-
-        public func moveCursorBackword(offset off: Int) {
-                mCurrentIndex = max(0, mCurrentIndex - off)
-        }
-
-        public func removeForward(length off: Int) {
-                let len  = min(self.validLength - mCurrentIndex, off)
-                let loc  = mCurrentIndex
-                let range = NSRange(location: loc, length: len)
-                mStorage.replaceCharacters(in: range, with: "")
-                // current index is not changed
-        }
-
-        public func removeBackward(length off: Int) {
-                let len   = min(self.validLength, off)
-                let loc   = min(0, mCurrentIndex - len)
-                let range = NSRange(location: loc, length: len)
-                mStorage.replaceCharacters(in: range, with: "")
-                mCurrentIndex -= len
-        }
-
-        public func removeAll() {
-                let range  = NSRange(location: 0, length: self.validLength)
-                mStorage.replaceCharacters(in: range, with: "")
         }
 
         public func setFont(_ font: MIFont) {
@@ -187,3 +141,137 @@ public class MITextStorage
                 return NSAttributedString(string: str, attributes: attr)
         }
 }
+
+extension MITextStorage
+{
+        public func currentCharacter() -> Character {
+                return mStorage.string[mCurrentIndex]
+        }
+
+        public func nextCharacter() -> Character? {
+                let str     = mStorage.string
+                let nextidx = str.index(after: mCurrentIndex)
+                if nextidx < str.endIndex {
+                        return str[nextidx]
+                } else {
+                        return nil
+                }
+        }
+
+        public func previousCharacter() -> Character? {
+                let str     = mStorage.string
+                if str.startIndex < mCurrentIndex {
+                        let previdx = str.index(before: mCurrentIndex)
+                        return str[previdx]
+                }
+                return nil
+        }
+
+        /*
+         * move cursor
+         */
+
+        public func moveCursorToHome() {
+                mCurrentIndex = mStorage.string.startIndex
+        }
+
+        public func moveCursorForward(offset off: Int) {
+                let str = mStorage.string
+                for _ in 0..<off {
+                        if let c = nextCharacter() {
+                                if c != "\n" {
+                                        mCurrentIndex = str.index(after: mCurrentIndex)
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+        }
+
+        public func moveCursorBackward(offset off: Int) {
+                let str = mStorage.string
+                for _ in 0..<off {
+                        if let c = previousCharacter() {
+                                if c != "\n" {
+                                        mCurrentIndex = str.index(before: mCurrentIndex)
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+        }
+
+        /*
+         * Edit text
+         */
+
+        public func insert(string str: String) {
+                let astr   = allocateString(str)
+                insert(attributedString: astr)
+        }
+
+        public func insert(attributedString str: NSAttributedString) {
+                let offset = mCurrentIndex.utf16Offset(in: mStorage.string)
+                mStorage.insert(str, at: offset)
+        }
+
+        public func deleteForward(length len: Int) {
+                let str      = mStorage.string
+                let startidx = mCurrentIndex
+                var curidx   = startidx
+                let endidx   = str.endIndex
+                for _ in 0..<len {
+                        if curidx < endidx {
+                                if str[curidx] != "\n" {
+                                        curidx = str.index(after: curidx)
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+                delete(fromIndex: startidx, toIndent: curidx)
+        }
+
+        public func deleteBackward(length len: Int) {
+                let str      = mStorage.string
+                let startidx = str.startIndex
+                var curidx   = mCurrentIndex
+                for _ in 0..<len {
+                        if startidx <= curidx {
+                                if str[curidx] != "\n" {
+                                        curidx = str.index(before: curidx)
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+                delete(fromIndex: curidx, toIndent: mCurrentIndex)
+        }
+
+        private func delete(fromIndex fidx: String.Index, toIndent tidx: String.Index) {
+                let str  = mStorage.string
+                let loc  = fidx.utf16Offset(in: str)
+                let last = tidx.utf16Offset(in: str)
+                let len  = last - loc
+                if len > 0 {
+                        let range = NSRange(location: loc, length: len)
+                        mStorage.deleteCharacters(in: range)
+                }
+        }
+
+        public func deleteAll() {
+                let range = NSRange(location: 0, length: mStorage.length)
+                mStorage.replaceCharacters(in: range, with: " ")
+                mCurrentIndex = mStorage.string.startIndex
+        }
+}
+
+
