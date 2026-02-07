@@ -25,7 +25,7 @@ public class MITextStorage
         private var mStorage:           NSTextStorage
         private var mCurrentIndex:      String.Index
         private var mParagraphStyle:    NSMutableParagraphStyle
-        private var mTextAtrributes:    MITextAttributes
+        private var mTextAttributes:    MITextAttributes
         private var mFrameSize:         CGSize
         private var mContentsSize:      CGSize?
         private var mNotifyUpdate:      NotifyUpdateFunc?
@@ -34,7 +34,7 @@ public class MITextStorage
                 mStorage               = NSTextStorage()
                 mCurrentIndex          = mStorage.string.startIndex
                 mParagraphStyle        = NSMutableParagraphStyle()
-                mTextAtrributes        = MITextAttributes()
+                mTextAttributes        = MITextAttributes()
                 mFrameSize             = CGSize.zero
                 mContentsSize          = nil
                 mNotifyUpdate          = nil
@@ -44,7 +44,7 @@ public class MITextStorage
                 mParagraphStyle.firstLineHeadIndent     = 0.0
                 mParagraphStyle.tailIndent              = 0.0
 
-                let fontsz = mTextAtrributes.current.font.pointSize
+                let fontsz = mTextAttributes.current.font.pointSize
                 updateParagraphStyle(fontSize: fontsz)
         }
 
@@ -118,26 +118,26 @@ public class MITextStorage
         }
 
         public func setFont(_ font: MIFont) {
-                mTextAtrributes.current.font = font
+                mTextAttributes.current.font = font
                 updateParagraphStyle(fontSize: font.pointSize)
         }
 
         public func setTextColor(color col: MIColor) {
-                mTextAtrributes.current.textColor = col
+                mTextAttributes.current.textColor = col
         }
 
         public func setBackgoundColor(color col: MIColor) {
-                mTextAtrributes.current.backgroundColor = col
+                mTextAttributes.current.backgroundColor = col
         }
 
         public func notify() {
                 if let notiffunc = mNotifyUpdate {
-                        notiffunc(.textAttribute(mTextAtrributes.current))
+                        notiffunc(.textAttribute(mTextAttributes.current))
                 }
         }
 
         private func allocateString(_ str: String) -> NSAttributedString {
-                let attr = mTextAtrributes.current.attributes
+                let attr = mTextAttributes.current.attributes
                 return NSAttributedString(string: str, attributes: attr)
         }
 }

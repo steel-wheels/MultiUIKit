@@ -39,6 +39,16 @@ open class MITextView: MIInterfaceView
                 set(newval) { coreTextView().isEditable = newval }
         }
 
+        public var textColor: MIColor? {
+                get         { return coreTextView().textColor   }
+                set(newval) { coreTextView().textColor = newval }
+        }
+
+        public override var backgroundColor: MIColor? {
+                get         { return coreTextView().backgroundColor }
+                set(newval) { coreTextView().backgroundColor = newval }
+        }
+
         public var insertionPointColor: MIColor {
                 get         { return coreTextView().insertionPointColor }
                 set(newval) { coreTextView().insertionPointColor = newval }

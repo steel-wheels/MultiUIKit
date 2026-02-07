@@ -15,27 +15,21 @@ public class MITextAttribute
 {
         public typealias Key = NSAttributedString.Key
 
-        public var font:                MIFont
-        public var textColor:           MIColor
-        public var backgroundColor:     MIColor
+        private var mAttributes: Dictionary<Key, NSObject>
 
         public init(){
-                font             = MIFont.systemFont(ofSize: 12.0)
-                textColor        = .black
-                backgroundColor  = .white
+                mAttributes             = [:]
         }
 
         public init(font fnt: MIFont, textColor tcol: MIColor, backgroundColor bcol: MIColor) {
+                mAttributes             = [:]
                 self.font               = fnt
-                self.textColor          = tcol
                 self.backgroundColor    = bcol
+                self.textColor          = tcol
         }
 
-        public var description: String { get {
-                return    "{" + "font:" + font.fontName + ", "
-                              + "text:" + self.textColor.toRGBADescription() + ", "
-                              + "background:" + self.backgroundColor.toRGBADescription()
-                        + "}"
+        public var attributes: Dictionary<Key, NSObject> { get {
+                return mAttributes
         }}
 
         public func clone() -> MITextAttribute {
@@ -44,13 +38,48 @@ public class MITextAttribute
                                        backgroundColor: self.backgroundColor)
         }
 
-        public var attributes: Dictionary<Key, NSObject> { get {
-                let attrs: Dictionary<Key, NSObject> = [
-                        Key.font:            self.font,
-                        Key.foregroundColor: self.textColor,
-                        Key.backgroundColor: self.backgroundColor
-                ]
-                return attrs
+        public var font: MIFont {
+                get {
+                        if let fnt = mAttributes[Key.font] as? MIFont {
+                                return fnt
+                        } else {
+                                return MIFont.systemFont(ofSize: 12.0)
+                        }
+                }
+                set(val){
+                        mAttributes[Key.font] = val
+                }
+        }
+
+        public var textColor: MIColor {
+                get {
+                        if let col = mAttributes[Key.foregroundColor] as? MIColor {
+                                return col
+                        } else {
+                                return MIColor.black
+                        }
+                }
+                set(val){
+                        mAttributes[Key.foregroundColor] = val
+                }
+        }
+
+        public var backgroundColor: MIColor {
+                get {
+                        if let col = mAttributes[Key.backgroundColor] as? MIColor {
+                                return col
+                        } else {
+                                return MIColor.white
+                        }
+                }
+                set(val) {      mAttributes[Key.backgroundColor] = val                  }
+        }
+
+        public var description: String { get {
+                return    "{" + "font:" + self.font.fontName + ", "
+                              + "text:" + self.textColor.toRGBADescription() + ", "
+                              + "background:" + self.backgroundColor.toRGBADescription()
+                        + "}"
         }}
 
         public static func fromAttribute(_ attrs: Dictionary<Key, Any> ) -> MITextAttribute {

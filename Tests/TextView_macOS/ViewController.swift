@@ -16,22 +16,52 @@ class ViewController: NSViewController
         override func viewDidLoad() {
                 super.viewDidLoad()
 
+                let textcol = MIColor.green
+                let backcol = MIColor.black
+                mTextView.textColor       = textcol
+                mTextView.backgroundColor = backcol
+
+                self.execute(commands: [
+                        .setTextColor(textcol),
+                        .setBackgroundColor(backcol),
+                ])
+
                 self.execute(commands: [
                         .insertText("ab")
                 ])
+                check(string: "ab ")
 
                 self.execute(commands: [
                         .moveCursorBackward(1),
                         .moveCursorForward(2)
                 ])
+                check(string: "ab ")
 
                 self.execute(commands: [
                         .insertText("de"),
                         .insertText("c")
                 ])
+                check(string: "abcde ")
+
+                self.execute(commands: [
+                        .removeForward(1)
+                ])
+                check(string: "abde ")
+
+                self.execute(commands: [
+                        .removeBackward(1)
+                ])
+                check(string: "ade ")
+
+                self.execute(commands: [
+                        .setTextColor(MIColor.red),
+                        .setBackgroundColor(MIColor.blue),
+                        .insertText("BC")
+                ])
+                check(string: "aBCde ")
 
                 /*
-                mTextView.textBackgroundColor = MIColor.blue
+
 
                 let fontsize = 20.0 // MIFont.systemFontSize
                 let font: MIFont
@@ -43,17 +73,6 @@ class ViewController: NSViewController
                         font = MIFont.monospacedSystemFont(ofSize: fontsize, weight: .regular)
                 }
 
-
-
-                        .font(font),
-                        .textColor(MIColor.yellow),
-                        .backgroundColor(MIColor.blue),
-                        .insert("Hello, world"),
-                        .moveBackward(5),
-                        .insert("every ")
-                ]
-
-
                 let fsize = storage.fontSize
                 NSLog("fontsize = \(fsize.width) * \(fsize.height)")
                  */
@@ -62,7 +81,15 @@ class ViewController: NSViewController
         private func execute(commands cmds: Array<MITextEditCommand>) {
                 mTextView.execute(commands: cmds)
                 let storage = mTextView.storage
-                NSLog("storage: length=\(storage.validLength) pos=\(storage.cursorPosition)")
+                let str = mTextView.storage.context.string
+                NSLog("storage: length=\(storage.validLength) pos=\(storage.cursorPosition) str=\"\(str)\"")
+        }
+
+        private func check(string exp: String) {
+                let str = mTextView.storage.context.string
+                if str != exp {
+                        NSLog("Unexpected content \"\(str)\" expected \"\(exp)\"")
+                }
         }
 
 
