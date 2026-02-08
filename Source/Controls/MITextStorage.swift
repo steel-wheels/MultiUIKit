@@ -112,8 +112,7 @@ public class MITextStorage
         }
 
         public func attribute(at idx: Int) -> MITextAttribute {
-                var range = NSRange(location: 0, length: 1)
-                let attrs = mStorage.attributes(at: idx, effectiveRange: &range)
+                let attrs = mStorage.attributes(at: idx, effectiveRange: nil)
                 return MITextAttribute.fromAttribute(attrs)
         }
 
@@ -146,6 +145,10 @@ extension MITextStorage
 {
         public func currentCharacter() -> Character {
                 return mStorage.string[mCurrentIndex]
+        }
+
+        public func currentAttribute() -> MITextAttribute {
+                return attribute(at: self.cursorPosition)
         }
 
         public func nextCharacter() -> Character? {

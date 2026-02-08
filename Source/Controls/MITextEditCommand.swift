@@ -42,7 +42,7 @@ extension MITextViewCore
                 let strg = self.storage
                 strg.beginEditing()
                 for cmd in cmds {
-                        execute(command: cmd, storage: storage)
+                        execute(command: cmd, storage: strg)
                 }
                 strg.endEditing()
                 strg.notify()
