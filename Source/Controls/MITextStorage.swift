@@ -64,6 +64,10 @@ public class MITextStorage
                 insert(string: " ")
         }
 
+        public var currentIndex: String.Index { get {
+                return mCurrentIndex
+        }}
+
         public var cursorPosition: Int { get {
                 return mCurrentIndex.utf16Offset(in: mStorage.string)
         }}

@@ -26,14 +26,14 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         #endif
 
         private var mStorage:           MITextStorage?  = nil
-        private var mCursor:            MITextCursor?   = nil
+        private var mCursor =           MITextCursor()
 
         open override func setup() {
                 super.setup(coreView: mTextView)
                 mTextView.delegate  = self
         }
 
-        public func setup(storage strg: MITextStorage, cursor crsr: MITextCursor) {
+        public func setup(storage strg: MITextStorage) {
                 strg.setCoreStorage(coreStorage())
                 strg.setNotification({
                         (ntype: MITextStorage.EventType) -> Void in
@@ -41,7 +41,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 })
                 strg.frameSize = mTextView.frame.size
                 mStorage = strg
-                mCursor  = crsr
         }
 
         #if os(OSX)
@@ -63,14 +62,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         return storage
                 } else {
                         fatalError("Failed to allocate storage")
-                }
-        }}
-
-        public var cursor: MITextCursor { get {
-                if let cursor = mCursor {
-                        return cursor
-                } else {
-                        fatalError("Failed to allocate cursor")
                 }
         }}
 

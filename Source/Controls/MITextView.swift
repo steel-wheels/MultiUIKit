@@ -15,15 +15,11 @@ open class MITextView: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MITextViewCore", frameSize: frm.size)
-                coreTextView().setup(storage: allocateStorage(), cursor: allocateCursor())
+                coreTextView().setup(storage: allocateStorage())
         }
 
         private func allocateStorage() -> MITextStorage {
                 return MITextStorage()
-        }
-
-        private func allocateCursor() -> MITextCursor {
-                return MITextCursor()
         }
 
         private func coreTextView() -> MITextViewCore {
@@ -36,10 +32,6 @@ open class MITextView: MIInterfaceView
 
         public var storage: MITextStorage { get {
                 return coreTextView().storage
-        }}
-
-        public var cursor: MITextCursor { get {
-                return coreTextView().cursor
         }}
 
         public var isEditable: Bool {
