@@ -35,10 +35,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
 
         public func setup(storage strg: MITextStorage) {
                 strg.setCoreStorage(coreStorage())
-                strg.setNotification({
-                        (ntype: MITextStorage.EventType) -> Void in
-                        self.notifyUpdate(ntype)
-                })
                 strg.frameSize = mTextView.frame.size
                 mStorage = strg
         }
@@ -56,6 +52,10 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 return mTextView.textStorage
         }
         #endif
+
+        public var cursor: MITextCursor { get {
+                return mCursor
+        }}
 
         public var storage: MITextStorage { get {
                 if let storage = mStorage {
@@ -134,12 +134,5 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         return super.intrinsicContentSize
                 }
         }}
-
-        private func notifyUpdate(_ ntype: MITextStorage.EventType) {
-                switch ntype {
-                case .textAttribute(let attr):
-                        mTextView.font = attr.font
-                }
-        }
 }
 

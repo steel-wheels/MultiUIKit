@@ -13,17 +13,24 @@ import  UIKit
 
 public class MITextCursor
 {
-        public enum State {
-                case hidden
-                case shown(Bool)        // true: Blink ON, false: Blimk off
-        }
-
-        private var mState:     State
+        public var visible:             Bool
+        public var blink:               Bool
+        public var normalAttribute:     MITextAttribute
 
         public init() {
-                mState = .hidden
+                self.visible            = false
+                self.blink              = false
+                self.normalAttribute    = MITextAttribute()
         }
 
+        public var reversedAttribute: MITextAttribute { get {
+                let font = normalAttribute.font
+                let tcol = normalAttribute.backgroundColor
+                let bcol = normalAttribute.textColor
+                return MITextAttribute(font: font, textColor: tcol, backgroundColor: bcol)
+        }}
+
+        /*
         public var isShown: Bool {
                 let result: Bool
                 switch mState {
@@ -31,6 +38,6 @@ public class MITextCursor
                 case .shown(_): result = true
                 }
                 return result
-        }
+        }*/
 }
 

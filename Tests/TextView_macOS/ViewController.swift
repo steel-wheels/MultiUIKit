@@ -60,6 +60,11 @@ class ViewController: NSViewController
                 ])
                 check(string: "aBCde ")
 
+                self.execute(commands: [
+                        .setCursorVisible(true),
+                        .blinkCursor(true)
+                ])
+
                 /*
 
 

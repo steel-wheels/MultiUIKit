@@ -23,6 +23,8 @@ public enum MITextEditCommand
         case setFont(MIFont)
         case setTextColor(MIColor)
         case setBackgroundColor(MIColor)
+        case setCursorVisible(Bool)
+        case blinkCursor(Bool)
 }
 
 extension MITextView
@@ -45,7 +47,6 @@ extension MITextViewCore
                         execute(command: cmd, storage: strg)
                 }
                 strg.endEditing()
-                strg.notify()
         }
 
         private func execute(command cmd: MITextEditCommand, storage strg: MITextStorage) {
@@ -70,6 +71,43 @@ extension MITextViewCore
                         strg.setTextColor(color: col)
                 case .setBackgroundColor(let col):
                         strg.setBackgoundColor(color: col)
+                case .setCursorVisible(let dovisible):
+                        setCusorVisible(dovisible: dovisible, storage: strg)
+                case .blinkCursor(let doon):
+                        blinkCursor(blink: doon, storage: strg)
+                }
+        }
+
+        private func setCusorVisible(dovisible: Bool, storage strg: MITextStorage) {
+                guard self.cursor.visible != dovisible else {
+                        return
+                }
+                if dovisible {
+                        /* visible: off -> on */
+                        self.cursor.visible = true
+                } else {
+                        /* visible: on -> off */
+                        if self.cursor.blink {
+                                blinkCursor(blink: false, storage: strg)
+                        }
+                        self.cursor.visible = false
+                }
+        }
+
+        private func blinkCursor(blink doblink: Bool, storage strg: MITextStorage) {
+                guard self.cursor.visible else {
+                        return
+                }
+                guard self.cursor.blink != doblink else {
+                        return
+                }
+                if doblink {
+                        /* blink: off -> on */
+                        self.cursor.normalAttribute = strg.currentAttribute()
+                        strg.set(attribute: self.cursor.reversedAttribute, length: 1)
+                } else {
+                        /* blink: on -> off */
+                        strg.set(attribute: self.cursor.normalAttribute, length: 1)
                 }
         }
 }

@@ -21,7 +21,7 @@ public class MITextAttribute
                 mAttributes             = [:]
         }
 
-        public init(font fnt: MIFont, textColor tcol: MIColor, backgroundColor bcol: MIColor) {
+        public init(font fnt: MIFont?, textColor tcol: MIColor?, backgroundColor bcol: MIColor?) {
                 mAttributes             = [:]
                 self.font               = fnt
                 self.backgroundColor    = bcol
@@ -38,58 +38,46 @@ public class MITextAttribute
                                        backgroundColor: self.backgroundColor)
         }
 
-        public var font: MIFont {
-                get {
-                        if let fnt = mAttributes[Key.font] as? MIFont {
-                                return fnt
-                        } else {
-                                return MIFont.systemFont(ofSize: 12.0)
-                        }
-                }
-                set(val){
-                        mAttributes[Key.font] = val
-                }
+        public var font: MIFont? {
+                get {           return mAttributes[Key.font] as? MIFont                 }
+                set(val){       mAttributes[Key.font] = val                             }
         }
 
-        public var textColor: MIColor {
-                get {
-                        if let col = mAttributes[Key.foregroundColor] as? MIColor {
-                                return col
-                        } else {
-                                return MIColor.black
-                        }
-                }
-                set(val){
-                        mAttributes[Key.foregroundColor] = val
-                }
+        public var textColor: MIColor? {
+                get {           return mAttributes[Key.foregroundColor] as? MIColor     }
+                set(val){       mAttributes[Key.foregroundColor] = val                  }
         }
 
-        public var backgroundColor: MIColor {
-                get {
-                        if let col = mAttributes[Key.backgroundColor] as? MIColor {
-                                return col
-                        } else {
-                                return MIColor.white
-                        }
-                }
+        public var backgroundColor: MIColor? {
+                get {           return mAttributes[Key.backgroundColor] as? MIColor     }
                 set(val) {      mAttributes[Key.backgroundColor] = val                  }
         }
 
         public var description: String { get {
-                return    "{" + "font:" + self.font.fontName + ", "
-                              + "text:" + self.textColor.toRGBADescription() + ", "
-                              + "background:" + self.backgroundColor.toRGBADescription()
-                        + "}"
+                var result = "{"
+                var is1st  = true
+                if let fnt = self.font {
+                        result += "font:" + fnt.fontName
+                        is1st  = false
+                }
+                if let tcol = self.textColor {
+                        if !is1st { result += ", " }
+                        result += "test: " + tcol.toRGBADescription()
+                        is1st = false
+                }
+                if let bcol = self.backgroundColor {
+                        if !is1st { result += ", " }
+                        result += "test: " + bcol.toRGBADescription()
+                        is1st = false
+                }
+                result += "}"
+                return result
         }}
 
         public static func fromAttribute(_ attrs: Dictionary<Key, Any> ) -> MITextAttribute {
-                guard let font = attrs[Key.font] as? MIFont,
-                      let fcol = attrs[Key.foregroundColor] as? MIColor,
-                      let bcol = attrs[Key.backgroundColor] as? MIColor
-                else {
-                        NSLog("[Error] Failed to decode at \(#file)")
-                        return MITextAttribute()
-                }
+                let font = attrs[Key.font] as? MIFont
+                let fcol = attrs[Key.foregroundColor] as? MIColor
+                let bcol = attrs[Key.backgroundColor] as? MIColor
                 return MITextAttribute(font: font, textColor: fcol, backgroundColor: bcol)
         }
 }

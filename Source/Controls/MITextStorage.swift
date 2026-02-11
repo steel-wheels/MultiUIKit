@@ -13,8 +13,6 @@ import  UIKit
 
 public class MITextStorage
 {
-        public typealias NotifyUpdateFunc = (_ : EventType) -> Void
-
         public enum EventType {
                 case textAttribute(MITextAttribute)
         }
@@ -28,7 +26,6 @@ public class MITextStorage
         private var mTextAttributes:    MITextAttributes
         private var mFrameSize:         CGSize
         private var mContentsSize:      CGSize?
-        private var mNotifyUpdate:      NotifyUpdateFunc?
 
         public init(){
                 mStorage               = NSTextStorage()
@@ -37,15 +34,14 @@ public class MITextStorage
                 mTextAttributes        = MITextAttributes()
                 mFrameSize             = CGSize.zero
                 mContentsSize          = nil
-                mNotifyUpdate          = nil
 
                 /* init style */
                 mParagraphStyle.headIndent              = 0.0
                 mParagraphStyle.firstLineHeadIndent     = 0.0
                 mParagraphStyle.tailIndent              = 0.0
 
-                let fontsz = mTextAttributes.current.font.pointSize
-                updateParagraphStyle(fontSize: fontsz)
+                //let fontsz = mTextAttributes.current.font.pointSize
+                //updateParagraphStyle(fontSize: fontsz)
         }
 
         private func updateParagraphStyle(fontSize sz: CGFloat) {
@@ -75,10 +71,6 @@ public class MITextStorage
         public var validLength: Int { get {
                 return mStorage.string.lengthOfBytes(using: .utf8) - 1
         }}
-
-        public func setNotification(_ notif: @escaping NotifyUpdateFunc) {
-                mNotifyUpdate = notif
-        }
 
         open var frameSize: CGSize {
                 get { return mFrameSize }
@@ -131,12 +123,6 @@ public class MITextStorage
 
         public func setBackgoundColor(color col: MIColor) {
                 mTextAttributes.current.backgroundColor = col
-        }
-
-        public func notify() {
-                if let notiffunc = mNotifyUpdate {
-                        notiffunc(.textAttribute(mTextAttributes.current))
-                }
         }
 
         private func allocateString(_ str: String) -> NSAttributedString {
@@ -224,6 +210,12 @@ extension MITextStorage
         public func insert(attributedString str: NSAttributedString) {
                 let offset = mCurrentIndex.utf16Offset(in: mStorage.string)
                 mStorage.insert(str, at: offset)
+        }
+
+        public func set(attribute attr: MITextAttribute, length len: Int) {
+                let offset = mCurrentIndex.utf16Offset(in: mStorage.string)
+                let range  = NSRange(location: offset, length: len)
+                mStorage.setAttributes(attr.attributes, range: range)
         }
 
         public func deleteForward(length len: Int) {
