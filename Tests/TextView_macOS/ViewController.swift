@@ -13,6 +13,18 @@ class ViewController: NSViewController
 
         @IBOutlet weak var mTextView: MITextView!
 
+        private var mCursorTimer: Timer? = nil
+
+        deinit {
+                stopTimer()
+        }
+
+        private func stopTimer() {
+                if let cursortimer = mCursorTimer {
+                        cursortimer.invalidate()
+                }
+        }
+
         override func viewDidLoad() {
                 super.viewDidLoad()
 
@@ -65,22 +77,11 @@ class ViewController: NSViewController
                         .blinkCursor(true)
                 ])
 
-                /*
-
-
-                let fontsize = 20.0 // MIFont.systemFontSize
-                let font: MIFont
-                if let fnt = MIFont.terminalFont(size: fontsize) {
-                        NSLog("use terminal font: \(fontsize)")
-                        font = fnt
-                } else {
-                        NSLog("use default font: \(fontsize)")
-                        font = MIFont.monospacedSystemFont(ofSize: fontsize, weight: .regular)
+                let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+                        DispatchQueue.main.async {
+                                self.blinkCursor()
+                        }
                 }
-
-                let fsize = storage.fontSize
-                NSLog("fontsize = \(fsize.width) * \(fsize.height)")
-                 */
         }
 
         private func execute(commands cmds: Array<MITextEditCommand>) {
@@ -97,6 +98,12 @@ class ViewController: NSViewController
                 }
         }
 
+        private var blink: Bool = false
+
+        private func blinkCursor() {
+                self.execute(commands: [.blinkCursor(self.blink)])
+                self.blink = !self.blink
+        }
 
         override var representedObject: Any? {
                 didSet {

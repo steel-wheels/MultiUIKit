@@ -109,5 +109,6 @@ extension MITextViewCore
                         /* blink: on -> off */
                         strg.set(attribute: self.cursor.normalAttribute, length: 1)
                 }
+                self.cursor.blink = doblink
         }
 }
