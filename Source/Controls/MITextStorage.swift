@@ -35,13 +35,15 @@ public class MITextStorage
                 mFrameSize             = CGSize.zero
                 mContentsSize          = nil
 
+                /* allocate default font */
+                let font = MIFont.monospacedSystemFont(ofSize: 13, weight: .regular)
+                mTextAttributes.current.font = font
+
                 /* init style */
                 mParagraphStyle.headIndent              = 0.0
                 mParagraphStyle.firstLineHeadIndent     = 0.0
                 mParagraphStyle.tailIndent              = 0.0
-
-                //let fontsz = mTextAttributes.current.font.pointSize
-                //updateParagraphStyle(fontSize: fontsz)
+                updateParagraphStyle(fontSize: font.pointSize)
         }
 
         private func updateParagraphStyle(fontSize sz: CGFloat) {
