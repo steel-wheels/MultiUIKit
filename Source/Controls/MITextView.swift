@@ -13,10 +13,20 @@ import  UIKit
 
 open class MITextView: MIInterfaceView
 {
+        #if os(OSX)
+        public typealias KeyEventReceiver = MITextViewCore.KeyEventReceiver
+        #endif
+
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MITextViewCore", frameSize: frm.size)
                 coreTextView().setup(storage: allocateStorage())
         }
+
+        #if os(OSX)
+        public func set(keyEventReceiver receiver: @escaping KeyEventReceiver) {
+                coreTextView().set(keyEventReceiver: receiver)
+        }
+        #endif
 
         private func allocateStorage() -> MITextStorage {
                 return MITextStorage()

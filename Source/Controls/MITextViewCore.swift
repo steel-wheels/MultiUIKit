@@ -20,7 +20,11 @@ typealias MITextViewDelegate = UITextViewDelegate
 public class MITextViewCore: MICoreView, MITextViewDelegate
 {
         #if os(OSX)
-        @IBOutlet var mTextView: NSTextView!
+        public typealias KeyEventReceiver = NSTextViewWrapper.KeyEventReceiver
+        #endif
+
+        #if os(OSX)
+        @IBOutlet var mTextView: NSTextViewWrapper!
         #else
         @IBOutlet var mTextView: UITextView!
         #endif
@@ -38,6 +42,12 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 strg.frameSize = mTextView.frame.size
                 mStorage = strg
         }
+
+        #if os(OSX)
+        public func set(keyEventReceiver receiver: @escaping KeyEventReceiver) {
+                mTextView.set(keyEventReceiver: receiver)
+        }
+        #endif
 
         #if os(OSX)
         private func coreStorage() -> NSTextStorage {
