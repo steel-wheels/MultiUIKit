@@ -33,76 +33,179 @@ class ViewController: NSViewController
                 mTextView.textColor       = textcol
                 mTextView.backgroundColor = backcol
 
+                let res0 = cursorTest(textColor: textcol, backgroundColor: backcol)
+                let res1 = keyCodesTest()
+
+                if res0 && res1 {
+                        NSLog("SUMMARY: OK")
+                } else {
+                        NSLog("SUMMARY: Error")
+                }
+        }
+
+        private func cursorTest(textColor textcol: MIColor, backgroundColor backcol: MIColor) -> Bool {
                 self.execute(commands: [
                         .setTextColor(textcol),
                         .setBackgroundColor(backcol),
                 ])
 
+                var result = true
+
                 self.execute(commands: [
                         .insertText("ab")
                 ])
-                check(string: "ab ")
+                result = check(string: "ab ") && result
 
                 self.execute(commands: [
                         .moveCursorBackward(1),
                         .moveCursorForward(2)
                 ])
-                check(string: "ab ")
+                result = check(string: "ab ") && result
 
                 self.execute(commands: [
                         .insertText("de"),
                         .insertText("c")
                 ])
-                check(string: "abcde ")
+                result = check(string: "abcde ") && result
 
                 self.execute(commands: [
                         .removeForward(1)
                 ])
-                check(string: "abde ")
+                result = check(string: "abde ") && result
 
                 self.execute(commands: [
                         .removeBackward(1)
                 ])
-                check(string: "ade ")
+                result = check(string: "ade ") && result
 
                 self.execute(commands: [
                         .setTextColor(MIColor.red),
                         .setBackgroundColor(MIColor.blue),
                         .insertText("BC")
                 ])
-                check(string: "aBCde ")
+                result = check(string: "aBCde ") && result
 
                 self.execute(commands: [
                         .setCursorVisible(true),
                         .blinkCursor(true)
                 ])
 
-                let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+                mCursorTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
                         DispatchQueue.main.async {
                                 self.blinkCursor()
                         }
                 }
+
+                NSLog("CursorTest: \(result ? "OK" : "Error")")
+                return result
         }
 
         private func execute(commands cmds: Array<MITextEditCommand>) {
                 mTextView.execute(commands: cmds)
-                let storage = mTextView.storage
-                let str = mTextView.storage.context.string
-                NSLog("storage: length=\(storage.validLength) pos=\(storage.cursorPosition) str=\"\(str)\"")
+                //let storage = mTextView.storage
+                //let str = mTextView.storage.context.string
+                //NSLog("storage: length=\(storage.validLength) pos=\(storage.cursorPosition) str=\"\(str)\"")
         }
 
-        private func check(string exp: String) {
+        private func check(string exp: String) -> Bool {
                 let str = mTextView.storage.context.string
-                if str != exp {
+                if str == exp {
+                        return true
+                } else {
                         NSLog("Unexpected content \"\(str)\" expected \"\(exp)\"")
+                        return false
                 }
         }
 
-        private var blink: Bool = false
-
         private func blinkCursor() {
-                self.execute(commands: [.blinkCursor(self.blink)])
-                self.blink = !self.blink
+                let cursor = mTextView.cursor
+                self.execute(commands: [.blinkCursor(!cursor.blink)])
+        }
+
+        private func keyCodesTest() -> Bool {
+                let keycodes: Array<MIKeyCode> = [
+                        .string("Hello"),
+                        .command("Command"),
+                        .funcCode(1),
+                        .funcCode(35),
+                        .backtabCode,
+                        .backtabCode,
+                        .beginCode,
+                        .breakCode,
+                        .carriageReturnCode,
+                        .clearDisplayCode,
+                        .clearLineCode,
+                        .deleteCode,
+                        .deleteCharacterCode,
+                        .deleteForwardCode,
+                        .deleteLineCode,
+                        .downArrowCode,
+                        .endCode,
+                        .enterCode,
+                        .executeCode,
+                        .findCode,
+                        .formfeedCode,
+                        .helpCode,
+                        .homeCode,
+                        .insertCode,
+                        .insertCharacterCode,
+                        .insertLineCode,
+                        .leftArrowCode,
+                        .lineSeparatorCode,
+                        .menuCode,
+                        .menuSwitchCode,
+                        .newlineCode,
+                        .nextCode,
+                        .pageDownCode,
+                        .pageUpCode,
+                        .paragraphSeparatorCode,
+                        .pauseCode,
+                        .prevCode,
+                        .printCode,
+                        .printScreenCode,
+                        .redoCode,
+                        .resetCode,
+                        .rightArrowCode,
+                        .scrollLockCode,
+                        .selectCode,
+                        .stopCode,
+                        .sysReqCode,
+                        .systemCode,
+                        .tabCode,
+                        .undoCode,
+                        .upArrowCode,
+                        .userCode
+                ]
+                var result = true
+                for code in keycodes {
+                        result = result && keyCodeTest(keyCode: code)
+                }
+                NSLog("KeyCodeTest: \(result ? "OK" : "Error")")
+                return result
+        }
+
+        private func keyCodeTest(keyCode code: MIKeyCode) -> Bool {
+                var result = true
+                let enc  = code.encode()
+                let desc = code.description
+                //NSLog("description: \"\(code.description)\", enc: \(enc)")
+                switch MIKeyCode.decode(string: enc) {
+                case .success(let newcodes):
+                        if newcodes.count == 1 {
+                                let newdesc = newcodes[0].description
+                                if desc != newdesc {
+                                        NSLog("[Error] Unexpected decode result: \(desc) != \(newdesc)")
+                                        result = false
+                                }
+                        } else {
+                                NSLog("[Error] Unexpected number")
+                                result = false
+                        }
+                case .failure(let err):
+                        NSLog("[Error] \(MIError.toString(error: err))")
+                        result = false
+                }
+                return result
         }
 
         override var representedObject: Any? {

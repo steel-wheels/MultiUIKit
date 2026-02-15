@@ -14,6 +14,7 @@ import  UIKit
 public enum MIKeyCode
 {
         case string(String)
+        case command(String)
         case funcCode(Int)
         case backspaceCode
         case backtabCode
@@ -64,6 +65,11 @@ public enum MIKeyCode
         case userCode
 
         static private let ESC                          = "\u{1b}"
+
+        static private let FuncPrefix:     Character    = "#"
+        static private let CommandPrefix:  Character    = "["
+        static private let CommandPostfix: Character    = "]"
+
         static private let BackspaceStr                 = "BKS"
         static private let BacktabStr                   = "BKT"
         static private let BeginStr                     = "BGN"
@@ -116,6 +122,7 @@ public enum MIKeyCode
                 let result: String
                 switch self {
                 case .string(let str):          result = "string(\(str))"
+                case .command(let str):         result = "command(\(str))"
                 case .funcCode(let num):        result = "func(\(num))"
                 case .backspaceCode:            result = "backspace"
                 case .backtabCode:              result = "backtab"
@@ -171,6 +178,15 @@ public enum MIKeyCode
         public func encode() -> String {
                 let result: String
                 switch self {
+                case .string(let str):          result = str
+                case .command(let str):         result = MIKeyCode.ESC
+                                                       + String(MIKeyCode.CommandPrefix)
+                                                       + str
+                                                       + String(MIKeyCode.CommandPostfix)
+                case .funcCode(let num):
+                        let f = String(MIKeyCode.FuncPrefix)
+                        let numstr: String = num < 10 ? "\(f)0\(num)" : "\(f)\(num)"
+                        result = MIKeyCode.ESC + numstr
                 case .backspaceCode:            result = MIKeyCode.ESC + MIKeyCode.BackspaceStr
                 case .backtabCode:              result = MIKeyCode.ESC + MIKeyCode.BacktabStr
                 case .beginCode:                result = MIKeyCode.ESC + MIKeyCode.BeginStr
@@ -188,9 +204,6 @@ public enum MIKeyCode
                 case .executeCode:              result = MIKeyCode.ESC + MIKeyCode.ExecuteStr
                 case .findCode:                 result = MIKeyCode.ESC + MIKeyCode.FindStr
                 case .formfeedCode:             result = MIKeyCode.ESC + MIKeyCode.FormFeedStr
-                case .funcCode(let num):
-                        let numstr: String = num < 10 ? "F0\(num)" : "F\(num)"
-                        result = MIKeyCode.ESC + numstr
                 case .helpCode:                 result = MIKeyCode.ESC + MIKeyCode.HelpStr
                 case .homeCode:                 result = MIKeyCode.ESC + MIKeyCode.HomeStr
                 case .insertCharacterCode:      result = MIKeyCode.ESC + MIKeyCode.InsertCharacterStr
@@ -215,7 +228,7 @@ public enum MIKeyCode
                 case .scrollLockCode:           result = MIKeyCode.ESC + MIKeyCode.ScrollLockStr
                 case .selectCode:               result = MIKeyCode.ESC + MIKeyCode.SelectStr
                 case .stopCode:                 result = MIKeyCode.ESC + MIKeyCode.StopStr
-                case .string(let str):          result = str
+
                 case .sysReqCode:               result = MIKeyCode.ESC + MIKeyCode.SysReqStr
                 case .systemCode:               result = MIKeyCode.ESC + MIKeyCode.SystemStr
                 case .tabCode:                  result = MIKeyCode.ESC + MIKeyCode.TabStr
@@ -241,19 +254,7 @@ public enum MIKeyCode
                                 }
                                 idx = str.index(after: idx)
 
-                                /* collect 3 characters (with ESC) */
-                                var codestr: Array<Character> = []
-                                for _ in 0..<3 {
-                                        if idx < endidx {
-                                                codestr.append(str[idx])
-                                        } else {
-                                                let err = MIError.error(
-                                                        errorCode: .parseError,
-                                                        message: "Unexpected end of string at \(#file)")
-                                                return .failure(err)
-                                        }
-                                }
-                                switch decodeSpecialCode(string: codestr){
+                                switch decodeEscapeCode(index: &idx, string: str) {
                                 case .success(let code):
                                         result.append(code)
                                 case .failure(let err):
@@ -271,8 +272,59 @@ public enum MIKeyCode
                 return .success(result)
         }
 
+        public static func decodeEscapeCode(index idx: inout String.Index, string str: String) -> Result<MIKeyCode, NSError> {
+                let endidx = str.endIndex
+                guard idx < endidx else {
+                        let err = MIError.error(errorCode: .parseError,
+                                message: "Unexpected end of string at \(#file)")
+                        return .failure(err)
+                }
+                let c0 = str[idx]
+                if c0 == MIKeyCode.CommandPrefix {
+                        var decoded = false
+                        var cmdstr: String = ""
+                        idx = str.index(after: idx)
+                        while !decoded {
+                                if idx < endidx {
+                                        let c1 = str[idx]
+                                        if c1 == MIKeyCode.CommandPostfix {
+                                                decoded = true
+                                        } else {
+                                                cmdstr.append(c1)
+                                        }
+                                } else {
+                                        let err = MIError.error(errorCode: .parseError,
+                                                message: "Unexpected end of string at \(#file)")
+                                        return .failure(err)
+                                }
+                                idx = str.index(after: idx)
+                        }
+                        return .success(.command(cmdstr))
+                } else {
+                        /* collect 3 characters */
+                        var codestr: Array<Character> = []
+                        for _ in 0..<3 {
+                                if idx < endidx {
+                                        codestr.append(str[idx])
+                                } else {
+                                        let err = MIError.error(
+                                                errorCode: .parseError,
+                                                message: "Unexpected end of string at \(#file)")
+                                        return .failure(err)
+                                }
+                                idx = str.index(after: idx)
+                        }
+                        switch decodeSpecialCode(string: codestr){
+                        case .success(let code):
+                                return .success(code)
+                        case .failure(let err):
+                                return .failure(err)
+                        }
+                }
+        }
+
         public static func decodeSpecialCode(string str: Array<Character>) -> Result<MIKeyCode, NSError> {
-                if str[0] == "F" {
+                if str[0] == MIKeyCode.FuncPrefix {
                         if let v1 = Int(String(str[1])), let v0 = Int(String(str[2])) {
                                 return .success(.funcCode(v1 * 10 + v0))
                         } else {
@@ -435,8 +487,16 @@ public enum MIKeyCode
                         }
                         result.append(code)
                 }
-                if let str = evt.characters {
-                        result.append(.string(str))
+
+                /* check modification */
+                if evt.modifierFlags.contains([.command]) {
+                        if let str = evt.characters {
+                                result.append(.command(str))
+                        }
+                } else {
+                        if let str = evt.characters {
+                                result.append(.string(str))
+                        }
                 }
                 return result
         }

@@ -44,6 +44,10 @@ open class MITextView: MIInterfaceView
                 return coreTextView().storage
         }}
 
+        public var cursor: MITextCursor { get {
+                return coreTextView().cursor
+        }}
+
         public var isEditable: Bool {
                 get         { return coreTextView().isEditable }
                 set(newval) { coreTextView().isEditable = newval }

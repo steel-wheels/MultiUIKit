@@ -255,6 +255,7 @@ extension MITextStorage
                         }
                 }
                 delete(fromIndex: curidx, toIndent: mCurrentIndex)
+                mCurrentIndex = curidx
         }
 
         private func delete(fromIndex fidx: String.Index, toIndent tidx: String.Index) {
