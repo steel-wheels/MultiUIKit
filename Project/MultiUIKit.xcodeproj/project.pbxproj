@@ -99,6 +99,8 @@
 		057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */; };
 		057C1D9D2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
 		057C1D9E2CFA77C500073559 /* MISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */; };
+		057F34C62F4034E700D8D82A /* MIKeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34C52F4034E700D8D82A /* MIKeyCode.swift */; };
+		057F34C72F4034E700D8D82A /* MIKeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34C52F4034E700D8D82A /* MIKeyCode.swift */; };
 		0592173E2F1B00E000161EFA /* MITextAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592173D2F1B00E000161EFA /* MITextAttribute.swift */; };
 		0592173F2F1B00E000161EFA /* MITextAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592173D2F1B00E000161EFA /* MITextAttribute.swift */; };
 		059A694E2F388AE000E9904F /* MITextCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A694D2F388AE000E9904F /* MITextCursor.swift */; };
@@ -273,6 +275,7 @@
 		057C1D962CFA0B0100073559 /* MISegmentedControlCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISegmentedControlCore.swift; sourceTree = "<group>"; };
 		057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MISegmentedControlCore.xib; sourceTree = "<group>"; };
 		057C1D9C2CFA77C500073559 /* MISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MISegmentedControl.swift; path = ../MISegmentedControl.swift; sourceTree = "<group>"; };
+		057F34C52F4034E700D8D82A /* MIKeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIKeyCode.swift; sourceTree = "<group>"; };
 		0592173D2F1B00E000161EFA /* MITextAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextAttribute.swift; sourceTree = "<group>"; };
 		059A694D2F388AE000E9904F /* MITextCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextCursor.swift; sourceTree = "<group>"; };
 		059A7D702F3FEA9A00430F3C /* NSTextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextViewWrapper.swift; sourceTree = "<group>"; };
@@ -589,6 +592,7 @@
 				05F64B3A2CC3AED800AAFAD9 /* MIError.swift */,
 				05D201CA2D6AA78400114347 /* MIImage.swift */,
 				05F64B3B2CC3AED800AAFAD9 /* MIInterfaceView.swift */,
+				057F34C52F4034E700D8D82A /* MIKeyCode.swift */,
 				05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */,
 				05137F492E7D9C5A00139CF0 /* MIRect.swift */,
 				05D201CD2D6AEE2800114347 /* MISize.swift */,
@@ -1189,6 +1193,7 @@
 				055619082E0F65F300BEB418 /* MIIconView.swift in Sources */,
 				059A7D712F3FEA9A00430F3C /* NSTextViewWrapper.swift in Sources */,
 				057B43042D617AEB00C08E5E /* MIBookmark.swift in Sources */,
+				057F34C62F4034E700D8D82A /* MIKeyCode.swift in Sources */,
 				0574C3172CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				05F64B402CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
 				05F64B412CC3AED800AAFAD9 /* MIInterfaceView.swift in Sources */,
@@ -1224,6 +1229,7 @@
 				054721A92CCE25E700F6EEA4 /* MIStack.swift in Sources */,
 				05B2C7D12EDB4245001EFB34 /* MIViewFinder.swift in Sources */,
 				05F64B452CC3C77000AAFAD9 /* MIButton.swift in Sources */,
+				057F34C72F4034E700D8D82A /* MIKeyCode.swift in Sources */,
 				053A7F412D3B3702007C178B /* MITableCore.swift in Sources */,
 				057C1D972CFA0B0100073559 /* MISegmentedControlCore.swift in Sources */,
 				055618EE2E0AECDD00BEB418 /* MIImageCore.swift in Sources */,

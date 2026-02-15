@@ -22,6 +22,7 @@ public class MIError
 
         public enum ErrorCode: Int {
                 case noError            = 0
+                case parseError
                 case bundleError
                 case urlError
         }
