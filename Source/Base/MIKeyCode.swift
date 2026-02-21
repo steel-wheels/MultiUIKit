@@ -15,6 +15,7 @@ public enum MIKeyCode
 {
         case string(String)
         case command(String)
+        case control(Character)
         case funcCode(Int)
         case backspaceCode
         case backtabCode
@@ -66,9 +67,11 @@ public enum MIKeyCode
 
         static private let ESC                          = "\u{1b}"
 
-        static private let FuncPrefix:     Character    = "#"
-        static private let CommandPrefix:  Character    = "["
-        static private let CommandPostfix: Character    = "]"
+        static private let CommandSymbol: Character     = "c"
+        static private let FuncSymbol:    Character     = "f"
+        static private let ControlSymbol: Character     = "r"
+        static private let SymbolBegin:   Character     = "["
+        static private let SymbolEnd:     Character     = "]"
 
         static private let BackspaceStr                 = "BKS"
         static private let BacktabStr                   = "BKT"
@@ -123,6 +126,7 @@ public enum MIKeyCode
                 switch self {
                 case .string(let str):          result = "string(\(str))"
                 case .command(let str):         result = "command(\(str))"
+                case .control(let c):           result = "control(\(c))"
                 case .funcCode(let num):        result = "func(\(num))"
                 case .backspaceCode:            result = "backspace"
                 case .backtabCode:              result = "backtab"
@@ -179,14 +183,21 @@ public enum MIKeyCode
                 let result: String
                 switch self {
                 case .string(let str):          result = str
-                case .command(let str):         result = MIKeyCode.ESC
-                                                       + String(MIKeyCode.CommandPrefix)
-                                                       + str
-                                                       + String(MIKeyCode.CommandPostfix)
-                case .funcCode(let num):
-                        let f = String(MIKeyCode.FuncPrefix)
-                        let numstr: String = num < 10 ? "\(f)0\(num)" : "\(f)\(num)"
-                        result = MIKeyCode.ESC + numstr
+                case .command(let str):         result  = MIKeyCode.ESC
+                                                        + String(MIKeyCode.CommandSymbol)
+                                                        + String(MIKeyCode.SymbolBegin)
+                                                        + str
+                                                        + String(MIKeyCode.SymbolEnd)
+                case .control(let c):           result  = MIKeyCode.ESC
+                                                        + String(MIKeyCode.ControlSymbol)
+                                                        + String(MIKeyCode.SymbolBegin)
+                                                        + String(c)
+                                                        + String(MIKeyCode.SymbolEnd)
+                case .funcCode(let num):        result  = MIKeyCode.ESC
+                                                        + String(MIKeyCode.FuncSymbol)
+                                                        + String(MIKeyCode.SymbolBegin)
+                                                        + "\(num)"
+                                                        + String(MIKeyCode.SymbolEnd)
                 case .backspaceCode:            result = MIKeyCode.ESC + MIKeyCode.BackspaceStr
                 case .backtabCode:              result = MIKeyCode.ESC + MIKeyCode.BacktabStr
                 case .beginCode:                result = MIKeyCode.ESC + MIKeyCode.BeginStr
@@ -272,128 +283,172 @@ public enum MIKeyCode
                 return .success(result)
         }
 
+        private static func isEscapeCodeWithParameters(character c: Character) -> Bool {
+                let result: Bool
+                switch c {
+                case MIKeyCode.CommandSymbol, MIKeyCode.ControlSymbol, MIKeyCode.FuncSymbol:
+                        result = true
+                default:
+                        result = false
+                }
+                return result
+        }
+
         public static func decodeEscapeCode(index idx: inout String.Index, string str: String) -> Result<MIKeyCode, NSError> {
                 let endidx = str.endIndex
                 guard idx < endidx else {
                         let err = MIError.error(errorCode: .parseError,
-                                message: "Unexpected end of string at \(#file)")
+                                                message: "Unexpected end of string at \(#file)")
                         return .failure(err)
                 }
                 let c0 = str[idx]
-                if c0 == MIKeyCode.CommandPrefix {
-                        var decoded = false
-                        var cmdstr: String = ""
-                        idx = str.index(after: idx)
-                        while !decoded {
-                                if idx < endidx {
-                                        let c1 = str[idx]
-                                        if c1 == MIKeyCode.CommandPostfix {
-                                                decoded = true
-                                        } else {
-                                                cmdstr.append(c1)
-                                        }
-                                } else {
-                                        let err = MIError.error(errorCode: .parseError,
-                                                message: "Unexpected end of string at \(#file)")
-                                        return .failure(err)
-                                }
-                                idx = str.index(after: idx)
-                        }
-                        return .success(.command(cmdstr))
+                if isEscapeCodeWithParameters(character: c0) {
+                        /* escape code with parameters */
+                        return decodeEscapeCodeWithParameter(index: &idx, string: str)
                 } else {
-                        /* collect 3 characters */
-                        var codestr: Array<Character> = []
-                        for _ in 0..<3 {
-                                if idx < endidx {
-                                        codestr.append(str[idx])
-                                } else {
-                                        let err = MIError.error(
-                                                errorCode: .parseError,
-                                                message: "Unexpected end of string at \(#file)")
-                                        return .failure(err)
-                                }
-                                idx = str.index(after: idx)
-                        }
-                        switch decodeSpecialCode(string: codestr){
-                        case .success(let code):
-                                return .success(code)
-                        case .failure(let err):
-                                return .failure(err)
-                        }
+                        /* escape code with no parameters */
+                        return decodeEscapeCodeWithNoParameter(index: &idx, string: str)
                 }
         }
 
-        public static func decodeSpecialCode(string str: Array<Character>) -> Result<MIKeyCode, NSError> {
-                if str[0] == MIKeyCode.FuncPrefix {
-                        if let v1 = Int(String(str[1])), let v0 = Int(String(str[2])) {
-                                return .success(.funcCode(v1 * 10 + v0))
+        public static func decodeEscapeCodeWithParameter(index idx: inout String.Index, string str: String) -> Result<MIKeyCode, NSError> {
+                let endidx = str.endIndex
+
+                let keycode = str[idx]
+                idx = str.index(after: idx)
+
+                guard idx < endidx else {
+                        let err = MIError.error(errorCode: .parseError, message: "Unexpected end of string at \(#file)")
+                        return .failure(err)
+                }
+                guard str[idx] == MIKeyCode.SymbolBegin else {
+                        let err = MIError.error(errorCode: .parseError, message: "Beginning symbol is required at \(#file)")
+                        return .failure(err)
+                }
+                idx = str.index(after: idx)
+
+                var parameter: String = ""
+                var hasend = false
+                while idx < endidx {
+                        if str[idx] == MIKeyCode.SymbolEnd {
+                                hasend = true
+                                idx = str.index(after: idx)
+                                break
                         } else {
-                                let err = MIError.error(errorCode: .parseError,
-                                        message: "Integer is expected at \(#file)")
+                                parameter += String(str[idx])
+                                idx = str.index(after: idx)
+                        }
+                }
+                guard hasend else {
+                        let err = MIError.error(errorCode: .parseError, message: "End of symbol is required at \(#file)")
+                        return .failure(err)
+                }
+
+                let result: MIKeyCode
+                switch keycode {
+                case MIKeyCode.CommandSymbol:
+                        result = .command(parameter)
+                case MIKeyCode.ControlSymbol:
+                        if parameter.count == 1 {
+                                if let p = parameter.first {
+                                        result = .control(p)
+                                } else {
+                                        let err = MIError.error(errorCode: .parseError, message: "Can not happen at \(#file)")
+                                        return .failure(err)
+                                }
+                        } else {
+                                let err = MIError.error(errorCode: .parseError, message: "Only one character is required at \(#file)")
                                 return .failure(err)
                         }
-                } else {
-                        let table: Dictionary<String, MIKeyCode> = [
-                                BackspaceStr:           .backspaceCode,
-                                BacktabStr:             .backtabCode,
-                                BeginStr:               .beginCode,
-                                BreakStr:               .breakCode,
-                                CarriageReturnStr:      .carriageReturnCode,
-                                ClearDisplayStr:        .clearDisplayCode,
-                                ClearLineStr:           .clearLineCode,
-                                DeleteStr:              .deleteCode,
-                                DeleteCharacterStr:     .deleteCharacterCode,
-                                DeleteForwardStr:       .deleteForwardCode,
-                                DeleteLineStr:          .deleteLineCode,
-                                DownArrowStr:           .downArrowCode,
-                                EndStr:                 .endCode,
-                                EnterStr:               .enterCode,
-                                ExecuteStr:             .executeCode,
-                                FindStr:                .findCode,
-                                FormFeedStr:            .formfeedCode,
-                                HelpStr:                .helpCode,
-                                HomeStr:                .homeCode,
-                                InsertCharacterStr:     .insertCharacterCode,
-                                InsertStr:              .insertCode,
-                                InsertLineStr:          .insertLineCode,
-                                LeftArrowStr:           .leftArrowCode,
-                                LineSeparatorStr:       .lineSeparatorCode,
-                                MenuStr:                .menuCode,
-                                MenuSwitchStr:          .menuSwitchCode,
-                                NewlineStr:             .newlineCode,
-                                NextStr:                .nextCode,
-                                PageDownStr:            .pageDownCode,
-                                PageUpStr:              .pageUpCode,
-                                ParagraphSeparatorStr:  .paragraphSeparatorCode,
-                                PauseStr:               .pauseCode,
-                                PrevStr:                .prevCode,
-                                PrintStr:               .printCode,
-                                PrintScreenStr:         .printScreenCode,
-                                RedoStr:                .redoCode,
-                                ResetStr:               .resetCode,
-                                RightArrowStr:          .rightArrowCode,
-                                ScrollLockStr:          .scrollLockCode,
-                                SelectStr:              .selectCode,
-                                StopStr:                .stopCode,
-                                SysReqStr:              .sysReqCode,
-                                SystemStr:             .systemCode,
-                                TabStr:                 .tabCode,
-                                UndoStr:                .undoCode,
-                                UpArrowStr:             .upArrowCode,
-                                UserStr:                .userCode
-                        ]
-                        let keycode = String(str)
-                        if let code = table[keycode] {
-                                return .success(code)
+                case MIKeyCode.FuncSymbol:
+                        if let num = Int(parameter) {
+                                result = .funcCode(num)
+                        } else {
+                                let err = MIError.error(errorCode: .parseError, message: "Invalid parameter for func code at \(#file)")
+                                return .failure(err)
+                        }
+                default:
+                        let err = MIError.error(errorCode: .parseError, message: "Unknown code \(keycode) at \(#file)")
+                        return .failure(err)
+                }
+                return .success(result)
+        }
+
+        public static func decodeEscapeCodeWithNoParameter(index idx: inout String.Index, string str: String) -> Result<MIKeyCode, NSError> {
+                let table: Dictionary<String, MIKeyCode> = [
+                        BackspaceStr:           .backspaceCode,
+                        BacktabStr:             .backtabCode,
+                        BeginStr:               .beginCode,
+                        BreakStr:               .breakCode,
+                        CarriageReturnStr:      .carriageReturnCode,
+                        ClearDisplayStr:        .clearDisplayCode,
+                        ClearLineStr:           .clearLineCode,
+                        DeleteStr:              .deleteCode,
+                        DeleteCharacterStr:     .deleteCharacterCode,
+                        DeleteForwardStr:       .deleteForwardCode,
+                        DeleteLineStr:          .deleteLineCode,
+                        DownArrowStr:           .downArrowCode,
+                        EndStr:                 .endCode,
+                        EnterStr:               .enterCode,
+                        ExecuteStr:             .executeCode,
+                        FindStr:                .findCode,
+                        FormFeedStr:            .formfeedCode,
+                        HelpStr:                .helpCode,
+                        HomeStr:                .homeCode,
+                        InsertCharacterStr:     .insertCharacterCode,
+                        InsertStr:              .insertCode,
+                        InsertLineStr:          .insertLineCode,
+                        LeftArrowStr:           .leftArrowCode,
+                        LineSeparatorStr:       .lineSeparatorCode,
+                        MenuStr:                .menuCode,
+                        MenuSwitchStr:          .menuSwitchCode,
+                        NewlineStr:             .newlineCode,
+                        NextStr:                .nextCode,
+                        PageDownStr:            .pageDownCode,
+                        PageUpStr:              .pageUpCode,
+                        ParagraphSeparatorStr:  .paragraphSeparatorCode,
+                        PauseStr:               .pauseCode,
+                        PrevStr:                .prevCode,
+                        PrintStr:               .printCode,
+                        PrintScreenStr:         .printScreenCode,
+                        RedoStr:                .redoCode,
+                        ResetStr:               .resetCode,
+                        RightArrowStr:          .rightArrowCode,
+                        ScrollLockStr:          .scrollLockCode,
+                        SelectStr:              .selectCode,
+                        StopStr:                .stopCode,
+                        SysReqStr:              .sysReqCode,
+                        SystemStr:             .systemCode,
+                        TabStr:                 .tabCode,
+                        UndoStr:                .undoCode,
+                        UpArrowStr:             .upArrowCode,
+                        UserStr:                .userCode
+                ]
+
+                /* get 3 characters */
+                var keycode: String = ""
+                let endidx = str.endIndex
+                for _ in 0..<3 {
+                        if idx < endidx {
+                                keycode += String(str[idx])
+                                idx = str.index(after: idx)
                         } else {
                                 let err = MIError.error(errorCode: .parseError,
-                                        message: "Unknown key code \(keycode) at \(#file)")
+                                                        message: "Unexpected end of string at \(#file)")
                                 return .failure(err)
                         }
                 }
+
+                if let code = table[keycode] {
+                        return .success(code)
+                } else {
+                        let err = MIError.error(errorCode: .parseError,
+                                                message: "Unknown key code \(keycode) at \(#file)")
+                        return .failure(err)
+                }
         }
 
-        #if os(macOS)
+#if os(macOS)
         public static func generate(event evt: NSEvent) -> Array<MIKeyCode> {
                 var result: Array<MIKeyCode> = []
                 if let special = evt.specialKey {
@@ -495,8 +550,30 @@ public enum MIKeyCode
                         }
                 } else {
                         if let str = evt.characters {
-                                result.append(.string(str))
+                                if let code = decodeAsciiCode(string: str) {
+                                        result.append(code)
+                                } else {
+                                        result.append(.string(str))
+                                }
                         }
+                }
+                return result
+        }
+
+        private static func decodeAsciiCode(string str: String) -> MIKeyCode? {
+                var result: MIKeyCode? = nil
+                let endidx = str.endIndex
+                var idx    = str.startIndex
+                if idx < endidx {
+                        if let aval = str[idx].asciiValue {
+                                if 1 <= aval && aval <= 26 {
+                                        let scalar = UnicodeScalar("a").value + UInt32(aval) - 1
+                                        if let ucode = UnicodeScalar(scalar) {
+                                                result = .control(Character(ucode))
+                                        }
+                                }
+                        }
+                        idx = str.index(after: idx)
                 }
                 return result
         }

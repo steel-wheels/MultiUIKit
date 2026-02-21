@@ -125,6 +125,7 @@ class ViewController: NSViewController
         private func keyCodesTest() -> Bool {
                 let keycodes: Array<MIKeyCode> = [
                         .string("Hello"),
+                        .control("z"),
                         .command("Command"),
                         .funcCode(1),
                         .funcCode(35),
