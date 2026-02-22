@@ -450,7 +450,6 @@ public enum MIKeyCode
 
 #if os(macOS)
         public static func generate(event evt: NSEvent) -> Array<MIKeyCode> {
-                var result: Array<MIKeyCode> = []
                 if let special = evt.specialKey {
                         let code: MIKeyCode
                         switch special {
@@ -540,10 +539,11 @@ public enum MIKeyCode
                                 NSLog("[Error] Unknown code at \(#file)")
                                 code = .systemCode
                         }
-                        result.append(code)
+                        return [code]
                 }
 
                 /* check modification */
+                var result: Array<MIKeyCode> = []
                 if evt.modifierFlags.contains([.command]) {
                         if let str = evt.characters {
                                 result.append(.command(str))
