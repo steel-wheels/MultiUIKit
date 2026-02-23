@@ -557,6 +557,9 @@ public enum MIKeyCode
                                 }
                         }
                 }
+                if result.count == 0 {
+                        NSLog("[Warning] No key event")
+                }
                 return result
         }
 
