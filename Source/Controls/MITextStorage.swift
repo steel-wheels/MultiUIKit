@@ -200,6 +200,42 @@ extension MITextStorage
                 }
         }
 
+        public func moveCursorToEndOfLine() -> Int {
+                let str    = mStorage.string
+                var result = 0
+                while(true) {
+                        if let c = nextCharacter() {
+                                if c != "\n" {
+                                        mCurrentIndex = str.index(after: mCurrentIndex)
+                                        result += 1
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+                return result
+        }
+
+        public func moveCursorToBeginningOfLine() -> Int {
+                let str    = mStorage.string
+                var result = 0
+                while(true) {
+                        if let c = previousCharacter() {
+                                if c != "\n" {
+                                        mCurrentIndex = str.index(before: mCurrentIndex)
+                                        result += 1
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+                return result
+        }
+
         /*
          * Edit text
          */
