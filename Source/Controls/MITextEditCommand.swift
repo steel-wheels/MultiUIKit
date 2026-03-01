@@ -14,6 +14,7 @@ import  UIKit
 public enum MITextEditCommand
 {
         case insertText(String)
+        case insertNewline
         case moveCursorToHome
         case moveCursorBackward(Int)
         case moveCursorForward(Int)
@@ -55,6 +56,8 @@ extension MITextViewCore
                 switch cmd {
                 case .insertText(let str):
                         strg.insert(string: str)
+                case .insertNewline:
+                        strg.insertNewline()
                 case .moveCursorToHome:
                         strg.moveCursorToHome()
                 case .moveCursorForward(let offset):

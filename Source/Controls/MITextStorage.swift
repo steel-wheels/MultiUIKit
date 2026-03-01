@@ -153,6 +153,22 @@ extension MITextStorage
                 }
         }
 
+        public func next2Characters() -> (Character?, Character?) {
+                let str    = mStorage.string
+                let n0idx  = str.index(after: mCurrentIndex)
+                let endidx = str.endIndex
+                if n0idx < endidx {
+                        let n1idx  = str.index(after: n0idx)
+                        if n1idx < endidx {
+                                return (str[n0idx], str[n1idx])
+                        } else {
+                                return (str[n0idx], nil)
+                        }
+                } else {
+                        return (nil, nil)
+                }
+        }
+
         public func previousCharacter() -> Character? {
                 let str     = mStorage.string
                 if str.startIndex < mCurrentIndex {
@@ -181,6 +197,18 @@ extension MITextStorage
                                 }
                         } else {
                                 break
+                        }
+                }
+        }
+
+        private func forceCursorForward(offset off: Int) {
+                let str    = mStorage.string
+                let endidx = str.endIndex
+                for _ in 0..<off {
+                        if mCurrentIndex < endidx {
+                                mCurrentIndex = str.index(after: mCurrentIndex)
+                        } else {
+                                NSLog("[Error] Failed to force cursor forward at \(#file)")
                         }
                 }
         }
@@ -243,6 +271,27 @@ extension MITextStorage
         public func insert(string str: String) {
                 let astr   = allocateString(str)
                 insert(attributedString: astr)
+        }
+
+        public func insertNewline() {
+                let (n0charp, n1charp) = next2Characters()
+                if doInsertSpaceAfterSpace(n0charp, n1charp) {
+                        insert(string: "\n ")
+                        forceCursorForward(offset: 2) // for newline and space
+                } else {
+                        insert(string: "\n")
+                        forceCursorForward(offset: 1) // for newline
+                }
+        }
+
+        private func doInsertSpaceAfterSpace(_ n0p: Character?, _ n1p: Character?) -> Bool {
+                if let _ = n0p {
+                        if let n1 = n1p {
+                                /* If n1 is NOT newline, needless to insert space */
+                                return n1 == "\n"
+                        }
+                }
+                return true
         }
 
         public func insert(attributedString str: NSAttributedString) {
