@@ -18,6 +18,8 @@ public enum MITextEditCommand
         case moveCursorToHome
         case moveCursorBackward(Int)
         case moveCursorForward(Int)
+        case moveCursorUp(Int)
+        case moveCursorDown(Int)
         case moveCursorToBeginningOfLine
         case moveCursorToEndOfLine
         case removeForward(Int)
@@ -64,6 +66,10 @@ extension MITextViewCore
                         strg.moveCursorForward(offset: offset)
                 case .moveCursorBackward(let offset):
                         strg.moveCursorBackward(offset: offset)
+                case .moveCursorUp(let offset):
+                        strg.moveCursorUp(offset: offset)
+                case .moveCursorDown(let offset):
+                        strg.moveCursorDown(offset: offset)
                 case .moveCursorToBeginningOfLine:
                         let _ = strg.moveCursorToBeginningOfLine()
                 case .moveCursorToEndOfLine:

@@ -178,6 +178,84 @@ extension MITextStorage
                 return nil
         }
 
+        private func lengthFromBeginningOfLineToCursor() -> Int {
+                let str      = mStorage.string
+                var idx      = mCurrentIndex
+                let startidx = str.startIndex
+                var length   = 0
+                while startidx < idx {
+                        if str[idx] != "\n" {
+                                idx = str.index(before: idx)
+                                length += 1
+                        } else {
+                                break
+                        }
+                }
+                return length
+        }
+
+        private func moveToBeginningOfLine() -> Int {
+                let str      = mStorage.string
+                let startidx = str.startIndex
+                var length   = 0
+                while startidx < mCurrentIndex {
+                        if str[mCurrentIndex] != "\n" {
+                                mCurrentIndex = str.index(before: mCurrentIndex)
+                                length += 1
+                        } else {
+                                break
+                        }
+                }
+                return length
+        }
+
+        private func moveToEndOfLine() -> Int {
+                let str      = mStorage.string
+                let endidx   = str.endIndex
+                var length   = 0
+                while mCurrentIndex < endidx {
+                        let nextidx = str.index(after: mCurrentIndex)
+                        if nextidx < endidx {
+                                if str[nextidx] != "\n" {
+                                        mCurrentIndex = nextidx
+                                        length += 1
+                                } else {
+                                        break
+                                }
+                        } else {
+                                break
+                        }
+                }
+                return length
+        }
+
+        private func movePastPreviousNewline() -> Bool {
+                let str      = mStorage.string
+                let startidx = str.startIndex
+                var result   = false
+                if startidx < mCurrentIndex {
+                        let previdx = str.index(before: mCurrentIndex)
+                        if str[previdx] == "\n" {
+                                mCurrentIndex = previdx
+                                result = true
+                        }
+                }
+                return result
+        }
+
+        private func movePastNextNewline() -> Bool {
+                let str      = mStorage.string
+                let endidx   = str.endIndex
+                var result   = false
+                if mCurrentIndex < endidx {
+                        if str[mCurrentIndex] == "\n" {
+                                mCurrentIndex = str.index(after: mCurrentIndex)
+                                result = true
+                        }
+                }
+                return result
+        }
+
         /*
          * move cursor
          */
@@ -226,6 +304,33 @@ extension MITextStorage
                                 break
                         }
                 }
+        }
+
+        public func moveCursorUp(offset off: Int) {
+                let length = lengthFromBeginningOfLineToCursor()
+                NSLog("mCU len=\(length) off=\(off)")
+                for _ in 0..<off {
+                        NSLog("mCU up")
+                        let _ = moveCursorToBeginningOfLine()
+                        if !movePastPreviousNewline() {
+                                NSLog("mCU break")
+                                break
+                        }
+                }
+                NSLog("mCU e")
+                moveCursorForward(offset: length)
+        }
+
+        public func moveCursorDown(offset off: Int) {
+                NSLog("mCD")
+                let length = lengthFromBeginningOfLineToCursor()
+                for _ in 0..<off {
+                        let _ = moveCursorToEndOfLine()
+                        if !movePastNextNewline() {
+                                break
+                        }
+                }
+                moveCursorForward(offset: length)
         }
 
         public func moveCursorToEndOfLine() -> Int {
