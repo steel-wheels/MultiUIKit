@@ -184,8 +184,9 @@ extension MITextStorage
                 let startidx = str.startIndex
                 var length   = 0
                 while startidx < idx {
-                        if str[idx] != "\n" {
-                                idx = str.index(before: idx)
+                        let previdx = str.index(before: idx)
+                        if str[previdx] != "\n" {
+                                idx = previdx
                                 length += 1
                         } else {
                                 break
@@ -236,7 +237,11 @@ extension MITextStorage
                 if startidx < mCurrentIndex {
                         let previdx = str.index(before: mCurrentIndex)
                         if str[previdx] == "\n" {
-                                mCurrentIndex = previdx
+                                if startidx < previdx {
+                                        mCurrentIndex = str.index(before: previdx)
+                                } else {
+                                        mCurrentIndex = previdx
+                                }
                                 result = true
                         }
                 }
@@ -248,8 +253,13 @@ extension MITextStorage
                 let endidx   = str.endIndex
                 var result   = false
                 if mCurrentIndex < endidx {
-                        if str[mCurrentIndex] == "\n" {
-                                mCurrentIndex = str.index(after: mCurrentIndex)
+                        let nextidx = str.index(after: mCurrentIndex)
+                        if str[nextidx] == "\n" {
+                                if nextidx < endidx {
+                                        mCurrentIndex = str.index(after: nextidx)
+                                } else {
+                                        mCurrentIndex = nextidx
+                                }
                                 result = true
                         }
                 }
@@ -308,21 +318,17 @@ extension MITextStorage
 
         public func moveCursorUp(offset off: Int) {
                 let length = lengthFromBeginningOfLineToCursor()
-                NSLog("mCU len=\(length) off=\(off)")
                 for _ in 0..<off {
-                        NSLog("mCU up")
                         let _ = moveCursorToBeginningOfLine()
                         if !movePastPreviousNewline() {
-                                NSLog("mCU break")
                                 break
                         }
                 }
-                NSLog("mCU e")
+                let _ = moveCursorToBeginningOfLine()
                 moveCursorForward(offset: length)
         }
 
         public func moveCursorDown(offset off: Int) {
-                NSLog("mCD")
                 let length = lengthFromBeginningOfLineToCursor()
                 for _ in 0..<off {
                         let _ = moveCursorToEndOfLine()
@@ -330,6 +336,7 @@ extension MITextStorage
                                 break
                         }
                 }
+                let _ = moveCursorToBeginningOfLine()
                 moveCursorForward(offset: length)
         }
 
