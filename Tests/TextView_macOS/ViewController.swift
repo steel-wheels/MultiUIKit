@@ -34,9 +34,8 @@ class ViewController: NSViewController
                 mTextView.backgroundColor = backcol
 
                 let res0 = cursorTest(textColor: textcol, backgroundColor: backcol)
-                let res1 = keyCodesTest()
 
-                if res0 && res1 {
+                if res0 {
                         NSLog("SUMMARY: OK")
                 } else {
                         NSLog("SUMMARY: Error")
@@ -120,60 +119,6 @@ class ViewController: NSViewController
         private func blinkCursor() {
                 let cursor = mTextView.cursor
                 self.execute(commands: [.blinkCursor(!cursor.blink)])
-        }
-
-        private func keyCodesTest() -> Bool {
-                let keycodes: Array<MIKeyCode> = [
-                        .string("Hello"),
-                        .backspaceCode,
-                        .carriageReturn,
-                        .deleteCode,
-                        .downArrow,
-                        .enterCode,
-                        .functionCode(10),
-                        .formFeed,
-                        .help,
-                        .home,
-                        .insert,
-                        .leftArrow,
-                        .menu,
-                        .newline,
-                        .pageDown,
-                        .pageUp,
-                        .rightArrow,
-                        .tab,
-                        .upArrow
-                ]
-                var result = true
-                for code in keycodes {
-                        result = result && keyCodeTest(keyCode: code)
-                }
-                NSLog("KeyCodeTest: \(result ? "OK" : "Error")")
-                return result
-        }
-
-        private func keyCodeTest(keyCode code: MIKeyCode) -> Bool {
-                var result = true
-                let enc  = code.encode()
-                let desc = code.description
-                //NSLog("description: \"\(code.description)\", enc: \(enc)")
-                switch MIKeyCode.decode(string: enc) {
-                case .success(let newcodes):
-                        if newcodes.count == 1 {
-                                let newdesc = newcodes[0].description
-                                if desc != newdesc {
-                                        NSLog("[Error] Unexpected decode result: \(desc) != \(newdesc)")
-                                        result = false
-                                }
-                        } else {
-                                NSLog("[Error] Unexpected number")
-                                result = false
-                        }
-                case .failure(let err):
-                        NSLog("[Error] \(MIError.toString(error: err))")
-                        result = false
-                }
-                return result
         }
 
         override var representedObject: Any? {

@@ -143,9 +143,9 @@ extension MITextStorage
                 return attribute(at: self.cursorPosition)
         }
 
-        public func nextCharacter() -> Character? {
+        public func nextCharacter(index idx: String.Index) -> Character? {
                 let str     = mStorage.string
-                let nextidx = str.index(after: mCurrentIndex)
+                let nextidx = str.index(after: idx)
                 if nextidx < str.endIndex {
                         return str[nextidx]
                 } else {
@@ -153,9 +153,9 @@ extension MITextStorage
                 }
         }
 
-        public func next2Characters() -> (Character?, Character?) {
+        public func next2Characters(index idx: String.Index) -> (Character?, Character?) {
                 let str    = mStorage.string
-                let n0idx  = str.index(after: mCurrentIndex)
+                let n0idx  = str.index(after: idx)
                 let endidx = str.endIndex
                 if n0idx < endidx {
                         let n1idx  = str.index(after: n0idx)
@@ -169,10 +169,10 @@ extension MITextStorage
                 }
         }
 
-        public func previousCharacter() -> Character? {
+        public func previousCharacter(index idx: String.Index) -> Character? {
                 let str     = mStorage.string
-                if str.startIndex < mCurrentIndex {
-                        let previdx = str.index(before: mCurrentIndex)
+                if str.startIndex < idx {
+                        let previdx = str.index(before: idx)
                         return str[previdx]
                 }
                 return nil
@@ -277,7 +277,7 @@ extension MITextStorage
         public func moveCursorForward(offset off: Int) {
                 let str = mStorage.string
                 for _ in 0..<off {
-                        if let c = nextCharacter() {
+                        if let c = nextCharacter(index: mCurrentIndex) {
                                 if c != "\n" {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                 } else {
@@ -304,7 +304,7 @@ extension MITextStorage
         public func moveCursorBackward(offset off: Int) {
                 let str = mStorage.string
                 for _ in 0..<off {
-                        if let c = previousCharacter() {
+                        if let c = previousCharacter(index: mCurrentIndex) {
                                 if c != "\n" {
                                         mCurrentIndex = str.index(before: mCurrentIndex)
                                 } else {
@@ -344,7 +344,7 @@ extension MITextStorage
                 let str    = mStorage.string
                 var result = 0
                 while(true) {
-                        if let c = nextCharacter() {
+                        if let c = nextCharacter(index: mCurrentIndex) {
                                 if c != "\n" {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                         result += 1
@@ -362,7 +362,7 @@ extension MITextStorage
                 let str    = mStorage.string
                 var result = 0
                 while(true) {
-                        if let c = previousCharacter() {
+                        if let c = previousCharacter(index: mCurrentIndex) {
                                 if c != "\n" {
                                         mCurrentIndex = str.index(before: mCurrentIndex)
                                         result += 1
@@ -386,7 +386,7 @@ extension MITextStorage
         }
 
         public func insertNewline() {
-                let (n0charp, n1charp) = next2Characters()
+                let (n0charp, n1charp) = next2Characters(index: mCurrentIndex)
                 if doInsertSpaceAfterSpace(n0charp, n1charp) {
                         insert(string: "\n ")
                         forceCursorForward(offset: 2) // for newline and space
