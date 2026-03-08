@@ -316,30 +316,6 @@ extension MITextStorage
                 }
         }
 
-        public func moveCursorUp(offset off: Int) {
-                let length = lengthFromBeginningOfLineToCursor()
-                for _ in 0..<off {
-                        let _ = moveCursorToBeginningOfLine()
-                        if !movePastPreviousNewline() {
-                                break
-                        }
-                }
-                let _ = moveCursorToBeginningOfLine()
-                moveCursorForward(offset: length)
-        }
-
-        public func moveCursorDown(offset off: Int) {
-                let length = lengthFromBeginningOfLineToCursor()
-                for _ in 0..<off {
-                        let _ = moveCursorToEndOfLine()
-                        if !movePastNextNewline() {
-                                break
-                        }
-                }
-                let _ = moveCursorToBeginningOfLine()
-                moveCursorForward(offset: length)
-        }
-
         public func moveCursorToEndOfLine() -> Int {
                 let str    = mStorage.string
                 var result = 0
@@ -376,6 +352,38 @@ extension MITextStorage
                 return result
         }
 
+        public func moveCursorToBeginningOfPreviousLine(lines lns: Int) {
+                for _ in 0..<lns {
+                        let _ = moveCursorToBeginningOfLine()
+                        if !movePastPreviousNewline() {
+                                break // no previous line to move
+                        }
+                }
+        }
+
+        public func moveCursorUp(lines lns: Int) {
+                let length = lengthFromBeginningOfLineToCursor()
+                moveCursorToBeginningOfNextLine(lines: lns)
+                let _ = moveCursorToBeginningOfLine()
+                moveCursorForward(offset: length)
+        }
+
+        public func moveCursorToBeginningOfNextLine(lines lns: Int) {
+                for _ in 0..<lns {
+                        let _ = moveCursorToEndOfLine()
+                        if !movePastNextNewline() {
+                                break // no next line to move
+                        }
+                }
+        }
+
+        public func moveCursorDown(lines lns: Int) {
+                let length = lengthFromBeginningOfLineToCursor()
+                moveCursorToBeginningOfNextLine(lines: lns)
+                let _ = moveCursorToBeginningOfLine()
+                moveCursorForward(offset: length)
+        }
+
         /*
          * Edit text
          */
@@ -394,6 +402,10 @@ extension MITextStorage
                         insert(string: "\n")
                         forceCursorForward(offset: 1) // for newline
                 }
+        }
+
+        public func insertTab() {
+                insert(string: "\t")
         }
 
         private func doInsertSpaceAfterSpace(_ n0p: Character?, _ n1p: Character?) -> Bool {

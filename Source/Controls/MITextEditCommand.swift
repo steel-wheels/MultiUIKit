@@ -15,6 +15,7 @@ public enum MITextEditCommand
 {
         case insertText(String)
         case insertNewline
+        case insertTab
         case moveCursorToHome
         case moveCursorBackward(Int)
         case moveCursorForward(Int)
@@ -22,6 +23,8 @@ public enum MITextEditCommand
         case moveCursorDown(Int)
         case moveCursorToBeginningOfLine
         case moveCursorToEndOfLine
+        case moveCursorToBeginingOfPreviousLine // line up
+        case moveCursorToBeginingOfNextLine     // line down
         case removeForward(Int)
         case removeBackward(Int)
         case removeAll
@@ -60,20 +63,26 @@ extension MITextViewCore
                         strg.insert(string: str)
                 case .insertNewline:
                         strg.insertNewline()
+                case .insertTab:
+                        strg.insertTab()
                 case .moveCursorToHome:
                         strg.moveCursorToHome()
                 case .moveCursorForward(let offset):
                         strg.moveCursorForward(offset: offset)
                 case .moveCursorBackward(let offset):
                         strg.moveCursorBackward(offset: offset)
-                case .moveCursorUp(let offset):
-                        strg.moveCursorUp(offset: offset)
-                case .moveCursorDown(let offset):
-                        strg.moveCursorDown(offset: offset)
+                case .moveCursorUp(let lines):
+                        strg.moveCursorUp(lines: lines)
+                case .moveCursorDown(let lines):
+                        strg.moveCursorDown(lines: lines)
                 case .moveCursorToBeginningOfLine:
                         let _ = strg.moveCursorToBeginningOfLine()
                 case .moveCursorToEndOfLine:
                         let _ = strg.moveCursorToEndOfLine()
+                case .moveCursorToBeginingOfNextLine:
+                        strg.moveCursorToBeginningOfNextLine(lines: 1)
+                case .moveCursorToBeginingOfPreviousLine:
+                        strg.moveCursorToBeginningOfPreviousLine(lines: 1)
                 case .removeForward(let len):
                         strg.deleteForward(length: len)
                 case .removeBackward(let len):
