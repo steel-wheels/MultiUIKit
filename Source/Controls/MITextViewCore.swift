@@ -22,6 +22,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         #if os(OSX)
         public typealias KeyEventReceiver = NSTextViewWrapper.KeyEventReceiver
         #endif
+        public typealias CommandResponceReceiver = (_ : MITextEditResponce) -> Void
 
         #if os(OSX)
         @IBOutlet var mTextView: NSTextViewWrapper!
@@ -31,6 +32,7 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
 
         private var mStorage:           MITextStorage?  = nil
         private var mCursor =           MITextCursor()
+        private var mResponceReceiver:  CommandResponceReceiver? = nil
 
         open override func setup() {
                 super.setup(coreView: mTextView)
@@ -48,6 +50,14 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 mTextView.set(keyEventReceiver: receiver)
         }
         #endif
+
+        public func set(commandRespoceReceivier receiver: @escaping CommandResponceReceiver) {
+                mResponceReceiver = receiver
+        }
+
+        public func commandResponceReceiver() -> CommandResponceReceiver? {
+                return mResponceReceiver
+        }
 
         #if os(OSX)
         private func coreStorage() -> NSTextStorage {
@@ -78,6 +88,13 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         public var isEditable: Bool {
                 get { return mTextView.isEditable }
                 set(newval) { mTextView.isEditable = newval }
+        }
+
+        public func terminalSize() -> (Int, Int) {
+                let fsize = storage.fontSize
+                let tsize = mTextView.frame.size
+                return (Int(tsize.width / fsize.width),
+                        Int(tsize.height / fsize.height))
         }
 
         public var insertionPointColor: MIColor {

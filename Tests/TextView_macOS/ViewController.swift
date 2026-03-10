@@ -33,6 +33,11 @@ class ViewController: NSViewController
                 mTextView.textColor       = textcol
                 mTextView.backgroundColor = backcol
 
+                mTextView.set(commandRespoceReceivier: {
+                        (_ resp: MITextEditResponce) -> Void in
+                        NSLog("Responce: \(resp.description)")
+                })
+
                 let res0 = cursorTest(textColor: textcol, backgroundColor: backcol)
 
                 if res0 {
@@ -86,7 +91,8 @@ class ViewController: NSViewController
 
                 self.execute(commands: [
                         .setCursorVisible(true),
-                        .blinkCursor(true)
+                        .blinkCursor(true),
+                        .requestTerminalSize
                 ])
 
                 mCursorTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in

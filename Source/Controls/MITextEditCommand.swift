@@ -32,6 +32,7 @@ public enum MITextEditCommand
         case setTextColor(MIColor)
         case setBackgroundColor(MIColor)
         case setCursorVisible(Bool)
+        case requestTerminalSize
         case blinkCursor(Bool)
 }
 
@@ -97,6 +98,11 @@ extension MITextViewCore
                         strg.setBackgoundColor(color: col)
                 case .setCursorVisible(let dovisible):
                         setCusorVisible(dovisible: dovisible, storage: strg)
+                case .requestTerminalSize:
+                        if let receiver = commandResponceReceiver() {
+                                let (width, height) = terminalSize()
+                                receiver(.receiveConsoleSize(width, height))
+                        }
                 case .blinkCursor(let doon):
                         blinkCursor(blink: doon, storage: strg)
                 }

@@ -28,6 +28,10 @@ open class MITextView: MIInterfaceView
         }
         #endif
 
+        public func set(commandRespoceReceivier receiver: @escaping MITextViewCore.CommandResponceReceiver) {
+                coreTextView().set(commandRespoceReceivier: receiver)
+        }
+
         private func allocateStorage() -> MITextStorage {
                 return MITextStorage()
         }

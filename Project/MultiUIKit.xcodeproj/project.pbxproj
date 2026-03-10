@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		050CE8E62D89C98B0092B36E /* MIAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8E52D89C98B0092B36E /* MIAttributedString.swift */; };
 		050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8E52D89C98B0092B36E /* MIAttributedString.swift */; };
+		050FFD352F5F0D45000A8F66 /* MITextEditResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FFD342F5F0D45000A8F66 /* MITextEditResponce.swift */; };
+		050FFD362F5F0D45000A8F66 /* MITextEditResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050FFD342F5F0D45000A8F66 /* MITextEditResponce.swift */; };
 		05137F4A2E7D9C5A00139CF0 /* MIRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F492E7D9C5A00139CF0 /* MIRect.swift */; };
 		05137F4B2E7D9C5A00139CF0 /* MIRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F492E7D9C5A00139CF0 /* MIRect.swift */; };
 		05137F4D2E7D9CDD00139CF0 /* MIPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */; };
@@ -207,6 +209,7 @@
 
 /* Begin PBXFileReference section */
 		050CE8E52D89C98B0092B36E /* MIAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAttributedString.swift; sourceTree = "<group>"; };
+		050FFD342F5F0D45000A8F66 /* MITextEditResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextEditResponce.swift; sourceTree = "<group>"; };
 		05137F492E7D9C5A00139CF0 /* MIRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIRect.swift; sourceTree = "<group>"; };
 		05137F4C2E7D9CDD00139CF0 /* MIPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIPoint.swift; sourceTree = "<group>"; };
 		0513E2E72F125F1D00180F31 /* MITextEditCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextEditCommand.swift; sourceTree = "<group>"; };
@@ -636,6 +639,7 @@
 				059A694D2F388AE000E9904F /* MITextCursor.swift */,
 				05DF74F32D742D28000EB93D /* MITextStorage.swift */,
 				0513E2E72F125F1D00180F31 /* MITextEditCommand.swift */,
+				050FFD342F5F0D45000A8F66 /* MITextEditResponce.swift */,
 				05E346D22E2B203F009DFD0D /* MIConsole.swift */,
 				054B43032CD75F92000CCD12 /* MIWebView.swift */,
 				0574C3162CD75A4200E7166F /* MIWebViewCore.swift */,
@@ -1161,6 +1165,7 @@
 				052C609D2CC5019F00E7523B /* MILabelCore.swift in Sources */,
 				05B2C7D02EDB4245001EFB34 /* MIViewFinder.swift in Sources */,
 				050CE8E72D89C98B0092B36E /* MIAttributedString.swift in Sources */,
+				050FFD362F5F0D45000A8F66 /* MITextEditResponce.swift in Sources */,
 				05FB6EA32E6B3AD800F53D76 /* MIFileSelectorCore.swift in Sources */,
 				0567D0732CD6760500595CDD /* MITextFieldCore.swift in Sources */,
 				057B43002D61768B00C08E5E /* MIPanel.swift in Sources */,
@@ -1258,6 +1263,7 @@
 				05E346D32E2B203F009DFD0D /* MIConsole.swift in Sources */,
 				0574C3182CD75A4200E7166F /* MIWebViewCore.swift in Sources */,
 				059A694E2F388AE000E9904F /* MITextCursor.swift in Sources */,
+				050FFD352F5F0D45000A8F66 /* MITextEditResponce.swift in Sources */,
 				05F64B462CC3C77000AAFAD9 /* MIButtonCore.swift in Sources */,
 				05137F4E2E7D9CDD00139CF0 /* MIPoint.swift in Sources */,
 				05F64B3D2CC3AED800AAFAD9 /* MICoreView.swift in Sources */,
