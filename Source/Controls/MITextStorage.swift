@@ -195,6 +195,16 @@ extension MITextStorage
                 return length
         }
 
+        private func forceMoveToNext() {
+                let nxtidx = mStorage.string.index(after: mCurrentIndex)
+                let endidx = mStorage.string.endIndex
+                if nxtidx < endidx {
+                        mCurrentIndex = nxtidx
+                } else {
+                        NSLog("[Error] Failed to move to next at \(#file)")
+                }
+        }
+
         private func moveToBeginningOfLine() -> Int {
                 let str      = mStorage.string
                 let startidx = str.startIndex
@@ -254,13 +264,15 @@ extension MITextStorage
                 var result   = false
                 if mCurrentIndex < endidx {
                         let nextidx = str.index(after: mCurrentIndex)
-                        if str[nextidx] == "\n" {
-                                if nextidx < endidx {
-                                        mCurrentIndex = str.index(after: nextidx)
-                                } else {
-                                        mCurrentIndex = nextidx
+                        if nextidx < endidx {
+                                if str[nextidx] == "\n" {
+                                        if nextidx < endidx {
+                                                mCurrentIndex = str.index(after: nextidx)
+                                        } else {
+                                                mCurrentIndex = nextidx
+                                        }
+                                        result = true
                                 }
-                                result = true
                         }
                 }
                 return result
@@ -285,18 +297,6 @@ extension MITextStorage
                                 }
                         } else {
                                 break
-                        }
-                }
-        }
-
-        private func forceCursorForward(offset off: Int) {
-                let str    = mStorage.string
-                let endidx = str.endIndex
-                for _ in 0..<off {
-                        if mCurrentIndex < endidx {
-                                mCurrentIndex = str.index(after: mCurrentIndex)
-                        } else {
-                                NSLog("[Error] Failed to force cursor forward at \(#file)")
                         }
                 }
         }
@@ -394,28 +394,13 @@ extension MITextStorage
         }
 
         public func insertNewline() {
-                let (n0charp, n1charp) = next2Characters(index: mCurrentIndex)
-                if doInsertSpaceAfterSpace(n0charp, n1charp) {
-                        insert(string: "\n ")
-                        forceCursorForward(offset: 2) // for newline and space
-                } else {
-                        insert(string: "\n")
-                        forceCursorForward(offset: 1) // for newline
-                }
+                insert(string: "\n")
+                forceMoveToNext()
         }
 
         public func insertTab() {
                 insert(string: "\t")
-        }
-
-        private func doInsertSpaceAfterSpace(_ n0p: Character?, _ n1p: Character?) -> Bool {
-                if let _ = n0p {
-                        if let n1 = n1p {
-                                /* If n1 is NOT newline, needless to insert space */
-                                return n1 == "\n"
-                        }
-                }
-                return true
+                forceMoveToNext()
         }
 
         public func insert(attributedString str: NSAttributedString) {
