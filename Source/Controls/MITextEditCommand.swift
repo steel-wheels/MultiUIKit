@@ -31,8 +31,9 @@ public enum MITextEditCommand
         case setFont(MIFont)
         case setTextColor(MIColor)
         case setBackgroundColor(MIColor)
-        case setCursorVisible(Bool)
         case requestTerminalSize
+        // cursor operation
+        case setCursorVisible(Bool)
         case blinkCursor(Bool)
 }
 
