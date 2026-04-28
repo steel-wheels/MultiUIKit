@@ -13,6 +13,8 @@ import  UIKit
 
 public class MITextStorage
 {
+        static let NEWLINE: Character = "\u{0a}"        // Characcter is LF
+
         public enum EventType {
                 case textAttribute(MITextAttribute)
         }
@@ -71,7 +73,7 @@ public class MITextStorage
         }}
 
         public var validLength: Int { get {
-                return mStorage.string.lengthOfBytes(using: .utf8) - 1
+                return max(mStorage.length - 1, 0)
         }}
 
         open var frameSize: CGSize {
@@ -185,7 +187,7 @@ extension MITextStorage
                 var length   = 0
                 while startidx < idx {
                         let previdx = str.index(before: idx)
-                        if str[previdx] != "\n" {
+                        if str[previdx] != MITextStorage.NEWLINE {
                                 idx = previdx
                                 length += 1
                         } else {
@@ -210,7 +212,7 @@ extension MITextStorage
                 let startidx = str.startIndex
                 var length   = 0
                 while startidx < mCurrentIndex {
-                        if str[mCurrentIndex] != "\n" {
+                        if str[mCurrentIndex] != MITextStorage.NEWLINE {
                                 mCurrentIndex = str.index(before: mCurrentIndex)
                                 length += 1
                         } else {
@@ -227,7 +229,7 @@ extension MITextStorage
                 while mCurrentIndex < endidx {
                         let nextidx = str.index(after: mCurrentIndex)
                         if nextidx < endidx {
-                                if str[nextidx] != "\n" {
+                                if str[nextidx] != MITextStorage.NEWLINE {
                                         mCurrentIndex = nextidx
                                         length += 1
                                 } else {
@@ -246,7 +248,7 @@ extension MITextStorage
                 var result   = false
                 if startidx < mCurrentIndex {
                         let previdx = str.index(before: mCurrentIndex)
-                        if str[previdx] == "\n" {
+                        if str[previdx] == MITextStorage.NEWLINE {
                                 if startidx < previdx {
                                         mCurrentIndex = str.index(before: previdx)
                                 } else {
@@ -265,7 +267,7 @@ extension MITextStorage
                 if mCurrentIndex < endidx {
                         let nextidx = str.index(after: mCurrentIndex)
                         if nextidx < endidx {
-                                if str[nextidx] == "\n" {
+                                if str[nextidx] == MITextStorage.NEWLINE {
                                         if nextidx < endidx {
                                                 mCurrentIndex = str.index(after: nextidx)
                                         } else {
@@ -290,12 +292,14 @@ extension MITextStorage
                 let str = mStorage.string
                 for _ in 0..<off {
                         if let c = nextCharacter(index: mCurrentIndex) {
-                                if c != "\n" {
+                                if c != MITextStorage.NEWLINE {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                 } else {
+                                        NSLog("[Error] overrun")
                                         break
                                 }
                         } else {
+                                NSLog("[Error] overrun")
                                 break
                         }
                 }
@@ -305,7 +309,7 @@ extension MITextStorage
                 let str = mStorage.string
                 for _ in 0..<off {
                         if let c = previousCharacter(index: mCurrentIndex) {
-                                if c != "\n" {
+                                if c != MITextStorage.NEWLINE {
                                         mCurrentIndex = str.index(before: mCurrentIndex)
                                 } else {
                                         break
@@ -321,7 +325,7 @@ extension MITextStorage
                 var result = 0
                 while(true) {
                         if let c = nextCharacter(index: mCurrentIndex) {
-                                if c != "\n" {
+                                if c != MITextStorage.NEWLINE {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                         result += 1
                                 } else {
@@ -339,7 +343,7 @@ extension MITextStorage
                 var result = 0
                 while(true) {
                         if let c = previousCharacter(index: mCurrentIndex) {
-                                if c != "\n" {
+                                if c != MITextStorage.NEWLINE {
                                         mCurrentIndex = str.index(before: mCurrentIndex)
                                         result += 1
                                 } else {
@@ -394,7 +398,7 @@ extension MITextStorage
         }
 
         public func insertNewline() {
-                insert(string: "\n")
+                insert(string: String(MITextStorage.NEWLINE))
                 forceMoveToNext()
         }
 
@@ -421,7 +425,7 @@ extension MITextStorage
                 let endidx   = str.endIndex
                 for _ in 0..<len {
                         if curidx < endidx {
-                                if str[curidx] != "\n" {
+                                if str[curidx] != MITextStorage.NEWLINE {
                                         curidx = str.index(after: curidx)
                                 } else {
                                         break
@@ -439,7 +443,7 @@ extension MITextStorage
                 var curidx   = mCurrentIndex
                 for _ in 0..<len {
                         if startidx <= curidx {
-                                if str[curidx] != "\n" {
+                                if str[curidx] != MITextStorage.NEWLINE {
                                         curidx = str.index(before: curidx)
                                 } else {
                                         break

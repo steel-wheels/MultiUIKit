@@ -35,6 +35,56 @@ public enum MITextEditCommand
         // cursor operation
         case setCursorVisible(Bool)
         case blinkCursor(Bool)
+
+        public var description: String { get {
+                let result: String
+                switch self {
+
+                case .insertText(let txt):
+                        result = "insertText(\"\(txt)\")"
+                case .insertNewline:
+                        result = "insertNewline"
+                case .insertTab:
+                        result = "insertTab"
+                case .moveCursorToHome:
+                        result = "moveCursorToHome"
+                case .moveCursorBackward(let n):
+                        result = "moveCursorBackward(\(n))"
+                case .moveCursorForward(let n):
+                        result = "moveCursorForward(\(n))"
+                case .moveCursorUp(let n):
+                        result = "moveCursorUp(\(n))"
+                case .moveCursorDown(let n):
+                        result = "moveCursorDown(\(n))"
+                case .moveCursorToBeginningOfLine:
+                        result = "moveCursorToBeginningOfLine"
+                case .moveCursorToEndOfLine:
+                        result = "moveCursorToEndOfLine"
+                case .moveCursorToBeginingOfPreviousLine:
+                        result = "moveCursorToBeginingOfPreviousLine"
+                case .moveCursorToBeginingOfNextLine:
+                        result = "moveCursorToBeginingOfNextLine"
+                case .removeForward(let n):
+                        result = "removeForward(\(n))"
+                case .removeBackward(let n):
+                        result = "removeBackward(\(n))"
+                case .removeAll:
+                        result = "removeAll"
+                case .setFont(_):
+                        result = "setFont()"
+                case .setTextColor(_):
+                        result = "setTextColor()"
+                case .setBackgroundColor(_):
+                        result = "setBackgroundColor()"
+                case .requestTerminalSize:
+                        result = "requestTerminalSize"
+                case .setCursorVisible(let f):
+                        result = "setCursorVisible(\(f))"
+                case .blinkCursor(let f):
+                        result = "blinkCursor(\(f))"
+                }
+                return result
+        }}
 }
 
 extension MITextView
