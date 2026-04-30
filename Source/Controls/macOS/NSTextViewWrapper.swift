@@ -17,6 +17,10 @@ public class NSTextViewWrapper: NSTextView
                 mKeyEventReceiver = receiver
         }
 
+        public override var shouldDrawInsertionPoint: Bool {
+                return false
+        }
+
         public override func keyDown(with event: NSEvent) {
                 if let receiver = mKeyEventReceiver {
                         if !receiver(true, event) {
