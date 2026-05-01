@@ -152,7 +152,7 @@ extension MITextViewCore
                 case .requestTerminalSize:
                         if let receiver = commandResponceReceiver() {
                                 let (width, height) = terminalSize()
-                                receiver(.receiveConsoleSize(width, height))
+                                receiver(.returnConsoleSize(width, height))
                         }
                 case .blinkCursor(let doon):
                         blinkCursor(blink: doon, storage: strg)
