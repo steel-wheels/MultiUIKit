@@ -281,6 +281,37 @@ extension MITextStorage
         }
 
         /*
+         * cursor position
+         */
+        public var cursorPoint: (Int, Int) { get {
+                let str    = mStorage.string
+                var idx    = str.startIndex
+                var endidx = str.endIndex
+
+                var row: Int = 1
+                var col: Int = 1
+
+                guard idx < endidx else { return (row, col) }
+                endidx = str.index(before: endidx) // skip last 1
+                guard idx < endidx else { return (row, col) }
+
+                while idx < endidx {
+                        if idx == mCurrentIndex {
+                                break
+                        }
+                        let c = str[idx]
+                        if c == MITextStorage.NEWLINE {
+                                row += 1
+                                col  = 1
+                        } else {
+                                col += 1
+                        }
+                        idx = str.index(after: idx)
+                }
+                return (row, col)
+        }}
+
+        /*
          * move cursor
          */
 
@@ -295,11 +326,9 @@ extension MITextStorage
                                 if c != MITextStorage.NEWLINE {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                 } else {
-                                        NSLog("[Error] overrun")
                                         break
                                 }
                         } else {
-                                NSLog("[Error] overrun")
                                 break
                         }
                 }
@@ -386,6 +415,23 @@ extension MITextStorage
                 moveCursorToBeginningOfNextLine(lines: lns)
                 let _ = moveCursorToBeginningOfLine()
                 moveCursorForward(offset: length)
+        }
+
+        public func moveCursorToPoint(row rownum: Int, column colnum: Int) {
+                guard rownum >= 1 && colnum >= 1 else {
+                        NSLog("[Error] Invalid parameter at \(#file)")
+                        return
+                }
+                // initialize the index
+                mCurrentIndex = mStorage.string.startIndex
+                // move for row
+                if rownum > 1 {
+                        moveCursorToBeginningOfNextLine(lines: rownum - 1)
+                }
+                // move for column
+                if colnum > 1 {
+                        moveCursorForward(offset: colnum - 1)
+                }
         }
 
         /*

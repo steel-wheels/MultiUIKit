@@ -25,6 +25,8 @@ public enum MITextEditCommand
         case moveCursorToEndOfLine
         case moveCursorToBeginingOfPreviousLine // line up
         case moveCursorToBeginingOfNextLine     // line down
+        case moveCursorToPoint(Int, Int)        // row, column
+        case requireCursorPosition
         case removeForward(Int)
         case removeBackward(Int)
         case removeAll
@@ -39,7 +41,6 @@ public enum MITextEditCommand
         public var description: String { get {
                 let result: String
                 switch self {
-
                 case .insertText(let txt):
                         result = "insertText(\"\(txt)\")"
                 case .insertNewline:
@@ -64,6 +65,10 @@ public enum MITextEditCommand
                         result = "moveCursorToBeginingOfPreviousLine"
                 case .moveCursorToBeginingOfNextLine:
                         result = "moveCursorToBeginingOfNextLine"
+                case .moveCursorToPoint(let row, let col):
+                        result = "moveCursorToPoint(\(row), \(col))"
+                case .requireCursorPosition:
+                        result = "requireCursorPosition"
                 case .removeForward(let n):
                         result = "removeForward(\(n))"
                 case .removeBackward(let n):
@@ -135,6 +140,11 @@ extension MITextViewCore
                         strg.moveCursorToBeginningOfNextLine(lines: 1)
                 case .moveCursorToBeginingOfPreviousLine:
                         strg.moveCursorToBeginningOfPreviousLine(lines: 1)
+                case .moveCursorToPoint(let row, let col):
+                        strg.moveCursorToPoint(row: row, column: col)
+                case .requireCursorPosition:
+                        let (col, row) = strg.cursorPoint
+                        NSLog("cursorPosition: \(col), \(row)")
                 case .removeForward(let len):
                         strg.deleteForward(length: len)
                 case .removeBackward(let len):

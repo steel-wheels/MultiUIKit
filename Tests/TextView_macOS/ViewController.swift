@@ -92,7 +92,19 @@ class ViewController: NSViewController
                 self.execute(commands: [
                         .setCursorVisible(true),
                         .blinkCursor(true),
+                        .requireCursorPosition,
                         .requestTerminalSize
+                ])
+
+                self.execute(commands: [
+                        .moveCursorForward(3),
+                        .insertNewline,
+                        .insertText("012345"),
+                        .moveCursorForward(6),
+                        .insertNewline,
+                        .insertText("EDCBA"),
+                        .moveCursorForward(5),
+                        .moveCursorToPoint(3, 3)
                 ])
 
                 mCursorTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in

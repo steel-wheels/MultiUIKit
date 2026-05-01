@@ -13,11 +13,14 @@ import  UIKit
 
 public enum MITextEditResponce
 {
-        case returnConsoleSize(Int, Int)       // column num, row num
+        case returnCursorPosition(Int, Int)     // column num, row num
+        case returnConsoleSize(Int, Int)        // column num, row num
 
         public var description: String { get {
                 let result: String
                 switch self {
+                case .returnCursorPosition(let row, let col):
+                        result = "receiveCursorPosition(\(row), \(col))"
                 case .returnConsoleSize(let width, let height):
                         result = "receiveConsoleSize(\(width), \(height))"
                 }
