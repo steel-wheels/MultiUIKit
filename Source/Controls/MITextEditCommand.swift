@@ -143,8 +143,17 @@ extension MITextViewCore
                 case .moveCursorToPoint(let row, let col):
                         strg.moveCursorToPoint(row: row, column: col)
                 case .requireCursorPosition:
-                        let (col, row) = strg.cursorPoint
-                        NSLog("cursorPosition: \(col), \(row)")
+                        if let receiver = commandResponceReceiver() {
+                                let row, col: Int
+                                if strg.nextCharacter(index: strg.currentIndex) != nil {
+                                        (col, row) = strg.cursorPoint
+                                        NSLog("cursorPosition: col=\(col), row=\(row)")
+                                } else {
+                                        (col, row) = self.terminalSize()
+                                        NSLog("termialSize: col=\(col), row=\(row)")
+                                }
+                                receiver(.returnCursorPosition(row, col))
+                        }
                 case .removeForward(let len):
                         strg.deleteForward(length: len)
                 case .removeBackward(let len):
