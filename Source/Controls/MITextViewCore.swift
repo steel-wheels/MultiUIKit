@@ -26,7 +26,9 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
 
         #if os(OSX)
         @IBOutlet var mTextView: NSTextViewWrapper!
-        #else
+
+        @IBOutlet weak var mScrollView: NSScrollView!
+#else
         @IBOutlet var mTextView: UITextView!
         #endif
 

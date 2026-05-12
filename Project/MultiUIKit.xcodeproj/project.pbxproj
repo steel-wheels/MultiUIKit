@@ -37,6 +37,7 @@
 		052474922CD771C000B4D281 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052474912CD771C000B4D281 /* WebKit.framework */; };
 		05287CC22E3A523000823FAD /* MIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05287CC12E3A523000823FAD /* MIEvent.swift */; };
 		05287CC32E3A523000823FAD /* MIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05287CC12E3A523000823FAD /* MIEvent.swift */; };
+		052BC8B42FB0CD00007BEB4D /* MITextViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052BC8B32FB0CD00007BEB4D /* MITextViewCore.xib */; };
 		052C608A2CC4F34700E7523B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C60892CC4F34700E7523B /* AppDelegate.swift */; };
 		052C608C2CC4F34700E7523B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C608B2CC4F34700E7523B /* ViewController.swift */; };
 		052C608E2CC4F34900E7523B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 052C608D2CC4F34900E7523B /* Assets.xcassets */; };
@@ -144,7 +145,6 @@
 		05DF74CE2D73455F000EB93D /* MITextViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74CC2D73455F000EB93D /* MITextViewCore.swift */; };
 		05DF74D02D734598000EB93D /* MITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74CF2D734598000EB93D /* MITextView.swift */; };
 		05DF74D12D734598000EB93D /* MITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74CF2D734598000EB93D /* MITextView.swift */; };
-		05DF74D32D73464A000EB93D /* MITextViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DF74D22D73464A000EB93D /* MITextViewCore.xib */; };
 		05DF74D52D734799000EB93D /* MITextViewCore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DF74D42D734799000EB93D /* MITextViewCore.xib */; };
 		05DF74D72D73D057000EB93D /* MIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74D62D73D057000EB93D /* MIFont.swift */; };
 		05DF74D82D73D057000EB93D /* MIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF74D62D73D057000EB93D /* MIFont.swift */; };
@@ -231,6 +231,7 @@
 		0524748F2CD771A700B4D281 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.1.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		052474912CD771C000B4D281 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		05287CC12E3A523000823FAD /* MIEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIEvent.swift; sourceTree = "<group>"; };
+		052BC8B32FB0CD00007BEB4D /* MITextViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextViewCore.xib; sourceTree = "<group>"; };
 		052C60872CC4F34700E7523B /* UnitTest_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitTest_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		052C60892CC4F34700E7523B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		052C608B2CC4F34700E7523B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -303,7 +304,6 @@
 		05DF74C92D731593000EB93D /* MIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIColor.swift; sourceTree = "<group>"; };
 		05DF74CC2D73455F000EB93D /* MITextViewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextViewCore.swift; sourceTree = "<group>"; };
 		05DF74CF2D734598000EB93D /* MITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextView.swift; sourceTree = "<group>"; };
-		05DF74D22D73464A000EB93D /* MITextViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextViewCore.xib; sourceTree = "<group>"; };
 		05DF74D42D734799000EB93D /* MITextViewCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MITextViewCore.xib; sourceTree = "<group>"; };
 		05DF74D62D73D057000EB93D /* MIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIFont.swift; sourceTree = "<group>"; };
 		05DF74DD2D73E748000EB93D /* TextView_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextView_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -684,8 +684,8 @@
 				0574C3192CD75AEA00E7166F /* MIWebViewCore.xib */,
 				057C1D992CFA0BA700073559 /* MISegmentedControlCore.xib */,
 				053A7F3C2D3B34D2007C178B /* MITableCore.xib */,
-				05DF74D22D73464A000EB93D /* MITextViewCore.xib */,
 				059A7D702F3FEA9A00430F3C /* NSTextViewWrapper.swift */,
+				052BC8B32FB0CD00007BEB4D /* MITextViewCore.xib */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1061,8 +1061,8 @@
 			files = (
 				053A7F3D2D3B34D2007C178B /* MITableCore.xib in Resources */,
 				05B64A762E0FE8650047CBDF /* MIDropViewCore.xib in Resources */,
+				052BC8B42FB0CD00007BEB4D /* MITextViewCore.xib in Resources */,
 				0574C31A2CD75AEA00E7166F /* MIWebViewCore.xib in Resources */,
-				05DF74D32D73464A000EB93D /* MITextViewCore.xib in Resources */,
 				055618E92E0AEB6500BEB418 /* MIImageCore.xib in Resources */,
 				05FB6EA12E6B39DB00F53D76 /* MIFileSelectorCore.xib in Resources */,
 				05F64B4E2CC3C81700AAFAD9 /* MIButtonCore.xib in Resources */,

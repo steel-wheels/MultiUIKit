@@ -12,7 +12,7 @@ class ViewController: NSViewController
 {
 
         @IBOutlet weak var mTextView: MITextView!
-
+        
         private var mCursorTimer: Timer? = nil
 
         deinit {
