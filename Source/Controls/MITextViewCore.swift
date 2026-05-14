@@ -25,10 +25,9 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         public typealias CommandResponceReceiver = (_ : MITextEditResponce) -> Void
 
         #if os(OSX)
-        @IBOutlet var mTextView: NSTextViewWrapper!
-
+        @IBOutlet weak var mTextView: NSTextViewWrapper!
         @IBOutlet weak var mScrollView: NSScrollView!
-#else
+        #else
         @IBOutlet var mTextView: UITextView!
         #endif
 
@@ -37,13 +36,16 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         private var mResponceReceiver:  CommandResponceReceiver? = nil
 
         open override func setup() {
+                #if os(OSX)
+                super.setup(coreView: mScrollView)
+                #else
                 super.setup(coreView: mTextView)
+                #endif
                 mTextView.delegate  = self
         }
 
         public func setup(storage strg: MITextStorage) {
                 strg.setCoreStorage(coreStorage())
-                strg.frameSize = mTextView.frame.size
                 mStorage = strg
         }
 
@@ -92,12 +94,21 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 set(newval) { mTextView.isEditable = newval }
         }
 
-        public func terminalSize() -> (Int, Int) {
+        #if os(OSX)
+        public func visibleTerminalSize() -> (Int, Int) {
+                let fsize = storage.fontSize
+                let tsize = mScrollView.frame.size
+                return (Int(tsize.width / fsize.width),
+                        Int(tsize.height / fsize.height))
+        }
+        #else
+        public func visibleTerminalSize() -> (Int, Int) {
                 let fsize = storage.fontSize
                 let tsize = mTextView.frame.size
                 return (Int(tsize.width / fsize.width),
                         Int(tsize.height / fsize.height))
         }
+        #endif
 
         public var insertionPointColor: MIColor {
                 get      {
@@ -136,32 +147,5 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         super.backgroundColor = col
                 }
         }
-
-        #if os(OSX)
-        public override func setFrameSize(_ newsize: CGSize) {
-                super.setFrameSize(newsize)
-                if let storage = mStorage {
-                        storage.frameSize = newsize
-                }
-        }
-        #else
-        public override var frame: CGRect {
-                get     { return super.frame    }
-                set(newval) {
-                        super.frame = newval
-                        if let storage = mStorage {
-                                storage.frameSize = newval.size
-                        }
-                }
-        }
-        #endif
-
-        public override var intrinsicContentSize: CGSize { get {
-                if let csize = storage.contentsSize {
-                        return csize
-                } else {
-                        return super.intrinsicContentSize
-                }
-        }}
 }
 

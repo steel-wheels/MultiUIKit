@@ -26,16 +26,12 @@ public class MITextStorage
         private var mCurrentIndex:      String.Index
         private var mParagraphStyle:    NSMutableParagraphStyle
         private var mTextAttributes:    MITextAttributes
-        private var mFrameSize:         CGSize
-        private var mContentsSize:      CGSize?
 
         public init(){
                 mStorage               = NSTextStorage()
                 mCurrentIndex          = mStorage.string.startIndex
                 mParagraphStyle        = NSMutableParagraphStyle()
                 mTextAttributes        = MITextAttributes()
-                mFrameSize             = CGSize.zero
-                mContentsSize          = nil
 
                 /* allocate default font */
                 let font = MIFont.monospacedSystemFont(ofSize: 13, weight: .regular)
@@ -75,16 +71,6 @@ public class MITextStorage
         public var validLength: Int { get {
                 return max(mStorage.length - 1, 0)
         }}
-
-        open var frameSize: CGSize {
-                get { return mFrameSize }
-                set(newval){ mFrameSize = newval }
-        }
-
-        public var contentsSize: CGSize? {
-                get { return mContentsSize }
-                set(newval){ mContentsSize = newval }
-        }
 
         public var fontSize: CGSize { get {
                 let astr  = allocateString(" ")

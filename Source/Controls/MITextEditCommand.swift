@@ -149,7 +149,7 @@ extension MITextViewCore
                                         (col, row) = strg.cursorPoint
                                         NSLog("cursorPosition: col=\(col), row=\(row)")
                                 } else {
-                                        (col, row) = self.terminalSize()
+                                        (col, row) = self.visibleTerminalSize()
                                         NSLog("termialSize: col=\(col), row=\(row)")
                                 }
                                 receiver(.returnCursorPosition(row, col))
@@ -170,7 +170,7 @@ extension MITextViewCore
                         setCusorVisible(dovisible: dovisible, storage: strg)
                 case .requestTerminalSize:
                         if let receiver = commandResponceReceiver() {
-                                let (width, height) = terminalSize()
+                                let (width, height) = visibleTerminalSize()
                                 receiver(.returnConsoleSize(width, height))
                         }
                 case .blinkCursor(let doon):
