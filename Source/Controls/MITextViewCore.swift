@@ -31,7 +31,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         @IBOutlet var mTextView: UITextView!
         #endif
 
-        private var mStorage:           MITextStorage?  = nil
         private var mCursor =           MITextCursor()
         private var mResponceReceiver:  CommandResponceReceiver? = nil
 
@@ -42,11 +41,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 super.setup(coreView: mTextView)
                 #endif
                 mTextView.delegate  = self
-        }
-
-        public func setup(storage strg: MITextStorage) {
-                strg.setCoreStorage(coreStorage())
-                mStorage = strg
         }
 
         #if os(OSX)
@@ -63,30 +57,27 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 return mResponceReceiver
         }
 
-        #if os(OSX)
-        private func coreStorage() -> NSTextStorage {
-                if let strg = mTextView.textStorage {
-                        return strg
-                } else {
-                        fatalError("[Error] No core storage at \(#function) in \(#file)")
-                }
-        }
-        #else
-        private func coreStorage() -> NSTextStorage {
-                return mTextView.textStorage
-        }
+        #if os(iOS)
+        private var mStorage:           MITextStorage?  = nil
         #endif
 
-        public var cursor: MITextCursor { get {
-                return mCursor
-        }}
-
         public var storage: MITextStorage { get {
+                #if os(OSX)
+                return mTextView.storage
+                #else
                 if let storage = mStorage {
                         return storage
                 } else {
-                        fatalError("Failed to allocate storage")
+                        let newstrg = MITextStorage()
+                        newstrg.setCoreStorage(mTextView.textStorage)
+                        mStorage = newstrg
+                        return newstrg
                 }
+                #endif
+        }}
+
+        public var cursor: MITextCursor { get {
+                return mCursor
         }}
 
         public var isEditable: Bool {
