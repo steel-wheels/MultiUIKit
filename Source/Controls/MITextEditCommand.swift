@@ -37,6 +37,8 @@ public enum MITextEditCommand
         // cursor operation
         case setCursorVisible(Bool)
         case blinkCursor(Bool)
+        // update terminal
+        case invalidateIntrinsicContentSize
 
         public var description: String { get {
                 let result: String
@@ -87,6 +89,8 @@ public enum MITextEditCommand
                         result = "setCursorVisible(\(f))"
                 case .blinkCursor(let f):
                         result = "blinkCursor(\(f))"
+                case .invalidateIntrinsicContentSize:
+                        result = "invalidateIntrinsicContentSize"
                 }
                 return result
         }}
@@ -115,17 +119,13 @@ extension MITextViewCore
         }
 
         private func execute(command cmd: MITextEditCommand, storage strg: MITextStorage) {
-                var doupdate: Bool = false
                 switch cmd {
                 case .insertText(let str):
                         strg.insert(string: str)
-                        doupdate = true
                 case .insertNewline:
                         strg.insertNewline()
-                        doupdate = true
                 case .insertTab:
                         strg.insertTab()
-                        doupdate = true
                 case .moveCursorToHome:
                         strg.moveCursorToHome()
                 case .moveCursorForward(let offset):
@@ -160,16 +160,12 @@ extension MITextViewCore
                         }
                 case .removeForward(let len):
                         strg.deleteForward(length: len)
-                        doupdate = true
                 case .removeBackward(let len):
                         strg.deleteBackward(length: len)
-                        doupdate = true
                 case .removeAll:
                         strg.deleteAll()
-                        doupdate = true
                 case .setFont(let font):
                         strg.setFont(font)
-                        doupdate = true
                 case .setTextColor(let col):
                         strg.setTextColor(color: col)
                 case .setBackgroundColor(let col):
@@ -183,8 +179,7 @@ extension MITextViewCore
                         }
                 case .blinkCursor(let doon):
                         blinkCursor(blink: doon, storage: strg)
-                }
-                if doupdate {
+                case .invalidateIntrinsicContentSize:
                         mTextView.invalidateIntrinsicContentSize()
                 }
         }

@@ -33,7 +33,8 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
 
         private var mCursor =           MITextCursor()
         private var mResponceReceiver:  CommandResponceReceiver? = nil
-
+        private var mStorage:           MITextStorage?  = nil
+        
         open override func setup() {
                 #if os(OSX)
                 super.setup(coreView: mScrollView)
@@ -57,24 +58,31 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 return mResponceReceiver
         }
 
-        #if os(iOS)
-        private var mStorage:           MITextStorage?  = nil
-        #endif
+
 
         public var storage: MITextStorage { get {
-                #if os(OSX)
-                return mTextView.storage
-                #else
                 if let storage = mStorage {
                         return storage
                 } else {
                         let newstrg = MITextStorage()
-                        newstrg.setCoreStorage(mTextView.textStorage)
+                        newstrg.setCoreStorage(self.storageCore)
                         mStorage = newstrg
                         return newstrg
+
                 }
-                #endif
         }}
+
+        private var storageCore: NSTextStorage {
+                #if os(OSX)
+                if let strg = mTextView.textStorage {
+                        return strg
+                } else {
+                        fatalError("[Error] No core storage at \(#function) in \(#file)")
+                }
+                #else
+                return mTextView.textStorage
+                #endif
+        }
 
         public var cursor: MITextCursor { get {
                 return mCursor
