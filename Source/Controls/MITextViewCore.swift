@@ -58,8 +58,6 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 return mResponceReceiver
         }
 
-
-
         public var storage: MITextStorage { get {
                 if let storage = mStorage {
                         return storage
@@ -145,6 +143,12 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                         mTextView.typingAttributes[NSAttributedString.Key.backgroundColor] = col
                         super.backgroundColor = col
                 }
+        }
+
+        public func scrollToLast() {
+                let end   = self.storage.validLength
+                let range = NSRange(location: end, length: 0)
+                mTextView.scrollRangeToVisible(range)
         }
 }
 

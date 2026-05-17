@@ -39,6 +39,7 @@ public enum MITextEditCommand
         case blinkCursor(Bool)
         // update terminal
         case invalidateIntrinsicContentSize
+        case scrollToLast
 
         public var description: String { get {
                 let result: String
@@ -91,6 +92,8 @@ public enum MITextEditCommand
                         result = "blinkCursor(\(f))"
                 case .invalidateIntrinsicContentSize:
                         result = "invalidateIntrinsicContentSize"
+                case .scrollToLast:
+                        result = "scrollToLast"
                 }
                 return result
         }}
@@ -181,6 +184,11 @@ extension MITextViewCore
                         blinkCursor(blink: doon, storage: strg)
                 case .invalidateIntrinsicContentSize:
                         mTextView.invalidateIntrinsicContentSize()
+                case .scrollToLast:
+                        /* execute at the next thread */
+                        DispatchQueue.main.async {
+                                self.scrollToLast()
+                        }
                 }
         }
 
