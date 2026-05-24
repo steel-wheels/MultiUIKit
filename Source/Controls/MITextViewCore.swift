@@ -145,6 +145,22 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 }
         }
 
+        #if os(OSX)
+        public override func setFrameSize(_ newsize: NSSize) {
+                super.setFrameSize(newsize)
+                let cursize = self.frame.size
+                guard cursize.width != newsize.width || cursize.height != newsize.height else {
+                        return
+                }
+                if let receiver = mResponceReceiver, let strg = mStorage {
+                        let fsize = strg.fontSize
+                        let cols  = Int(newsize.width  / fsize.width)
+                        let rows  = Int(newsize.height / fsize.height)
+                        receiver(.returnConsoleSize(cols, rows))
+                }
+        }
+        #endif
+
         public func scrollToLast() {
                 let end   = self.storage.validLength
                 let range = NSRange(location: end, length: 0)
