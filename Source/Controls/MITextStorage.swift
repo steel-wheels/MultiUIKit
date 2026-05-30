@@ -13,7 +13,7 @@ import  UIKit
 
 public class MITextStorage
 {
-        static let NEWLINE: Character = "\u{0a}"        // Characcter is LF
+        static let NEWLINE: Character = Character(UnicodeScalar(0xa)) // Characcter is LF
 
         public enum EventType {
                 case textAttribute(MITextAttribute)
