@@ -13,7 +13,8 @@ import  UIKit
 
 public class MITextStorage
 {
-        static let NEWLINE: Character = Character(UnicodeScalar(0xa)) // Characcter is LF
+        static let LF: Character = Character(UnicodeScalar(0xa)) // Characcter is LF
+        static let CR: Character = Character(UnicodeScalar(0xd)) // Characcter is CR
 
         public enum EventType {
                 case textAttribute(MITextAttribute)
@@ -58,6 +59,10 @@ public class MITextStorage
                 mCurrentIndex   = strg.string.startIndex
                 /* put last space */
                 insert(string: " ")
+        }
+
+        public func isNewline(_ c: Character) -> Bool {
+                return (c == MITextStorage.CR) || (c == MITextStorage.LF)
         }
 
         public var currentIndex: String.Index { get {
@@ -173,7 +178,7 @@ extension MITextStorage
                 var length   = 0
                 while startidx < idx {
                         let previdx = str.index(before: idx)
-                        if str[previdx] != MITextStorage.NEWLINE {
+                        if !isNewline(str[previdx] ) {
                                 idx = previdx
                                 length += 1
                         } else {
@@ -198,7 +203,7 @@ extension MITextStorage
                 let startidx = str.startIndex
                 var length   = 0
                 while startidx < mCurrentIndex {
-                        if str[mCurrentIndex] != MITextStorage.NEWLINE {
+                        if !isNewline(str[mCurrentIndex]) {
                                 mCurrentIndex = str.index(before: mCurrentIndex)
                                 length += 1
                         } else {
@@ -215,7 +220,7 @@ extension MITextStorage
                 while mCurrentIndex < endidx {
                         let nextidx = str.index(after: mCurrentIndex)
                         if nextidx < endidx {
-                                if str[nextidx] != MITextStorage.NEWLINE {
+                                if !isNewline(str[nextidx] ) {
                                         mCurrentIndex = nextidx
                                         length += 1
                                 } else {
@@ -234,7 +239,7 @@ extension MITextStorage
                 var result   = false
                 if startidx < mCurrentIndex {
                         let previdx = str.index(before: mCurrentIndex)
-                        if str[previdx] == MITextStorage.NEWLINE {
+                        if isNewline(str[previdx]) {
                                 if startidx < previdx {
                                         mCurrentIndex = str.index(before: previdx)
                                 } else {
@@ -253,7 +258,7 @@ extension MITextStorage
                 if mCurrentIndex < endidx {
                         let nextidx = str.index(after: mCurrentIndex)
                         if nextidx < endidx {
-                                if str[nextidx] == MITextStorage.NEWLINE {
+                                if isNewline(str[nextidx]) {
                                         if nextidx < endidx {
                                                 mCurrentIndex = str.index(after: nextidx)
                                         } else {
@@ -286,7 +291,7 @@ extension MITextStorage
                                 break
                         }
                         let c = str[idx]
-                        if c == MITextStorage.NEWLINE {
+                        if isNewline(c) {
                                 row += 1
                                 col  = 1
                         } else {
@@ -309,7 +314,7 @@ extension MITextStorage
                 let str = mStorage.string
                 for _ in 0..<off {
                         if let c = nextCharacter(index: mCurrentIndex) {
-                                if c != MITextStorage.NEWLINE {
+                                if !isNewline(c) {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                 } else {
                                         break
@@ -324,7 +329,7 @@ extension MITextStorage
                 let str = mStorage.string
                 for _ in 0..<off {
                         if let c = previousCharacter(index: mCurrentIndex) {
-                                if c != MITextStorage.NEWLINE {
+                                if !isNewline(c) {
                                         mCurrentIndex = str.index(before: mCurrentIndex)
                                 } else {
                                         break
@@ -340,7 +345,7 @@ extension MITextStorage
                 var result = 0
                 while(true) {
                         if let c = nextCharacter(index: mCurrentIndex) {
-                                if c != MITextStorage.NEWLINE {
+                                if !isNewline(c) {
                                         mCurrentIndex = str.index(after: mCurrentIndex)
                                         result += 1
                                 } else {
@@ -358,7 +363,7 @@ extension MITextStorage
                 var result = 0
                 while(true) {
                         if let c = previousCharacter(index: mCurrentIndex) {
-                                if c != MITextStorage.NEWLINE {
+                                if !isNewline(c) {
                                         mCurrentIndex = str.index(before: mCurrentIndex)
                                         result += 1
                                 } else {
@@ -430,7 +435,7 @@ extension MITextStorage
         }
 
         public func insertNewline() {
-                insert(string: String(MITextStorage.NEWLINE))
+                insert(string: String(MITextStorage.LF))
                 forceMoveToNext()
         }
 
@@ -457,7 +462,7 @@ extension MITextStorage
                 let endidx   = str.endIndex
                 for _ in 0..<len {
                         if curidx < endidx {
-                                if str[curidx] != MITextStorage.NEWLINE {
+                                if !isNewline(str[curidx] ) {
                                         curidx = str.index(after: curidx)
                                 } else {
                                         break
@@ -475,7 +480,7 @@ extension MITextStorage
                 var curidx   = mCurrentIndex
                 for _ in 0..<len {
                         if startidx <= curidx {
-                                if str[curidx] != MITextStorage.NEWLINE {
+                                if !isNewline(str[curidx]) {
                                         curidx = str.index(before: curidx)
                                 } else {
                                         break
