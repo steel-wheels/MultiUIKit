@@ -7,6 +7,15 @@
 
 import Foundation
 
+public struct MITextPoint {
+        var x:        Int
+        var y:        Int
+        public init(x xval: Int, y yval: Int) {
+                self.x = xval
+                self.y = yval
+        }
+}
+
 public extension CGPoint
 {
         var description: String { get {
@@ -15,4 +24,3 @@ public extension CGPoint
                 return "{x:\(x), y:\(y)}"
         }}
 }
-

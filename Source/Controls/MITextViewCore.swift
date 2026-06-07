@@ -86,6 +86,10 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 return mCursor
         }}
 
+        public var cursorPoint: MITextPoint { get {
+                return storage.cursorPoint
+        }}
+
         public var isEditable: Bool {
                 get { return mTextView.isEditable }
                 set(newval) { mTextView.isEditable = newval }

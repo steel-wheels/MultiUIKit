@@ -274,17 +274,18 @@ extension MITextStorage
         /*
          * cursor position
          */
-        public var cursorPoint: (Int, Int) { get {
+
+        public var cursorPoint: MITextPoint { get {
                 let str    = mStorage.string
                 var idx    = str.startIndex
                 var endidx = str.endIndex
 
-                var row: Int = 1
-                var col: Int = 1
+                var col: Int = 0
+                var row: Int = 0
 
-                guard idx < endidx else { return (row, col) }
+                guard idx < endidx else { return MITextPoint(x: col, y: row) }
                 endidx = str.index(before: endidx) // skip last 1
-                guard idx < endidx else { return (row, col) }
+                guard idx < endidx else { return MITextPoint(x: col, y: row) }
 
                 while idx < endidx {
                         if idx == mCurrentIndex {
@@ -293,13 +294,13 @@ extension MITextStorage
                         let c = str[idx]
                         if isNewline(c) {
                                 row += 1
-                                col  = 1
+                                col  = 0
                         } else {
                                 col += 1
                         }
                         idx = str.index(after: idx)
                 }
-                return (row, col)
+                return MITextPoint(x: col, y: row)
         }}
 
         /*
