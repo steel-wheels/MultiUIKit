@@ -13,9 +13,6 @@ import  UIKit
 
 public class MITextStorage
 {
-        static let LF: Character = Character(UnicodeScalar(0xa)) // Characcter is LF
-        static let CR: Character = Character(UnicodeScalar(0xd)) // Characcter is CR
-
         public enum EventType {
                 case textAttribute(MITextAttribute)
         }
@@ -62,7 +59,17 @@ public class MITextStorage
         }
 
         public func isNewline(_ c: Character) -> Bool {
-                return (c == MITextStorage.CR) || (c == MITextStorage.LF)
+                let result: Bool
+                switch c {
+                case "\n", "\r":
+                        result = true
+                default:
+                        switch c.asciiValue {
+                        case 0xa, 0xd:  result = true
+                        default:        result = false
+                        }
+                }
+                return result
         }
 
         public var currentIndex: String.Index { get {
@@ -275,7 +282,7 @@ extension MITextStorage
          * cursor position
          */
 
-        public var cursorPoint: MITextPoint { get {
+        public func cursorPoint(in termsize: MITextSize?) -> MITextPoint {
                 let str    = mStorage.string
                 var idx    = str.startIndex
                 var endidx = str.endIndex
@@ -287,6 +294,13 @@ extension MITextStorage
                 endidx = str.index(before: endidx) // skip last 1
                 guard idx < endidx else { return MITextPoint(x: col, y: row) }
 
+                let maxwidth: Int
+                if let sz = termsize {
+                        maxwidth = sz.width
+                } else {
+                        maxwidth = Int.max
+                }
+
                 while idx < endidx {
                         if idx == mCurrentIndex {
                                 break
@@ -296,12 +310,17 @@ extension MITextStorage
                                 row += 1
                                 col  = 0
                         } else {
-                                col += 1
+                                if col < maxwidth {
+                                        col += 1
+                                } else {
+                                        row += 1
+                                        col  = 0
+                                }
                         }
                         idx = str.index(after: idx)
                 }
                 return MITextPoint(x: col, y: row)
-        }}
+        }
 
         /*
          * move cursor
@@ -436,7 +455,7 @@ extension MITextStorage
         }
 
         public func insertNewline() {
-                insert(string: String(MITextStorage.LF))
+                insert(string: "\n")
                 forceMoveToNext()
         }
 

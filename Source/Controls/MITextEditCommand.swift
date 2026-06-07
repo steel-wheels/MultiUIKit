@@ -153,7 +153,8 @@ extension MITextViewCore
                         if let receiver = commandResponceReceiver() {
                                 let row, col: Int
                                 if strg.nextCharacter(index: strg.currentIndex) != nil {
-                                        let cpos = strg.cursorPoint
+                                        let tsize = self.visibleTerminalSize()
+                                        let cpos = strg.cursorPoint(in: tsize)
                                         col = cpos.x + 1 ; row = cpos.y + 1 ;
                                         NSLog("cursorPosition: col=\(col), row=\(row)")
                                 } else {

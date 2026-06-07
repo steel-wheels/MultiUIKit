@@ -13,19 +13,19 @@ import  UIKit
 
 open class MITextView: MIInterfaceView
 {
-        #if os(OSX)
+#if os(OSX)
         public typealias KeyEventReceiver = MITextViewCore.KeyEventReceiver
-        #endif
+#endif
 
         open override func setup(frame frm: CGRect) {
                 super.setup(nibName: "MITextViewCore", frameSize: frm.size)
         }
 
-        #if os(OSX)
+#if os(OSX)
         public func set(keyEventReceiver receiver: @escaping KeyEventReceiver) {
                 coreTextView().set(keyEventReceiver: receiver)
         }
-        #endif
+#endif
 
         public func set(commandRespoceReceivier receiver: @escaping MITextViewCore.CommandResponceReceiver) {
                 coreTextView().set(commandRespoceReceivier: receiver)
@@ -47,8 +47,8 @@ open class MITextView: MIInterfaceView
                 return coreTextView().cursor
         }}
 
-        public var cursorPoint: MITextPoint { get {
-                return coreTextView().cursorPoint
+        public var visibleTerminalSize: MITextSize { get {
+                return coreTextView().visibleTerminalSize()
         }}
 
         public var isEditable: Bool {
@@ -69,6 +69,10 @@ open class MITextView: MIInterfaceView
         public var insertionPointColor: MIColor {
                 get         { return coreTextView().insertionPointColor }
                 set(newval) { coreTextView().insertionPointColor = newval }
+        }
+
+        public func doScrollToLast() -> Bool {
+                return coreTextView().doScrollToLast()
         }
 
         public override func accept(visitor vis: MIVisitor) {

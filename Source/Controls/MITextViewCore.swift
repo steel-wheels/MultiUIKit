@@ -86,9 +86,9 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 return mCursor
         }}
 
-        public var cursorPoint: MITextPoint { get {
-                return storage.cursorPoint
-        }}
+        public func cursorPoint(in termsize: MITextSize?) -> MITextPoint {
+                return storage.cursorPoint(in: termsize)
+        }
 
         public var isEditable: Bool {
                 get { return mTextView.isEditable }
@@ -167,6 +167,21 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
                 }
         }
         #endif
+
+        private var mPreviousCursorPoint = MITextPoint(x: 0, y: 0)
+
+        public func doScrollToLast() -> Bool {
+                var result   = false
+                let cursize  = self.visibleTerminalSize()
+                let curpoint = self.cursorPoint(in: cursize)
+                if mPreviousCursorPoint.y < curpoint.y {
+                        if cursize.height <= curpoint.y {
+                                result = true
+                        }
+                }
+                mPreviousCursorPoint = curpoint
+                return result
+        }
 
         public func scrollToLast() {
                 let end   = self.storage.validLength
