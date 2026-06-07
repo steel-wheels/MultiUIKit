@@ -96,18 +96,21 @@ public class MITextViewCore: MICoreView, MITextViewDelegate
         }
 
         #if os(OSX)
-        public func visibleTerminalSize() -> (Int, Int) {
-                let fsize = storage.fontSize
-                let tsize = mScrollView.frame.size
-                return (Int(tsize.width / fsize.width),
-                        Int(tsize.height / fsize.height))
+        public func visibleTerminalSize() -> MITextSize {
+                let fsize  = storage.fontSize
+                let tsize  = mScrollView.frame.size
+                let width  = Int(tsize.width  / fsize.width)
+                let height = Int(tsize.height / fsize.height)
+                return MITextSize(width: width, height: height)
+
         }
         #else
-        public func visibleTerminalSize() -> (Int, Int) {
+        public func visibleTerminalSize() -> MITextSize {
                 let fsize = storage.fontSize
                 let tsize = mTextView.frame.size
-                return (Int(tsize.width / fsize.width),
-                        Int(tsize.height / fsize.height))
+                let width  = Int(tsize.width  / fsize.width)
+                let height = Int(tsize.height / fsize.height)
+                return MITextSize(width: width, height: height)
         }
         #endif
 

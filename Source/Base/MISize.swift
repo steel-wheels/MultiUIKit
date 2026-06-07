@@ -12,6 +12,15 @@ import UIKit
 #endif
 import Foundation
 
+public struct MITextSize {
+        var width:      Int
+        var height:     Int
+        public init(width w: Int, height h: Int) {
+                self.width  = w
+                self.height = h
+        }
+}
+
 public extension CGSize
 {
         static func isSame(_ s0: CGSize, _ s1: CGSize) -> Bool {
