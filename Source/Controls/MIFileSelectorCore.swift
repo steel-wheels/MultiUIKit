@@ -80,21 +80,16 @@ public class MIFileSelectorCore: MICoreView
                         extensions = ["png", "jpg", "jpeg"]
                 }
                 #if os(OSX)
-                MIPanel.openPanel(title: "Select \(target)", type: .file, fileExtensions: extensions, callback: {
-                        (_ urlp: URL?) -> Void in
-                        if let label = self.mLabel {
-                                if let url = urlp {
-                                        label.title = url.path
-                                        /* update path */
-                                        self.mCurrentURL = url
-                                        if let cbfunc = self.mCallback {
-                                                cbfunc(url)
-                                        }
-                                } else {
-                                        label.title = ""
-                                }
+                if let url = MIPanel.openPanel(title: "Select \(target)", type: .file, fileExtensions: extensions){
+                        if let label = mLabel {
+                                label.title = url.path
                         }
-                })
+                        /* update path */
+                        self.mCurrentURL = url
+                        if let cbfunc = self.mCallback {
+                                cbfunc(url)
+                        }
+                }
                 #endif // os(OSX)
         }
 }

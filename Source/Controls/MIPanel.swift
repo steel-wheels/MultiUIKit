@@ -12,7 +12,7 @@ import  UIKit
 #endif  // os(OSX)
 import UniformTypeIdentifiers
 
-@MainActor public class MIPanel
+public class MIPanel
 {
         public enum FileType: Int
         {
@@ -21,7 +21,16 @@ import UniformTypeIdentifiers
         }
 
         #if os(OSX)
-        public static func openPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>, callback cbfunc: @escaping (_ url: URL?) -> Void) {
+        public static func openPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
+                var result: URL? = nil
+                Task {
+                        result = await asyncOpenPanel(title: tl, type: ftype, fileExtensions: fexts)
+                }
+                return result
+        }
+
+        @MainActor
+        private static func asyncOpenPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
                 let panel = NSOpenPanel()
                 panel.title = tl
                 switch ftype {
@@ -46,24 +55,27 @@ import UniformTypeIdentifiers
                         panel.allowedContentTypes = ctypes
                 }
 
+                let result: URL?
                 switch panel.runModal() {
                 case .OK:
                         let urls = panel.urls
                         if urls.count >= 1 {
                                 /* Bookmark this folder */
                                 Task { await MIBookmark.shared.add(URL: urls[0]) }
-                                cbfunc(urls[0])
+                                result = urls[0]
                         } else {
-                                cbfunc(nil)
+                                result = nil
                         }
                 case .cancel:
-                        cbfunc(nil)
+                        result = nil
                 default:
-                        NSLog("Unsupported result at \(#file) in \(#file)")
-                        cbfunc(nil)
+                        NSLog("Unsupported result at \(#function) in \(#file)")
+                        result = nil
                 }
+                return result
         }
 
+        @MainActor
         public static func savePanel(title tl: String, outputDirectory outdir: URL?, callback cbfunc: @escaping ((_: URL?) -> Void))
         {
                 let panel = NSSavePanel()
