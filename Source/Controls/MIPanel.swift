@@ -22,10 +22,13 @@ public class MIPanel
 
         #if os(OSX)
         public static func openPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
+                let semaphore = DispatchSemaphore(value: 0)
                 var result: URL? = nil
                 Task {
                         result = await asyncOpenPanel(title: tl, type: ftype, fileExtensions: fexts)
+                        semaphore.signal()
                 }
+                semaphore.wait()
                 return result
         }
 
