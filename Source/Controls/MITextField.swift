@@ -57,6 +57,11 @@ public class MITextField: MIInterfaceView
                 set(value) { coreTextFieldView().placeholderString = value }
         }
 
+        public var isEditable: Bool {
+                get        { return coreTextFieldView().isEditable }
+                set(value) { coreTextFieldView().isEditable = value }
+        }
+
         public override func accept(visitor vis: MIVisitor) {
                 vis.visit(textField: self)
         }
