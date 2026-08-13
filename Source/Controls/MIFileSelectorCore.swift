@@ -80,7 +80,7 @@ public class MIFileSelectorCore: MICoreView
                         extensions = ["png", "jpg", "jpeg"]
                 }
                 #if os(OSX)
-                if let url = MIPanel.openPanel(title: "Select \(target)", type: .file, fileExtensions: extensions){
+                if let url = MIPanel.syncOpenPanel(title: "Select \(target)", type: .file, fileExtensions: extensions){
                         if let label = mLabel {
                                 label.title = url.path
                         }

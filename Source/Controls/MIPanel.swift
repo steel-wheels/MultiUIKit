@@ -21,11 +21,11 @@ public class MIPanel
         }
 
         #if os(OSX)
-        public static func openPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
+        public static func asyncOpenPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
                 let semaphore = DispatchSemaphore(value: 0)
                 var result: URL? = nil
                 Task {
-                        result = await asyncOpenPanel(title: tl, type: ftype, fileExtensions: fexts)
+                        result = await syncOpenPanel(title: tl, type: ftype, fileExtensions: fexts)
                         semaphore.signal()
                 }
                 semaphore.wait()
@@ -33,7 +33,7 @@ public class MIPanel
         }
 
         @MainActor
-        private static func asyncOpenPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
+        public static func syncOpenPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
                 let panel = NSOpenPanel()
                 panel.title = tl
                 switch ftype {
@@ -79,7 +79,7 @@ public class MIPanel
         }
 
         @MainActor
-        public static func savePanel(title tl: String, outputDirectory outdir: URL?, callback cbfunc: @escaping ((_: URL?) -> Void))
+        public static func syncSavePanel(title tl: String, outputDirectory outdir: URL?, callback cbfunc: @escaping ((_: URL?) -> Void))
         {
                 let panel = NSSavePanel()
                 panel.title = tl
