@@ -12,29 +12,44 @@ import  UIKit
 #endif  // os(OSX)
 import UniformTypeIdentifiers
 
-public class MIPanel
+#if os(OSX)
+
+open class MIFilePanel
 {
         public enum FileType: Int
         {
                 case file
                 case directory
         }
+}
 
-        #if os(OSX)
-        /*
-        public static func asyncOpenPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
-                let semaphore = DispatchSemaphore(value: 0)
-                var result: URL? = nil
+public class MIOpenPanel: MIFilePanel
+{
+        private var mSelected:          Bool
+        private var mSelectedURL:       URL?
+
+        public override init() {
+                mSelected       = false
+                mSelectedURL    = nil
+        }
+
+        public var selected: Bool { get {
+                return mSelected
+        }}
+
+        public var selectedURL: URL? { get {
+                return mSelectedURL
+        }}
+
+        public func show(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) {
                 Task {
-                        result = await syncOpenPanel(title: tl, type: ftype, fileExtensions: fexts)
-                        semaphore.signal()
+                        mSelectedURL = await MIOpenPanel.showPanel(title: tl, type: ftype, fileExtensions: fexts)
+                        mSelected    = true
                 }
-                semaphore.wait()
-                return result
-        }*/
+        }
 
         @MainActor
-        public static func openPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
+        public static func showPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
                 let panel = NSOpenPanel()
                 panel.title = tl
                 switch ftype {
@@ -78,9 +93,35 @@ public class MIPanel
                 }
                 return result
         }
+}
+
+public class MISavePanel: MIFilePanel
+{
+        private var mSelected:          Bool
+        private var mSelectedURL:       URL?
+
+        public override init() {
+                mSelected       = false
+                mSelectedURL    = nil
+        }
+
+        public var selected: Bool { get {
+                return mSelected
+        }}
+
+        public var selectedURL: URL? { get {
+                return mSelectedURL
+        }}
+
+        public func show(title tl: String, outputDirectory outdir: URL?) {
+                Task {
+                        mSelectedURL = await MISavePanel.showPanel(title: tl, outputDirectory: outdir)
+                        mSelected    = true
+                }
+        }
 
         @MainActor
-        public static func savePanel(title tl: String, outputDirectory outdir: URL?, callback cbfunc: @escaping ((_: URL?) -> Void))
+        public static func showPanel(title tl: String, outputDirectory outdir: URL?) -> URL?
         {
                 let panel = NSSavePanel()
                 panel.title = tl
@@ -89,6 +130,7 @@ public class MIPanel
                 if let odir = outdir {
                         panel.directoryURL = odir
                 }
+                let result: URL?
                 switch panel.runModal() {
                 case .OK:
                         if let newurl = panel.url {
@@ -96,17 +138,44 @@ public class MIPanel
                                         /* Bookmark this URL */
                                         Task { await MIBookmark.shared.add(URL: newurl) }
                                 }
-                                cbfunc(newurl)
+                                result = newurl
                         } else {
-                                cbfunc(nil)
+                                result = nil
                         }
                 case .cancel:
-                        cbfunc(nil)
+                        result = nil
                 default:
                         NSLog("[Error] Unsupported result at \(#function) in \(#file)")
-                        cbfunc(nil)
+                        result = nil
                 }
+                return result
         }
+}
+
+#endif // os(OSX)
+
+/*
+public class MIPanel
+{
+
+        #if os(OSX)
+        /*
+        public static func asyncOpenPanel(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) -> URL? {
+                let semaphore = DispatchSemaphore(value: 0)
+                var result: URL? = nil
+                Task {
+                        result = await syncOpenPanel(title: tl, type: ftype, fileExtensions: fexts)
+                        semaphore.signal()
+                }
+                semaphore.wait()
+                return result
+        }*/
+
+
+
+
 
         #endif
 }
+*/
+
