@@ -41,7 +41,8 @@ public class MIOpenPanel: MIFilePanel
                 return mSelectedURL
         }}
 
-        public func show(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>) {
+        public func show(title tl: String, type ftype: FileType, fileExtensions fexts: Array<String>)
+        {
                 Task {
                         mSelectedURL = await MIOpenPanel.showPanel(title: tl, type: ftype, fileExtensions: fexts)
                         mSelected    = true
@@ -113,7 +114,8 @@ public class MISavePanel: MIFilePanel
                 return mSelectedURL
         }}
 
-        public func show(title tl: String, outputDirectory outdir: URL?) {
+        public func show(title tl: String, outputDirectory outdir: URL?)
+        {
                 Task {
                         mSelectedURL = await MISavePanel.showPanel(title: tl, outputDirectory: outdir)
                         mSelected    = true
@@ -178,4 +180,5 @@ public class MIPanel
         #endif
 }
 */
+
 
