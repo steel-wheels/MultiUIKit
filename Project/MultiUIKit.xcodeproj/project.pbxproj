@@ -153,6 +153,16 @@
 		05FB6EA72E6BB16900F53D76 /* MIFileSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FB6EA52E6BB16900F53D76 /* MIFileSelector.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		055618D93039219900F8E82C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0549ED002CC3AAD200BB3940 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F64B522CC3CF5100AAFAD9;
+			remoteInfo = Install;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		050CE8E52D89C98B0092B36E /* MIAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAttributedString.swift; sourceTree = "<group>"; };
 		050FFD342F5F0D45000A8F66 /* MITextEditResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MITextEditResponce.swift; sourceTree = "<group>"; };
@@ -184,6 +194,7 @@
 		054721A82CCE25E700F6EEA4 /* MIStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStack.swift; sourceTree = "<group>"; };
 		0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		054B43032CD75F92000CCD12 /* MIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIWebView.swift; sourceTree = "<group>"; };
+		055618C23039205700F8E82C /* UnitTest_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitTest_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055618E82E0AEB6500BEB418 /* MIImageCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIImageCore.xib; sourceTree = "<group>"; };
 		055618EA2E0AEC2300BEB418 /* MIImageCore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIImageCore.xib; sourceTree = "<group>"; };
 		055618EC2E0AECDD00BEB418 /* MIImageCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIImageCore.swift; sourceTree = "<group>"; };
@@ -280,6 +291,11 @@
 			path = MultiUIKit_macOS;
 			sourceTree = "<group>";
 		};
+		055618C33039205700F8E82C /* UnitTest_macOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UnitTest_macOS;
+			sourceTree = "<group>";
+		};
 		05CF52B72CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -292,6 +308,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		0549ED062CC3AAD200BB3940 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		055618BF3039205700F8E82C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,6 +359,7 @@
 			children = (
 				0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */,
 				05CF52B62CC3AD3A0034E7BF /* MultiUIKit.framework */,
+				055618C23039205700F8E82C /* UnitTest_macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -479,6 +503,7 @@
 		05F64B4F2CC3CF0200AAFAD9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				055618C33039205700F8E82C /* UnitTest_macOS */,
 			);
 			name = Tests;
 			path = ../Tests;
@@ -547,6 +572,29 @@
 			productReference = 0549ED092CC3AAD200BB3940 /* MultiUIKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		055618C13039205700F8E82C /* UnitTest_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 055618CD3039205800F8E82C /* Build configuration list for PBXNativeTarget "UnitTest_macOS" */;
+			buildPhases = (
+				055618BE3039205700F8E82C /* Sources */,
+				055618BF3039205700F8E82C /* Frameworks */,
+				055618C03039205700F8E82C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				055618DA3039219900F8E82C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				055618C33039205700F8E82C /* UnitTest_macOS */,
+			);
+			name = UnitTest_macOS;
+			packageProductDependencies = (
+			);
+			productName = UnitTest_macOS;
+			productReference = 055618C23039205700F8E82C /* UnitTest_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		05CF52B52CC3AD3A0034E7BF /* MultiUIKit_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05CF52BD2CC3AD3A0034E7BF /* Build configuration list for PBXNativeTarget "MultiUIKit_iOS" */;
@@ -578,11 +626,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					0549ED082CC3AAD200BB3940 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					055618C13039205700F8E82C = {
+						CreatedOnToolsVersion = 26.6;
 					};
 					05CF52B52CC3AD3A0034E7BF = {
 						CreatedOnToolsVersion = 16.0;
@@ -609,6 +660,7 @@
 				0549ED082CC3AAD200BB3940 /* MultiUIKit_macOS */,
 				05CF52B52CC3AD3A0034E7BF /* MultiUIKit_iOS */,
 				05F64B522CC3CF5100AAFAD9 /* Install */,
+				055618C13039205700F8E82C /* UnitTest_macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -653,6 +705,13 @@
 				0567D0752CD6767800595CDD /* MITextFieldCore.xib in Resources */,
 				052C609A2CC5001C00E7523B /* MILabelCore.xib in Resources */,
 				057C1D9A2CFA0BA700073559 /* MISegmentedControlCore.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		055618C03039205700F8E82C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +784,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		055618BE3039205700F8E82C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05CF52B22CC3AD3A0034E7BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,6 +856,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		055618DA3039219900F8E82C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05F64B522CC3CF5100AAFAD9 /* Install */;
+			targetProxy = 055618D93039219900F8E82C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0549ED122CC3AAD200BB3940 /* Debug */ = {
@@ -1008,6 +1082,74 @@
 			};
 			name = Release;
 		};
+		055618CE3039205800F8E82C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.MultiUIKit.UnitTest.macOS.UnitTest-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		055618CF3039205800F8E82C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.steel-wheels.MultiUIKit.UnitTest.macOS.UnitTest-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		05CF52BE2CC3AD3A0034E7BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1143,6 +1285,15 @@
 			buildConfigurations = (
 				0549ED122CC3AAD200BB3940 /* Debug */,
 				0549ED132CC3AAD200BB3940 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		055618CD3039205800F8E82C /* Build configuration list for PBXNativeTarget "UnitTest_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				055618CE3039205800F8E82C /* Debug */,
+				055618CF3039205800F8E82C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
