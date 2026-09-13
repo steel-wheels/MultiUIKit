@@ -15,7 +15,7 @@ import  UIKit
 open class MIStack: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MIStackCore", frameSize: frm.size)
+                super.setup(nibName: "MIStackCore", frameSize: frm.size, forClass: MIStackCore.self)
         }
 
         private func coreStackView() -> MIStackCore {

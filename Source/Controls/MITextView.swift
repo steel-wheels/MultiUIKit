@@ -18,7 +18,7 @@ open class MITextView: MIInterfaceView
 #endif
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MITextViewCore", frameSize: frm.size)
+                super.setup(nibName: "MITextViewCore", frameSize: frm.size, forClass: MITextViewCore.self)
         }
 
 #if os(OSX)

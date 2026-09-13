@@ -15,7 +15,7 @@ import WebKit
 public class MIWebView: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MIWebViewCore", frameSize: frm.size)
+                super.setup(nibName: "MIWebViewCore", frameSize: frm.size, forClass: MIWebViewCore.self)
         }
 
         private func coreWebView() -> MIWebViewCore {

@@ -25,7 +25,7 @@ open class MIDropView: MIInterfaceView
         #endif // os(OSX)
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MIDropViewCore", frameSize: frm.size)
+                super.setup(nibName: "MIDropViewCore", frameSize: frm.size, forClass: MIDropViewCore.self)
                 #if os(OSX)
                 registerForDraggedTypes(Array(acceptableTypes))
                 #endif // os(OSX)

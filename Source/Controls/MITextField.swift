@@ -17,7 +17,7 @@ public class MITextField: MIInterfaceView
         public typealias CallbackFunction = MITextFieldCore.CallbackFunction
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MITextFieldCore", frameSize: frm.size)
+                super.setup(nibName: "MITextFieldCore", frameSize: frm.size, forClass: MITextFieldCore.self)
         }
 
         private func coreTextFieldView() -> MITextFieldCore {

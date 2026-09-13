@@ -15,7 +15,7 @@ import  UIKit
 open class MICollectionView: MIInterfaceView
 {
         public override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MICollectionViewCore", frameSize: frm.size)
+                super.setup(nibName: "MICollectionViewCore", frameSize: frm.size, forClass: MICollectionViewCore.self)
         }
 
         private func coreCollectionView() -> MICollectionViewCore {

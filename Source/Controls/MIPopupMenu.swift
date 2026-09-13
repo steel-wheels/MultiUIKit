@@ -18,7 +18,7 @@ public class MIPopupMenu: MIInterfaceView
         public typealias MenuItem         = MIMenuItem
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MIPopupMenuCore", frameSize: frm.size)
+                super.setup(nibName: "MIPopupMenuCore", frameSize: frm.size, forClass: MIPopupMenuCore.self)
         }
 
         private func corePopupMenu() -> MIPopupMenuCore {

@@ -16,7 +16,7 @@ public class MISegmentedControl: MIInterfaceView
         public typealias CallbackFunction = MISegmentedControlCore.CallbackFunction
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MISegmentedControlCore", frameSize: frm.size)
+                super.setup(nibName: "MISegmentedControlCore", frameSize: frm.size, forClass: MISegmentedControlCore.self)
         }
 
         private func coreSegmentedControl() -> MISegmentedControlCore {

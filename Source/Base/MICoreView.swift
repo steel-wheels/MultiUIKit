@@ -11,7 +11,7 @@ import  AppKit
 import  UIKit
 #endif  // os(OSX)
 
-public class MICoreView: MIBaseView
+open class MICoreView: MIBaseView
 {
         private var mCoreView:          MIBaseView?     = nil
         private var mTagValue:          Int             = MINullTagId

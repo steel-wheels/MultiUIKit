@@ -17,7 +17,7 @@ open class MIFileSelector: MIInterfaceView
         public typealias CallbackFunction = MIFileSelectorCore.CallbackFunction
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MIFileSelectorCore", frameSize: frm.size)
+                super.setup(nibName: "MIFileSelectorCore", frameSize: frm.size, forClass: MIFileSelectorCore.self)
         }
 
         private func coreSelectorView() -> MIFileSelectorCore {

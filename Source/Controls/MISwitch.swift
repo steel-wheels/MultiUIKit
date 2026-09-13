@@ -17,7 +17,7 @@ public class MISwitch: MIInterfaceView
         public typealias CallbackFunction = MISwitchCore.CallbackFunction
 
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MISwitchCore", frameSize: frm.size)
+                super.setup(nibName: "MISwitchCore", frameSize: frm.size, forClass: MISwitchCore.self)
         }
 
         private func coreSwitchView() -> MISwitchCore {

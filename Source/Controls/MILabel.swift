@@ -15,7 +15,7 @@ import  UIKit
 public class MILabel: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MILabelCore", frameSize: frm.size)
+                super.setup(nibName: "MILabelCore", frameSize: frm.size, forClass: MILabelCore.self)
         }
 
         private func coreLabelView() -> MILabelCore {

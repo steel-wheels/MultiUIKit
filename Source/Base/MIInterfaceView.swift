@@ -46,8 +46,8 @@ open class MIInterfaceView: MIBaseView
                 NSLog("[Error] Must be override in \(#file)")
         }
 
-        public func setup(nibName nm: String, frameSize size: CGSize) {
-                if let child = loadChildXib(thisClass: MIInterfaceView.self, nibName: nm)  {
+        public func setup(nibName nm: String, frameSize size: CGSize, forClass cls: AnyClass) {
+                if let child = loadChildXib(thisClass: cls, nibName: nm)  {
                         child.setup()
                         self.addSubview(child)
                         child.activateAutolayout()

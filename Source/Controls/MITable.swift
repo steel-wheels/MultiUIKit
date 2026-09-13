@@ -15,7 +15,7 @@ import  UIKit
 public class MITable: MIInterfaceView
 {
         open override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MITableCore", frameSize: frm.size)
+                super.setup(nibName: "MITableCore", frameSize: frm.size, forClass: MITableCore.self)
         }
 
         private func coreTableView() -> MITableCore {

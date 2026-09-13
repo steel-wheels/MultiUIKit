@@ -17,7 +17,7 @@ open class MIButton: MIInterfaceView
         public typealias ButtonPressedCallback = MIButtonCore.ButtonPressedCallback
 
         public override func setup(frame frm: CGRect) {
-                super.setup(nibName: "MIButtonCore", frameSize: frm.size)
+                super.setup(nibName: "MIButtonCore", frameSize: frm.size, forClass: MIButtonCore.self)
         }
 
         private func coreButtonView() -> MIButtonCore {
