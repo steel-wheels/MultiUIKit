@@ -37,6 +37,12 @@ public extension MIImage
         }
 
         #if os(OSX)
+        var cgImage: CGImage? { get {
+                return self.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        }}
+        #endif
+
+        #if os(OSX)
         func pngData() -> Data? {
                 if let cgimg = self.cgImage(forProposedRect: nil, context: nil, hints: nil) {
                         let repl  = NSBitmapImageRep(cgImage: cgimg)
